@@ -9,6 +9,7 @@
 #import "StartViewController.h"
 #import "PlayerModel.h"
 #import "ComputerModel.h"
+#import "Card.h"
 
 @interface StartViewController ()
 
@@ -113,13 +114,16 @@
 
 - (void)updateCard1
 {
-    self.playersCard1Name.text = @"No card";
-    self.playersCard1Description.text = @"No description";
-    self.playersCard1Cost.text = @"No cost";
+    if ([[[[player cards] objectAtIndex:0] cardColor] isEqualToString:@"Grey"]) {
+        self.playersCard1Cost.textColor = [UIColor grayColor];
+    }
+    self.playersCard1Name.text = [[[player cards] objectAtIndex:0] cardName];
+    self.playersCard1Description.text = [[[player cards] objectAtIndex:0] cardDescription];
+    self.playersCard1Cost.text = [NSString stringWithFormat:@"%d",[[[player cards] objectAtIndex:0] cardCost]];
     self.card1UseButton.enabled = NO;
     self.card1UseButton.titleLabel.alpha = 0.2f;
-    self.card1DiscardButton.enabled = NO;
-    self.card1DiscardButton.titleLabel.alpha = 0.2f;
+    self.card1DiscardButton.enabled = YES;
+    //self.card1DiscardButton.titleLabel.alpha = 0.2f;
 }
 
 - (void)updateCard2

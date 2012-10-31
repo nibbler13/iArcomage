@@ -8,6 +8,7 @@
 
 #import "PlayerModel.h"
 #import "CardsScope.h"
+#import "Card.h"
 
 @implementation PlayerModel
 {
@@ -25,9 +26,13 @@
         self.recruits = 5;
         self.wall = 20;
         self.tower = 20;
-        self.cards = [NSMutableArray arrayWithObjects:@"1", @"2", @"3", @"4", @"5", nil];
+        self.cards = [[NSMutableArray alloc] initWithCapacity:5];
         CardsScope *newScope = [[CardsScope alloc] init];
-        
+        [self.cards  addObject:[newScope.cards objectAtIndex:0]];
+        [self.cards  addObject:[newScope.cards objectAtIndex:0]];
+        [self.cards  addObject:[newScope.cards objectAtIndex:0]];
+        [self.cards  addObject:[newScope.cards objectAtIndex:0]];
+        [self.cards  addObject:[newScope.cards objectAtIndex:0]];
     }
     return self;
 }

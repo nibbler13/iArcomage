@@ -10,7 +10,6 @@
 
 @interface Card : NSObject
 
-@class Card;
 
 @property (nonatomic) NSString *cardColor;
 @property (nonatomic) NSString *cardName;
