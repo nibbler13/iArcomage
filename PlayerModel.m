@@ -27,6 +27,7 @@
         self.tower = 20;
         self.cards = [NSMutableArray arrayWithObjects:@"1", @"2", @"3", @"4", @"5", nil];
         CardsScope *newScope = [[CardsScope alloc] init];
+        
     }
     return self;
 }

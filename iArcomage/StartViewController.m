@@ -25,6 +25,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    gameOver = NO;
 }
 
 - (IBAction)card1UseButtonPressed:(id)sender {

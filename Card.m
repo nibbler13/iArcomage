@@ -7,22 +7,84 @@
 //
 
 #import "Card.h"
+#import "PlayerModel.h"
+#import "ComputerModel.h"
 
 @implementation Card
 
-- (id)init
+- (id)initWithName:(NSString*)name
+    withColor:(NSString*)color
+    withDescription:(NSString*)description
+    withCost:(NSInteger)cost
+    withQuarries:(NSInteger)quarries
+    withMagic:(NSInteger)magic
+    withDungeon:(NSInteger)dungeon
+    withBricks:(NSInteger)bricks
+    withGems:(NSInteger)gems
+    withRecruits:(NSInteger)rectuits
+    withWall:(NSInteger)wall
+    withTower:(NSInteger)tower
 {
     if ([super init] != nil) {
-        self.quarriesEffect = 0;
-        self.magicEffect = 0;
-        self.dungeonsEffect = 0;
-        self.bricksEffect = 0;
-        self.gemsEffect = 0;
-        self.recruitsEffect = 0;
-        self.wallEffect = 0;
-        self.towerEffect = 0;
+        _cardName = name;
+        _cardColor = color;
+        _cardDescription = description;
+        _cardCost = cost;
+        _quarriesEffect = quarries;
+        _magicEffect = magic;
+        _dungeonsEffect = dungeon;
+        _bricksEffect = bricks;
+        _gemsEffect = gems;
+        _recruitsEffect = rectuits;
+        _wallEffect = wall;
+        _towerEffect = tower;
     }
     return self;
+}
+
+- (void)prepare
+{
+    
+}
+
+- (NSInteger)quarriesEffect
+{
+    return _quarriesEffect;
+}
+
+- (NSInteger)magicEffect
+{
+    return _magicEffect;
+}
+
+- (NSInteger)dungeonsEffect
+{
+    return _dungeonsEffect;
+}
+
+- (NSInteger)bricksEffect
+{
+    return _bricksEffect;
+}
+
+- (NSInteger)gemsEffect
+{
+    return _gemsEffect;
+}
+
+- (NSInteger)recruitsEffect
+{
+    return _recruitsEffect;
+}
+
+- (NSInteger)wallEffect
+{
+    return _wallEffect;
+}
+
+- (NSInteger)towerEffect
+{
+    return _towerEffect;
 }
 
 @end
