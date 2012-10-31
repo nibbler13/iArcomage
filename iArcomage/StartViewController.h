@@ -9,6 +9,74 @@
 #import <UIKit/UIKit.h>
 
 @interface StartViewController : UIViewController
+
+@property (strong, nonatomic) IBOutlet UILabel *playerQuarries;
+@property (strong, nonatomic) IBOutlet UILabel *playerMagics;
+@property (strong, nonatomic) IBOutlet UILabel *playerDungeons;
+@property (strong, nonatomic) IBOutlet UILabel *playerBricks;
+@property (strong, nonatomic) IBOutlet UILabel *playerGems;
+@property (strong, nonatomic) IBOutlet UILabel *playerRecruits;
+@property (strong, nonatomic) IBOutlet UILabel *playerWall;
+@property (strong, nonatomic) IBOutlet UILabel *playerTower;
+
+@property (strong, nonatomic) IBOutlet UILabel *computerQuarries;
+@property (strong, nonatomic) IBOutlet UILabel *computerMagics;
+@property (strong, nonatomic) IBOutlet UILabel *computerDungeons;
+@property (strong, nonatomic) IBOutlet UILabel *computerBricks;
+@property (strong, nonatomic) IBOutlet UILabel *computerGems;
+@property (strong, nonatomic) IBOutlet UILabel *computerRecruits;
+@property (strong, nonatomic) IBOutlet UILabel *computerWall;
+@property (strong, nonatomic) IBOutlet UILabel *computerTower;
+
+@property (strong, nonatomic) IBOutlet UILabel *currentCardName;
+@property (strong, nonatomic) IBOutlet UILabel *currentCardDescription;
+@property (strong, nonatomic) IBOutlet UILabel *currentCardCost;
+
+@property (strong, nonatomic) IBOutlet UILabel *playersCard1Name;
+@property (strong, nonatomic) IBOutlet UILabel *playersCard1Description;
+@property (strong, nonatomic) IBOutlet UILabel *playersCard1Cost;
+
+@property (strong, nonatomic) IBOutlet UILabel *playersCard2Name;
+@property (strong, nonatomic) IBOutlet UILabel *playersCard2Description;
+@property (strong, nonatomic) IBOutlet UILabel *playersCard2Cost;
+
+@property (strong, nonatomic) IBOutlet UILabel *playersCard3Name;
+@property (strong, nonatomic) IBOutlet UILabel *playersCard3Description;
+@property (strong, nonatomic) IBOutlet UILabel *playersCard3Cost;
+
+@property (strong, nonatomic) IBOutlet UILabel *playersCard4Name;
+@property (strong, nonatomic) IBOutlet UILabel *playersCard4Description;
+@property (strong, nonatomic) IBOutlet UILabel *playersCard4Cost;
+
+@property (strong, nonatomic) IBOutlet UILabel *playersCard5Name;
+@property (strong, nonatomic) IBOutlet UILabel *playersCard5Description;
+@property (strong, nonatomic) IBOutlet UILabel *playersCard5Cost;
+
+@property (strong, nonatomic) IBOutlet UIButton *card1UseButton;
+@property (strong, nonatomic) IBOutlet UIButton *card2UseButton;
+@property (strong, nonatomic) IBOutlet UIButton *card3UseButton;
+@property (strong, nonatomic) IBOutlet UIButton *card4UseButton;
+@property (strong, nonatomic) IBOutlet UIButton *card5UseButton;
+@property (strong, nonatomic) IBOutlet UIButton *card1DiscardButton;
+@property (strong, nonatomic) IBOutlet UIButton *card2DiscardButton;
+@property (strong, nonatomic) IBOutlet UIButton *card3DiscardButton;
+@property (strong, nonatomic) IBOutlet UIButton *card4DiscardButton;
+@property (strong, nonatomic) IBOutlet UIButton *card5DiscardButton;
+
+- (IBAction)card1UseButtonPressed:(id)sender;
+- (IBAction)card2UseButtonPressed:(id)sender;
+- (IBAction)card3UseButtonPressed:(id)sender;
+- (IBAction)card4UseButtonPressed:(id)sender;
+- (IBAction)card5UseButtonPressed:(id)sender;
+
+- (IBAction)card1DiscardButtonPressed:(id)sender;
+- (IBAction)card2DiscardButtonPressed:(id)sender;
+- (IBAction)card3DiscardButtonPressed:(id)sender;
+- (IBAction)card4DiscardButtonPressed:(id)sender;
+- (IBAction)card5DiscardButtonPressed:(id)sender;
+
 - (IBAction)backButtonPressed:(id)sender;
+
+- (IBAction)game:(id)sender;
 
 @end

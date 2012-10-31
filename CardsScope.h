@@ -10,4 +10,6 @@
 
 @interface CardsScope : NSObject
 
+@property (nonatomic) NSMutableArray *cards;
+
 @end

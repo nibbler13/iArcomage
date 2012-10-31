@@ -10,4 +10,13 @@
 
 @interface ComputerModel : NSObject
 
+@property (nonatomic) NSInteger quarries;
+@property (nonatomic) NSInteger magics;
+@property (nonatomic) NSInteger dungeons;
+@property (nonatomic) NSInteger bricks;
+@property (nonatomic) NSInteger gems;
+@property (nonatomic) NSInteger recruits;
+@property (nonatomic) NSInteger wall;
+@property (nonatomic) NSInteger tower;
+
 @end

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CardsModel : NSObject
+@interface CardModel : NSObject
+
+
 
 @end

@@ -7,7 +7,16 @@
 //
 
 #import "CardsScope.h"
+#import "Card.h"
 
 @implementation CardsScope
+
+- (id)init
+{
+    if ([super init] != nil) {
+        self.cards = [[NSMutableArray alloc] initWithCapacity:102];
+    }
+    return self;
+}
 
 @end
