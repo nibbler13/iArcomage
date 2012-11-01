@@ -7,9 +7,9 @@
 //
 
 #import "StartViewController.h"
-#import "PlayerModel.h"
 #import "ComputerModel.h"
 #import "Card.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface StartViewController ()
 
@@ -22,6 +22,34 @@
     BOOL gameOver;
 }
 
+- (void)needToUpdateCardAtNumber:(NSInteger)number
+{
+    switch (number) {
+        case 0:
+            [self updateCard0];
+            break;
+        case 1:
+            [self updateCard1];
+            break;
+        case 2:
+            [self updateCard2];
+            break;
+        case 3:
+            [self updateCard3];
+            break;
+        case 4:
+            [self updateCard4];
+            break;
+    }
+}
+
+- (void)needToUpdateLabelAndButton
+{
+    [self updatePlayerLabels];
+    [self updateComputerLabels];
+    [self updateCardsButton];
+}
+
 
 - (void)viewDidLoad
 {
@@ -31,72 +59,42 @@
 
 - (IBAction)card0UseButtonPressed:(id)sender {
     [player cardSelected:0];
-    [self updatePlayerLabels];
-    [self updateComputerLabels];
-    [self updateCard0];
 }
 
 - (IBAction)card1UseButtonPressed:(id)sender {
     [player cardSelected:1];
-    [self updatePlayerLabels];
-    [self updateComputerLabels];
-    [self updateCard1];
 }
 
 - (IBAction)card2UseButtonPressed:(id)sender {
     [player cardSelected:2];
-    [self updatePlayerLabels];
-    [self updateComputerLabels];
-    [self updateCard2];
 }
 
 - (IBAction)card3UseButtonPressed:(id)sender {
     [player cardSelected:3];
-    [self updatePlayerLabels];
-    [self updateComputerLabels];
-    [self updateCard3];
 }
 
 - (IBAction)card4UseButtonPressed:(id)sender {
     [player cardSelected:4];
-    [self updatePlayerLabels];
-    [self updateComputerLabels];
-    [self updateCard4];
 }
 
 - (IBAction)card0DiscardButtonPressed:(id)sender {
     [player cardDiscarded:0];
-    [self updatePlayerLabels];
-    [self updateComputerLabels];
-    [self updateCard0];
 }
 
 - (IBAction)card1DiscardButtonPressed:(id)sender {
     [player cardDiscarded:1];
-    [self updatePlayerLabels];
-    [self updateComputerLabels];
-    [self updateCard1];
 }
 
 - (IBAction)card2DiscardButtonPressed:(id)sender {
     [player cardDiscarded:2];
-    [self updatePlayerLabels];
-    [self updateComputerLabels];
-    [self updateCard2];
 }
 
 - (IBAction)card3DiscardButtonPressed:(id)sender {
     [player cardDiscarded:3];
-    [self updatePlayerLabels];
-    [self updateComputerLabels];
-    [self updateCard3];
 }
 
 - (IBAction)card4DiscardButtonPressed:(id)sender {
     [player cardDiscarded:4];
-    [self updatePlayerLabels];
-    [self updateComputerLabels];
-    [self updateCard4];
 }
 
 - (IBAction)backButtonPressed:(id)sender {
@@ -107,17 +105,19 @@
 
 - (IBAction)game:(id)sender {
     if (gameOver) {    
-        player = [[PlayerModel alloc] init];
+        player = [PlayerModel getPlayer];
+        player.delegate = self;
         [self updatePlayerLabels];
     
         computer = [[ComputerModel alloc] init];
         [self updateComputerLabels];
-    
+        
         [self updateCard0];
         [self updateCard1];
         [self updateCard2];
         [self updateCard3];
         [self updateCard4];
+        [self updateCardsButton];
         [self updateCurrentCard];
         gameOver = NO;
         self.startButton.titleLabel.textColor = [UIColor lightGrayColor];
@@ -237,33 +237,74 @@ withCardDescriptionLabel:self.playersCard4Description
     withUseButton:(UIButton*)useButton
     withDiscardButton:(UIButton*)disButton
 {
+    CATransition *transition = [CATransition animation];
+    transition.type = kCATransitionFade;
+    transition.duration = 1;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault];
     if ([[[[player cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Grey"]) {
-        cardName.textColor = [UIColor grayColor];
-        cardDescription.textColor = [UIColor grayColor];
-        cardCost.textColor = [UIColor grayColor];
+        cardName.backgroundColor = [UIColor grayColor];
+        cardDescription.backgroundColor = [UIColor grayColor];
+        cardCost.backgroundColor = [UIColor grayColor];
     }
     if ([[[[player cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Blue"]) {
-        cardName.textColor = [UIColor blueColor];
-        cardDescription.textColor = [UIColor blueColor];
-        cardCost.textColor = [UIColor blueColor];
+        cardName.backgroundColor = [UIColor blueColor];
+        cardDescription.backgroundColor = [UIColor blueColor];
+        cardCost.backgroundColor = [UIColor blueColor];
     }
     if ([[[[player cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Green"]) {
-        cardName.textColor = [UIColor greenColor];
-        cardDescription.textColor = [UIColor greenColor];
-        cardCost.textColor = [UIColor greenColor];
+        cardName.backgroundColor = [UIColor greenColor];
+        cardDescription.backgroundColor = [UIColor greenColor];
+        cardCost.backgroundColor = [UIColor greenColor];
     }
     cardName.text = [[[player cards] objectAtIndex:cardNumber] cardName];
     cardDescription.text = [[[player cards] objectAtIndex:cardNumber] cardDescription];
     cardCost.text = [NSString stringWithFormat:@"%d",[[[player cards] objectAtIndex:cardNumber] cardCost]];
-    if ([self isButtonAvailableToPlay:cardNumber]) {
-        useButton.enabled = YES;
-        useButton.titleLabel.alpha = 1.0f;
-    } else {
-        useButton.enabled = NO;
-        useButton.titleLabel.alpha = 0.2f;
-    }
+    [self.view.layer addAnimation:transition forKey:nil];
     //self.card5DiscardButton.enabled = NO;
     //self.card5DiscardButton.titleLabel.alpha = 0.2f;
+}
+
+- (void)updateCardsButton
+{
+    if ([self isButtonAvailableToPlay:0]) {
+        self.card0UseButton.enabled = YES;
+        self.card0UseButton.titleLabel.alpha = 1.0f;
+    } else {
+        self.card0UseButton.enabled = NO;
+        self.card0UseButton.titleLabel.alpha = 0.2f;
+    }
+    
+    if ([self isButtonAvailableToPlay:1]) {
+        self.card1UseButton.enabled = YES;
+        self.card1UseButton.titleLabel.alpha = 1.0f;
+    } else {
+        self.card1UseButton.enabled = NO;
+        self.card1UseButton.titleLabel.alpha = 0.2f;
+    }
+    
+    if ([self isButtonAvailableToPlay:2]) {
+        self.card2UseButton.enabled = YES;
+        self.card2UseButton.titleLabel.alpha = 1.0f;
+    } else {
+        self.card2UseButton.enabled = NO;
+        self.card2UseButton.titleLabel.alpha = 0.2f;
+    }
+    
+    if ([self isButtonAvailableToPlay:3]) {
+        self.card3UseButton.enabled = YES;
+        self.card3UseButton.titleLabel.alpha = 1.0f;
+    } else {
+        self.card3UseButton.enabled = NO;
+        self.card3UseButton.titleLabel.alpha = 0.2f;
+    }
+    
+    if ([self isButtonAvailableToPlay:4]) {
+        self.card4UseButton.enabled = YES;
+        self.card4UseButton.titleLabel.alpha = 1.0f;
+    } else {
+        self.card4UseButton.enabled = NO;
+        self.card4UseButton.titleLabel.alpha = 0.2f;
+    }
 }
 
 

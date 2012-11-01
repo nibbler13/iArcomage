@@ -36,6 +36,7 @@
 		743E9AB1162C8AED005F28A0 /* InfoScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 743E9AAE162C8AED005F28A0 /* InfoScreen.png */; };
 		743E9AB2162C8AED005F28A0 /* ScoreScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 743E9AAF162C8AED005F28A0 /* ScoreScreen.png */; };
 		743E9AB3162C8AED005F28A0 /* StartScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 743E9AB0162C8AED005F28A0 /* StartScreen.png */; };
+		7484436F1642EA0000AEA2D5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7484436E1642EA0000AEA2D5 /* QuartzCore.framework */; };
 		74F7366816425B9800D7A0E6 /* CardsList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74F7366716425B9800D7A0E6 /* CardsList.plist */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,7 @@
 		743E9AAE162C8AED005F28A0 /* InfoScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = InfoScreen.png; path = iArcomage/Pictures/InfoScreen.png; sourceTree = "<group>"; };
 		743E9AAF162C8AED005F28A0 /* ScoreScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ScoreScreen.png; path = iArcomage/Pictures/ScoreScreen.png; sourceTree = "<group>"; };
 		743E9AB0162C8AED005F28A0 /* StartScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = StartScreen.png; path = iArcomage/Pictures/StartScreen.png; sourceTree = "<group>"; };
+		7484436E1642EA0000AEA2D5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		74F7366716425B9800D7A0E6 /* CardsList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CardsList.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7484436F1642EA0000AEA2D5 /* QuartzCore.framework in Frameworks */,
 				743E9A70162C76A9005F28A0 /* UIKit.framework in Frameworks */,
 				743E9A72162C76A9005F28A0 /* Foundation.framework in Frameworks */,
 				743E9A74162C76A9005F28A0 /* CoreGraphics.framework in Frameworks */,
@@ -153,6 +156,7 @@
 		743E9A6E162C76A9005F28A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7484436E1642EA0000AEA2D5 /* QuartzCore.framework */,
 				743E9A6F162C76A9005F28A0 /* UIKit.framework */,
 				743E9A71162C76A9005F28A0 /* Foundation.framework */,
 				743E9A73162C76A9005F28A0 /* CoreGraphics.framework */,

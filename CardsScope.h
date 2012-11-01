@@ -16,4 +16,6 @@
 - (void)loadDataFromPlist;
 - (Card*)getRandomCard;
 
++ (CardsScope*)getCardsScope;
+
 @end

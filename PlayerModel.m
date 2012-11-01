@@ -12,7 +12,16 @@
 
 @implementation PlayerModel
 {
-    CardsScope *newScope;
+    CardsScope *cardsScope;
+}
+
++ (PlayerModel*)getPlayer
+{
+    static PlayerModel *player = nil;
+    if (player == nil) {
+        player = [[PlayerModel alloc] init];
+    }
+    return player;
 }
 
 - (id)init
@@ -27,9 +36,9 @@
         self.wall = 20;
         self.tower = 20;
         self.cards = [[NSMutableArray alloc] initWithCapacity:5];
-        newScope = [[CardsScope alloc] init];
-        [newScope loadDataFromPlist];
-        self.cards = [NSMutableArray arrayWithObjects:newScope.getRandomCard, newScope.getRandomCard, newScope.getRandomCard, newScope.getRandomCard, newScope.getRandomCard, nil];
+        cardsScope = [CardsScope getCardsScope];
+        [cardsScope loadDataFromPlist];
+        self.cards = [NSMutableArray arrayWithObjects:cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, nil];
     }
     return self;
 }
@@ -39,18 +48,21 @@
     self.bricks += self.quarries;
     self.gems += self.magics;
     self.recruits += self.dungeons;
+    [self.delegate needToUpdateLabelAndButton];
 }
 
 - (void)cardDiscarded:(NSInteger)number
 {
-    [self.cards replaceObjectAtIndex:number withObject:newScope.getRandomCard];
+    [self.cards replaceObjectAtIndex:number withObject:cardsScope.getRandomCard];
+    [self.delegate needToUpdateCardAtNumber:number];
     [self nextTurnIncreaseResource];
 }
 
 - (void)cardSelected:(NSInteger)number
 {
     [self processCard:number];
-    [self.cards replaceObjectAtIndex:number withObject:newScope.getRandomCard];
+    [self.cards replaceObjectAtIndex:number withObject:cardsScope.getRandomCard];
+    [self.delegate needToUpdateCardAtNumber:number];
     [self nextTurnIncreaseResource];
 }
 

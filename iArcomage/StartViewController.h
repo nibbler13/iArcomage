@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PlayerModel.h"
 
-@interface StartViewController : UIViewController
+@interface StartViewController : UIViewController <PlayerModelDelegate> 
 
 @property (strong, nonatomic) IBOutlet UILabel *playerQuarries;
 @property (strong, nonatomic) IBOutlet UILabel *playerMagics;

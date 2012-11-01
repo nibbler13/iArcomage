@@ -8,8 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol PlayerModelDelegate <NSObject>
+
+- (void)needToUpdateLabelAndButton;
+- (void)needToUpdateCardAtNumber:(NSInteger)number;
+
+@end
+
 @interface PlayerModel : NSObject
 
+@property (nonatomic, strong) id <PlayerModelDelegate> delegate;
 @property (nonatomic) NSInteger quarries;
 @property (nonatomic) NSInteger magics;
 @property (nonatomic) NSInteger dungeons;
@@ -22,5 +30,7 @@
 
 - (void)cardSelected:(NSInteger)number;
 - (void)cardDiscarded:(NSInteger)number;
+
++ (PlayerModel*)getPlayer;
 
 @end

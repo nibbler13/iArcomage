@@ -326,7 +326,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kyi-NL-Vxz">
-                                <rect key="frame" x="311" y="289" width="30" height="25"/>
+                                <rect key="frame" x="305" y="289" width="30" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Use">
@@ -341,7 +341,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VwG-M7-HEx">
-                                <rect key="frame" x="342" y="289" width="30" height="25"/>
+                                <rect key="frame" x="336" y="289" width="30" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Dis">
@@ -356,7 +356,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9gn-xG-BUl">
-                                <rect key="frame" x="405" y="289" width="30" height="25"/>
+                                <rect key="frame" x="399" y="289" width="30" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Use">
@@ -371,7 +371,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Qxr-PM-5H6">
-                                <rect key="frame" x="436" y="289" width="30" height="25"/>
+                                <rect key="frame" x="430" y="289" width="30" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Dis">
@@ -595,6 +595,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="If quarry&lt;enemy quarry, +2 quarry. Else +1 quarry." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CAH-NC-EPG">
+                                <rect key="frame" x="190" y="213" width="101" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="11"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="4 brick" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GXs-1z-Fr0">
                                 <rect key="frame" x="94" y="265" width="101" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -609,13 +616,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="If quarry&lt;enemy quarry, +2 quarry. Else +1 quarry." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="6" adjustsLetterSpacingToFitWidth="YES" id="xyX-pU-IZT">
-                                <rect key="frame" x="190" y="213" width="101" height="59"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="11"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="4 brick" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ljg-sA-Nd1">
                                 <rect key="frame" x="190" y="265" width="101" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -624,42 +624,42 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Mother Lode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="shz-qL-0mp">
-                                <rect key="frame" x="291" y="202" width="101" height="16"/>
+                                <rect key="frame" x="285" y="202" width="101" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="11"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="If quarry&lt;enemy quarry, +2 quarry. Else +1 quarry." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ewx-Y8-u0t">
-                                <rect key="frame" x="291" y="213" width="101" height="59"/>
+                                <rect key="frame" x="285" y="213" width="101" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="11"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="4 brick" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qaG-j9-nQm">
-                                <rect key="frame" x="291" y="265" width="101" height="16"/>
+                                <rect key="frame" x="285" y="265" width="101" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="11"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Mother Lode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BTs-gG-nwM">
-                                <rect key="frame" x="385" y="202" width="101" height="16"/>
+                                <rect key="frame" x="379" y="202" width="101" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="11"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="If quarry&lt;enemy quarry, +2 quarry. Else +1 quarry." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DSZ-np-5VY">
-                                <rect key="frame" x="385" y="213" width="101" height="59"/>
+                                <rect key="frame" x="379" y="213" width="101" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="11"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="4 brick" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NbJ-ya-Hdx">
-                                <rect key="frame" x="385" y="265" width="101" height="16"/>
+                                <rect key="frame" x="379" y="265" width="101" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="11"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -709,7 +709,7 @@
                         <outlet property="playersCard1Description" destination="x5K-5X-6bC" id="8qX-SP-eeT"/>
                         <outlet property="playersCard1Name" destination="1Ee-sI-QbF" id="clN-gu-d9i"/>
                         <outlet property="playersCard2Cost" destination="Ljg-sA-Nd1" id="Cwt-a7-8aI"/>
-                        <outlet property="playersCard2Description" destination="xyX-pU-IZT" id="0bG-Hp-JFe"/>
+                        <outlet property="playersCard2Description" destination="CAH-NC-EPG" id="jmO-8G-Fey"/>
                         <outlet property="playersCard2Name" destination="UgP-pL-Ngo" id="HGH-HV-UWu"/>
                         <outlet property="playersCard3Cost" destination="qaG-j9-nQm" id="LEi-nI-xAs"/>
                         <outlet property="playersCard3Description" destination="ewx-Y8-u0t" id="gy6-jq-ZAb"/>
@@ -793,6 +793,85 @@
         <image name="StartButtonHighlighted.png" width="125" height="54"/>
         <image name="Title.png" width="453" height="130"/>
     </resources>
+    <classes>
+        <class className="InfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backButtonPressed:"/>
+            </relationships>
+        </class>
+        <class className="MainViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
+        </class>
+        <class className="ScoreViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ScoreViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backButtonPressed:"/>
+            </relationships>
+        </class>
+        <class className="StartViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StartViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backButtonPressed:"/>
+                <relationship kind="action" name="card0DiscardButtonPressed:"/>
+                <relationship kind="action" name="card0UseButtonPressed:"/>
+                <relationship kind="action" name="card1DiscardButtonPressed:"/>
+                <relationship kind="action" name="card1UseButtonPressed:"/>
+                <relationship kind="action" name="card2DiscardButtonPressed:"/>
+                <relationship kind="action" name="card2UseButtonPressed:"/>
+                <relationship kind="action" name="card3DiscardButtonPressed:"/>
+                <relationship kind="action" name="card3UseButtonPressed:"/>
+                <relationship kind="action" name="card4DiscardButtonPressed:"/>
+                <relationship kind="action" name="card4UseButtonPressed:"/>
+                <relationship kind="action" name="game:"/>
+                <relationship kind="outlet" name="card0DiscardButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="card0UseButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="card1DiscardButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="card1UseButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="card2DiscardButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="card2UseButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="card3DiscardButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="card3UseButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="card4DiscardButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="card4UseButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="computerBricks" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="computerDungeons" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="computerGems" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="computerMagics" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="computerQuarries" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="computerRecruits" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="computerTower" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="computerWall" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="currentCardCost" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="currentCardDescription" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="currentCardName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playerBricks" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playerDungeons" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playerGems" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playerMagics" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playerQuarries" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playerRecruits" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playerTower" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playerWall" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard0Cost" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard0Description" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard0Name" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard1Cost" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard1Description" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard1Name" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard2Cost" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard2Description" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard2Name" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard3Cost" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard3Description" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard3Name" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard4Cost" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard4Description" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard4Name" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

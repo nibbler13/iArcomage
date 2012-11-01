@@ -10,6 +10,15 @@
 
 @implementation CardsScope
 
++ (CardsScope*)getCardsScope
+{
+    static CardsScope *cardsScope;
+    if (cardsScope == nil) {
+        cardsScope = [[CardsScope alloc] init];
+    }
+    return cardsScope;
+}
+
 - (id)init
 {
     if ([super init] != nil) {
