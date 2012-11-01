@@ -32,6 +32,10 @@
 @property (strong, nonatomic) IBOutlet UILabel *currentCardDescription;
 @property (strong, nonatomic) IBOutlet UILabel *currentCardCost;
 
+@property (strong, nonatomic) IBOutlet UILabel *playersCard0Name;
+@property (strong, nonatomic) IBOutlet UILabel *playersCard0Description;
+@property (strong, nonatomic) IBOutlet UILabel *playersCard0Cost;
+
 @property (strong, nonatomic) IBOutlet UILabel *playersCard1Name;
 @property (strong, nonatomic) IBOutlet UILabel *playersCard1Description;
 @property (strong, nonatomic) IBOutlet UILabel *playersCard1Cost;
@@ -48,32 +52,30 @@
 @property (strong, nonatomic) IBOutlet UILabel *playersCard4Description;
 @property (strong, nonatomic) IBOutlet UILabel *playersCard4Cost;
 
-@property (strong, nonatomic) IBOutlet UILabel *playersCard5Name;
-@property (strong, nonatomic) IBOutlet UILabel *playersCard5Description;
-@property (strong, nonatomic) IBOutlet UILabel *playersCard5Cost;
-
+@property (strong, nonatomic) IBOutlet UIButton *card0UseButton;
 @property (strong, nonatomic) IBOutlet UIButton *card1UseButton;
 @property (strong, nonatomic) IBOutlet UIButton *card2UseButton;
 @property (strong, nonatomic) IBOutlet UIButton *card3UseButton;
 @property (strong, nonatomic) IBOutlet UIButton *card4UseButton;
-@property (strong, nonatomic) IBOutlet UIButton *card5UseButton;
+@property (strong, nonatomic) IBOutlet UIButton *card0DiscardButton;
 @property (strong, nonatomic) IBOutlet UIButton *card1DiscardButton;
 @property (strong, nonatomic) IBOutlet UIButton *card2DiscardButton;
 @property (strong, nonatomic) IBOutlet UIButton *card3DiscardButton;
 @property (strong, nonatomic) IBOutlet UIButton *card4DiscardButton;
-@property (strong, nonatomic) IBOutlet UIButton *card5DiscardButton;
 
+@property (strong, nonatomic) IBOutlet UIButton *startButton;
+
+- (IBAction)card0UseButtonPressed:(id)sender;
 - (IBAction)card1UseButtonPressed:(id)sender;
 - (IBAction)card2UseButtonPressed:(id)sender;
 - (IBAction)card3UseButtonPressed:(id)sender;
 - (IBAction)card4UseButtonPressed:(id)sender;
-- (IBAction)card5UseButtonPressed:(id)sender;
 
+- (IBAction)card0DiscardButtonPressed:(id)sender;
 - (IBAction)card1DiscardButtonPressed:(id)sender;
 - (IBAction)card2DiscardButtonPressed:(id)sender;
 - (IBAction)card3DiscardButtonPressed:(id)sender;
 - (IBAction)card4DiscardButtonPressed:(id)sender;
-- (IBAction)card5DiscardButtonPressed:(id)sender;
 
 - (IBAction)backButtonPressed:(id)sender;
 

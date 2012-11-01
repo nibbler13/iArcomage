@@ -26,37 +26,77 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    gameOver = NO;
+    gameOver = YES;
+}
+
+- (IBAction)card0UseButtonPressed:(id)sender {
+    [player cardSelected:0];
+    [self updatePlayerLabels];
+    [self updateComputerLabels];
+    [self updateCard0];
 }
 
 - (IBAction)card1UseButtonPressed:(id)sender {
+    [player cardSelected:1];
+    [self updatePlayerLabels];
+    [self updateComputerLabels];
+    [self updateCard1];
 }
 
 - (IBAction)card2UseButtonPressed:(id)sender {
+    [player cardSelected:2];
+    [self updatePlayerLabels];
+    [self updateComputerLabels];
+    [self updateCard2];
 }
 
 - (IBAction)card3UseButtonPressed:(id)sender {
+    [player cardSelected:3];
+    [self updatePlayerLabels];
+    [self updateComputerLabels];
+    [self updateCard3];
 }
 
 - (IBAction)card4UseButtonPressed:(id)sender {
+    [player cardSelected:4];
+    [self updatePlayerLabels];
+    [self updateComputerLabels];
+    [self updateCard4];
 }
 
-- (IBAction)card5UseButtonPressed:(id)sender {
+- (IBAction)card0DiscardButtonPressed:(id)sender {
+    [player cardDiscarded:0];
+    [self updatePlayerLabels];
+    [self updateComputerLabels];
+    [self updateCard0];
 }
 
 - (IBAction)card1DiscardButtonPressed:(id)sender {
+    [player cardDiscarded:1];
+    [self updatePlayerLabels];
+    [self updateComputerLabels];
+    [self updateCard1];
 }
 
 - (IBAction)card2DiscardButtonPressed:(id)sender {
+    [player cardDiscarded:2];
+    [self updatePlayerLabels];
+    [self updateComputerLabels];
+    [self updateCard2];
 }
 
 - (IBAction)card3DiscardButtonPressed:(id)sender {
+    [player cardDiscarded:3];
+    [self updatePlayerLabels];
+    [self updateComputerLabels];
+    [self updateCard3];
 }
 
 - (IBAction)card4DiscardButtonPressed:(id)sender {
-}
-
-- (IBAction)card5DiscardButtonPressed:(id)sender {
+    [player cardDiscarded:4];
+    [self updatePlayerLabels];
+    [self updateComputerLabels];
+    [self updateCard4];
 }
 
 - (IBAction)backButtonPressed:(id)sender {
@@ -66,24 +106,25 @@
 #pragma mark - Main game cycle
 
 - (IBAction)game:(id)sender {
-    gameOver = NO;
+    if (gameOver) {    
+        player = [[PlayerModel alloc] init];
+        [self updatePlayerLabels];
     
-    player = [[PlayerModel alloc] init];
-    [self updatePlayerLabels];
+        computer = [[ComputerModel alloc] init];
+        [self updateComputerLabels];
     
-    computer = [[ComputerModel alloc] init];
-    [self updateComputerLabels];
-    
-    [self updateCard1];
-    [self updateCard2];
-    [self updateCard3];
-    [self updateCard4];
-    [self updateCard5];
-    [self updateCurrentCard];
+        [self updateCard0];
+        [self updateCard1];
+        [self updateCard2];
+        [self updateCard3];
+        [self updateCard4];
+        [self updateCurrentCard];
+        gameOver = NO;
+        self.startButton.titleLabel.textColor = [UIColor lightGrayColor];
+        self.startButton.hidden = YES;
+        self.startButton.enabled = NO;
+    }
 }
-
-
-#pragma mark - Initialization
 
 
 #pragma mark - UpdatingLabels
@@ -112,62 +153,57 @@
     self.computerTower.text = [NSString stringWithFormat:@"%d", computer.tower];
 }
 
+- (void)updateCard0
+{
+    [self configureCard:0
+       withCardNameLabel:self.playersCard0Name
+withCardDescriptionLabel:self.playersCard0Description
+       withCardCostLabel:self.playersCard0Cost
+           withUseButton:self.card0UseButton
+       withDiscardButton:self.card0DiscardButton];
+
+}
+
 - (void)updateCard1
 {
-    if ([[[[player cards] objectAtIndex:0] cardColor] isEqualToString:@"Grey"]) {
-        self.playersCard1Cost.textColor = [UIColor grayColor];
-    }
-    self.playersCard1Name.text = [[[player cards] objectAtIndex:0] cardName];
-    self.playersCard1Description.text = [[[player cards] objectAtIndex:0] cardDescription];
-    self.playersCard1Cost.text = [NSString stringWithFormat:@"%d",[[[player cards] objectAtIndex:0] cardCost]];
-    self.card1UseButton.enabled = NO;
-    self.card1UseButton.titleLabel.alpha = 0.2f;
-    self.card1DiscardButton.enabled = YES;
-    //self.card1DiscardButton.titleLabel.alpha = 0.2f;
+    [self configureCard:1
+       withCardNameLabel:self.playersCard1Name
+withCardDescriptionLabel:self.playersCard1Description
+       withCardCostLabel:self.playersCard1Cost
+           withUseButton:self.card1UseButton
+       withDiscardButton:self.card1DiscardButton];
+
 }
 
 - (void)updateCard2
 {
-    self.playersCard2Name.text = @"No card";
-    self.playersCard2Description.text = @"No description";
-    self.playersCard2Cost.text = @"No cost";
-    self.card2UseButton.enabled = NO;
-    self.card2UseButton.titleLabel.alpha = 0.2f;
-    self.card2DiscardButton.enabled = NO;
-    self.card2DiscardButton.titleLabel.alpha = 0.2f;
+    [self configureCard:2
+       withCardNameLabel:self.playersCard2Name
+withCardDescriptionLabel:self.playersCard2Description
+       withCardCostLabel:self.playersCard2Cost
+           withUseButton:self.card2UseButton
+       withDiscardButton:self.card2DiscardButton];
+
 }
 
 - (void)updateCard3
 {
-    self.playersCard3Name.text = @"No card";
-    self.playersCard3Description.text = @"No description";
-    self.playersCard3Cost.text = @"No cost";
-    self.card3UseButton.enabled = NO;
-    self.card3UseButton.titleLabel.alpha = 0.2f;
-    self.card3DiscardButton.enabled = NO;
-    self.card3DiscardButton.titleLabel.alpha = 0.2f;
+    [self configureCard:3
+       withCardNameLabel:self.playersCard3Name
+withCardDescriptionLabel:self.playersCard3Description
+       withCardCostLabel:self.playersCard3Cost
+           withUseButton:self.card3UseButton
+       withDiscardButton:self.card3DiscardButton];
 }
 
 - (void)updateCard4
 {
-    self.playersCard4Name.text = @"No card";
-    self.playersCard4Description.text = @"No description";
-    self.playersCard4Cost.text = @"No cost";
-    self.card4UseButton.enabled = NO;
-    self.card4UseButton.titleLabel.alpha = 0.2f;
-    self.card4DiscardButton.enabled = NO;
-    self.card4DiscardButton.titleLabel.alpha = 0.2f;
-}
-
-- (void)updateCard5
-{
-    self.playersCard5Name.text = @"No card";
-    self.playersCard5Description.text = @"No description";
-    self.playersCard5Cost.text = @"No cost";
-    self.card5UseButton.enabled = NO;
-    self.card5UseButton.titleLabel.alpha = 0.2f;
-    self.card5DiscardButton.enabled = NO;
-    self.card5DiscardButton.titleLabel.alpha = 0.2f;
+    [self configureCard:4
+       withCardNameLabel:self.playersCard4Name
+withCardDescriptionLabel:self.playersCard4Description
+       withCardCostLabel:self.playersCard4Cost
+           withUseButton:self.card4UseButton
+       withDiscardButton:self.card4DiscardButton];
 }
 
 - (void)updateCurrentCard
@@ -176,5 +212,59 @@
     self.currentCardDescription.text = @"No description";
     self.currentCardCost.text = @"No cost";
 }
+
+- (BOOL)isButtonAvailableToPlay:(NSInteger)buttonNumber
+{
+    NSInteger cardCost = [[player.cards objectAtIndex:buttonNumber] cardCost];
+    NSInteger playerResource;
+    if ([[[player.cards objectAtIndex:buttonNumber] cardColor] isEqualToString:@"Grey"]) {
+        playerResource = [player bricks];
+    } else if ([[[player.cards objectAtIndex:buttonNumber] cardColor] isEqualToString:@"Blue"]) {
+        playerResource = [player gems];
+    } else {
+        playerResource = [player recruits];
+    }
+    if (cardCost <= playerResource) {
+        return YES;
+    }
+    return NO;
+}
+
+- (void)configureCard:(NSInteger)cardNumber
+    withCardNameLabel:(UILabel*)cardName
+    withCardDescriptionLabel:(UILabel*)cardDescription
+    withCardCostLabel:(UILabel*)cardCost
+    withUseButton:(UIButton*)useButton
+    withDiscardButton:(UIButton*)disButton
+{
+    if ([[[[player cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Grey"]) {
+        cardName.textColor = [UIColor grayColor];
+        cardDescription.textColor = [UIColor grayColor];
+        cardCost.textColor = [UIColor grayColor];
+    }
+    if ([[[[player cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Blue"]) {
+        cardName.textColor = [UIColor blueColor];
+        cardDescription.textColor = [UIColor blueColor];
+        cardCost.textColor = [UIColor blueColor];
+    }
+    if ([[[[player cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Green"]) {
+        cardName.textColor = [UIColor greenColor];
+        cardDescription.textColor = [UIColor greenColor];
+        cardCost.textColor = [UIColor greenColor];
+    }
+    cardName.text = [[[player cards] objectAtIndex:cardNumber] cardName];
+    cardDescription.text = [[[player cards] objectAtIndex:cardNumber] cardDescription];
+    cardCost.text = [NSString stringWithFormat:@"%d",[[[player cards] objectAtIndex:cardNumber] cardCost]];
+    if ([self isButtonAvailableToPlay:cardNumber]) {
+        useButton.enabled = YES;
+        useButton.titleLabel.alpha = 1.0f;
+    } else {
+        useButton.enabled = NO;
+        useButton.titleLabel.alpha = 0.2f;
+    }
+    //self.card5DiscardButton.enabled = NO;
+    //self.card5DiscardButton.titleLabel.alpha = 0.2f;
+}
+
 
 @end

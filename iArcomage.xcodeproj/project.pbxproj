@@ -36,6 +36,7 @@
 		743E9AB1162C8AED005F28A0 /* InfoScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 743E9AAE162C8AED005F28A0 /* InfoScreen.png */; };
 		743E9AB2162C8AED005F28A0 /* ScoreScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 743E9AAF162C8AED005F28A0 /* ScoreScreen.png */; };
 		743E9AB3162C8AED005F28A0 /* StartScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 743E9AB0162C8AED005F28A0 /* StartScreen.png */; };
+		74F7366816425B9800D7A0E6 /* CardsList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74F7366716425B9800D7A0E6 /* CardsList.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		743E9AAE162C8AED005F28A0 /* InfoScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = InfoScreen.png; path = iArcomage/Pictures/InfoScreen.png; sourceTree = "<group>"; };
 		743E9AAF162C8AED005F28A0 /* ScoreScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ScoreScreen.png; path = iArcomage/Pictures/ScoreScreen.png; sourceTree = "<group>"; };
 		743E9AB0162C8AED005F28A0 /* StartScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = StartScreen.png; path = iArcomage/Pictures/StartScreen.png; sourceTree = "<group>"; };
+		74F7366716425B9800D7A0E6 /* CardsList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CardsList.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 				743E9A81162C76A9005F28A0 /* Default.png */,
 				743E9A83162C76A9005F28A0 /* Default@2x.png */,
 				743E9A85162C76A9005F28A0 /* Default-568h@2x.png */,
+				74F7366716425B9800D7A0E6 /* CardsList.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				743E9AB1162C8AED005F28A0 /* InfoScreen.png in Resources */,
 				743E9AB2162C8AED005F28A0 /* ScoreScreen.png in Resources */,
 				743E9AB3162C8AED005F28A0 /* StartScreen.png in Resources */,
+				74F7366816425B9800D7A0E6 /* CardsList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

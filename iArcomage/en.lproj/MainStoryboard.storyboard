@@ -247,7 +247,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="card1UseButtonPressed:" destination="FSb-dx-CHS" eventType="touchUpInside" id="Rj8-Oq-wJg"/>
+                                    <action selector="card0UseButtonPressed:" destination="FSb-dx-CHS" eventType="touchUpInside" id="zK1-wv-lSO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yxU-sI-Zs7">
@@ -262,7 +262,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="card1DiscardButtonPressed:" destination="FSb-dx-CHS" eventType="touchUpInside" id="5Mc-Ew-pje"/>
+                                    <action selector="card0DiscardButtonPressed:" destination="FSb-dx-CHS" eventType="touchUpInside" id="Ncv-2c-Dnf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3mE-MD-82p">
@@ -277,7 +277,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="card2UseButtonPressed:" destination="FSb-dx-CHS" eventType="touchUpInside" id="UIN-Bi-NtC"/>
+                                    <action selector="card1UseButtonPressed:" destination="FSb-dx-CHS" eventType="touchUpInside" id="spT-fc-ASD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VKC-we-UBz">
@@ -292,7 +292,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="card2DiscardButtonPressed:" destination="FSb-dx-CHS" eventType="touchUpInside" id="efL-du-uSR"/>
+                                    <action selector="card1DiscardButtonPressed:" destination="FSb-dx-CHS" eventType="touchUpInside" id="Avf-PH-b2R"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="epz-j7-Msk">
@@ -307,7 +307,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="card3UseButtonPressed:" destination="FSb-dx-CHS" eventType="touchUpInside" id="CjC-EX-Hl9"/>
+                                    <action selector="card2UseButtonPressed:" destination="FSb-dx-CHS" eventType="touchUpInside" id="pPP-Mj-51x"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QdZ-sL-Tb5">
@@ -322,7 +322,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="card3DiscardButtonPressed:" destination="FSb-dx-CHS" eventType="touchUpInside" id="tYX-Ei-XYh"/>
+                                    <action selector="card2DiscardButtonPressed:" destination="FSb-dx-CHS" eventType="touchUpInside" id="iVl-CJ-nuZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kyi-NL-Vxz">
@@ -337,7 +337,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="card4UseButtonPressed:" destination="FSb-dx-CHS" eventType="touchUpInside" id="Kk5-Df-Ul1"/>
+                                    <action selector="card3UseButtonPressed:" destination="FSb-dx-CHS" eventType="touchUpInside" id="lh3-6u-WtC"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VwG-M7-HEx">
@@ -352,7 +352,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="card4DiscardButtonPressed:" destination="FSb-dx-CHS" eventType="touchUpInside" id="lIa-Zn-Jg8"/>
+                                    <action selector="card3DiscardButtonPressed:" destination="FSb-dx-CHS" eventType="touchUpInside" id="8kR-JC-Dnr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9gn-xG-BUl">
@@ -367,7 +367,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="card5UseButtonPressed:" destination="FSb-dx-CHS" eventType="touchUpInside" id="C1l-Kq-p2u"/>
+                                    <action selector="card4UseButtonPressed:" destination="FSb-dx-CHS" eventType="touchUpInside" id="VNv-LY-qeF"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Qxr-PM-5H6">
@@ -382,7 +382,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="card5DiscardButtonPressed:" destination="FSb-dx-CHS" eventType="touchUpInside" id="Fe9-dW-tJa"/>
+                                    <action selector="card4DiscardButtonPressed:" destination="FSb-dx-CHS" eventType="touchUpInside" id="9Gt-PQ-CVE"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="111" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fuI-Ug-wvD">
@@ -609,7 +609,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="If quarry&lt;enemy quarry, +2 quarry. Else +1 quarry." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xyX-pU-IZT">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="If quarry&lt;enemy quarry, +2 quarry. Else +1 quarry." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="6" adjustsLetterSpacingToFitWidth="YES" id="xyX-pU-IZT">
                                 <rect key="frame" x="190" y="213" width="101" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="11"/>
@@ -673,16 +673,16 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="card1DiscardButton" destination="yxU-sI-Zs7" id="Ldb-fE-FPi"/>
-                        <outlet property="card1UseButton" destination="xHW-Jv-gfW" id="XPH-VV-yxW"/>
-                        <outlet property="card2DiscardButton" destination="VKC-we-UBz" id="eKW-e6-xvb"/>
-                        <outlet property="card2UseButton" destination="3mE-MD-82p" id="Ylb-dV-Nhn"/>
-                        <outlet property="card3DiscardButton" destination="QdZ-sL-Tb5" id="NEA-a4-iaD"/>
-                        <outlet property="card3UseButton" destination="epz-j7-Msk" id="Db1-Vk-y7W"/>
-                        <outlet property="card4DiscardButton" destination="VwG-M7-HEx" id="Bii-AQ-5pX"/>
-                        <outlet property="card4UseButton" destination="kyi-NL-Vxz" id="z35-ZM-nmE"/>
-                        <outlet property="card5DiscardButton" destination="Qxr-PM-5H6" id="t3n-6k-5Rm"/>
-                        <outlet property="card5UseButton" destination="9gn-xG-BUl" id="4by-iK-7JP"/>
+                        <outlet property="card0DiscardButton" destination="yxU-sI-Zs7" id="fgf-QQ-N8I"/>
+                        <outlet property="card0UseButton" destination="xHW-Jv-gfW" id="phO-2c-phd"/>
+                        <outlet property="card1DiscardButton" destination="VKC-we-UBz" id="sSo-ef-fs0"/>
+                        <outlet property="card1UseButton" destination="3mE-MD-82p" id="jDA-pj-b2k"/>
+                        <outlet property="card2DiscardButton" destination="QdZ-sL-Tb5" id="Bq3-S5-hyv"/>
+                        <outlet property="card2UseButton" destination="epz-j7-Msk" id="Ntp-06-r7C"/>
+                        <outlet property="card3DiscardButton" destination="VwG-M7-HEx" id="YMd-VD-9dU"/>
+                        <outlet property="card3UseButton" destination="kyi-NL-Vxz" id="k3P-OS-pzC"/>
+                        <outlet property="card4DiscardButton" destination="Qxr-PM-5H6" id="7Ql-gi-aFS"/>
+                        <outlet property="card4UseButton" destination="9gn-xG-BUl" id="ZFz-1q-IMU"/>
                         <outlet property="computerBricks" destination="bcx-9P-Ybz" id="e73-pQ-4uD"/>
                         <outlet property="computerDungeons" destination="Sgw-jS-0rH" id="WVQ-5A-YbK"/>
                         <outlet property="computerGems" destination="wJN-Xi-NZQ" id="6Yk-RK-gUb"/>
@@ -702,21 +702,22 @@
                         <outlet property="playerRecruits" destination="5wT-IU-Mg7" id="vIy-xH-6Zr"/>
                         <outlet property="playerTower" destination="QJP-zZ-hAP" id="2g6-yW-yoz"/>
                         <outlet property="playerWall" destination="B1o-P8-9Ar" id="aZd-NS-HT3"/>
-                        <outlet property="playersCard1Cost" destination="Q22-AE-Req" id="ws3-Mc-f4t"/>
-                        <outlet property="playersCard1Description" destination="Nsf-L8-ZG0" id="4UH-7C-sLM"/>
-                        <outlet property="playersCard1Name" destination="z5n-3y-7Bl" id="mK9-On-Oxs"/>
-                        <outlet property="playersCard2Cost" destination="GXs-1z-Fr0" id="2Y4-6d-R5L"/>
-                        <outlet property="playersCard2Description" destination="x5K-5X-6bC" id="7SD-gR-B3m"/>
-                        <outlet property="playersCard2Name" destination="1Ee-sI-QbF" id="ybA-bY-WmG"/>
-                        <outlet property="playersCard3Cost" destination="Ljg-sA-Nd1" id="TVX-Y3-gTq"/>
-                        <outlet property="playersCard3Description" destination="xyX-pU-IZT" id="m5f-qf-Jrt"/>
-                        <outlet property="playersCard3Name" destination="UgP-pL-Ngo" id="NfQ-3B-XD2"/>
-                        <outlet property="playersCard4Cost" destination="qaG-j9-nQm" id="AmH-gI-yx3"/>
-                        <outlet property="playersCard4Description" destination="ewx-Y8-u0t" id="w6o-Rg-MSp"/>
-                        <outlet property="playersCard4Name" destination="shz-qL-0mp" id="cFG-DN-NBB"/>
-                        <outlet property="playersCard5Cost" destination="NbJ-ya-Hdx" id="avm-Ho-mCk"/>
-                        <outlet property="playersCard5Description" destination="DSZ-np-5VY" id="R5G-LZ-XLL"/>
-                        <outlet property="playersCard5Name" destination="BTs-gG-nwM" id="Mdg-cH-ynX"/>
+                        <outlet property="playersCard0Cost" destination="Q22-AE-Req" id="4WX-eh-eGE"/>
+                        <outlet property="playersCard0Description" destination="Nsf-L8-ZG0" id="ayj-x0-u9R"/>
+                        <outlet property="playersCard0Name" destination="z5n-3y-7Bl" id="N5g-ra-fI8"/>
+                        <outlet property="playersCard1Cost" destination="GXs-1z-Fr0" id="6re-y8-MmY"/>
+                        <outlet property="playersCard1Description" destination="x5K-5X-6bC" id="8qX-SP-eeT"/>
+                        <outlet property="playersCard1Name" destination="1Ee-sI-QbF" id="clN-gu-d9i"/>
+                        <outlet property="playersCard2Cost" destination="Ljg-sA-Nd1" id="Cwt-a7-8aI"/>
+                        <outlet property="playersCard2Description" destination="xyX-pU-IZT" id="0bG-Hp-JFe"/>
+                        <outlet property="playersCard2Name" destination="UgP-pL-Ngo" id="HGH-HV-UWu"/>
+                        <outlet property="playersCard3Cost" destination="qaG-j9-nQm" id="LEi-nI-xAs"/>
+                        <outlet property="playersCard3Description" destination="ewx-Y8-u0t" id="gy6-jq-ZAb"/>
+                        <outlet property="playersCard3Name" destination="shz-qL-0mp" id="GCq-99-mWH"/>
+                        <outlet property="playersCard4Cost" destination="NbJ-ya-Hdx" id="lPr-HQ-jtV"/>
+                        <outlet property="playersCard4Description" destination="DSZ-np-5VY" id="PT3-XC-CqT"/>
+                        <outlet property="playersCard4Name" destination="BTs-gG-nwM" id="lUQ-SZ-goG"/>
+                        <outlet property="startButton" destination="BVh-vJ-GTv" id="GTl-vx-MW9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jbQ-Ut-TEQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -792,84 +793,6 @@
         <image name="StartButtonHighlighted.png" width="125" height="54"/>
         <image name="Title.png" width="453" height="130"/>
     </resources>
-    <classes>
-        <class className="InfoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButtonPressed:"/>
-            </relationships>
-        </class>
-        <class className="MainViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
-        </class>
-        <class className="ScoreViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ScoreViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButtonPressed:"/>
-            </relationships>
-        </class>
-        <class className="StartViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StartViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButtonPressed:"/>
-                <relationship kind="action" name="card1DiscardButtonPressed:"/>
-                <relationship kind="action" name="card1UseButtonPressed:"/>
-                <relationship kind="action" name="card2DiscardButtonPressed:"/>
-                <relationship kind="action" name="card2UseButtonPressed:"/>
-                <relationship kind="action" name="card3DiscardButtonPressed:"/>
-                <relationship kind="action" name="card3UseButtonPressed:"/>
-                <relationship kind="action" name="card4DiscardButtonPressed:"/>
-                <relationship kind="action" name="card4UseButtonPressed:"/>
-                <relationship kind="action" name="card5DiscardButtonPressed:"/>
-                <relationship kind="action" name="card5UseButtonPressed:"/>
-                <relationship kind="action" name="game:"/>
-                <relationship kind="outlet" name="card1DiscardButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="card1UseButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="card2DiscardButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="card2UseButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="card3DiscardButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="card3UseButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="card4DiscardButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="card4UseButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="card5DiscardButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="card5UseButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="computerBricks" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerDungeons" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerGems" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerMagics" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerQuarries" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerRecruits" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerTower" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerWall" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="currentCardCost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="currentCardDescription" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="currentCardName" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerBricks" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerDungeons" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerGems" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerMagics" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerQuarries" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerRecruits" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerTower" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerWall" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard1Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard1Description" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard1Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard2Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard2Description" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard2Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard3Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard3Description" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard3Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard4Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard4Description" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard4Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard5Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard5Description" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard5Name" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -15,26 +15,23 @@
 @property (nonatomic) NSString *cardName;
 @property (nonatomic) NSString *cardDescription;
 @property (nonatomic) NSInteger cardCost;
-@property (nonatomic) NSInteger quarriesEffect;
-@property (nonatomic) NSInteger magicEffect;
-@property (nonatomic) NSInteger dungeonsEffect;
-@property (nonatomic) NSInteger bricksEffect;
-@property (nonatomic) NSInteger gemsEffect;
-@property (nonatomic) NSInteger recruitsEffect;
-@property (nonatomic) NSInteger wallEffect;
-@property (nonatomic) NSInteger towerEffect;
+@property (nonatomic) NSInteger quarriesSelf;
+@property (nonatomic) NSInteger quarriesEnemy;
+@property (nonatomic) NSInteger magicsSelf;
+@property (nonatomic) NSInteger magicsEnemy;
+@property (nonatomic) NSInteger dungeonsSelf;
+@property (nonatomic) NSInteger dungeonsEnemy;
+@property (nonatomic) NSInteger bricksSelf;
+@property (nonatomic) NSInteger bricksEnemy;
+@property (nonatomic) NSInteger gemsSelf;
+@property (nonatomic) NSInteger gemsEnemy;
+@property (nonatomic) NSInteger recruitsSelf;
+@property (nonatomic) NSInteger recruitsEnemy;
+@property (nonatomic) NSInteger wallSelf;
+@property (nonatomic) NSInteger wallEnemy;
+@property (nonatomic) NSInteger towerSelf;
+@property (nonatomic) NSInteger towerEnemy;
+@property (nonatomic) BOOL additionalTerms;
 
-- (id)initWithName:(NSString*)name
-         withColor:(NSString*)color
-   withDescription:(NSString*)description
-          withCost:(NSInteger)cost
-      withQuarries:(NSInteger)quarries
-         withMagic:(NSInteger)magic
-       withDungeon:(NSInteger)dungeon
-        withBricks:(NSInteger)bricks
-          withGems:(NSInteger)gems
-      withRecruits:(NSInteger)rectuits
-          withWall:(NSInteger)wall
-         withTower:(NSInteger)tower;
 
 @end

@@ -20,6 +20,7 @@
 @property (nonatomic) NSInteger tower;
 @property (nonatomic) NSMutableArray *cards;
 
-- (void)nextTurnIncreaseResource;
+- (void)cardSelected:(NSInteger)number;
+- (void)cardDiscarded:(NSInteger)number;
 
 @end

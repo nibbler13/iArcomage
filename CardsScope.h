@@ -7,9 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Card.h"
 
 @interface CardsScope : NSObject
 
 @property (nonatomic) NSMutableArray *cards;
+
+- (void)loadDataFromPlist;
+- (Card*)getRandomCard;
 
 @end

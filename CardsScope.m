@@ -7,28 +7,66 @@
 //
 
 #import "CardsScope.h"
-#import "Card.h"
 
 @implementation CardsScope
 
 - (id)init
 {
     if ([super init] != nil) {
-        self.cards = [[NSMutableArray alloc] initWithCapacity:102];
-        self.cards = [NSMutableArray arrayWithObjects: [[Card alloc] initWithName:@"Name"
-                                                                    withColor:@"Grey"
-                                                                  withDescription:@"Discription"
-                                                                withCost:1
-                                                                withQuarries:0
-                                                                withMagic:1
-                                                                withDungeon:0
-                                                                withBricks:0
-                                                                withGems:0
-                                                                withRecruits:0
-                                                                withWall:0
-                                                                        withTower:1], nil];
+        //NSLog(@"cardScope init complete");
     }
     return self;
+}
+
+- (void)loadDataFromPlist
+{
+    NSString *path = [[NSBundle mainBundle] bundlePath];
+    NSString *finalPath = [path stringByAppendingPathComponent:@"CardsList.plist"];
+    NSArray *plistArray  = [NSArray arrayWithContentsOfFile:finalPath];
+    self.cards = [[NSMutableArray alloc] initWithCapacity:102];
+    int x = [plistArray count];
+    for (int i = 0; i < x; i++) {
+        NSDictionary *info = [plistArray objectAtIndex:i];
+        [self.cards addObject:[self fillCardSlotWithInfo:info]];
+    }
+    //NSLog(@"cards count is: %d", [self.cards count]);
+}
+
+- (Card*)fillCardSlotWithInfo:(NSDictionary*)info
+{
+    Card *card = [[Card alloc] init];
+    card.cardName = [info objectForKey:@"cardName"];
+    //NSLog(@"%@", [info objectForKey:@"cardName"]);
+    card.cardColor = [info objectForKey:@"cardColor"];
+    card.cardDescription = [info objectForKey:@"cardDescription"];
+    card.cardCost = [[info objectForKey:@"cardCost"] integerValue];
+    //NSLog(@"%d", [[info objectForKey:@"cardCost"] integerValue]);
+    card.quarriesSelf = [[info objectForKey:@"quarriesSelf"] integerValue];
+    card.quarriesEnemy = [[info objectForKey:@"quarriesEnemy"] integerValue];
+    card.magicsSelf = [[info valueForKey:@"magicsSelf"] integerValue];
+    card.magicsEnemy = [[info valueForKey:@"magicsEnemy"] integerValue];
+    card.dungeonsSelf = [[info valueForKey:@"dungeonsSelf"] integerValue];
+    card.dungeonsEnemy = [[info valueForKey:@"dungeonsEnemy"] integerValue];
+    card.bricksSelf = [[info valueForKey:@"bricksSelf"] integerValue];
+    card.bricksEnemy = [[info valueForKey:@"bricksEnemy"] integerValue];
+    card.gemsSelf = [[info valueForKey:@"gemsSelf"] integerValue];
+    card.gemsEnemy = [[info valueForKey:@"gemsEnemy"] integerValue];
+    card.recruitsSelf = [[info valueForKey:@"recruitsSelf"] integerValue];
+    card.recruitsEnemy = [[info valueForKey:@"recruitsEnemy"] integerValue];
+    card.wallSelf = [[info valueForKey:@"wallSelf"] integerValue];
+    card.wallEnemy = [[info valueForKey:@"wallEnemy"] integerValue];
+    card.towerSelf = [[info valueForKey:@"towerSelf"] integerValue];
+    card.towerEnemy = [[info valueForKey:@"towerEnemy"] integerValue];
+    card.additionalTerms =  [[info valueForKey:@"additionalTerms"] boolValue];
+    
+    //NSLog(@"%@ %@ %@ %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d", card.cardName, card.cardColor, card.cardDescription, card.cardCost, card.quarriesSelf, card.quarriesEnemy, card.magicsSelf, card.magicsEnemy, card.dungeonsSelf, card.dungeonsEnemy, card.bricksSelf, card.bricksEnemy, card.gemsSelf, card.gemsEnemy, card.recruitsSelf, card.recruitsEnemy, card.wallSelf, card.wallEnemy, card.towerSelf, card.towerEnemy, card.additionalTerms);
+    return card;
+}
+
+- (Card*)getRandomCard
+{
+    NSInteger random = (1 + arc4random()%([self.cards count] -1));
+    return [self.cards objectAtIndex:random];
 }
 
 @end
