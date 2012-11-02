@@ -7,7 +7,6 @@
 //
 
 #import "StartViewController.h"
-#import "ComputerModel.h"
 #import "Card.h"
 #import <QuartzCore/QuartzCore.h>
 
@@ -22,25 +21,19 @@
     BOOL gameOver;
 }
 
-- (void)needToUpdateCardAtNumber:(NSInteger)number
+- (void)showCurrentCard:(NSInteger)number withStatus:(NSString *)status
 {
-    switch (number) {
-        case 0:
-            [self updateCard0];
-            break;
-        case 1:
-            [self updateCard1];
-            break;
-        case 2:
-            [self updateCard2];
-            break;
-        case 3:
-            [self updateCard3];
-            break;
-        case 4:
-            [self updateCard4];
-            break;
+    [self configureCard:number withCardNameLabel:self.currentCardName withCardDescriptionLabel:self.currentCardDescription withCardCostLabel:self.currentCardCost withUseButton:nil withDiscardButton:nil];
+    if ([status isEqualToString:@"Discarded"]) {
+        self.discardedImage.hidden = NO;
+    } else {
+        self.discardedImage.hidden = YES;
     }
+}
+
+- (void)needToUpdateCards
+{
+    [self updateAllCards];
 }
 
 - (void)needToUpdateLabelAndButton
@@ -109,14 +102,10 @@
         player.delegate = self;
         [self updatePlayerLabels];
     
-        computer = [[ComputerModel alloc] init];
+        computer = [ComputerModel getComputer];
+        computer.delegate = self;
         [self updateComputerLabels];
-        
-        [self updateCard0];
-        [self updateCard1];
-        [self updateCard2];
-        [self updateCard3];
-        [self updateCard4];
+        [self updateAllCards];
         [self updateCardsButton];
         [self updateCurrentCard];
         gameOver = NO;
@@ -128,6 +117,15 @@
 
 
 #pragma mark - UpdatingLabels
+
+- (void)updateAllCards
+{
+    [self updateCard0];
+    [self updateCard1];
+    [self updateCard2];
+    [self updateCard3];
+    [self updateCard4];
+}
 
 - (void)updatePlayerLabels
 {
@@ -210,7 +208,7 @@ withCardDescriptionLabel:self.playersCard4Description
 {
     self.currentCardName.text = @"No card";
     self.currentCardDescription.text = @"No description";
-    self.currentCardCost.text = @"No cost";
+    self.currentCardCost.text = @"No";
 }
 
 - (BOOL)isButtonAvailableToPlay:(NSInteger)buttonNumber
@@ -237,74 +235,69 @@ withCardDescriptionLabel:self.playersCard4Description
     withUseButton:(UIButton*)useButton
     withDiscardButton:(UIButton*)disButton
 {
-    CATransition *transition = [CATransition animation];
-    transition.type = kCATransitionFade;
-    transition.duration = 1;
-    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault];
     if ([[[[player cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Grey"]) {
         cardName.backgroundColor = [UIColor grayColor];
         cardDescription.backgroundColor = [UIColor grayColor];
         cardCost.backgroundColor = [UIColor grayColor];
+        cardName.textColor = [UIColor whiteColor];
+        cardDescription.textColor = [UIColor whiteColor];
+        cardCost.textColor = [UIColor whiteColor];
     }
     if ([[[[player cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Blue"]) {
         cardName.backgroundColor = [UIColor blueColor];
         cardDescription.backgroundColor = [UIColor blueColor];
         cardCost.backgroundColor = [UIColor blueColor];
+        cardName.textColor = [UIColor whiteColor];
+        cardDescription.textColor = [UIColor whiteColor];
+        cardCost.textColor = [UIColor whiteColor];
     }
     if ([[[[player cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Green"]) {
         cardName.backgroundColor = [UIColor greenColor];
         cardDescription.backgroundColor = [UIColor greenColor];
         cardCost.backgroundColor = [UIColor greenColor];
+        cardName.textColor = [UIColor blackColor];
+        cardDescription.textColor = [UIColor blackColor];
+        cardCost.textColor = [UIColor blackColor];
     }
+    //CATransition *transition = [CATransition animation];
+    //transition.type = kCATransitionFade;
+    //transition.duration = 1;
+    //transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault];
+    //[self.view.layer addAnimation:transition forKey:@"configureCardAnimation"];
     cardName.text = [[[player cards] objectAtIndex:cardNumber] cardName];
     cardDescription.text = [[[player cards] objectAtIndex:cardNumber] cardDescription];
     cardCost.text = [NSString stringWithFormat:@"%d",[[[player cards] objectAtIndex:cardNumber] cardCost]];
-    [self.view.layer addAnimation:transition forKey:nil];
-    //self.card5DiscardButton.enabled = NO;
-    //self.card5DiscardButton.titleLabel.alpha = 0.2f;
+    //[self.view.layer removeAnimationForKey:@"configureCardAnimation"];
+
 }
 
 - (void)updateCardsButton
 {
-    if ([self isButtonAvailableToPlay:0]) {
-        self.card0UseButton.enabled = YES;
-        self.card0UseButton.titleLabel.alpha = 1.0f;
+    [self configureUseCardButton:self.card0UseButton andDisButton:self.card0DiscardButton atNumber:0];
+    [self configureUseCardButton:self.card1UseButton andDisButton:self.card1DiscardButton atNumber:1];
+    [self configureUseCardButton:self.card2UseButton andDisButton:self.card2DiscardButton atNumber:2];
+    [self configureUseCardButton:self.card3UseButton andDisButton:self.card3DiscardButton atNumber:3];
+    [self configureUseCardButton:self.card4UseButton andDisButton:self.card4DiscardButton atNumber:4];
+}
+
+- (void)configureUseCardButton:(UIButton*)use andDisButton:(UIButton*)dis atNumber:(NSInteger)number
+{
+
+    if ([self isButtonAvailableToPlay:number]) {
+        use.enabled = YES;
+        use.titleLabel.alpha = 1.0f;
     } else {
-        self.card0UseButton.enabled = NO;
-        self.card0UseButton.titleLabel.alpha = 0.2f;
+        use.enabled = NO;
+        use.titleLabel.alpha = 0.2f;
     }
-    
-    if ([self isButtonAvailableToPlay:1]) {
-        self.card1UseButton.enabled = YES;
-        self.card1UseButton.titleLabel.alpha = 1.0f;
+    if ([[[player.cards objectAtIndex:number] cardName] isEqualToString:@"Lodestone"]) {
+        dis.enabled = NO;
+        dis.titleLabel.alpha = 0.2f;
     } else {
-        self.card1UseButton.enabled = NO;
-        self.card1UseButton.titleLabel.alpha = 0.2f;
+        dis.enabled = YES;
+        dis.titleLabel.alpha = 1.0f;
     }
-    
-    if ([self isButtonAvailableToPlay:2]) {
-        self.card2UseButton.enabled = YES;
-        self.card2UseButton.titleLabel.alpha = 1.0f;
-    } else {
-        self.card2UseButton.enabled = NO;
-        self.card2UseButton.titleLabel.alpha = 0.2f;
-    }
-    
-    if ([self isButtonAvailableToPlay:3]) {
-        self.card3UseButton.enabled = YES;
-        self.card3UseButton.titleLabel.alpha = 1.0f;
-    } else {
-        self.card3UseButton.enabled = NO;
-        self.card3UseButton.titleLabel.alpha = 0.2f;
-    }
-    
-    if ([self isButtonAvailableToPlay:4]) {
-        self.card4UseButton.enabled = YES;
-        self.card4UseButton.titleLabel.alpha = 1.0f;
-    } else {
-        self.card4UseButton.enabled = NO;
-        self.card4UseButton.titleLabel.alpha = 0.2f;
-    }
+
 }
 
 

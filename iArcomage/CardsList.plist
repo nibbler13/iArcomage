@@ -2470,9 +2470,361 @@
 		<key>cardColor</key>
 		<string>Blue</string>
 		<key>cardName</key>
-		<string>No Card</string>
+		<string>Quarry&apos;s Jelp</string>
 		<key>cardDescription</key>
-		<string>No Card</string>
+		<string>+7 Tower Lose 10 bricks</string>
+		<key>cardCost</key>
+		<integer>4</integer>
+		<key>quarriesSelf</key>
+		<integer>0</integer>
+		<key>quarriesEnemy</key>
+		<integer>0</integer>
+		<key>magicsSelf</key>
+		<integer>0</integer>
+		<key>magicsEnemy</key>
+		<integer>0</integer>
+		<key>dungeonsSelf</key>
+		<integer>0</integer>
+		<key>dungeonsEnemy</key>
+		<integer>0</integer>
+		<key>bricksSelf</key>
+		<integer>-10</integer>
+		<key>bricksEnemy</key>
+		<integer>0</integer>
+		<key>gemsSelf</key>
+		<integer>0</integer>
+		<key>gemsEnemy</key>
+		<integer>0</integer>
+		<key>recruitsSelf</key>
+		<integer>0</integer>
+		<key>recruitsEnemy</key>
+		<integer>0</integer>
+		<key>wallSelf</key>
+		<integer>0</integer>
+		<key>wallEnemy</key>
+		<integer>0</integer>
+		<key>towerSelf</key>
+		<integer>7</integer>
+		<key>towerEnemy</key>
+		<integer>0</integer>
+		<key>additionalTerms</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>cardColor</key>
+		<string>Blue</string>
+		<key>cardName</key>
+		<string>Crystal Shield</string>
+		<key>cardDescription</key>
+		<string>+8 Tower +3 Wall</string>
+		<key>cardCost</key>
+		<integer>12</integer>
+		<key>quarriesSelf</key>
+		<integer>0</integer>
+		<key>quarriesEnemy</key>
+		<integer>0</integer>
+		<key>magicsSelf</key>
+		<integer>0</integer>
+		<key>magicsEnemy</key>
+		<integer>0</integer>
+		<key>dungeonsSelf</key>
+		<integer>0</integer>
+		<key>dungeonsEnemy</key>
+		<integer>0</integer>
+		<key>bricksSelf</key>
+		<integer>0</integer>
+		<key>bricksEnemy</key>
+		<integer>0</integer>
+		<key>gemsSelf</key>
+		<integer>0</integer>
+		<key>gemsEnemy</key>
+		<integer>0</integer>
+		<key>recruitsSelf</key>
+		<integer>0</integer>
+		<key>recruitsEnemy</key>
+		<integer>0</integer>
+		<key>wallSelf</key>
+		<integer>3</integer>
+		<key>wallEnemy</key>
+		<integer>0</integer>
+		<key>towerSelf</key>
+		<integer>8</integer>
+		<key>towerEnemy</key>
+		<integer>0</integer>
+		<key>additionalTerms</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>cardColor</key>
+		<string>Blue</string>
+		<key>cardName</key>
+		<string>Empathy Gem</string>
+		<key>cardDescription</key>
+		<string>+8 Tower +1 Dungeon</string>
+		<key>cardCost</key>
+		<integer>14</integer>
+		<key>quarriesSelf</key>
+		<integer>0</integer>
+		<key>quarriesEnemy</key>
+		<integer>0</integer>
+		<key>magicsSelf</key>
+		<integer>0</integer>
+		<key>magicsEnemy</key>
+		<integer>0</integer>
+		<key>dungeonsSelf</key>
+		<integer>1</integer>
+		<key>dungeonsEnemy</key>
+		<integer>0</integer>
+		<key>bricksSelf</key>
+		<integer>0</integer>
+		<key>bricksEnemy</key>
+		<integer>0</integer>
+		<key>gemsSelf</key>
+		<integer>0</integer>
+		<key>gemsEnemy</key>
+		<integer>0</integer>
+		<key>recruitsSelf</key>
+		<integer>0</integer>
+		<key>recruitsEnemy</key>
+		<integer>0</integer>
+		<key>wallSelf</key>
+		<integer>0</integer>
+		<key>wallEnemy</key>
+		<integer>0</integer>
+		<key>towerSelf</key>
+		<integer>8</integer>
+		<key>towerEnemy</key>
+		<integer>0</integer>
+		<key>additionalTerms</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>cardColor</key>
+		<string>Blue</string>
+		<key>cardName</key>
+		<string>Diamond</string>
+		<key>cardDescription</key>
+		<string>+15 Tower</string>
+		<key>cardCost</key>
+		<integer>16</integer>
+		<key>quarriesSelf</key>
+		<integer>0</integer>
+		<key>quarriesEnemy</key>
+		<integer>0</integer>
+		<key>magicsSelf</key>
+		<integer>0</integer>
+		<key>magicsEnemy</key>
+		<integer>0</integer>
+		<key>dungeonsSelf</key>
+		<integer>0</integer>
+		<key>dungeonsEnemy</key>
+		<integer>0</integer>
+		<key>bricksSelf</key>
+		<integer>0</integer>
+		<key>bricksEnemy</key>
+		<integer>0</integer>
+		<key>gemsSelf</key>
+		<integer>0</integer>
+		<key>gemsEnemy</key>
+		<integer>0</integer>
+		<key>recruitsSelf</key>
+		<integer>0</integer>
+		<key>recruitsEnemy</key>
+		<integer>0</integer>
+		<key>wallSelf</key>
+		<integer>0</integer>
+		<key>wallEnemy</key>
+		<integer>0</integer>
+		<key>towerSelf</key>
+		<integer>15</integer>
+		<key>towerEnemy</key>
+		<integer>0</integer>
+		<key>additionalTerms</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>cardColor</key>
+		<string>Blue</string>
+		<key>cardName</key>
+		<string>Sanctuary</string>
+		<key>cardDescription</key>
+		<string>+10 Tower +5 Wall Gain 5 recruits</string>
+		<key>cardCost</key>
+		<integer>15</integer>
+		<key>quarriesSelf</key>
+		<integer>0</integer>
+		<key>quarriesEnemy</key>
+		<integer>0</integer>
+		<key>magicsSelf</key>
+		<integer>0</integer>
+		<key>magicsEnemy</key>
+		<integer>0</integer>
+		<key>dungeonsSelf</key>
+		<integer>0</integer>
+		<key>dungeonsEnemy</key>
+		<integer>0</integer>
+		<key>bricksSelf</key>
+		<integer>0</integer>
+		<key>bricksEnemy</key>
+		<integer>0</integer>
+		<key>gemsSelf</key>
+		<integer>0</integer>
+		<key>gemsEnemy</key>
+		<integer>0</integer>
+		<key>recruitsSelf</key>
+		<integer>5</integer>
+		<key>recruitsEnemy</key>
+		<integer>0</integer>
+		<key>wallSelf</key>
+		<integer>5</integer>
+		<key>wallEnemy</key>
+		<integer>0</integer>
+		<key>towerSelf</key>
+		<integer>10</integer>
+		<key>towerEnemy</key>
+		<integer>0</integer>
+		<key>additionalTerms</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>cardColor</key>
+		<string>Blue</string>
+		<key>cardName</key>
+		<string>Lava Jewel</string>
+		<key>cardDescription</key>
+		<string>+12 Tower 6 Damage to all enemies</string>
+		<key>cardCost</key>
+		<integer>17</integer>
+		<key>quarriesSelf</key>
+		<integer>0</integer>
+		<key>quarriesEnemy</key>
+		<integer>0</integer>
+		<key>magicsSelf</key>
+		<integer>0</integer>
+		<key>magicsEnemy</key>
+		<integer>0</integer>
+		<key>dungeonsSelf</key>
+		<integer>0</integer>
+		<key>dungeonsEnemy</key>
+		<integer>0</integer>
+		<key>bricksSelf</key>
+		<integer>0</integer>
+		<key>bricksEnemy</key>
+		<integer>0</integer>
+		<key>gemsSelf</key>
+		<integer>0</integer>
+		<key>gemsEnemy</key>
+		<integer>0</integer>
+		<key>recruitsSelf</key>
+		<integer>0</integer>
+		<key>recruitsEnemy</key>
+		<integer>0</integer>
+		<key>wallSelf</key>
+		<integer>0</integer>
+		<key>wallEnemy</key>
+		<integer>-6</integer>
+		<key>towerSelf</key>
+		<integer>12</integer>
+		<key>towerEnemy</key>
+		<integer>0</integer>
+		<key>additionalTerms</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>cardColor</key>
+		<string>Blue</string>
+		<key>cardName</key>
+		<string>Dragon&apos;s Eye</string>
+		<key>cardDescription</key>
+		<string>+20 Tower</string>
+		<key>cardCost</key>
+		<integer>21</integer>
+		<key>quarriesSelf</key>
+		<integer>0</integer>
+		<key>quarriesEnemy</key>
+		<integer>0</integer>
+		<key>magicsSelf</key>
+		<integer>0</integer>
+		<key>magicsEnemy</key>
+		<integer>0</integer>
+		<key>dungeonsSelf</key>
+		<integer>0</integer>
+		<key>dungeonsEnemy</key>
+		<integer>0</integer>
+		<key>bricksSelf</key>
+		<integer>0</integer>
+		<key>bricksEnemy</key>
+		<integer>0</integer>
+		<key>gemsSelf</key>
+		<integer>0</integer>
+		<key>gemsEnemy</key>
+		<integer>0</integer>
+		<key>recruitsSelf</key>
+		<integer>0</integer>
+		<key>recruitsEnemy</key>
+		<integer>0</integer>
+		<key>wallSelf</key>
+		<integer>0</integer>
+		<key>wallEnemy</key>
+		<integer>0</integer>
+		<key>towerSelf</key>
+		<integer>20</integer>
+		<key>towerEnemy</key>
+		<integer>0</integer>
+		<key>additionalTerms</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>cardColor</key>
+		<string>Blue</string>
+		<key>cardName</key>
+		<string>Crystalize</string>
+		<key>cardDescription</key>
+		<string>+11 Tower - 6 Wall</string>
+		<key>cardCost</key>
+		<integer>8</integer>
+		<key>quarriesSelf</key>
+		<integer>0</integer>
+		<key>quarriesEnemy</key>
+		<integer>0</integer>
+		<key>magicsSelf</key>
+		<integer>0</integer>
+		<key>magicsEnemy</key>
+		<integer>0</integer>
+		<key>dungeonsSelf</key>
+		<integer>0</integer>
+		<key>dungeonsEnemy</key>
+		<integer>0</integer>
+		<key>bricksSelf</key>
+		<integer>0</integer>
+		<key>bricksEnemy</key>
+		<integer>0</integer>
+		<key>gemsSelf</key>
+		<integer>0</integer>
+		<key>gemsEnemy</key>
+		<integer>0</integer>
+		<key>recruitsSelf</key>
+		<integer>0</integer>
+		<key>recruitsEnemy</key>
+		<integer>0</integer>
+		<key>wallSelf</key>
+		<integer>-6</integer>
+		<key>wallEnemy</key>
+		<integer>0</integer>
+		<key>towerSelf</key>
+		<integer>11</integer>
+		<key>towerEnemy</key>
+		<integer>0</integer>
+		<key>additionalTerms</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>cardColor</key>
+		<string>Blue</string>
+		<key>cardName</key>
+		<string>Bag of Baubles</string>
+		<key>cardDescription</key>
+		<string>If Tower &lt; enemy Tower +2 Tower, else +1 Tower</string>
 		<key>cardCost</key>
 		<integer>0</integer>
 		<key>quarriesSelf</key>
@@ -2508,17 +2860,105 @@
 		<key>towerEnemy</key>
 		<integer>0</integer>
 		<key>additionalTerms</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>cardColor</key>
+		<string>Blue</string>
+		<key>cardName</key>
+		<string>Rainbow</string>
+		<key>cardDescription</key>
+		<string>+1 Tower to all players. You gain 3 gems</string>
+		<key>cardCost</key>
+		<integer>0</integer>
+		<key>quarriesSelf</key>
+		<integer>0</integer>
+		<key>quarriesEnemy</key>
+		<integer>0</integer>
+		<key>magicsSelf</key>
+		<integer>0</integer>
+		<key>magicsEnemy</key>
+		<integer>0</integer>
+		<key>dungeonsSelf</key>
+		<integer>0</integer>
+		<key>dungeonsEnemy</key>
+		<integer>0</integer>
+		<key>bricksSelf</key>
+		<integer>0</integer>
+		<key>bricksEnemy</key>
+		<integer>0</integer>
+		<key>gemsSelf</key>
+		<integer>3</integer>
+		<key>gemsEnemy</key>
+		<integer>0</integer>
+		<key>recruitsSelf</key>
+		<integer>0</integer>
+		<key>recruitsEnemy</key>
+		<integer>0</integer>
+		<key>wallSelf</key>
+		<integer>0</integer>
+		<key>wallEnemy</key>
+		<integer>0</integer>
+		<key>towerSelf</key>
+		<integer>1</integer>
+		<key>towerEnemy</key>
+		<integer>1</integer>
+		<key>additionalTerms</key>
 		<false/>
 	</dict>
 	<dict>
 		<key>cardColor</key>
-		<string>No Card</string>
+		<string>Blue</string>
 		<key>cardName</key>
-		<string>No Card</string>
+		<string>Apprentice</string>
 		<key>cardDescription</key>
-		<string>No Card</string>
+		<string>+4 Tower, you lose 3 recruits. 2 damage to enemy Tower</string>
 		<key>cardCost</key>
+		<integer>5</integer>
+		<key>quarriesSelf</key>
 		<integer>0</integer>
+		<key>quarriesEnemy</key>
+		<integer>0</integer>
+		<key>magicsSelf</key>
+		<integer>0</integer>
+		<key>magicsEnemy</key>
+		<integer>0</integer>
+		<key>dungeonsSelf</key>
+		<integer>0</integer>
+		<key>dungeonsEnemy</key>
+		<integer>0</integer>
+		<key>bricksSelf</key>
+		<integer>0</integer>
+		<key>bricksEnemy</key>
+		<integer>0</integer>
+		<key>gemsSelf</key>
+		<integer>0</integer>
+		<key>gemsEnemy</key>
+		<integer>0</integer>
+		<key>recruitsSelf</key>
+		<integer>-3</integer>
+		<key>recruitsEnemy</key>
+		<integer>0</integer>
+		<key>wallSelf</key>
+		<integer>0</integer>
+		<key>wallEnemy</key>
+		<integer>0</integer>
+		<key>towerSelf</key>
+		<integer>4</integer>
+		<key>towerEnemy</key>
+		<integer>-2</integer>
+		<key>additionalTerms</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>cardColor</key>
+		<string>Blue</string>
+		<key>cardName</key>
+		<string>Lightning Shard</string>
+		<key>cardDescription</key>
+		<string>If Tower &gt; enemy Wall, 8 damage to enemy Tower, else 8 damage</string>
+		<key>cardCost</key>
+		<integer>11</integer>
 		<key>quarriesSelf</key>
 		<integer>0</integer>
 		<key>quarriesEnemy</key>
@@ -2552,17 +2992,105 @@
 		<key>towerEnemy</key>
 		<integer>0</integer>
 		<key>additionalTerms</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>cardColor</key>
+		<string>Blue</string>
+		<key>cardName</key>
+		<string>Phase Jewel</string>
+		<key>cardDescription</key>
+		<string>+13 Tower +6 Recruits +6 Bricks</string>
+		<key>cardCost</key>
+		<integer>18</integer>
+		<key>quarriesSelf</key>
+		<integer>0</integer>
+		<key>quarriesEnemy</key>
+		<integer>0</integer>
+		<key>magicsSelf</key>
+		<integer>0</integer>
+		<key>magicsEnemy</key>
+		<integer>0</integer>
+		<key>dungeonsSelf</key>
+		<integer>0</integer>
+		<key>dungeonsEnemy</key>
+		<integer>0</integer>
+		<key>bricksSelf</key>
+		<integer>6</integer>
+		<key>bricksEnemy</key>
+		<integer>0</integer>
+		<key>gemsSelf</key>
+		<integer>0</integer>
+		<key>gemsEnemy</key>
+		<integer>0</integer>
+		<key>recruitsSelf</key>
+		<integer>6</integer>
+		<key>recruitsEnemy</key>
+		<integer>0</integer>
+		<key>wallSelf</key>
+		<integer>0</integer>
+		<key>wallEnemy</key>
+		<integer>0</integer>
+		<key>towerSelf</key>
+		<integer>13</integer>
+		<key>towerEnemy</key>
+		<integer>0</integer>
+		<key>additionalTerms</key>
 		<false/>
 	</dict>
 	<dict>
 		<key>cardColor</key>
-		<string>No Card</string>
+		<string>Green</string>
 		<key>cardName</key>
-		<string>No Card</string>
+		<string>MadCowDisease</string>
 		<key>cardDescription</key>
-		<string>No Card</string>
+		<string>All players lose 6 recruits</string>
 		<key>cardCost</key>
 		<integer>0</integer>
+		<key>quarriesSelf</key>
+		<integer>0</integer>
+		<key>quarriesEnemy</key>
+		<integer>0</integer>
+		<key>magicsSelf</key>
+		<integer>0</integer>
+		<key>magicsEnemy</key>
+		<integer>0</integer>
+		<key>dungeonsSelf</key>
+		<integer>0</integer>
+		<key>dungeonsEnemy</key>
+		<integer>0</integer>
+		<key>bricksSelf</key>
+		<integer>0</integer>
+		<key>bricksEnemy</key>
+		<integer>0</integer>
+		<key>gemsSelf</key>
+		<integer>0</integer>
+		<key>gemsEnemy</key>
+		<integer>0</integer>
+		<key>recruitsSelf</key>
+		<integer>-6</integer>
+		<key>recruitsEnemy</key>
+		<integer>-6</integer>
+		<key>wallSelf</key>
+		<integer>0</integer>
+		<key>wallEnemy</key>
+		<integer>0</integer>
+		<key>towerSelf</key>
+		<integer>0</integer>
+		<key>towerEnemy</key>
+		<integer>0</integer>
+		<key>additionalTerms</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>cardColor</key>
+		<string>Green</string>
+		<key>cardName</key>
+		<string>Faerie</string>
+		<key>cardDescription</key>
+		<string>2 Damage Play again</string>
+		<key>cardCost</key>
+		<integer>1</integer>
 		<key>quarriesSelf</key>
 		<integer>0</integer>
 		<key>quarriesEnemy</key>
@@ -2596,17 +3124,105 @@
 		<key>towerEnemy</key>
 		<integer>0</integer>
 		<key>additionalTerms</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>cardColor</key>
+		<string>Green</string>
+		<key>cardName</key>
+		<string>Moody Goblins</string>
+		<key>cardDescription</key>
+		<string>4 Damage You lose 3 gems</string>
+		<key>cardCost</key>
+		<integer>1</integer>
+		<key>quarriesSelf</key>
+		<integer>0</integer>
+		<key>quarriesEnemy</key>
+		<integer>0</integer>
+		<key>magicsSelf</key>
+		<integer>0</integer>
+		<key>magicsEnemy</key>
+		<integer>0</integer>
+		<key>dungeonsSelf</key>
+		<integer>0</integer>
+		<key>dungeonsEnemy</key>
+		<integer>0</integer>
+		<key>bricksSelf</key>
+		<integer>0</integer>
+		<key>bricksEnemy</key>
+		<integer>0</integer>
+		<key>gemsSelf</key>
+		<integer>-3</integer>
+		<key>gemsEnemy</key>
+		<integer>0</integer>
+		<key>recruitsSelf</key>
+		<integer>0</integer>
+		<key>recruitsEnemy</key>
+		<integer>0</integer>
+		<key>wallSelf</key>
+		<integer>0</integer>
+		<key>wallEnemy</key>
+		<integer>-4</integer>
+		<key>towerSelf</key>
+		<integer>0</integer>
+		<key>towerEnemy</key>
+		<integer>0</integer>
+		<key>additionalTerms</key>
 		<false/>
 	</dict>
 	<dict>
 		<key>cardColor</key>
-		<string>No Card</string>
+		<string>Green</string>
 		<key>cardName</key>
-		<string>No Card</string>
+		<string>Minotaur</string>
 		<key>cardDescription</key>
-		<string>No Card</string>
+		<string>+1 Dungeon</string>
 		<key>cardCost</key>
+		<integer>3</integer>
+		<key>quarriesSelf</key>
 		<integer>0</integer>
+		<key>quarriesEnemy</key>
+		<integer>0</integer>
+		<key>magicsSelf</key>
+		<integer>0</integer>
+		<key>magicsEnemy</key>
+		<integer>0</integer>
+		<key>dungeonsSelf</key>
+		<integer>1</integer>
+		<key>dungeonsEnemy</key>
+		<integer>0</integer>
+		<key>bricksSelf</key>
+		<integer>0</integer>
+		<key>bricksEnemy</key>
+		<integer>0</integer>
+		<key>gemsSelf</key>
+		<integer>0</integer>
+		<key>gemsEnemy</key>
+		<integer>0</integer>
+		<key>recruitsSelf</key>
+		<integer>0</integer>
+		<key>recruitsEnemy</key>
+		<integer>0</integer>
+		<key>wallSelf</key>
+		<integer>0</integer>
+		<key>wallEnemy</key>
+		<integer>0</integer>
+		<key>towerSelf</key>
+		<integer>0</integer>
+		<key>towerEnemy</key>
+		<integer>0</integer>
+		<key>additionalTerms</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>cardColor</key>
+		<string>Green</string>
+		<key>cardName</key>
+		<string>Elven Scout</string>
+		<key>cardDescription</key>
+		<string>Draw 1 card Discard 1 card Play again</string>
+		<key>cardCost</key>
+		<integer>2</integer>
 		<key>quarriesSelf</key>
 		<integer>0</integer>
 		<key>quarriesEnemy</key>
@@ -2640,17 +3256,105 @@
 		<key>towerEnemy</key>
 		<integer>0</integer>
 		<key>additionalTerms</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>cardColor</key>
+		<string>Green</string>
+		<key>cardName</key>
+		<string>Goblin Mob</string>
+		<key>cardDescription</key>
+		<string>6 Damage You take 3 damage</string>
+		<key>cardCost</key>
+		<integer>3</integer>
+		<key>quarriesSelf</key>
+		<integer>0</integer>
+		<key>quarriesEnemy</key>
+		<integer>0</integer>
+		<key>magicsSelf</key>
+		<integer>0</integer>
+		<key>magicsEnemy</key>
+		<integer>0</integer>
+		<key>dungeonsSelf</key>
+		<integer>0</integer>
+		<key>dungeonsEnemy</key>
+		<integer>0</integer>
+		<key>bricksSelf</key>
+		<integer>0</integer>
+		<key>bricksEnemy</key>
+		<integer>0</integer>
+		<key>gemsSelf</key>
+		<integer>0</integer>
+		<key>gemsEnemy</key>
+		<integer>0</integer>
+		<key>recruitsSelf</key>
+		<integer>0</integer>
+		<key>recruitsEnemy</key>
+		<integer>0</integer>
+		<key>wallSelf</key>
+		<integer>-3</integer>
+		<key>wallEnemy</key>
+		<integer>-6</integer>
+		<key>towerSelf</key>
+		<integer>0</integer>
+		<key>towerEnemy</key>
+		<integer>0</integer>
+		<key>additionalTerms</key>
 		<false/>
 	</dict>
 	<dict>
 		<key>cardColor</key>
-		<string>No Card</string>
+		<string>Green</string>
 		<key>cardName</key>
-		<string>No Card</string>
+		<string>Goblin Archers</string>
 		<key>cardDescription</key>
-		<string>No Card</string>
+		<string>3 Damage to enemy tower You take 1 damage</string>
 		<key>cardCost</key>
+		<integer>4</integer>
+		<key>quarriesSelf</key>
 		<integer>0</integer>
+		<key>quarriesEnemy</key>
+		<integer>0</integer>
+		<key>magicsSelf</key>
+		<integer>0</integer>
+		<key>magicsEnemy</key>
+		<integer>0</integer>
+		<key>dungeonsSelf</key>
+		<integer>0</integer>
+		<key>dungeonsEnemy</key>
+		<integer>0</integer>
+		<key>bricksSelf</key>
+		<integer>0</integer>
+		<key>bricksEnemy</key>
+		<integer>0</integer>
+		<key>gemsSelf</key>
+		<integer>0</integer>
+		<key>gemsEnemy</key>
+		<integer>0</integer>
+		<key>recruitsSelf</key>
+		<integer>0</integer>
+		<key>recruitsEnemy</key>
+		<integer>0</integer>
+		<key>wallSelf</key>
+		<integer>-1</integer>
+		<key>wallEnemy</key>
+		<integer>0</integer>
+		<key>towerSelf</key>
+		<integer>0</integer>
+		<key>towerEnemy</key>
+		<integer>-3</integer>
+		<key>additionalTerms</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>cardColor</key>
+		<string>Green</string>
+		<key>cardName</key>
+		<string>Shadow Faerie</string>
+		<key>cardDescription</key>
+		<string>2 Damage to enemy tower Play again</string>
+		<key>cardCost</key>
+		<integer>6</integer>
 		<key>quarriesSelf</key>
 		<integer>0</integer>
 		<key>quarriesEnemy</key>
@@ -2684,17 +3388,457 @@
 		<key>towerEnemy</key>
 		<integer>0</integer>
 		<key>additionalTerms</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>cardColor</key>
+		<string>Green</string>
+		<key>cardName</key>
+		<string>Orc</string>
+		<key>cardDescription</key>
+		<string>5 Damage</string>
+		<key>cardCost</key>
+		<integer>3</integer>
+		<key>quarriesSelf</key>
+		<integer>0</integer>
+		<key>quarriesEnemy</key>
+		<integer>0</integer>
+		<key>magicsSelf</key>
+		<integer>0</integer>
+		<key>magicsEnemy</key>
+		<integer>0</integer>
+		<key>dungeonsSelf</key>
+		<integer>0</integer>
+		<key>dungeonsEnemy</key>
+		<integer>0</integer>
+		<key>bricksSelf</key>
+		<integer>0</integer>
+		<key>bricksEnemy</key>
+		<integer>0</integer>
+		<key>gemsSelf</key>
+		<integer>0</integer>
+		<key>gemsEnemy</key>
+		<integer>0</integer>
+		<key>recruitsSelf</key>
+		<integer>0</integer>
+		<key>recruitsEnemy</key>
+		<integer>0</integer>
+		<key>wallSelf</key>
+		<integer>0</integer>
+		<key>wallEnemy</key>
+		<integer>-5</integer>
+		<key>towerSelf</key>
+		<integer>0</integer>
+		<key>towerEnemy</key>
+		<integer>0</integer>
+		<key>additionalTerms</key>
 		<false/>
 	</dict>
 	<dict>
 		<key>cardColor</key>
-		<string>No Card</string>
+		<string>Green</string>
 		<key>cardName</key>
-		<string>No Card</string>
+		<string>Dwarves</string>
 		<key>cardDescription</key>
-		<string>No Card</string>
+		<string>4 Damage +3 Wall</string>
+		<key>cardCost</key>
+		<integer>5</integer>
+		<key>quarriesSelf</key>
+		<integer>0</integer>
+		<key>quarriesEnemy</key>
+		<integer>0</integer>
+		<key>magicsSelf</key>
+		<integer>0</integer>
+		<key>magicsEnemy</key>
+		<integer>0</integer>
+		<key>dungeonsSelf</key>
+		<integer>0</integer>
+		<key>dungeonsEnemy</key>
+		<integer>0</integer>
+		<key>bricksSelf</key>
+		<integer>0</integer>
+		<key>bricksEnemy</key>
+		<integer>0</integer>
+		<key>gemsSelf</key>
+		<integer>0</integer>
+		<key>gemsEnemy</key>
+		<integer>0</integer>
+		<key>recruitsSelf</key>
+		<integer>0</integer>
+		<key>recruitsEnemy</key>
+		<integer>0</integer>
+		<key>wallSelf</key>
+		<integer>3</integer>
+		<key>wallEnemy</key>
+		<integer>-4</integer>
+		<key>towerSelf</key>
+		<integer>0</integer>
+		<key>towerEnemy</key>
+		<integer>0</integer>
+		<key>additionalTerms</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>cardColor</key>
+		<string>Green</string>
+		<key>cardName</key>
+		<string>Little Snakes</string>
+		<key>cardDescription</key>
+		<string>4 Damage to enemy tower</string>
+		<key>cardCost</key>
+		<integer>6</integer>
+		<key>quarriesSelf</key>
+		<integer>0</integer>
+		<key>quarriesEnemy</key>
+		<integer>0</integer>
+		<key>magicsSelf</key>
+		<integer>0</integer>
+		<key>magicsEnemy</key>
+		<integer>0</integer>
+		<key>dungeonsSelf</key>
+		<integer>0</integer>
+		<key>dungeonsEnemy</key>
+		<integer>0</integer>
+		<key>bricksSelf</key>
+		<integer>0</integer>
+		<key>bricksEnemy</key>
+		<integer>0</integer>
+		<key>gemsSelf</key>
+		<integer>0</integer>
+		<key>gemsEnemy</key>
+		<integer>0</integer>
+		<key>recruitsSelf</key>
+		<integer>0</integer>
+		<key>recruitsEnemy</key>
+		<integer>0</integer>
+		<key>wallSelf</key>
+		<integer>0</integer>
+		<key>wallEnemy</key>
+		<integer>0</integer>
+		<key>towerSelf</key>
+		<integer>0</integer>
+		<key>towerEnemy</key>
+		<integer>-4</integer>
+		<key>additionalTerms</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>cardColor</key>
+		<string>Green</string>
+		<key>cardName</key>
+		<string>Troll Trainer</string>
+		<key>cardDescription</key>
+		<string>+2 Dungeon</string>
+		<key>cardCost</key>
+		<integer>7</integer>
+		<key>quarriesSelf</key>
+		<integer>0</integer>
+		<key>quarriesEnemy</key>
+		<integer>0</integer>
+		<key>magicsSelf</key>
+		<integer>0</integer>
+		<key>magicsEnemy</key>
+		<integer>0</integer>
+		<key>dungeonsSelf</key>
+		<integer>2</integer>
+		<key>dungeonsEnemy</key>
+		<integer>0</integer>
+		<key>bricksSelf</key>
+		<integer>0</integer>
+		<key>bricksEnemy</key>
+		<integer>0</integer>
+		<key>gemsSelf</key>
+		<integer>0</integer>
+		<key>gemsEnemy</key>
+		<integer>0</integer>
+		<key>recruitsSelf</key>
+		<integer>0</integer>
+		<key>recruitsEnemy</key>
+		<integer>0</integer>
+		<key>wallSelf</key>
+		<integer>0</integer>
+		<key>wallEnemy</key>
+		<integer>0</integer>
+		<key>towerSelf</key>
+		<integer>0</integer>
+		<key>towerEnemy</key>
+		<integer>0</integer>
+		<key>additionalTerms</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>cardColor</key>
+		<string>Green</string>
+		<key>cardName</key>
+		<string>Tower Gremlin</string>
+		<key>cardDescription</key>
+		<string>2 Damage +4 Wall +2 Tower</string>
+		<key>cardCost</key>
+		<integer>8</integer>
+		<key>quarriesSelf</key>
+		<integer>0</integer>
+		<key>quarriesEnemy</key>
+		<integer>0</integer>
+		<key>magicsSelf</key>
+		<integer>0</integer>
+		<key>magicsEnemy</key>
+		<integer>0</integer>
+		<key>dungeonsSelf</key>
+		<integer>0</integer>
+		<key>dungeonsEnemy</key>
+		<integer>0</integer>
+		<key>bricksSelf</key>
+		<integer>0</integer>
+		<key>bricksEnemy</key>
+		<integer>0</integer>
+		<key>gemsSelf</key>
+		<integer>0</integer>
+		<key>gemsEnemy</key>
+		<integer>0</integer>
+		<key>recruitsSelf</key>
+		<integer>0</integer>
+		<key>recruitsEnemy</key>
+		<integer>0</integer>
+		<key>wallSelf</key>
+		<integer>4</integer>
+		<key>wallEnemy</key>
+		<integer>-2</integer>
+		<key>towerSelf</key>
+		<integer>2</integer>
+		<key>towerEnemy</key>
+		<integer>0</integer>
+		<key>additionalTerms</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>cardColor</key>
+		<string>Green</string>
+		<key>cardName</key>
+		<string>Full Moon</string>
+		<key>cardDescription</key>
+		<string>+1 to all Player&apos;s Dungeon You gain 3 recruits</string>
 		<key>cardCost</key>
 		<integer>0</integer>
+		<key>quarriesSelf</key>
+		<integer>0</integer>
+		<key>quarriesEnemy</key>
+		<integer>0</integer>
+		<key>magicsSelf</key>
+		<integer>0</integer>
+		<key>magicsEnemy</key>
+		<integer>0</integer>
+		<key>dungeonsSelf</key>
+		<integer>1</integer>
+		<key>dungeonsEnemy</key>
+		<integer>1</integer>
+		<key>bricksSelf</key>
+		<integer>0</integer>
+		<key>bricksEnemy</key>
+		<integer>0</integer>
+		<key>gemsSelf</key>
+		<integer>0</integer>
+		<key>gemsEnemy</key>
+		<integer>0</integer>
+		<key>recruitsSelf</key>
+		<integer>3</integer>
+		<key>recruitsEnemy</key>
+		<integer>0</integer>
+		<key>wallSelf</key>
+		<integer>0</integer>
+		<key>wallEnemy</key>
+		<integer>0</integer>
+		<key>towerSelf</key>
+		<integer>0</integer>
+		<key>towerEnemy</key>
+		<integer>0</integer>
+		<key>additionalTerms</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>cardColor</key>
+		<string>Green</string>
+		<key>cardName</key>
+		<string>Slasher</string>
+		<key>cardDescription</key>
+		<string>6 Damage</string>
+		<key>cardCost</key>
+		<integer>5</integer>
+		<key>quarriesSelf</key>
+		<integer>0</integer>
+		<key>quarriesEnemy</key>
+		<integer>0</integer>
+		<key>magicsSelf</key>
+		<integer>0</integer>
+		<key>magicsEnemy</key>
+		<integer>0</integer>
+		<key>dungeonsSelf</key>
+		<integer>0</integer>
+		<key>dungeonsEnemy</key>
+		<integer>0</integer>
+		<key>bricksSelf</key>
+		<integer>0</integer>
+		<key>bricksEnemy</key>
+		<integer>0</integer>
+		<key>gemsSelf</key>
+		<integer>0</integer>
+		<key>gemsEnemy</key>
+		<integer>0</integer>
+		<key>recruitsSelf</key>
+		<integer>0</integer>
+		<key>recruitsEnemy</key>
+		<integer>0</integer>
+		<key>wallSelf</key>
+		<integer>0</integer>
+		<key>wallEnemy</key>
+		<integer>-6</integer>
+		<key>towerSelf</key>
+		<integer>0</integer>
+		<key>towerEnemy</key>
+		<integer>0</integer>
+		<key>additionalTerms</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>cardColor</key>
+		<string>Green</string>
+		<key>cardName</key>
+		<string>Ogre</string>
+		<key>cardDescription</key>
+		<string>7 Damage</string>
+		<key>cardCost</key>
+		<integer>6</integer>
+		<key>quarriesSelf</key>
+		<integer>0</integer>
+		<key>quarriesEnemy</key>
+		<integer>0</integer>
+		<key>magicsSelf</key>
+		<integer>0</integer>
+		<key>magicsEnemy</key>
+		<integer>0</integer>
+		<key>dungeonsSelf</key>
+		<integer>0</integer>
+		<key>dungeonsEnemy</key>
+		<integer>0</integer>
+		<key>bricksSelf</key>
+		<integer>0</integer>
+		<key>bricksEnemy</key>
+		<integer>0</integer>
+		<key>gemsSelf</key>
+		<integer>0</integer>
+		<key>gemsEnemy</key>
+		<integer>0</integer>
+		<key>recruitsSelf</key>
+		<integer>0</integer>
+		<key>recruitsEnemy</key>
+		<integer>0</integer>
+		<key>wallSelf</key>
+		<integer>0</integer>
+		<key>wallEnemy</key>
+		<integer>-7</integer>
+		<key>towerSelf</key>
+		<integer>0</integer>
+		<key>towerEnemy</key>
+		<integer>0</integer>
+		<key>additionalTerms</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>cardColor</key>
+		<string>Green</string>
+		<key>cardName</key>
+		<string>Rabid Sheep</string>
+		<key>cardDescription</key>
+		<string>6 Damage Enemy loses 3 recruits</string>
+		<key>cardCost</key>
+		<integer>6</integer>
+		<key>quarriesSelf</key>
+		<integer>0</integer>
+		<key>quarriesEnemy</key>
+		<integer>0</integer>
+		<key>magicsSelf</key>
+		<integer>0</integer>
+		<key>magicsEnemy</key>
+		<integer>0</integer>
+		<key>dungeonsSelf</key>
+		<integer>0</integer>
+		<key>dungeonsEnemy</key>
+		<integer>0</integer>
+		<key>bricksSelf</key>
+		<integer>0</integer>
+		<key>bricksEnemy</key>
+		<integer>0</integer>
+		<key>gemsSelf</key>
+		<integer>0</integer>
+		<key>gemsEnemy</key>
+		<integer>0</integer>
+		<key>recruitsSelf</key>
+		<integer>0</integer>
+		<key>recruitsEnemy</key>
+		<integer>-3</integer>
+		<key>wallSelf</key>
+		<integer>0</integer>
+		<key>wallEnemy</key>
+		<integer>-6</integer>
+		<key>towerSelf</key>
+		<integer>0</integer>
+		<key>towerEnemy</key>
+		<integer>0</integer>
+		<key>additionalTerms</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>cardColor</key>
+		<string>Green</string>
+		<key>cardName</key>
+		<string>Imp</string>
+		<key>cardDescription</key>
+		<string>6 Damage. All players lose 5 bricks, gems and recruits</string>
+		<key>cardCost</key>
+		<integer>5</integer>
+		<key>quarriesSelf</key>
+		<integer>0</integer>
+		<key>quarriesEnemy</key>
+		<integer>0</integer>
+		<key>magicsSelf</key>
+		<integer>0</integer>
+		<key>magicsEnemy</key>
+		<integer>0</integer>
+		<key>dungeonsSelf</key>
+		<integer>0</integer>
+		<key>dungeonsEnemy</key>
+		<integer>0</integer>
+		<key>bricksSelf</key>
+		<integer>-5</integer>
+		<key>bricksEnemy</key>
+		<integer>-5</integer>
+		<key>gemsSelf</key>
+		<integer>-5</integer>
+		<key>gemsEnemy</key>
+		<integer>-5</integer>
+		<key>recruitsSelf</key>
+		<integer>-5</integer>
+		<key>recruitsEnemy</key>
+		<integer>-5</integer>
+		<key>wallSelf</key>
+		<integer>0</integer>
+		<key>wallEnemy</key>
+		<integer>-6</integer>
+		<key>towerSelf</key>
+		<integer>0</integer>
+		<key>towerEnemy</key>
+		<integer>0</integer>
+		<key>additionalTerms</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>cardColor</key>
+		<string>Green</string>
+		<key>cardName</key>
+		<string>Spizzer</string>
+		<key>cardDescription</key>
+		<string>If enemy wall = 0, 10 damage, else 6 damage</string>
+		<key>cardCost</key>
+		<integer>8</integer>
 		<key>quarriesSelf</key>
 		<integer>0</integer>
 		<key>quarriesEnemy</key>
@@ -2728,17 +3872,61 @@
 		<key>towerEnemy</key>
 		<integer>0</integer>
 		<key>additionalTerms</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>cardColor</key>
+		<string>Green</string>
+		<key>cardName</key>
+		<string>Werewolf</string>
+		<key>cardDescription</key>
+		<string>9 Damage</string>
+		<key>cardCost</key>
+		<integer>9</integer>
+		<key>quarriesSelf</key>
+		<integer>0</integer>
+		<key>quarriesEnemy</key>
+		<integer>0</integer>
+		<key>magicsSelf</key>
+		<integer>0</integer>
+		<key>magicsEnemy</key>
+		<integer>0</integer>
+		<key>dungeonsSelf</key>
+		<integer>0</integer>
+		<key>dungeonsEnemy</key>
+		<integer>0</integer>
+		<key>bricksSelf</key>
+		<integer>0</integer>
+		<key>bricksEnemy</key>
+		<integer>0</integer>
+		<key>gemsSelf</key>
+		<integer>0</integer>
+		<key>gemsEnemy</key>
+		<integer>0</integer>
+		<key>recruitsSelf</key>
+		<integer>0</integer>
+		<key>recruitsEnemy</key>
+		<integer>0</integer>
+		<key>wallSelf</key>
+		<integer>0</integer>
+		<key>wallEnemy</key>
+		<integer>-9</integer>
+		<key>towerSelf</key>
+		<integer>0</integer>
+		<key>towerEnemy</key>
+		<integer>0</integer>
+		<key>additionalTerms</key>
 		<false/>
 	</dict>
 	<dict>
 		<key>cardColor</key>
-		<string>No Card</string>
+		<string>Green</string>
 		<key>cardName</key>
-		<string>No Card</string>
+		<string>Corrosion Cloud</string>
 		<key>cardDescription</key>
-		<string>No Card</string>
+		<string>If enemy wall&gt;0, 10 damage, else 7 damage</string>
 		<key>cardCost</key>
-		<integer>0</integer>
+		<integer>11</integer>
 		<key>quarriesSelf</key>
 		<integer>0</integer>
 		<key>quarriesEnemy</key>
@@ -2772,17 +3960,17 @@
 		<key>towerEnemy</key>
 		<integer>0</integer>
 		<key>additionalTerms</key>
-		<false/>
+		<true/>
 	</dict>
 	<dict>
 		<key>cardColor</key>
-		<string>No Card</string>
+		<string>Green</string>
 		<key>cardName</key>
-		<string>No Card</string>
+		<string>Unicorn</string>
 		<key>cardDescription</key>
-		<string>No Card</string>
+		<string>If magic&gt;enemy magic, 12 damage, else 8 damage</string>
 		<key>cardCost</key>
-		<integer>0</integer>
+		<integer>9</integer>
 		<key>quarriesSelf</key>
 		<integer>0</integer>
 		<key>quarriesEnemy</key>
@@ -2816,17 +4004,17 @@
 		<key>towerEnemy</key>
 		<integer>0</integer>
 		<key>additionalTerms</key>
-		<false/>
+		<true/>
 	</dict>
 	<dict>
 		<key>cardColor</key>
-		<string>No Card</string>
+		<string>Green</string>
 		<key>cardName</key>
-		<string>No Card</string>
+		<string>Elven Archers</string>
 		<key>cardDescription</key>
-		<string>No Card</string>
+		<string>If wall&gt;enemy wall, 6 damage to enemy tower, else 6 damage</string>
 		<key>cardCost</key>
-		<integer>0</integer>
+		<integer>10</integer>
 		<key>quarriesSelf</key>
 		<integer>0</integer>
 		<key>quarriesEnemy</key>
@@ -2860,17 +4048,281 @@
 		<key>towerEnemy</key>
 		<integer>0</integer>
 		<key>additionalTerms</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>cardColor</key>
+		<string>Green</string>
+		<key>cardName</key>
+		<string>Succubus</string>
+		<key>cardDescription</key>
+		<string>5 Damage to enemy tower, enemy loses 8 recruits</string>
+		<key>cardCost</key>
+		<integer>14</integer>
+		<key>quarriesSelf</key>
+		<integer>0</integer>
+		<key>quarriesEnemy</key>
+		<integer>0</integer>
+		<key>magicsSelf</key>
+		<integer>0</integer>
+		<key>magicsEnemy</key>
+		<integer>0</integer>
+		<key>dungeonsSelf</key>
+		<integer>0</integer>
+		<key>dungeonsEnemy</key>
+		<integer>0</integer>
+		<key>bricksSelf</key>
+		<integer>0</integer>
+		<key>bricksEnemy</key>
+		<integer>0</integer>
+		<key>gemsSelf</key>
+		<integer>0</integer>
+		<key>gemsEnemy</key>
+		<integer>0</integer>
+		<key>recruitsSelf</key>
+		<integer>0</integer>
+		<key>recruitsEnemy</key>
+		<integer>-8</integer>
+		<key>wallSelf</key>
+		<integer>0</integer>
+		<key>wallEnemy</key>
+		<integer>0</integer>
+		<key>towerSelf</key>
+		<integer>0</integer>
+		<key>towerEnemy</key>
+		<integer>-5</integer>
+		<key>additionalTerms</key>
 		<false/>
 	</dict>
 	<dict>
 		<key>cardColor</key>
-		<string>No Card</string>
+		<string>Green</string>
 		<key>cardName</key>
-		<string>No Card</string>
+		<string>Rock Stompers</string>
 		<key>cardDescription</key>
-		<string>No Card</string>
+		<string>8 Damage -1 enemy quarry</string>
 		<key>cardCost</key>
+		<integer>11</integer>
+		<key>quarriesSelf</key>
 		<integer>0</integer>
+		<key>quarriesEnemy</key>
+		<integer>-1</integer>
+		<key>magicsSelf</key>
+		<integer>0</integer>
+		<key>magicsEnemy</key>
+		<integer>0</integer>
+		<key>dungeonsSelf</key>
+		<integer>0</integer>
+		<key>dungeonsEnemy</key>
+		<integer>0</integer>
+		<key>bricksSelf</key>
+		<integer>0</integer>
+		<key>bricksEnemy</key>
+		<integer>0</integer>
+		<key>gemsSelf</key>
+		<integer>0</integer>
+		<key>gemsEnemy</key>
+		<integer>0</integer>
+		<key>recruitsSelf</key>
+		<integer>0</integer>
+		<key>recruitsEnemy</key>
+		<integer>0</integer>
+		<key>wallSelf</key>
+		<integer>0</integer>
+		<key>wallEnemy</key>
+		<integer>-8</integer>
+		<key>towerSelf</key>
+		<integer>0</integer>
+		<key>towerEnemy</key>
+		<integer>0</integer>
+		<key>additionalTerms</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>cardColor</key>
+		<string>Green</string>
+		<key>cardName</key>
+		<string>Thief</string>
+		<key>cardDescription</key>
+		<string>Enemy loses 10 gems, 5 bricks, you gain 1/2 amt. round up</string>
+		<key>cardCost</key>
+		<integer>12</integer>
+		<key>quarriesSelf</key>
+		<integer>0</integer>
+		<key>quarriesEnemy</key>
+		<integer>0</integer>
+		<key>magicsSelf</key>
+		<integer>0</integer>
+		<key>magicsEnemy</key>
+		<integer>0</integer>
+		<key>dungeonsSelf</key>
+		<integer>0</integer>
+		<key>dungeonsEnemy</key>
+		<integer>0</integer>
+		<key>bricksSelf</key>
+		<integer>2</integer>
+		<key>bricksEnemy</key>
+		<integer>-5</integer>
+		<key>gemsSelf</key>
+		<integer>5</integer>
+		<key>gemsEnemy</key>
+		<integer>-10</integer>
+		<key>recruitsSelf</key>
+		<integer>0</integer>
+		<key>recruitsEnemy</key>
+		<integer>0</integer>
+		<key>wallSelf</key>
+		<integer>0</integer>
+		<key>wallEnemy</key>
+		<integer>0</integer>
+		<key>towerSelf</key>
+		<integer>0</integer>
+		<key>towerEnemy</key>
+		<integer>0</integer>
+		<key>additionalTerms</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>cardColor</key>
+		<string>Green</string>
+		<key>cardName</key>
+		<string>Stone Giant</string>
+		<key>cardDescription</key>
+		<string>10 Damage +4 Wall</string>
+		<key>cardCost</key>
+		<integer>15</integer>
+		<key>quarriesSelf</key>
+		<integer>0</integer>
+		<key>quarriesEnemy</key>
+		<integer>0</integer>
+		<key>magicsSelf</key>
+		<integer>0</integer>
+		<key>magicsEnemy</key>
+		<integer>0</integer>
+		<key>dungeonsSelf</key>
+		<integer>0</integer>
+		<key>dungeonsEnemy</key>
+		<integer>0</integer>
+		<key>bricksSelf</key>
+		<integer>0</integer>
+		<key>bricksEnemy</key>
+		<integer>0</integer>
+		<key>gemsSelf</key>
+		<integer>0</integer>
+		<key>gemsEnemy</key>
+		<integer>0</integer>
+		<key>recruitsSelf</key>
+		<integer>0</integer>
+		<key>recruitsEnemy</key>
+		<integer>0</integer>
+		<key>wallSelf</key>
+		<integer>4</integer>
+		<key>wallEnemy</key>
+		<integer>-10</integer>
+		<key>towerSelf</key>
+		<integer>0</integer>
+		<key>towerEnemy</key>
+		<integer>0</integer>
+		<key>additionalTerms</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>cardColor</key>
+		<string>Green</string>
+		<key>cardName</key>
+		<string>Vampire</string>
+		<key>cardDescription</key>
+		<string>10 Damage Enemy loses 5 recruits, -1 enemy Dungeon</string>
+		<key>cardCost</key>
+		<integer>17</integer>
+		<key>quarriesSelf</key>
+		<integer>0</integer>
+		<key>quarriesEnemy</key>
+		<integer>0</integer>
+		<key>magicsSelf</key>
+		<integer>0</integer>
+		<key>magicsEnemy</key>
+		<integer>0</integer>
+		<key>dungeonsSelf</key>
+		<integer>0</integer>
+		<key>dungeonsEnemy</key>
+		<integer>-1</integer>
+		<key>bricksSelf</key>
+		<integer>0</integer>
+		<key>bricksEnemy</key>
+		<integer>0</integer>
+		<key>gemsSelf</key>
+		<integer>0</integer>
+		<key>gemsEnemy</key>
+		<integer>0</integer>
+		<key>recruitsSelf</key>
+		<integer>0</integer>
+		<key>recruitsEnemy</key>
+		<integer>-5</integer>
+		<key>wallSelf</key>
+		<integer>0</integer>
+		<key>wallEnemy</key>
+		<integer>-10</integer>
+		<key>towerSelf</key>
+		<integer>0</integer>
+		<key>towerEnemy</key>
+		<integer>0</integer>
+		<key>additionalTerms</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>cardColor</key>
+		<string>Green</string>
+		<key>cardName</key>
+		<string>Dragon</string>
+		<key>cardDescription</key>
+		<string>20 Damage Enemy loses 10 gems, -1 enemy Dungeon</string>
+		<key>cardCost</key>
+		<integer>25</integer>
+		<key>quarriesSelf</key>
+		<integer>0</integer>
+		<key>quarriesEnemy</key>
+		<integer>0</integer>
+		<key>magicsSelf</key>
+		<integer>0</integer>
+		<key>magicsEnemy</key>
+		<integer>0</integer>
+		<key>dungeonsSelf</key>
+		<integer>0</integer>
+		<key>dungeonsEnemy</key>
+		<integer>-1</integer>
+		<key>bricksSelf</key>
+		<integer>0</integer>
+		<key>bricksEnemy</key>
+		<integer>0</integer>
+		<key>gemsSelf</key>
+		<integer>0</integer>
+		<key>gemsEnemy</key>
+		<integer>-10</integer>
+		<key>recruitsSelf</key>
+		<integer>0</integer>
+		<key>recruitsEnemy</key>
+		<integer>0</integer>
+		<key>wallSelf</key>
+		<integer>0</integer>
+		<key>wallEnemy</key>
+		<integer>-20</integer>
+		<key>towerSelf</key>
+		<integer>0</integer>
+		<key>towerEnemy</key>
+		<integer>0</integer>
+		<key>additionalTerms</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>cardColor</key>
+		<string>Green</string>
+		<key>cardName</key>
+		<string>Spearman</string>
+		<key>cardDescription</key>
+		<string>If Wall&gt;enemy Wall do 3 Damage, else do 2 damage</string>
+		<key>cardCost</key>
+		<integer>2</integer>
 		<key>quarriesSelf</key>
 		<integer>0</integer>
 		<key>quarriesEnemy</key>
@@ -2904,17 +4356,17 @@
 		<key>towerEnemy</key>
 		<integer>0</integer>
 		<key>additionalTerms</key>
-		<false/>
+		<true/>
 	</dict>
 	<dict>
 		<key>cardColor</key>
-		<string>No Card</string>
+		<string>Green</string>
 		<key>cardName</key>
-		<string>No Card</string>
+		<string>Gnome</string>
 		<key>cardDescription</key>
-		<string>No Card</string>
+		<string>3 Damage +1 gem</string>
 		<key>cardCost</key>
-		<integer>0</integer>
+		<integer>2</integer>
 		<key>quarriesSelf</key>
 		<integer>0</integer>
 		<key>quarriesEnemy</key>
@@ -2932,7 +4384,7 @@
 		<key>bricksEnemy</key>
 		<integer>0</integer>
 		<key>gemsSelf</key>
-		<integer>0</integer>
+		<integer>1</integer>
 		<key>gemsEnemy</key>
 		<integer>0</integer>
 		<key>recruitsSelf</key>
@@ -2942,7 +4394,7 @@
 		<key>wallSelf</key>
 		<integer>0</integer>
 		<key>wallEnemy</key>
-		<integer>0</integer>
+		<integer>-3</integer>
 		<key>towerSelf</key>
 		<integer>0</integer>
 		<key>towerEnemy</key>
@@ -2952,13 +4404,13 @@
 	</dict>
 	<dict>
 		<key>cardColor</key>
-		<string>No Card</string>
+		<string>Green</string>
 		<key>cardName</key>
-		<string>No Card</string>
+		<string>Berserker</string>
 		<key>cardDescription</key>
-		<string>No Card</string>
+		<string>8 Damage 3 Damage to your Tower</string>
 		<key>cardCost</key>
-		<integer>0</integer>
+		<integer>4</integer>
 		<key>quarriesSelf</key>
 		<integer>0</integer>
 		<key>quarriesEnemy</key>
@@ -2986,7 +4438,51 @@
 		<key>wallSelf</key>
 		<integer>0</integer>
 		<key>wallEnemy</key>
+		<integer>-8</integer>
+		<key>towerSelf</key>
+		<integer>-3</integer>
+		<key>towerEnemy</key>
 		<integer>0</integer>
+		<key>additionalTerms</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>cardColor</key>
+		<string>Green</string>
+		<key>cardName</key>
+		<string>Warlord</string>
+		<key>cardDescription</key>
+		<string>13 Damage You lose 3 gems</string>
+		<key>cardCost</key>
+		<integer>13</integer>
+		<key>quarriesSelf</key>
+		<integer>0</integer>
+		<key>quarriesEnemy</key>
+		<integer>0</integer>
+		<key>magicsSelf</key>
+		<integer>0</integer>
+		<key>magicsEnemy</key>
+		<integer>0</integer>
+		<key>dungeonsSelf</key>
+		<integer>0</integer>
+		<key>dungeonsEnemy</key>
+		<integer>0</integer>
+		<key>bricksSelf</key>
+		<integer>0</integer>
+		<key>bricksEnemy</key>
+		<integer>0</integer>
+		<key>gemsSelf</key>
+		<integer>-3</integer>
+		<key>gemsEnemy</key>
+		<integer>0</integer>
+		<key>recruitsSelf</key>
+		<integer>0</integer>
+		<key>recruitsEnemy</key>
+		<integer>0</integer>
+		<key>wallSelf</key>
+		<integer>0</integer>
+		<key>wallEnemy</key>
+		<integer>-13</integer>
 		<key>towerSelf</key>
 		<integer>0</integer>
 		<key>towerEnemy</key>
@@ -2996,13 +4492,13 @@
 	</dict>
 	<dict>
 		<key>cardColor</key>
-		<string>No Card</string>
+		<string>Green</string>
 		<key>cardName</key>
-		<string>No Card</string>
+		<string>Pegasus Lancer</string>
 		<key>cardDescription</key>
-		<string>No Card</string>
+		<string>12 Damage to enemy tower</string>
 		<key>cardCost</key>
-		<integer>0</integer>
+		<integer>18</integer>
 		<key>quarriesSelf</key>
 		<integer>0</integer>
 		<key>quarriesEnemy</key>
@@ -3034,1767 +4530,7 @@
 		<key>towerSelf</key>
 		<integer>0</integer>
 		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
-		<key>additionalTerms</key>
-		<false/>
-	</dict>
-	<dict>
-		<key>cardColor</key>
-		<string>No Card</string>
-		<key>cardName</key>
-		<string>No Card</string>
-		<key>cardDescription</key>
-		<string>No Card</string>
-		<key>cardCost</key>
-		<integer>0</integer>
-		<key>quarriesSelf</key>
-		<integer>0</integer>
-		<key>quarriesEnemy</key>
-		<integer>0</integer>
-		<key>magicsSelf</key>
-		<integer>0</integer>
-		<key>magicsEnemy</key>
-		<integer>0</integer>
-		<key>dungeonsSelf</key>
-		<integer>0</integer>
-		<key>dungeonsEnemy</key>
-		<integer>0</integer>
-		<key>bricksSelf</key>
-		<integer>0</integer>
-		<key>bricksEnemy</key>
-		<integer>0</integer>
-		<key>gemsSelf</key>
-		<integer>0</integer>
-		<key>gemsEnemy</key>
-		<integer>0</integer>
-		<key>recruitsSelf</key>
-		<integer>0</integer>
-		<key>recruitsEnemy</key>
-		<integer>0</integer>
-		<key>wallSelf</key>
-		<integer>0</integer>
-		<key>wallEnemy</key>
-		<integer>0</integer>
-		<key>towerSelf</key>
-		<integer>0</integer>
-		<key>towerEnemy</key>
-		<integer>0</integer>
+		<integer>-12</integer>
 		<key>additionalTerms</key>
 		<false/>
 	</dict>

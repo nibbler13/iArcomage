@@ -11,7 +11,8 @@
 @protocol PlayerModelDelegate <NSObject>
 
 - (void)needToUpdateLabelAndButton;
-- (void)needToUpdateCardAtNumber:(NSInteger)number;
+- (void)needToUpdateCards;
+- (void)showCurrentCard:(NSInteger)number withStatus:(NSString*)status;
 
 @end
 

@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PlayerModel.h"
+#import "ComputerModel.h"
 
 @interface Card : NSObject
 
@@ -32,6 +34,8 @@
 @property (nonatomic) NSInteger towerSelf;
 @property (nonatomic) NSInteger towerEnemy;
 @property (nonatomic) BOOL additionalTerms;
+
+- (void)processCardForPlayer:(PlayerModel*)player andComputer:(ComputerModel*)computer;
 
 
 @end

@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "PlayerModel.h"
+#import "ComputerModel.h"
 
-@interface StartViewController : UIViewController <PlayerModelDelegate> 
+@interface StartViewController : UIViewController
+    <
+        PlayerModelDelegate,
+        ComputerModelDelegate
+    >
 
 @property (strong, nonatomic) IBOutlet UILabel *playerQuarries;
 @property (strong, nonatomic) IBOutlet UILabel *playerMagics;
@@ -65,6 +70,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *card4DiscardButton;
 
 @property (strong, nonatomic) IBOutlet UIButton *startButton;
+@property (strong, nonatomic) IBOutlet UIImageView *discardedImage;
 
 - (IBAction)card0UseButtonPressed:(id)sender;
 - (IBAction)card1UseButtonPressed:(id)sender;

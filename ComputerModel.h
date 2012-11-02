@@ -8,8 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol ComputerModelDelegate <NSObject>
+
+@end
+
 @interface ComputerModel : NSObject
 
+@property (nonatomic, strong) id <ComputerModelDelegate> delegate;
 @property (nonatomic) NSInteger quarries;
 @property (nonatomic) NSInteger magics;
 @property (nonatomic) NSInteger dungeons;
@@ -18,5 +23,10 @@
 @property (nonatomic) NSInteger recruits;
 @property (nonatomic) NSInteger wall;
 @property (nonatomic) NSInteger tower;
+@property (nonatomic) NSMutableArray *cards;
+
+- (void)computerTurn;
+
++ (ComputerModel*)getComputer;
 
 @end

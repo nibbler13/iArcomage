@@ -36,6 +36,7 @@
 		743E9AB1162C8AED005F28A0 /* InfoScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 743E9AAE162C8AED005F28A0 /* InfoScreen.png */; };
 		743E9AB2162C8AED005F28A0 /* ScoreScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 743E9AAF162C8AED005F28A0 /* ScoreScreen.png */; };
 		743E9AB3162C8AED005F28A0 /* StartScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 743E9AB0162C8AED005F28A0 /* StartScreen.png */; };
+		746737481643CB2A00BF0CB4 /* Discarded.png in Resources */ = {isa = PBXBuildFile; fileRef = 746737471643CB2A00BF0CB4 /* Discarded.png */; };
 		7484436F1642EA0000AEA2D5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7484436E1642EA0000AEA2D5 /* QuartzCore.framework */; };
 		74F7366816425B9800D7A0E6 /* CardsList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74F7366716425B9800D7A0E6 /* CardsList.plist */; };
 /* End PBXBuildFile section */
@@ -82,6 +83,7 @@
 		743E9AAE162C8AED005F28A0 /* InfoScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = InfoScreen.png; path = iArcomage/Pictures/InfoScreen.png; sourceTree = "<group>"; };
 		743E9AAF162C8AED005F28A0 /* ScoreScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ScoreScreen.png; path = iArcomage/Pictures/ScoreScreen.png; sourceTree = "<group>"; };
 		743E9AB0162C8AED005F28A0 /* StartScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = StartScreen.png; path = iArcomage/Pictures/StartScreen.png; sourceTree = "<group>"; };
+		746737471643CB2A00BF0CB4 /* Discarded.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Discarded.png; path = iArcomage/Discarded.png; sourceTree = "<group>"; };
 		7484436E1642EA0000AEA2D5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		74F7366716425B9800D7A0E6 /* CardsList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CardsList.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,6 +117,7 @@
 				743E9A9B162C7F4F005F28A0 /* ScoreButton.png */,
 				743E9A9C162C7F4F005F28A0 /* ScoreButtonHighlighted.png */,
 				743E9AA3162C81EA005F28A0 /* Title.png */,
+				746737471643CB2A00BF0CB4 /* Discarded.png */,
 			);
 			name = Icons;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				743E9AB2162C8AED005F28A0 /* ScoreScreen.png in Resources */,
 				743E9AB3162C8AED005F28A0 /* StartScreen.png in Resources */,
 				74F7366816425B9800D7A0E6 /* CardsList.plist in Resources */,
+				746737481643CB2A00BF0CB4 /* Discarded.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

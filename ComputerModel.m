@@ -7,10 +7,23 @@
 //
 
 #import "ComputerModel.h"
+#import "CardsScope.h"
+#import "Card.h"
 
 @implementation ComputerModel
 {
-    
+    CardsScope *cardsScope;
+}
+
+#pragma mark -Initialization
+
++ (ComputerModel*)getComputer
+{
+    static ComputerModel *computer = nil;
+    if (computer == nil) {
+        computer = [[ComputerModel alloc] init];
+    }
+    return computer;
 }
 
 - (id)init
@@ -24,8 +37,27 @@
         self.recruits = 5;
         self.wall = 20;
         self.tower = 20;
+        self.cards = [[NSMutableArray alloc] initWithCapacity:5];
+        cardsScope = [CardsScope getCardsScope];
+        [cardsScope loadDataFromPlist];
+        self.cards = [NSMutableArray arrayWithObjects:cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, nil];
     }
     return self;
 }
+
+#pragma mark -GamePlay
+
+- (void)nextTurnIncreaseResource
+{
+    self.bricks += self.quarries;
+    self.gems += self.magics;
+    self.recruits += self.dungeons;
+}
+
+- (void)computerTurn
+{
+    [self nextTurnIncreaseResource];
+}
+
 
 @end

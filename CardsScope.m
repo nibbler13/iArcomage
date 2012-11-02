@@ -10,6 +10,8 @@
 
 @implementation CardsScope
 
+#pragma mark -Initialization
+
 + (CardsScope*)getCardsScope
 {
     static CardsScope *cardsScope;
@@ -45,11 +47,9 @@
 {
     Card *card = [[Card alloc] init];
     card.cardName = [info objectForKey:@"cardName"];
-    //NSLog(@"%@", [info objectForKey:@"cardName"]);
     card.cardColor = [info objectForKey:@"cardColor"];
     card.cardDescription = [info objectForKey:@"cardDescription"];
     card.cardCost = [[info objectForKey:@"cardCost"] integerValue];
-    //NSLog(@"%d", [[info objectForKey:@"cardCost"] integerValue]);
     card.quarriesSelf = [[info objectForKey:@"quarriesSelf"] integerValue];
     card.quarriesEnemy = [[info objectForKey:@"quarriesEnemy"] integerValue];
     card.magicsSelf = [[info valueForKey:@"magicsSelf"] integerValue];
@@ -71,6 +71,8 @@
     //NSLog(@"%@ %@ %@ %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d", card.cardName, card.cardColor, card.cardDescription, card.cardCost, card.quarriesSelf, card.quarriesEnemy, card.magicsSelf, card.magicsEnemy, card.dungeonsSelf, card.dungeonsEnemy, card.bricksSelf, card.bricksEnemy, card.gemsSelf, card.gemsEnemy, card.recruitsSelf, card.recruitsEnemy, card.wallSelf, card.wallEnemy, card.towerSelf, card.towerEnemy, card.additionalTerms);
     return card;
 }
+
+#pragma mark -GamePlay
 
 - (Card*)getRandomCard
 {
