@@ -13,6 +13,9 @@
 - (void)needToUpdateLabelAndButton;
 - (void)needToUpdateCards;
 - (void)showCurrentCard:(NSInteger)number withStatus:(NSString*)status;
+- (void)shouldDiscardACard;
+- (void)restoreUseButtons;
+- (void)needToCheckThatTheVictoryConditionsIsAchieved;
 
 @end
 
@@ -28,10 +31,16 @@
 @property (nonatomic) NSInteger wall;
 @property (nonatomic) NSInteger tower;
 @property (nonatomic) NSMutableArray *cards;
+@property (nonatomic) BOOL shouldPlayAgain;
+@property (nonatomic) BOOL shouldDiscardACard;
+@property (nonatomic) BOOL shouldDrawACard;
+@property (nonatomic) BOOL isThatPlayerTurn;
 
 - (void)cardSelected:(NSInteger)number;
 - (void)cardDiscarded:(NSInteger)number;
 
 + (PlayerModel*)getPlayer;
+
++ (void)destroyPlayer;
 
 @end

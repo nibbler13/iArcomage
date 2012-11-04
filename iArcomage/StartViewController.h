@@ -13,7 +13,8 @@
 @interface StartViewController : UIViewController
     <
         PlayerModelDelegate,
-        ComputerModelDelegate
+        ComputerModelDelegate,
+        UIAlertViewDelegate
     >
 
 @property (strong, nonatomic) IBOutlet UILabel *playerQuarries;

@@ -21,6 +21,54 @@
     BOOL gameOver;
 }
 
+#pragma mark -UIAlertView's delegate methods
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    player = nil;
+    computer = nil;
+    gameOver = YES;
+    [PlayerModel destroyPlayer];
+    [ComputerModel destroyComputer];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark -Computer's delegate method
+
+- (void)needToUpdateLabels
+{
+    [self updatePlayerLabels];
+    [self updateComputerLabels];
+}
+
+#pragma mark -Player's delegate methods
+
+- (void)needToCheckThatTheVictoryConditionsIsAchieved
+{
+    if (player.tower > 100 || player.wall > 200 || player.bricks > 200 || player.gems > 200 || player.recruits > 200 || computer.tower == 0) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"You win!" message:@"You win because you have completed the needed conditions" delegate:self cancelButtonTitle:@"Yeah! It's great!" otherButtonTitles: nil];
+        [alertView show];
+    }
+}
+
+- (void)restoreUseButtons
+{
+    self.card0UseButton.hidden = NO;
+    self.card1UseButton.hidden = NO;
+    self.card2UseButton.hidden = NO;
+    self.card3UseButton.hidden = NO;
+    self.card4UseButton.hidden = NO;
+}
+
+- (void)shouldDiscardACard
+{
+    self.card0UseButton.hidden = YES;
+    self.card1UseButton.hidden = YES;
+    self.card2UseButton.hidden = YES;
+    self.card3UseButton.hidden = YES;
+    self.card4UseButton.hidden = YES;
+}
+
 - (void)showCurrentCard:(NSInteger)number withStatus:(NSString *)status
 {
     [self configureCard:number withCardNameLabel:self.currentCardName withCardDescriptionLabel:self.currentCardDescription withCardCostLabel:self.currentCardCost withUseButton:nil withDiscardButton:nil];
@@ -43,12 +91,26 @@
     [self updateCardsButton];
 }
 
+#pragma mark -Initializations
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     gameOver = YES;
 }
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    NSLog(@"I'm in view will disappear");
+    player = nil;
+    computer = nil;
+    gameOver = YES;
+    [PlayerModel destroyPlayer];
+    [ComputerModel destroyComputer];
+    [super viewDidLoad];
+}
+
+#pragma mark -Buttons method
 
 - (IBAction)card0UseButtonPressed:(id)sender {
     [player cardSelected:0];
@@ -236,38 +298,38 @@ withCardDescriptionLabel:self.playersCard4Description
     withDiscardButton:(UIButton*)disButton
 {
     if ([[[[player cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Grey"]) {
-        cardName.backgroundColor = [UIColor grayColor];
-        cardDescription.backgroundColor = [UIColor grayColor];
+        //cardName.backgroundColor = [UIColor grayColor];
+        //cardDescription.backgroundColor = [UIColor grayColor];
         cardCost.backgroundColor = [UIColor grayColor];
-        cardName.textColor = [UIColor whiteColor];
-        cardDescription.textColor = [UIColor whiteColor];
-        cardCost.textColor = [UIColor whiteColor];
+        //cardName.textColor = [UIColor whiteColor];
+        //cardDescription.textColor = [UIColor whiteColor];
+        //cardCost.textColor = [UIColor whiteColor];
     }
     if ([[[[player cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Blue"]) {
-        cardName.backgroundColor = [UIColor blueColor];
-        cardDescription.backgroundColor = [UIColor blueColor];
+        //cardName.backgroundColor = [UIColor blueColor];
+        //cardDescription.backgroundColor = [UIColor blueColor];
         cardCost.backgroundColor = [UIColor blueColor];
-        cardName.textColor = [UIColor whiteColor];
-        cardDescription.textColor = [UIColor whiteColor];
-        cardCost.textColor = [UIColor whiteColor];
+        //cardName.textColor = [UIColor whiteColor];
+        //cardDescription.textColor = [UIColor whiteColor];
+        //cardCost.textColor = [UIColor whiteColor];
     }
     if ([[[[player cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Green"]) {
-        cardName.backgroundColor = [UIColor greenColor];
-        cardDescription.backgroundColor = [UIColor greenColor];
+        //cardName.backgroundColor = [UIColor greenColor];
+        //cardDescription.backgroundColor = [UIColor greenColor];
         cardCost.backgroundColor = [UIColor greenColor];
-        cardName.textColor = [UIColor blackColor];
-        cardDescription.textColor = [UIColor blackColor];
-        cardCost.textColor = [UIColor blackColor];
+        //cardName.textColor = [UIColor blackColor];
+        //cardDescription.textColor = [UIColor blackColor];
+        //cardCost.textColor = [UIColor blackColor];
     }
-    //CATransition *transition = [CATransition animation];
-    //transition.type = kCATransitionFade;
-    //transition.duration = 1;
-    //transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault];
-    //[self.view.layer addAnimation:transition forKey:@"configureCardAnimation"];
+    CATransition *transition = [CATransition animation];
+    transition.type = kCATransitionFade;
+    transition.duration = 1;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault];
+    [self.view.layer addAnimation:transition forKey:@"configureCardAnimation"];
     cardName.text = [[[player cards] objectAtIndex:cardNumber] cardName];
     cardDescription.text = [[[player cards] objectAtIndex:cardNumber] cardDescription];
     cardCost.text = [NSString stringWithFormat:@"%d",[[[player cards] objectAtIndex:cardNumber] cardCost]];
-    //[self.view.layer removeAnimationForKey:@"configureCardAnimation"];
+    [self.view.layer removeAnimationForKey:@"configureCardAnimation"];
 
 }
 

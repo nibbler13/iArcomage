@@ -24,7 +24,6 @@
 - (id)init
 {
     if ([super init] != nil) {
-        //NSLog(@"cardScope init complete");
     }
     return self;
 }
@@ -40,7 +39,6 @@
         NSDictionary *info = [plistArray objectAtIndex:i];
         [self.cards addObject:[self fillCardSlotWithInfo:info]];
     }
-    //NSLog(@"cards count is: %d", [self.cards count]);
 }
 
 - (Card*)fillCardSlotWithInfo:(NSDictionary*)info
@@ -67,8 +65,6 @@
     card.towerSelf = [[info valueForKey:@"towerSelf"] integerValue];
     card.towerEnemy = [[info valueForKey:@"towerEnemy"] integerValue];
     card.additionalTerms =  [[info valueForKey:@"additionalTerms"] boolValue];
-    
-    //NSLog(@"%@ %@ %@ %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d", card.cardName, card.cardColor, card.cardDescription, card.cardCost, card.quarriesSelf, card.quarriesEnemy, card.magicsSelf, card.magicsEnemy, card.dungeonsSelf, card.dungeonsEnemy, card.bricksSelf, card.bricksEnemy, card.gemsSelf, card.gemsEnemy, card.recruitsSelf, card.recruitsEnemy, card.wallSelf, card.wallEnemy, card.towerSelf, card.towerEnemy, card.additionalTerms);
     return card;
 }
 

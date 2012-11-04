@@ -1106,7 +1106,7 @@
 		<key>cardColor</key>
 		<string>Grey</string>
 		<key>cardName</key>
-		<string>FocusedDesigns</string>
+		<string>Focused Designs</string>
 		<key>cardDescription</key>
 		<string>+8 Wall +5 Tower</string>
 		<key>cardCost</key>
@@ -1440,11 +1440,11 @@
 		<key>gemsEnemy</key>
 		<integer>0</integer>
 		<key>recruitsSelf</key>
-		<integer>0</integer>
+		<integer>6</integer>
 		<key>recruitsEnemy</key>
 		<integer>0</integer>
 		<key>wallSelf</key>
-		<integer>0</integer>
+		<integer>6</integer>
 		<key>wallEnemy</key>
 		<integer>0</integer>
 		<key>towerSelf</key>
@@ -2022,7 +2022,7 @@
 		<key>towerSelf</key>
 		<integer>0</integer>
 		<key>towerEnemy</key>
-		<integer>-4</integer>
+		<integer>-5</integer>
 		<key>additionalTerms</key>
 		<false/>
 	</dict>
@@ -2074,7 +2074,7 @@
 		<key>cardColor</key>
 		<string>Blue</string>
 		<key>cardName</key>
-		<string>Garmonic Vibe</string>
+		<string>Harmonic Vibe</string>
 		<key>cardDescription</key>
 		<string>+1 Magic +3 Tower +3 Wall</string>
 		<key>cardCost</key>
@@ -2104,13 +2104,13 @@
 		<key>recruitsEnemy</key>
 		<integer>0</integer>
 		<key>wallSelf</key>
-		<integer>0</integer>
+		<integer>3</integer>
 		<key>wallEnemy</key>
 		<integer>0</integer>
 		<key>towerSelf</key>
 		<integer>3</integer>
 		<key>towerEnemy</key>
-		<integer>3</integer>
+		<integer>0</integer>
 		<key>additionalTerms</key>
 		<false/>
 	</dict>
@@ -2296,7 +2296,7 @@
 		<key>cardName</key>
 		<string>Crumblestone</string>
 		<key>cardDescription</key>
-		<string>+5 Tower Enemy loses 6 bticks</string>
+		<string>+5 Tower Enemy loses 6 bricks</string>
 		<key>cardCost</key>
 		<integer>7</integer>
 		<key>quarriesSelf</key>
@@ -2470,7 +2470,7 @@
 		<key>cardColor</key>
 		<string>Blue</string>
 		<key>cardName</key>
-		<string>Quarry&apos;s Jelp</string>
+		<string>Quarry&apos;s Help</string>
 		<key>cardDescription</key>
 		<string>+7 Tower Lose 10 bricks</string>
 		<key>cardCost</key>
@@ -3042,7 +3042,7 @@
 		<key>cardColor</key>
 		<string>Green</string>
 		<key>cardName</key>
-		<string>MadCowDisease</string>
+		<string>Mad Cow Disease</string>
 		<key>cardDescription</key>
 		<string>All players lose 6 recruits</string>
 		<key>cardCost</key>
@@ -3118,7 +3118,7 @@
 		<key>wallSelf</key>
 		<integer>0</integer>
 		<key>wallEnemy</key>
-		<integer>0</integer>
+		<integer>-2</integer>
 		<key>towerSelf</key>
 		<integer>0</integer>
 		<key>towerEnemy</key>
@@ -3386,7 +3386,7 @@
 		<key>towerSelf</key>
 		<integer>0</integer>
 		<key>towerEnemy</key>
-		<integer>0</integer>
+		<integer>-2</integer>
 		<key>additionalTerms</key>
 		<true/>
 	</dict>

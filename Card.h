@@ -12,7 +12,6 @@
 
 @interface Card : NSObject
 
-
 @property (nonatomic) NSString *cardColor;
 @property (nonatomic) NSString *cardName;
 @property (nonatomic) NSString *cardDescription;
@@ -36,6 +35,5 @@
 @property (nonatomic) BOOL additionalTerms;
 
 - (void)processCardForPlayer:(PlayerModel*)player andComputer:(ComputerModel*)computer;
-
 
 @end

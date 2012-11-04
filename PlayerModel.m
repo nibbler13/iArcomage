@@ -11,6 +11,8 @@
 #import "Card.h"
 #import "ComputerModel.h"
 
+static PlayerModel *player;
+
 @implementation PlayerModel
 {
     CardsScope *cardsScope;
@@ -30,6 +32,7 @@
         self.recruits = 5;
         self.wall = 20;
         self.tower = 20;
+        self.isThatPlayerTurn = NO;
         self.cards = [[NSMutableArray alloc] initWithCapacity:5];
         cardsScope = [CardsScope getCardsScope];
         [cardsScope loadDataFromPlist];
@@ -41,11 +44,17 @@
 
 + (PlayerModel*)getPlayer
 {
-    static PlayerModel *player = nil;
     if (player == nil) {
         player = [[PlayerModel alloc] init];
     }
     return player;
+}
+
++ (void)destroyPlayer
+{
+    if (player != nil) {
+        player = nil;
+    }
 }
 
 #pragma mark -GamePlay
@@ -60,23 +69,52 @@
 
 - (void)cardDiscarded:(NSInteger)number
 {
+    NSLog(@"PlayerTurn");
     [self.delegate showCurrentCard:number withStatus:@"Discarded"];
+    if (self.shouldDiscardACard == YES) {
+        NSLog(@"i'm just discard a card");
+        self.shouldDiscardACard = NO;
+        self.shouldPlayAgain = NO;
+        [self getNewCardAtNumber:number];
+        [self.delegate needToUpdateCards];
+        [self.delegate restoreUseButtons];
+        [self nextTurnIncreaseResource];
+        return;
+    }
     [self getNewCardAtNumber:number];
-    //[self.cards replaceObjectAtIndex:number withObject:cardsScope.getRandomCard];
     [self.delegate needToUpdateCards];
     [self nextTurnIncreaseResource];
+    self.isThatPlayerTurn = NO;
     [computer computerTurn];
 }
 
 - (void)cardSelected:(NSInteger)number
 {
+    self.isThatPlayerTurn = YES;
+    NSLog(@"PlayerTurn");
     [self.delegate showCurrentCard:number withStatus:@"Selected"];
     [self processCard:number];
-    //[self.cards replaceObjectAtIndex:number withObject:cardsScope.getRandomCard];
+    if (self.shouldDrawACard == YES) {
+        self.shouldDrawACard = NO;
+        NSLog(@"I'm draw a new card");
+    }
     [self getNewCardAtNumber:number];
     [self.delegate needToUpdateCards];
+    
+    if (self.shouldDiscardACard == YES) {
+        [self.delegate shouldDiscardACard];
+        return;
+    }
+    
     [self nextTurnIncreaseResource];
-    [computer computerTurn];
+    if (self.shouldPlayAgain == YES) {
+        self.shouldPlayAgain = NO;
+        NSLog(@"I'm in shouldPlayAgain");
+    } else {
+        NSLog(@"I'm in one step from computerTurn");
+        self.isThatPlayerTurn = NO;
+        [computer computerTurn];
+    }
 }
 
 - (void)payForTheCard:(NSInteger)number
@@ -97,40 +135,7 @@
 {
     [self payForTheCard:number];
     [[self.cards objectAtIndex:number] processCardForPlayer:self andComputer:computer];
-    
-/*     self.quarries += [[self.cards objectAtIndex:number] quarriesSelf];
-     if (self.quarries <1) {self.quarries = 1;}
-     self.magics += [[self.cards objectAtIndex:number] magicsSelf];
-     if (self.magics <1) {self.magics = 1;}
-     self.dungeons += [[self.cards objectAtIndex:number] dungeonsSelf];
-     if (self.dungeons <1) {self.dungeons = 1;}
-     self.bricks += [[self.cards objectAtIndex:number] bricksSelf];
-     if (self.bricks < 0) {self.bricks = 0;}
-     self.gems += [[self.cards objectAtIndex:number] gemsSelf];
-     if (self.gems < 0) {self.gems = 0;}
-     self.recruits += [[self.cards objectAtIndex:number] recruitsSelf];
-     if (self.recruits < 0) {self.recruits = 0;}
-     self.wall += [[self.cards objectAtIndex:number] wallSelf];
-     if (self.wall < 0) {self.wall = 0;}
-     self.tower += [[self.cards objectAtIndex:number] towerSelf];
-     if (self.tower < 0) {self.tower = 0;}
-     
-     computer.quarries += [[self.cards objectAtIndex:number] quarriesEnemy];
-     if (computer.quarries <1) {computer.quarries = 1;}
-     computer.magics += [[self.cards objectAtIndex:number] magicsEnemy];
-     if (computer.magics <1) {computer.magics = 1;}
-     computer.dungeons += [[self.cards objectAtIndex:number] dungeonsEnemy];
-     if (computer.dungeons <1) {computer.dungeons = 1;}
-     computer.bricks += [[self.cards objectAtIndex:number] bricksEnemy];
-     if (computer.bricks < 0) {computer.bricks = 0;}
-     computer.gems += [[self.cards objectAtIndex:number] gemsEnemy];
-     if (computer.gems < 0) {computer.gems = 0;}
-     computer.recruits += [[self.cards objectAtIndex:number] recruitsEnemy];
-     if (computer.recruits < 0) {computer.recruits = 0;}
-     computer.wall += [[self.cards objectAtIndex:number] wallEnemy];
-     if (computer.wall < 0) {computer.wall = 0;}
-     computer.tower += [[self.cards objectAtIndex:number] towerEnemy];
-     if (computer.tower < 0) {computer.tower = 0;};*/
+    [self.delegate needToCheckThatTheVictoryConditionsIsAchieved];
 
 }
 

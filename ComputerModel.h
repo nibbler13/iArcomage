@@ -10,6 +10,8 @@
 
 @protocol ComputerModelDelegate <NSObject>
 
+- (void)needToUpdateLabels;
+
 @end
 
 @interface ComputerModel : NSObject
@@ -24,9 +26,12 @@
 @property (nonatomic) NSInteger wall;
 @property (nonatomic) NSInteger tower;
 @property (nonatomic) NSMutableArray *cards;
+@property (nonatomic) BOOL isThatComputerTurn;
 
 - (void)computerTurn;
 
 + (ComputerModel*)getComputer;
+
++ (void)destroyComputer;
 
 @end
