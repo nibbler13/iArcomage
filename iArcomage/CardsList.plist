@@ -846,9 +846,9 @@
 		<key>cardDescription</key>
 		<string>-1 Quarry, +10 wall. You gain 5 gems</string>
 		<key>cardCost</key>
-		<integer>-1</integer>
-		<key>quarriesSelf</key>
 		<integer>0</integer>
+		<key>quarriesSelf</key>
+		<integer>-1</integer>
 		<key>quarriesEnemy</key>
 		<integer>0</integer>
 		<key>magicsSelf</key>

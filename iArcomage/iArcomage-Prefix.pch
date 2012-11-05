@@ -13,3 +13,23 @@
     #import <Foundation/Foundation.h>
     #import <QuartzCore/QuartzCore.h>
 #endif
+
+#define maxWeightForSuperResource 10
+#define middleWeightForSuperResource 6
+#define lowWeightForSuperResource 3
+
+#define maxWeightForResource 4
+#define middleWeightForResource 3
+#define lowWeightForResource 1
+
+#define maxWeightForTower 8
+#define middleWeightForTower 4
+#define lowWeightForTower 3
+
+#define maxWeightForWall 7
+#define middleWeightForWall 5
+#define lowWeightForWall 3
+
+#define maxIdle -10
+#define middleIdle -5
+#define lowIdle -2

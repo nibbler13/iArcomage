@@ -11,6 +11,8 @@
 @protocol ComputerModelDelegate <NSObject>
 
 - (void)needToUpdateLabels;
+- (void)needToCheckThatTheVictoryConditionsIsAchievedByComputer;
+- (void)showCurrentComputerCard:(NSInteger)number withStatus:(NSString*)status;
 
 @end
 
@@ -26,6 +28,9 @@
 @property (nonatomic) NSInteger wall;
 @property (nonatomic) NSInteger tower;
 @property (nonatomic) NSMutableArray *cards;
+@property (nonatomic) BOOL shouldPlayAgain;
+@property (nonatomic) BOOL shouldDiscardACard;
+@property (nonatomic) BOOL shouldDrawACard;
 @property (nonatomic) BOOL isThatComputerTurn;
 
 - (void)computerTurn;

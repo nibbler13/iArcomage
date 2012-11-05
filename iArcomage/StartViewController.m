@@ -37,8 +37,60 @@
 
 - (void)needToUpdateLabels
 {
+    CATransition *transition = [CATransition animation];
+    transition.type = kCATransitionFromBottom;
+    transition.duration = 1;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    //[self.view.layer addAnimation:transition forKey:@"configureUpdateAnimation"];
+    [self configureUseCardButton:self.card0UseButton andDisButton:self.card0DiscardButton atNumber:0];
+    [self configureUseCardButton:self.card1UseButton andDisButton:self.card1DiscardButton atNumber:1];
+    [self configureUseCardButton:self.card2UseButton andDisButton:self.card2DiscardButton atNumber:2];
+    [self configureUseCardButton:self.card3UseButton andDisButton:self.card3DiscardButton atNumber:3];
+    [self configureUseCardButton:self.card4UseButton andDisButton:self.card4DiscardButton atNumber:4];
+    //[self.view.layer removeAnimationForKey:@"configureUpdateAnimation"];
     [self updatePlayerLabels];
     [self updateComputerLabels];
+}
+
+- (void)needToCheckThatTheVictoryConditionsIsAchievedByComputer
+{
+    if (computer.tower > 100 || computer.wall > 200 || computer.bricks > 200 || computer.gems > 200 || computer.recruits > 200 || player.tower == 0) {
+        [self updateComputerLabels];
+        [self updatePlayerLabels];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"You lose!" message:@"The computer has defeated you like a boss" delegate:self cancelButtonTitle:@"Ohhh god why?" otherButtonTitles: nil];
+        [alertView show];
+    }
+}
+
+- (void)showCurrentComputerCard:(NSInteger)number withStatus:(NSString *)status
+{
+    NSLog(@"---/--- Should update current computer card");
+    
+    if ([[[[computer cards] objectAtIndex:number] cardColor] isEqualToString:@"Grey"]) {
+        self.computersCurrentCardCost.backgroundColor = [UIColor grayColor];
+    }
+    if ([[[[computer cards] objectAtIndex:number] cardColor] isEqualToString:@"Blue"]) {
+        self.computersCurrentCardCost.backgroundColor = [UIColor blueColor];
+    }
+    if ([[[[computer cards] objectAtIndex:number] cardColor] isEqualToString:@"Green"]) {
+        self.computersCurrentCardCost.backgroundColor = [UIColor greenColor];
+    }
+    CATransition *transition = [CATransition animation];
+    transition.type = kCATransitionFade;
+    transition.duration = 1;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault];
+    //[self.view.layer addAnimation:transition forKey:@"configureCardAnimation"];
+    self.computersCurrentCardName.text = [[[computer cards] objectAtIndex:number] cardName];
+    self.computersCurrentCardDescription.text = [[[computer cards] objectAtIndex:number] cardDescription];
+    self.computersCurrentCardCost.text = [NSString stringWithFormat:@"%d",[[[computer cards] objectAtIndex:number] cardCost]];
+    //[self.view.layer removeAnimationForKey:@"configureCardAnimation"];
+    
+    
+    if ([status isEqualToString:@"Discarded"]) {
+        self.computersDiscardLabel.hidden = NO;
+    } else {
+        self.computersDiscardLabel.hidden = YES;
+    }
 }
 
 #pragma mark -Player's delegate methods
@@ -203,6 +255,8 @@
 
 - (void)updateComputerLabels
 {
+    //NSLog(@"update computer label");
+    //NSLog(@"%d", computer.gems);
     self.computerQuarries.text = [NSString stringWithFormat:@"%d", computer.quarries];
     self.computerMagics.text = [NSString stringWithFormat:@"%d", computer.magics];
     self.computerDungeons.text = [NSString stringWithFormat:@"%d", computer.dungeons];
@@ -271,6 +325,9 @@ withCardDescriptionLabel:self.playersCard4Description
     self.currentCardName.text = @"No card";
     self.currentCardDescription.text = @"No description";
     self.currentCardCost.text = @"No";
+    self.computersCurrentCardName.text = @"No card";
+    self.computersCurrentCardDescription.text = @"No card";
+    self.computersCurrentCardCost.text = @"No";
 }
 
 - (BOOL)isButtonAvailableToPlay:(NSInteger)buttonNumber
@@ -298,48 +355,34 @@ withCardDescriptionLabel:self.playersCard4Description
     withDiscardButton:(UIButton*)disButton
 {
     if ([[[[player cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Grey"]) {
-        //cardName.backgroundColor = [UIColor grayColor];
-        //cardDescription.backgroundColor = [UIColor grayColor];
         cardCost.backgroundColor = [UIColor grayColor];
-        //cardName.textColor = [UIColor whiteColor];
-        //cardDescription.textColor = [UIColor whiteColor];
-        //cardCost.textColor = [UIColor whiteColor];
     }
     if ([[[[player cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Blue"]) {
-        //cardName.backgroundColor = [UIColor blueColor];
-        //cardDescription.backgroundColor = [UIColor blueColor];
         cardCost.backgroundColor = [UIColor blueColor];
-        //cardName.textColor = [UIColor whiteColor];
-        //cardDescription.textColor = [UIColor whiteColor];
-        //cardCost.textColor = [UIColor whiteColor];
     }
     if ([[[[player cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Green"]) {
-        //cardName.backgroundColor = [UIColor greenColor];
-        //cardDescription.backgroundColor = [UIColor greenColor];
         cardCost.backgroundColor = [UIColor greenColor];
-        //cardName.textColor = [UIColor blackColor];
-        //cardDescription.textColor = [UIColor blackColor];
-        //cardCost.textColor = [UIColor blackColor];
     }
-    CATransition *transition = [CATransition animation];
-    transition.type = kCATransitionFade;
-    transition.duration = 1;
-    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault];
-    [self.view.layer addAnimation:transition forKey:@"configureCardAnimation"];
     cardName.text = [[[player cards] objectAtIndex:cardNumber] cardName];
     cardDescription.text = [[[player cards] objectAtIndex:cardNumber] cardDescription];
     cardCost.text = [NSString stringWithFormat:@"%d",[[[player cards] objectAtIndex:cardNumber] cardCost]];
-    [self.view.layer removeAnimationForKey:@"configureCardAnimation"];
 
 }
 
+
 - (void)updateCardsButton
 {
+    CATransition *transition = [CATransition animation];
+    transition.type = kCATransitionFade;
+    transition.duration = 1;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    //[self.view.layer addAnimation:transition forKey:@"configureCardAnimation"];
     [self configureUseCardButton:self.card0UseButton andDisButton:self.card0DiscardButton atNumber:0];
     [self configureUseCardButton:self.card1UseButton andDisButton:self.card1DiscardButton atNumber:1];
     [self configureUseCardButton:self.card2UseButton andDisButton:self.card2DiscardButton atNumber:2];
     [self configureUseCardButton:self.card3UseButton andDisButton:self.card3DiscardButton atNumber:3];
     [self configureUseCardButton:self.card4UseButton andDisButton:self.card4DiscardButton atNumber:4];
+    //[self.view.layer removeAnimationForKey:@"configureCardAnimation"];
 }
 
 - (void)configureUseCardButton:(UIButton*)use andDisButton:(UIButton*)dis atNumber:(NSInteger)number

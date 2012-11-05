@@ -21,29 +21,9 @@ static PlayerModel *player;
 
 #pragma mark -Initialization
 
-- (id)init
-{
-    if ([super init] != nil) {
-        self.quarries = 1;
-        self.magics = 1;
-        self.dungeons = 1;
-        self.bricks = 5;
-        self.gems = 5;
-        self.recruits = 5;
-        self.wall = 20;
-        self.tower = 20;
-        self.isThatPlayerTurn = NO;
-        self.cards = [[NSMutableArray alloc] initWithCapacity:5];
-        cardsScope = [CardsScope getCardsScope];
-        [cardsScope loadDataFromPlist];
-        self.cards = [NSMutableArray arrayWithObjects:cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, nil];
-        computer = [ComputerModel getComputer];
-    }
-    return self;
-}
-
 + (PlayerModel*)getPlayer
 {
+    NSLog(@"get player");
     if (player == nil) {
         player = [[PlayerModel alloc] init];
     }
@@ -55,6 +35,32 @@ static PlayerModel *player;
     if (player != nil) {
         player = nil;
     }
+}
+
+- (id)init
+{
+    NSLog(@"init player");
+    if ([super init] != nil) {
+        self.quarries = 1;
+        self.magics = 1;
+        self.dungeons = 1;
+        self.bricks = 5;
+        self.gems = 5;
+        self.recruits = 5;
+        self.wall = 20;
+        self.tower = 20;
+        self.isThatPlayerTurn = NO;
+        self.shouldDrawACard = NO;
+        self.shouldDiscardACard = NO;
+        self.shouldPlayAgain = NO;
+        self.cards = [[NSMutableArray alloc] initWithCapacity:5];
+        cardsScope = [CardsScope getCardsScope];
+        [cardsScope loadDataFromPlist];
+        self.cards = [NSMutableArray arrayWithObjects:cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, nil];
+        computer = [ComputerModel getComputer];
+        NSLog(@"complete init player");
+    }
+    return self;
 }
 
 #pragma mark -GamePlay

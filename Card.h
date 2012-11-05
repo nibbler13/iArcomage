@@ -33,7 +33,11 @@
 @property (nonatomic) NSInteger towerSelf;
 @property (nonatomic) NSInteger towerEnemy;
 @property (nonatomic) BOOL additionalTerms;
+@property (nonatomic) NSInteger cardWeight;
+@property (nonatomic) BOOL isAvailable;
 
 - (void)processCardForPlayer:(PlayerModel*)player andComputer:(ComputerModel*)computer;
+- (void)increaseCardWeightOn:(NSInteger)weight;
+- (void)thatCardIsAvailable:(BOOL)available;
 
 @end

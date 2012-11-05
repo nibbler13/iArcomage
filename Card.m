@@ -129,17 +129,29 @@
         ||  [self.cardName isEqualToString:@"Faerie"]
         ||  [self.cardName isEqualToString:@"Elven Scout"]
         ||  [self.cardName isEqualToString:@"Shadow Faerie"]) {
-            player.shouldPlayAgain = YES;
+            if (player.isThatPlayerTurn) {
+                player.shouldPlayAgain = YES;
+            } else if (computer.isThatComputerTurn) {
+                computer.shouldPlayAgain = YES;
+            }
         }
         
         if ([self.cardName isEqualToString:@"Prism"]
         ||  [self.cardName isEqualToString:@"Elven Scout"]) {
-            player.shouldDiscardACard = YES;
+            if (player.isThatPlayerTurn) {
+                player.shouldDiscardACard = YES;
+            } else if (computer.isThatComputerTurn) {
+                computer.shouldDiscardACard = YES;
+            }
         }
         
         if ([self.cardName isEqualToString:@"Prism"]
         ||  [self.cardName isEqualToString:@"Elven Scout"]) {
-            player.shouldDrawACard = YES;
+            if (player.isThatPlayerTurn) {
+                player.shouldDrawACard = YES;
+            } else if (computer.isThatComputerTurn) {
+                computer.shouldDrawACard = YES;
+            }
         }
     }
 }
@@ -585,6 +597,16 @@
         }
     }
     return _towerEnemy;
+}
+
+- (void)increaseCardWeightOn:(NSInteger)weight
+{
+    self.cardWeight += weight;
+}
+
+- (void)thatCardIsAvailable:(BOOL)available
+{
+    self.isAvailable = available;
 }
 
 @end

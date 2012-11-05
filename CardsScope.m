@@ -65,6 +65,7 @@
     card.towerSelf = [[info valueForKey:@"towerSelf"] integerValue];
     card.towerEnemy = [[info valueForKey:@"towerEnemy"] integerValue];
     card.additionalTerms =  [[info valueForKey:@"additionalTerms"] boolValue];
+    card.cardWeight = 0;
     return card;
 }
 
@@ -73,6 +74,8 @@
 - (Card*)getRandomCard
 {
     NSInteger random = (1 + arc4random()%([self.cards count] -1));
+    //NSInteger random = (1 + arc4random()%10);
+    //return [self.cards objectAtIndex:39];
     return [self.cards objectAtIndex:random];
 }
 
