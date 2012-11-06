@@ -36,6 +36,17 @@
 		743E9AB1162C8AED005F28A0 /* InfoScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 743E9AAE162C8AED005F28A0 /* InfoScreen.png */; };
 		743E9AB2162C8AED005F28A0 /* ScoreScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 743E9AAF162C8AED005F28A0 /* ScoreScreen.png */; };
 		743E9AB3162C8AED005F28A0 /* StartScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 743E9AB0162C8AED005F28A0 /* StartScreen.png */; };
+		744143671649982600DF07A6 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 744143661649982600DF07A6 /* AudioToolbox.framework */; };
+		744147AD1649A0AD00DF07A6 /* damage.caf in Resources */ = {isa = PBXBuildFile; fileRef = 744147A31649A0AC00DF07A6 /* damage.caf */; };
+		744147AE1649A0AD00DF07A6 /* deal.caf in Resources */ = {isa = PBXBuildFile; fileRef = 744147A41649A0AC00DF07A6 /* deal.caf */; };
+		744147AF1649A0AD00DF07A6 /* defeat.caf in Resources */ = {isa = PBXBuildFile; fileRef = 744147A51649A0AC00DF07A6 /* defeat.caf */; };
+		744147B01649A0AD00DF07A6 /* evillaugh.caf in Resources */ = {isa = PBXBuildFile; fileRef = 744147A61649A0AC00DF07A6 /* evillaugh.caf */; };
+		744147B11649A0AD00DF07A6 /* multipleeffect.caf in Resources */ = {isa = PBXBuildFile; fileRef = 744147A71649A0AC00DF07A6 /* multipleeffect.caf */; };
+		744147B21649A0AD00DF07A6 /* resb_down.caf in Resources */ = {isa = PBXBuildFile; fileRef = 744147A81649A0AC00DF07A6 /* resb_down.caf */; };
+		744147B31649A0AD00DF07A6 /* resb_downa.caf in Resources */ = {isa = PBXBuildFile; fileRef = 744147A91649A0AC00DF07A6 /* resb_downa.caf */; };
+		744147B41649A0AD00DF07A6 /* ress_up.caf in Resources */ = {isa = PBXBuildFile; fileRef = 744147AA1649A0AD00DF07A6 /* ress_up.caf */; };
+		744147B51649A0AD00DF07A6 /* ress_upa.caf in Resources */ = {isa = PBXBuildFile; fileRef = 744147AB1649A0AD00DF07A6 /* ress_upa.caf */; };
+		744147B61649A0AD00DF07A6 /* towerwall.caf in Resources */ = {isa = PBXBuildFile; fileRef = 744147AC1649A0AD00DF07A6 /* towerwall.caf */; };
 		7484436F1642EA0000AEA2D5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7484436E1642EA0000AEA2D5 /* QuartzCore.framework */; };
 		7484437C1645126A00AEA2D5 /* discard_label.png in Resources */ = {isa = PBXBuildFile; fileRef = 7484437A1645126A00AEA2D5 /* discard_label.png */; };
 		7484437D1645126A00AEA2D5 /* discard_label@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7484437B1645126A00AEA2D5 /* discard_label@2x.png */; };
@@ -85,6 +96,17 @@
 		743E9AAE162C8AED005F28A0 /* InfoScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = InfoScreen.png; path = iArcomage/Pictures/InfoScreen.png; sourceTree = "<group>"; };
 		743E9AAF162C8AED005F28A0 /* ScoreScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ScoreScreen.png; path = iArcomage/Pictures/ScoreScreen.png; sourceTree = "<group>"; };
 		743E9AB0162C8AED005F28A0 /* StartScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = StartScreen.png; path = iArcomage/Pictures/StartScreen.png; sourceTree = "<group>"; };
+		744143661649982600DF07A6 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		744147A31649A0AC00DF07A6 /* damage.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = damage.caf; path = ../damage.caf; sourceTree = "<group>"; };
+		744147A41649A0AC00DF07A6 /* deal.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = deal.caf; path = ../deal.caf; sourceTree = "<group>"; };
+		744147A51649A0AC00DF07A6 /* defeat.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = defeat.caf; path = ../defeat.caf; sourceTree = "<group>"; };
+		744147A61649A0AC00DF07A6 /* evillaugh.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = evillaugh.caf; path = ../evillaugh.caf; sourceTree = "<group>"; };
+		744147A71649A0AC00DF07A6 /* multipleeffect.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = multipleeffect.caf; path = ../multipleeffect.caf; sourceTree = "<group>"; };
+		744147A81649A0AC00DF07A6 /* resb_down.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = resb_down.caf; path = ../resb_down.caf; sourceTree = "<group>"; };
+		744147A91649A0AC00DF07A6 /* resb_downa.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = resb_downa.caf; path = ../resb_downa.caf; sourceTree = "<group>"; };
+		744147AA1649A0AD00DF07A6 /* ress_up.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ress_up.caf; path = ../ress_up.caf; sourceTree = "<group>"; };
+		744147AB1649A0AD00DF07A6 /* ress_upa.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ress_upa.caf; path = ../ress_upa.caf; sourceTree = "<group>"; };
+		744147AC1649A0AD00DF07A6 /* towerwall.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = towerwall.caf; path = ../towerwall.caf; sourceTree = "<group>"; };
 		7484436E1642EA0000AEA2D5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7484437A1645126A00AEA2D5 /* discard_label.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = discard_label.png; sourceTree = "<group>"; };
 		7484437B1645126A00AEA2D5 /* discard_label@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "discard_label@2x.png"; sourceTree = "<group>"; };
@@ -97,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				744143671649982600DF07A6 /* AudioToolbox.framework in Frameworks */,
 				7484436F1642EA0000AEA2D5 /* QuartzCore.framework in Frameworks */,
 				743E9A70162C76A9005F28A0 /* UIKit.framework in Frameworks */,
 				743E9A72162C76A9005F28A0 /* Foundation.framework in Frameworks */,
@@ -165,6 +188,7 @@
 		743E9A6E162C76A9005F28A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				744143661649982600DF07A6 /* AudioToolbox.framework */,
 				7484436E1642EA0000AEA2D5 /* QuartzCore.framework */,
 				743E9A6F162C76A9005F28A0 /* UIKit.framework */,
 				743E9A71162C76A9005F28A0 /* Foundation.framework */,
@@ -193,6 +217,7 @@
 		743E9A76162C76A9005F28A0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				744147B71649A0E300DF07A6 /* Sounds */,
 				740EA05A1641431600AFFA55 /* Icons */,
 				743E9A7E162C76A9005F28A0 /* AppDelegate.h */,
 				743E9A7F162C76A9005F28A0 /* AppDelegate.m */,
@@ -206,6 +231,23 @@
 				74F7366716425B9800D7A0E6 /* CardsList.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		744147B71649A0E300DF07A6 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				744147A31649A0AC00DF07A6 /* damage.caf */,
+				744147A41649A0AC00DF07A6 /* deal.caf */,
+				744147A51649A0AC00DF07A6 /* defeat.caf */,
+				744147A61649A0AC00DF07A6 /* evillaugh.caf */,
+				744147A71649A0AC00DF07A6 /* multipleeffect.caf */,
+				744147A81649A0AC00DF07A6 /* resb_down.caf */,
+				744147A91649A0AC00DF07A6 /* resb_downa.caf */,
+				744147AA1649A0AD00DF07A6 /* ress_up.caf */,
+				744147AB1649A0AD00DF07A6 /* ress_upa.caf */,
+				744147AC1649A0AD00DF07A6 /* towerwall.caf */,
+			);
+			name = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,6 +321,16 @@
 				7484437C1645126A00AEA2D5 /* discard_label.png in Resources */,
 				7484437D1645126A00AEA2D5 /* discard_label@2x.png in Resources */,
 				74CE1FF51645AAB800C1461B /* castle.png in Resources */,
+				744147AD1649A0AD00DF07A6 /* damage.caf in Resources */,
+				744147AE1649A0AD00DF07A6 /* deal.caf in Resources */,
+				744147AF1649A0AD00DF07A6 /* defeat.caf in Resources */,
+				744147B01649A0AD00DF07A6 /* evillaugh.caf in Resources */,
+				744147B11649A0AD00DF07A6 /* multipleeffect.caf in Resources */,
+				744147B21649A0AD00DF07A6 /* resb_down.caf in Resources */,
+				744147B31649A0AD00DF07A6 /* resb_downa.caf in Resources */,
+				744147B41649A0AD00DF07A6 /* ress_up.caf in Resources */,
+				744147B51649A0AD00DF07A6 /* ress_upa.caf in Resources */,
+				744147B61649A0AD00DF07A6 /* towerwall.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,6 +17,7 @@ static PlayerModel *player;
 {
     CardsScope *cardsScope;
     ComputerModel *computer;
+    SystemSoundID soundDealID;
 }
 
 #pragma mark -Initialization
@@ -54,6 +55,7 @@ static PlayerModel *player;
         self.shouldDiscardACard = NO;
         self.shouldPlayAgain = NO;
         self.cards = [[NSMutableArray alloc] initWithCapacity:5];
+        [self loadSoundEffect];
         cardsScope = [CardsScope getCardsScope];
         [cardsScope loadDataFromPlist];
         self.cards = [NSMutableArray arrayWithObjects:cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, nil];
@@ -99,6 +101,7 @@ static PlayerModel *player;
     self.isThatPlayerTurn = YES;
     NSLog(@"PlayerTurn");
     [self.delegate showCurrentCard:number withStatus:@"Selected"];
+    [self playSoundEffect];
     [self processCard:number];
     if (self.shouldDrawACard == YES) {
         self.shouldDrawACard = NO;
@@ -156,6 +159,34 @@ static PlayerModel *player;
         [self.cards replaceObjectAtIndex:4 withObject:cardsScope.getRandomCard];
         }
     }
+}
+
+#pragma mark -SoundEffects
+
+- (void)loadSoundEffect
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"deal.caf" ofType:nil];
+    NSURL *fileURL = [NSURL fileURLWithPath:path isDirectory:NO];
+    if (fileURL == nil) {
+        NSLog(@"NSURL is nil for path: %@", path);
+        return;
+    }
+    OSStatus error = AudioServicesCreateSystemSoundID((__bridge CFURLRef)fileURL, &soundDealID);
+    if (error != kAudioServicesNoError) {
+        NSLog(@"Error code %ld loading sound at path: %@", error, path);
+        return;
+    }
+}
+
+- (void)unloadSoundEffect
+{
+    AudioServicesDisposeSystemSoundID(soundDealID);
+    soundDealID = 0;
+}
+
+- (void)playSoundEffect
+{
+    AudioServicesPlaySystemSound(soundDealID);
 }
 
 @end
