@@ -11,6 +11,7 @@
 		740EA0611641437100AFFA55 /* ComputerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 740EA0601641437100AFFA55 /* ComputerModel.m */; };
 		740EA06D164152D800AFFA55 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 740EA06C164152D800AFFA55 /* Card.m */; };
 		740EA070164152E600AFFA55 /* CardsScope.m in Sources */ = {isa = PBXBuildFile; fileRef = 740EA06F164152E600AFFA55 /* CardsScope.m */; };
+		7425F8C0164A443A00876BBD /* ResourcesBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 7425F8BF164A443A00876BBD /* ResourcesBackground.png */; };
 		743E9A70162C76A9005F28A0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743E9A6F162C76A9005F28A0 /* UIKit.framework */; };
 		743E9A72162C76A9005F28A0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743E9A71162C76A9005F28A0 /* Foundation.framework */; };
 		743E9A74162C76A9005F28A0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 743E9A73162C76A9005F28A0 /* CoreGraphics.framework */; };
@@ -35,7 +36,6 @@
 		743E9AAD162C86F2005F28A0 /* ScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 743E9AAC162C86F2005F28A0 /* ScoreViewController.m */; };
 		743E9AB1162C8AED005F28A0 /* InfoScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 743E9AAE162C8AED005F28A0 /* InfoScreen.png */; };
 		743E9AB2162C8AED005F28A0 /* ScoreScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 743E9AAF162C8AED005F28A0 /* ScoreScreen.png */; };
-		743E9AB3162C8AED005F28A0 /* StartScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 743E9AB0162C8AED005F28A0 /* StartScreen.png */; };
 		744143671649982600DF07A6 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 744143661649982600DF07A6 /* AudioToolbox.framework */; };
 		744147AD1649A0AD00DF07A6 /* damage.caf in Resources */ = {isa = PBXBuildFile; fileRef = 744147A31649A0AC00DF07A6 /* damage.caf */; };
 		744147AE1649A0AD00DF07A6 /* deal.caf in Resources */ = {isa = PBXBuildFile; fileRef = 744147A41649A0AC00DF07A6 /* deal.caf */; };
@@ -63,6 +63,7 @@
 		740EA06C164152D800AFFA55 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
 		740EA06E164152E600AFFA55 /* CardsScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardsScope.h; sourceTree = "<group>"; };
 		740EA06F164152E600AFFA55 /* CardsScope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardsScope.m; sourceTree = "<group>"; };
+		7425F8BF164A443A00876BBD /* ResourcesBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ResourcesBackground.png; sourceTree = "<group>"; };
 		743E9A6B162C76A9005F28A0 /* iArcomage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iArcomage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		743E9A6F162C76A9005F28A0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		743E9A71162C76A9005F28A0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -95,7 +96,6 @@
 		743E9AAC162C86F2005F28A0 /* ScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreViewController.m; sourceTree = "<group>"; };
 		743E9AAE162C8AED005F28A0 /* InfoScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = InfoScreen.png; path = iArcomage/Pictures/InfoScreen.png; sourceTree = "<group>"; };
 		743E9AAF162C8AED005F28A0 /* ScoreScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ScoreScreen.png; path = iArcomage/Pictures/ScoreScreen.png; sourceTree = "<group>"; };
-		743E9AB0162C8AED005F28A0 /* StartScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = StartScreen.png; path = iArcomage/Pictures/StartScreen.png; sourceTree = "<group>"; };
 		744143661649982600DF07A6 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		744147A31649A0AC00DF07A6 /* damage.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = damage.caf; path = ../damage.caf; sourceTree = "<group>"; };
 		744147A41649A0AC00DF07A6 /* deal.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = deal.caf; path = ../deal.caf; sourceTree = "<group>"; };
@@ -130,14 +130,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		740EA05A1641431600AFFA55 /* Icons */ = {
+		740EA05A1641431600AFFA55 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7425F8BF164A443A00876BBD /* ResourcesBackground.png */,
 				74CE1FF41645AAB800C1461B /* castle.png */,
 				743E9A95162C7BAD005F28A0 /* Background.png */,
 				743E9AAE162C8AED005F28A0 /* InfoScreen.png */,
 				743E9AAF162C8AED005F28A0 /* ScoreScreen.png */,
-				743E9AB0162C8AED005F28A0 /* StartScreen.png */,
 				743E9A97162C7C87005F28A0 /* StartButton.png */,
 				743E9A9D162C7F4F005F28A0 /* StartButtonHighlighted.png */,
 				743E9A99162C7F4F005F28A0 /* InfoButton.png */,
@@ -148,7 +148,7 @@
 				7484437A1645126A00AEA2D5 /* discard_label.png */,
 				7484437B1645126A00AEA2D5 /* discard_label@2x.png */,
 			);
-			name = Icons;
+			name = Images;
 			path = ..;
 			sourceTree = "<group>";
 		};
@@ -218,7 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				744147B71649A0E300DF07A6 /* Sounds */,
-				740EA05A1641431600AFFA55 /* Icons */,
+				740EA05A1641431600AFFA55 /* Images */,
 				743E9A7E162C76A9005F28A0 /* AppDelegate.h */,
 				743E9A7F162C76A9005F28A0 /* AppDelegate.m */,
 				743E9A77162C76A9005F28A0 /* iArcomage-Info.plist */,
@@ -316,7 +316,6 @@
 				743E9AA4162C81EA005F28A0 /* Title.png in Resources */,
 				743E9AB1162C8AED005F28A0 /* InfoScreen.png in Resources */,
 				743E9AB2162C8AED005F28A0 /* ScoreScreen.png in Resources */,
-				743E9AB3162C8AED005F28A0 /* StartScreen.png in Resources */,
 				74F7366816425B9800D7A0E6 /* CardsList.plist in Resources */,
 				7484437C1645126A00AEA2D5 /* discard_label.png in Resources */,
 				7484437D1645126A00AEA2D5 /* discard_label@2x.png in Resources */,
@@ -331,6 +330,7 @@
 				744147B41649A0AD00DF07A6 /* ress_up.caf in Resources */,
 				744147B51649A0AD00DF07A6 /* ress_upa.caf in Resources */,
 				744147B61649A0AD00DF07A6 /* towerwall.caf in Resources */,
+				7425F8C0164A443A00876BBD /* ResourcesBackground.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -38,6 +38,7 @@
 
 - (void)cardSelected:(NSInteger)number;
 - (void)cardDiscarded:(NSInteger)number;
+- (void)unloadSoundEffect;
 
 + (PlayerModel*)getPlayer;
 

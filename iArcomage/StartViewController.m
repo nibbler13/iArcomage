@@ -28,6 +28,7 @@
     player = nil;
     computer = nil;
     gameOver = YES;
+    [player unloadSoundEffect];
     [PlayerModel destroyPlayer];
     [ComputerModel destroyComputer];
     [self dismissViewControllerAnimated:YES completion:nil];
