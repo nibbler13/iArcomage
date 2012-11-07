@@ -79,6 +79,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIImageView *discardedImage;
 
+@property (nonatomic) BOOL soundsOn;
+
 - (IBAction)card0UseButtonPressed:(id)sender;
 - (IBAction)card1UseButtonPressed:(id)sender;
 - (IBAction)card2UseButtonPressed:(id)sender;

@@ -56,7 +56,6 @@ static ComputerModel *computer;
         self.isThatComputerTurn = NO;
         self.cards = [[NSMutableArray alloc] init];
         cardsScope = [CardsScope getCardsScope];
-        [cardsScope loadDataFromPlist];
         self.cards = [NSMutableArray arrayWithObjects:cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, nil];
         NSLog(@"done with init computer");
     }

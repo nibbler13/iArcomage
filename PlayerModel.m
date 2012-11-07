@@ -7,17 +7,16 @@
 //
 
 #import "PlayerModel.h"
-#import "CardsScope.h"
-#import "Card.h"
 #import "ComputerModel.h"
+#import "Card.h"
+#import "CardsScope.h"
 
 static PlayerModel *player;
 
 @implementation PlayerModel
 {
-    CardsScope *cardsScope;
     ComputerModel *computer;
-    SystemSoundID soundDealID;
+    CardsScope *cardsScope;
 }
 
 #pragma mark -Initialization
@@ -55,9 +54,9 @@ static PlayerModel *player;
         self.shouldDiscardACard = NO;
         self.shouldPlayAgain = NO;
         self.cards = [[NSMutableArray alloc] initWithCapacity:5];
-        [self loadSoundEffect];
+        self.soundsOn = YES;
         cardsScope = [CardsScope getCardsScope];
-        [cardsScope loadDataFromPlist];
+        cardsScope.soundsOn = self.soundsOn;
         self.cards = [NSMutableArray arrayWithObjects:cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, nil];
         computer = [ComputerModel getComputer];
         NSLog(@"complete init player");
@@ -78,6 +77,9 @@ static PlayerModel *player;
 - (void)cardDiscarded:(NSInteger)number
 {
     NSLog(@"PlayerTurn");
+    if (self.soundsOn) {
+        [cardsScope playDealSoundEffectForEvent:@"WillTakeACard"];
+    }
     [self.delegate showCurrentCard:number withStatus:@"Discarded"];
     if (self.shouldDiscardACard == YES) {
         NSLog(@"i'm just discard a card");
@@ -101,7 +103,9 @@ static PlayerModel *player;
     self.isThatPlayerTurn = YES;
     NSLog(@"PlayerTurn");
     [self.delegate showCurrentCard:number withStatus:@"Selected"];
-    [self playSoundEffect];
+    if (self.soundsOn) {
+        [cardsScope playDealSoundEffectForEvent:@"WillTakeACard"];
+    }
     [self processCard:number];
     if (self.shouldDrawACard == YES) {
         self.shouldDrawACard = NO;
@@ -143,6 +147,36 @@ static PlayerModel *player;
 - (void)processCard:(NSInteger)number
 {
     [self payForTheCard:number];
+    if (self.soundsOn) {
+        if ([[self.cards objectAtIndex:number] quarriesSelf] > 0 ||
+            [[self.cards objectAtIndex:number] magicsSelf] > 0 ||
+            [[self.cards objectAtIndex:number] dungeonsSelf] > 0) {
+            [cardsScope playDealSoundEffectForEvent:@"WillIncreaseSelfGeneralResource"];
+        }
+        if ([[self.cards objectAtIndex:number] quarriesSelf] < 0 ||
+            [[self.cards objectAtIndex:number] magicsSelf] < 0 ||
+            [[self.cards objectAtIndex:number] dungeonsSelf] < 0) {
+            [cardsScope playDealSoundEffectForEvent:@"WillDecreaseSelfGeneralResource"];
+        }
+        if ([[self.cards objectAtIndex:number] bricksSelf] > 0 ||
+            [[self.cards objectAtIndex:number] gemsSelf] > 0 ||
+            [[self.cards objectAtIndex:number] recruitsSelf] > 0) {
+            [cardsScope playDealSoundEffectForEvent:@"WillIncreaseSelfCommonResource"];
+        }
+        if ([[self.cards objectAtIndex:number] bricksSelf] < 0 ||
+            [[self.cards objectAtIndex:number] gemsSelf] < 0 ||
+            [[self.cards objectAtIndex:number] recruitsSelf] < 0) {
+            [cardsScope playDealSoundEffectForEvent:@"WillDecreaseSelfCommonResource"];
+        }
+        if ([[self.cards objectAtIndex:number] towerSelf] > 0 ||
+            [[self.cards objectAtIndex:number] wallSelf] > 0) {
+            [cardsScope playDealSoundEffectForEvent:@"WillIncreaseTowerOrWall"];
+        }
+        if ([[self.cards objectAtIndex:number] towerSelf] < 0 ||
+            [[self.cards objectAtIndex:number] wallSelf] < 0) {
+            [cardsScope playDealSoundEffectForEvent:@"WillTakeDamage"];
+        }
+    }
     [[self.cards objectAtIndex:number] processCardForPlayer:self andComputer:computer];
     [self.delegate needToCheckThatTheVictoryConditionsIsAchieved];
 
@@ -161,32 +195,5 @@ static PlayerModel *player;
     }
 }
 
-#pragma mark -SoundEffects
-
-- (void)loadSoundEffect
-{
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"deal.caf" ofType:nil];
-    NSURL *fileURL = [NSURL fileURLWithPath:path isDirectory:NO];
-    if (fileURL == nil) {
-        NSLog(@"NSURL is nil for path: %@", path);
-        return;
-    }
-    OSStatus error = AudioServicesCreateSystemSoundID((__bridge CFURLRef)fileURL, &soundDealID);
-    if (error != kAudioServicesNoError) {
-        NSLog(@"Error code %ld loading sound at path: %@", error, path);
-        return;
-    }
-}
-
-- (void)unloadSoundEffect
-{
-    AudioServicesDisposeSystemSoundID(soundDealID);
-    soundDealID = 0;
-}
-
-- (void)playSoundEffect
-{
-    AudioServicesPlaySystemSound(soundDealID);
-}
 
 @end

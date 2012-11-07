@@ -35,10 +35,10 @@
 @property (nonatomic) BOOL shouldDiscardACard;
 @property (nonatomic) BOOL shouldDrawACard;
 @property (nonatomic) BOOL isThatPlayerTurn;
+@property (nonatomic) BOOL soundsOn;
 
 - (void)cardSelected:(NSInteger)number;
 - (void)cardDiscarded:(NSInteger)number;
-- (void)unloadSoundEffect;
 
 + (PlayerModel*)getPlayer;
 

@@ -7,6 +7,7 @@
 //
 
 #import "MainViewController.h"
+#import "StartViewController.h"
 
 @interface MainViewController ()
 
@@ -24,6 +25,16 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"toStart"]) {
+        StartViewController *controller = [segue destinationViewController];
+        NSLog(@"self.soundsOn %u", self.SoundSwitcher.on);
+        controller.soundsOn = self.SoundSwitcher.on;
+        NSLog(@"controller.soundOn %u", controller.soundsOn);
+    }
 }
 
 @end

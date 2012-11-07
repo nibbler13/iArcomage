@@ -9,6 +9,7 @@
 #import "StartViewController.h"
 #import "Card.h"
 #import <QuartzCore/QuartzCore.h>
+#import "CardsScope.h"
 
 @interface StartViewController ()
 
@@ -19,6 +20,7 @@
     PlayerModel *player;
     ComputerModel *computer;
     BOOL gameOver;
+    CardsScope *cardsScope;
 }
 
 #pragma mark -UIAlertView's delegate methods
@@ -28,7 +30,6 @@
     player = nil;
     computer = nil;
     gameOver = YES;
-    [player unloadSoundEffect];
     [PlayerModel destroyPlayer];
     [ComputerModel destroyComputer];
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -42,13 +43,13 @@
     transition.type = kCATransitionFromBottom;
     transition.duration = 1;
     transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
-    //[self.view.layer addAnimation:transition forKey:@"configureUpdateAnimation"];
+    [self.view.layer addAnimation:transition forKey:@"configureUpdateAnimation"];
     [self configureUseCardButton:self.card0UseButton andDisButton:self.card0DiscardButton atNumber:0];
     [self configureUseCardButton:self.card1UseButton andDisButton:self.card1DiscardButton atNumber:1];
     [self configureUseCardButton:self.card2UseButton andDisButton:self.card2DiscardButton atNumber:2];
     [self configureUseCardButton:self.card3UseButton andDisButton:self.card3DiscardButton atNumber:3];
     [self configureUseCardButton:self.card4UseButton andDisButton:self.card4DiscardButton atNumber:4];
-    //[self.view.layer removeAnimationForKey:@"configureUpdateAnimation"];
+    [self.view.layer removeAnimationForKey:@"configureUpdateAnimation"];
     [self updatePlayerLabels];
     [self updateComputerLabels];
 }
@@ -56,8 +57,7 @@
 - (void)needToCheckThatTheVictoryConditionsIsAchievedByComputer
 {
     if (computer.tower > 100 || computer.wall > 200 || computer.bricks > 200 || computer.gems > 200 || computer.recruits > 200 || player.tower == 0) {
-        [self updateComputerLabels];
-        [self updatePlayerLabels];
+        [cardsScope playDealSoundEffectForEvent:@"PlayerLose"];
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"You lose!" message:@"The computer has defeated you like a boss" delegate:self cancelButtonTitle:@"Ohhh god why?" otherButtonTitles: nil];
         [alertView show];
     }
@@ -68,13 +68,13 @@
     NSLog(@"---/--- Should update current computer card");
     
     if ([[[[computer cards] objectAtIndex:number] cardColor] isEqualToString:@"Grey"]) {
-        self.computersCurrentCardCost.backgroundColor = [UIColor grayColor];
+        self.computersCurrentCardName.textColor = [UIColor redColor];
     }
     if ([[[[computer cards] objectAtIndex:number] cardColor] isEqualToString:@"Blue"]) {
-        self.computersCurrentCardCost.backgroundColor = [UIColor blueColor];
+        self.computersCurrentCardName.textColor = [UIColor blueColor];
     }
     if ([[[[computer cards] objectAtIndex:number] cardColor] isEqualToString:@"Green"]) {
-        self.computersCurrentCardCost.backgroundColor = [UIColor greenColor];
+        self.computersCurrentCardName.textColor = [UIColor greenColor];
     }
     CATransition *transition = [CATransition animation];
     transition.type = kCATransitionFade;
@@ -99,6 +99,7 @@
 - (void)needToCheckThatTheVictoryConditionsIsAchieved
 {
     if (player.tower > 100 || player.wall > 200 || player.bricks > 200 || player.gems > 200 || player.recruits > 200 || computer.tower == 0) {
+        [cardsScope playDealSoundEffectForEvent:@"PlayerWin"];
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"You win!" message:@"You win because you have completed the needed conditions" delegate:self cancelButtonTitle:@"Yeah! It's great!" otherButtonTitles: nil];
         [alertView show];
     }
@@ -215,6 +216,7 @@
     if (gameOver) {    
         player = [PlayerModel getPlayer];
         player.delegate = self;
+        player.soundsOn = self.soundsOn;
         [self updatePlayerLabels];
     
         computer = [ComputerModel getComputer];
@@ -223,6 +225,7 @@
         [self updateAllCards];
         [self updateCardsButton];
         [self updateCurrentCard];
+        cardsScope = [CardsScope getCardsScope];
         gameOver = NO;
         self.startButton.titleLabel.textColor = [UIColor lightGrayColor];
         self.startButton.hidden = YES;
@@ -356,13 +359,16 @@ withCardDescriptionLabel:self.playersCard4Description
     withDiscardButton:(UIButton*)disButton
 {
     if ([[[[player cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Grey"]) {
-        cardCost.backgroundColor = [UIColor grayColor];
+        //cardCost.backgroundColor = [UIColor grayColor];
+        cardName.textColor = [UIColor redColor];
     }
     if ([[[[player cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Blue"]) {
-        cardCost.backgroundColor = [UIColor blueColor];
+        //cardCost.backgroundColor = [UIColor blueColor];
+        cardName.textColor = [UIColor blueColor];
     }
     if ([[[[player cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Green"]) {
-        cardCost.backgroundColor = [UIColor greenColor];
+        //cardCost.backgroundColor = [UIColor greenColor];
+        cardName.textColor = [UIColor greenColor];
     }
     cardName.text = [[[player cards] objectAtIndex:cardNumber] cardName];
     cardDescription.text = [[[player cards] objectAtIndex:cardNumber] cardDescription];
@@ -377,13 +383,13 @@ withCardDescriptionLabel:self.playersCard4Description
     transition.type = kCATransitionFade;
     transition.duration = 1;
     transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
-    //[self.view.layer addAnimation:transition forKey:@"configureCardAnimation"];
+    [self.view.layer addAnimation:transition forKey:@"configureCardAnimation"];
     [self configureUseCardButton:self.card0UseButton andDisButton:self.card0DiscardButton atNumber:0];
     [self configureUseCardButton:self.card1UseButton andDisButton:self.card1DiscardButton atNumber:1];
     [self configureUseCardButton:self.card2UseButton andDisButton:self.card2DiscardButton atNumber:2];
     [self configureUseCardButton:self.card3UseButton andDisButton:self.card3DiscardButton atNumber:3];
     [self configureUseCardButton:self.card4UseButton andDisButton:self.card4DiscardButton atNumber:4];
-    //[self.view.layer removeAnimationForKey:@"configureCardAnimation"];
+    [self.view.layer removeAnimationForKey:@"configureCardAnimation"];
 }
 
 - (void)configureUseCardButton:(UIButton*)use andDisButton:(UIButton*)dis atNumber:(NSInteger)number
