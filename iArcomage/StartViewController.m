@@ -92,6 +92,29 @@
     } else {
         self.computersDiscardLabel.hidden = YES;
     }
+    UIImageView *testImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CardsBlank"]];
+    testImage.center = CGPointMake(439, 266);
+    [self.view addSubview:testImage];
+    CABasicAnimation *testImageMover = [CABasicAnimation animationWithKeyPath:@"position"];
+    testImageMover.removedOnCompletion = NO;
+    testImageMover.fillMode = kCAFillModeForwards;
+    testImageMover.duration = 2.0f;
+    testImageMover.fromValue = [NSValue valueWithCGPoint:testImage.center];
+    testImageMover.toValue = [NSValue valueWithCGPoint:CGPointMake(110.0f, 40)];
+    testImageMover.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    testImageMover.delegate = self;
+    [testImage.layer addAnimation:testImageMover forKey:@"testImageMover"];
+    /*
+    testImageMover.removedOnCompletion = NO;
+    testImageMover.fillMode = kCAFillModeRemoved;
+    testImageMover.duration = 1.0f;
+    testImageMover.fromValue = [NSValue valueWithCGPoint:testImage.center];
+    testImageMover.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.bounds.size.width / 2, self.view.bounds.size.height / 2)];
+    testImageMover.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    testImageMover.delegate = self;
+    [testImage.layer addAnimation:testImageMover forKey:@"testImageMover"];
+     */
+    
 }
 
 #pragma mark -Player's delegate methods

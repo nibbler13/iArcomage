@@ -139,7 +139,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.70000000000000007" contentMode="scaleToFill" image="CardsBack.png" id="HNz-1a-67r">
-                                <rect key="frame" x="75" y="-1" width="63" height="79"/>
+                                <rect key="frame" x="78" y="0.0" width="64" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="PlayerNameBackground.png" id="0AM-lX-9Id">
