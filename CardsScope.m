@@ -100,7 +100,7 @@
 {
     NSInteger random = (1 + arc4random()%([self.cards count] -1));
     //NSInteger random = (1 + arc4random()%10);
-    //return [self.cards objectAtIndex:39];
+    //return [self.cards objectAtIndex:1];
     return [self.cards objectAtIndex:random];
 }
 

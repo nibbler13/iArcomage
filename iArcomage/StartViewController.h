@@ -65,16 +65,22 @@
 @property (weak, nonatomic) IBOutlet UILabel *playersCard4Description;
 @property (weak, nonatomic) IBOutlet UILabel *playersCard4Cost;
 
+@property (weak, nonatomic) IBOutlet UILabel *playersCard5Name;
+@property (weak, nonatomic) IBOutlet UILabel *playersCard5Description;
+@property (weak, nonatomic) IBOutlet UILabel *playersCard5Cost;
+
 @property (weak, nonatomic) IBOutlet UIButton *card0UseButton;
 @property (weak, nonatomic) IBOutlet UIButton *card1UseButton;
 @property (weak, nonatomic) IBOutlet UIButton *card2UseButton;
 @property (weak, nonatomic) IBOutlet UIButton *card3UseButton;
 @property (weak, nonatomic) IBOutlet UIButton *card4UseButton;
+@property (weak, nonatomic) IBOutlet UIButton *card5UseButton;
 @property (weak, nonatomic) IBOutlet UIButton *card0DiscardButton;
 @property (weak, nonatomic) IBOutlet UIButton *card1DiscardButton;
 @property (weak, nonatomic) IBOutlet UIButton *card2DiscardButton;
 @property (weak, nonatomic) IBOutlet UIButton *card3DiscardButton;
 @property (weak, nonatomic) IBOutlet UIButton *card4DiscardButton;
+@property (weak, nonatomic) IBOutlet UIButton *card5DiscardButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIImageView *discardedImage;

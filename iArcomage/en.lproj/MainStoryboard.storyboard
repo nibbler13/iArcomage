@@ -420,7 +420,7 @@
                                     <action selector="card4DiscardButtonPressed:" destination="FSb-dx-CHS" eventType="touchUpInside" id="9Gt-PQ-CVE"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.20000000000000015" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="h7l-x7-ZoR">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="h7l-x7-ZoR">
                                 <rect key="frame" x="405" y="295" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -431,8 +431,11 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="card5UseButtonPressed:" destination="FSb-dx-CHS" eventType="touchUpOutside" id="OXQ-XZ-e4C"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" alpha="0.20000000000000015" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yJ7-l7-acC">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yJ7-l7-acC">
                                 <rect key="frame" x="440" y="295" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -443,6 +446,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="card5DiscardButtonPressed:" destination="FSb-dx-CHS" eventType="touchUpOutside" id="2KD-Gl-43c"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="111" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fuI-Ug-wvD">
                                 <rect key="frame" x="5" y="50" width="30" height="22"/>
@@ -768,7 +774,7 @@
                                 <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.20000000000000015" contentMode="left" text="If quarry&lt;enemy quarry, +2 quarry. Else +1 quarry. Else else else else else" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TTF-F0-OTT">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="If quarry&lt;enemy quarry, +2 quarry. Else +1 quarry. Else else else else else" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TTF-F0-OTT">
                                 <rect key="frame" x="403" y="228" width="72" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter-Condensed" family="American Typewriter" pointSize="11"/>
@@ -786,7 +792,7 @@
                                 <color key="shadowColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.20000000000000015" contentMode="left" text="Mother Lode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rg6-sM-dXe">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Mother Lode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rg6-sM-dXe">
                                 <rect key="frame" x="402" y="214" width="78" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="10"/>
@@ -803,7 +809,7 @@
                                 <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.20000000000000015" contentMode="left" text="11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zim-Ar-z7L">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zim-Ar-z7L">
                                 <rect key="frame" x="465" y="302" width="10" height="12"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="8"/>
@@ -883,6 +889,9 @@
                         <outlet property="playersCard4Cost" destination="NbJ-ya-Hdx" id="lPr-HQ-jtV"/>
                         <outlet property="playersCard4Description" destination="DSZ-np-5VY" id="PT3-XC-CqT"/>
                         <outlet property="playersCard4Name" destination="BTs-gG-nwM" id="lUQ-SZ-goG"/>
+                        <outlet property="playersCard5Cost" destination="zim-Ar-z7L" id="WDx-tv-sbM"/>
+                        <outlet property="playersCard5Description" destination="TTF-F0-OTT" id="yic-17-ekR"/>
+                        <outlet property="playersCard5Name" destination="Rg6-sM-dXe" id="qhl-ak-JbP"/>
                         <outlet property="startButton" destination="bHl-gw-GE2" id="MQ1-h9-P1b"/>
                     </connections>
                 </viewController>
@@ -1007,6 +1016,8 @@
                 <relationship kind="action" name="card3UseButtonPressed:"/>
                 <relationship kind="action" name="card4DiscardButtonPressed:"/>
                 <relationship kind="action" name="card4UseButtonPressed:"/>
+                <relationship kind="action" name="card5DiscardButtonPressed:"/>
+                <relationship kind="action" name="card5UseButtonPressed:"/>
                 <relationship kind="action" name="game:"/>
                 <relationship kind="outlet" name="card0DiscardButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="card0UseButton" candidateClass="UIButton"/>
@@ -1018,6 +1029,8 @@
                 <relationship kind="outlet" name="card3UseButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="card4DiscardButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="card4UseButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="card5DiscardButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="card5UseButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="computerBricks" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="computerDungeons" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="computerGems" candidateClass="UILabel"/>
@@ -1057,6 +1070,9 @@
                 <relationship kind="outlet" name="playersCard4Cost" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="playersCard4Description" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="playersCard4Name" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard5Cost" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard5Description" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard5Name" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
             </relationships>
         </class>

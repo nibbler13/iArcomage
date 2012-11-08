@@ -49,6 +49,7 @@
     [self configureUseCardButton:self.card2UseButton andDisButton:self.card2DiscardButton atNumber:2];
     [self configureUseCardButton:self.card3UseButton andDisButton:self.card3DiscardButton atNumber:3];
     [self configureUseCardButton:self.card4UseButton andDisButton:self.card4DiscardButton atNumber:4];
+    [self configureUseCardButton:self.card5UseButton andDisButton:self.card5DiscardButton atNumber:5];
     [self.view.layer removeAnimationForKey:@"configureUpdateAnimation"];
     [self updatePlayerLabels];
     [self updateComputerLabels];
@@ -135,6 +136,7 @@
     self.card2UseButton.hidden = NO;
     self.card3UseButton.hidden = NO;
     self.card4UseButton.hidden = NO;
+    self.card5UseButton.hidden = NO;
 }
 
 - (void)shouldDiscardACard
@@ -144,6 +146,7 @@
     self.card2UseButton.hidden = YES;
     self.card3UseButton.hidden = YES;
     self.card4UseButton.hidden = YES;
+    self.card5UseButton.hidden = YES;
 }
 
 - (void)showCurrentCard:(NSInteger)number withStatus:(NSString *)status
@@ -209,6 +212,10 @@
     [player cardSelected:4];
 }
 
+- (IBAction)card5UseButtonPressed:(id)sender {
+    [player cardSelected:5];
+}
+
 - (IBAction)card0DiscardButtonPressed:(id)sender {
     [player cardDiscarded:0];
 }
@@ -229,6 +236,10 @@
     [player cardDiscarded:4];
 }
 
+- (IBAction)card5DiscardButtonPressed:(id)sender {
+    [player cardDiscarded:5];
+}
+
 - (IBAction)backButtonPressed:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -240,10 +251,9 @@
         player = [PlayerModel getPlayer];
         player.delegate = self;
         player.soundsOn = self.soundsOn;
-        [self updatePlayerLabels];
-    
         computer = [ComputerModel getComputer];
         computer.delegate = self;
+        [self updatePlayerLabels];
         [self updateComputerLabels];
         [self updateAllCards];
         [self updateCardsButton];
@@ -266,6 +276,7 @@
     [self updateCard2];
     [self updateCard3];
     [self updateCard4];
+    [self updateCard5];
 }
 
 - (void)updatePlayerLabels
@@ -347,6 +358,16 @@ withCardDescriptionLabel:self.playersCard4Description
        withDiscardButton:self.card4DiscardButton];
 }
 
+- (void)updateCard5
+{
+    [self configureCard:5
+      withCardNameLabel:self.playersCard5Name
+withCardDescriptionLabel:self.playersCard5Description
+      withCardCostLabel:self.playersCard5Cost
+          withUseButton:self.card5UseButton
+      withDiscardButton:self.card5DiscardButton];
+}
+
 - (void)updateCurrentCard
 {
     self.currentCardName.text = @"No card";
@@ -412,6 +433,7 @@ withCardDescriptionLabel:self.playersCard4Description
     [self configureUseCardButton:self.card2UseButton andDisButton:self.card2DiscardButton atNumber:2];
     [self configureUseCardButton:self.card3UseButton andDisButton:self.card3DiscardButton atNumber:3];
     [self configureUseCardButton:self.card4UseButton andDisButton:self.card4DiscardButton atNumber:4];
+    [self configureUseCardButton:self.card5UseButton andDisButton:self.card5DiscardButton atNumber:5];
     [self.view.layer removeAnimationForKey:@"configureCardAnimation"];
 }
 

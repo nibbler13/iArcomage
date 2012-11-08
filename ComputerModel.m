@@ -56,7 +56,7 @@ static ComputerModel *computer;
         self.isThatComputerTurn = NO;
         self.cards = [[NSMutableArray alloc] init];
         cardsScope = [CardsScope getCardsScope];
-        self.cards = [NSMutableArray arrayWithObjects:cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, nil];
+        self.cards = [NSMutableArray arrayWithObjects:cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, nil];
         NSLog(@"done with init computer");
     }
     return self;
@@ -163,7 +163,7 @@ static ComputerModel *computer;
 
 - (void)printCardsInHand
 {
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < [self.cards count]; i++) {
         [self printCardInfoAtNumber:i];
     }
 }

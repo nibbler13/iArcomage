@@ -53,11 +53,11 @@ static PlayerModel *player;
         self.shouldDrawACard = NO;
         self.shouldDiscardACard = NO;
         self.shouldPlayAgain = NO;
-        self.cards = [[NSMutableArray alloc] initWithCapacity:5];
+        self.cards = [[NSMutableArray alloc] initWithCapacity:6];
         self.soundsOn = YES;
         cardsScope = [CardsScope getCardsScope];
         cardsScope.soundsOn = self.soundsOn;
-        self.cards = [NSMutableArray arrayWithObjects:cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, nil];
+        self.cards = [NSMutableArray arrayWithObjects:cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, nil];
         computer = [ComputerModel getComputer];
         NSLog(@"complete init player");
     }
@@ -185,12 +185,12 @@ static PlayerModel *player;
 - (void)getNewCardAtNumber:(NSInteger)number
 {
     Card *tempCard;
-    for (int i = number; i <= 4; i++) {
-        if (i != 4) {
+    for (int i = number; i < [self.cards count]; i++) {
+        if (i != ([self.cards count] -1)) {
             tempCard = [self.cards objectAtIndex:i + 1];
             [self.cards replaceObjectAtIndex:i withObject:tempCard];
         } else {
-        [self.cards replaceObjectAtIndex:4 withObject:cardsScope.getRandomCard];
+        [self.cards replaceObjectAtIndex:([self.cards count] - 1) withObject:cardsScope.getRandomCard];
         }
     }
 }
