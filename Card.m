@@ -609,4 +609,9 @@
     self.isAvailable = available;
 }
 
+- (void)setCenterOfImageWithPoint:(CGPoint)point
+{
+    self.cardImage.center = point;
+}
+
 @end

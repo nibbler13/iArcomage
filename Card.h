@@ -35,9 +35,11 @@
 @property (nonatomic) BOOL additionalTerms;
 @property (nonatomic) NSInteger cardWeight;
 @property (nonatomic) BOOL isAvailable;
+@property (nonatomic, readwrite) UIImageView *cardImage;
 
 - (void)processCardForPlayer:(PlayerModel*)player andComputer:(ComputerModel*)computer;
 - (void)increaseCardWeightOn:(NSInteger)weight;
 - (void)thatCardIsAvailable:(BOOL)available;
+- (void)setCenterOfImageWithPoint:(CGPoint)point;
 
 @end

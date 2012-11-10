@@ -67,7 +67,7 @@
 - (void)showCurrentComputerCard:(NSInteger)number withStatus:(NSString *)status
 {
     NSLog(@"---/--- Should update current computer card");
-    
+    /*
     if ([[[[computer cards] objectAtIndex:number] cardColor] isEqualToString:@"Grey"]) {
         self.computersCurrentCardName.textColor = [UIColor redColor];
     }
@@ -76,32 +76,32 @@
     }
     if ([[[[computer cards] objectAtIndex:number] cardColor] isEqualToString:@"Green"]) {
         self.computersCurrentCardName.textColor = [UIColor greenColor];
-    }
-    CATransition *transition = [CATransition animation];
+    }*/
+    /*CATransition *transition = [CATransition animation];
     transition.type = kCATransitionFade;
     transition.duration = 1;
     transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault];
-    //[self.view.layer addAnimation:transition forKey:@"configureCardAnimation"];
+    [self.view.layer addAnimation:transition forKey:@"configureCardAnimation"];
     self.computersCurrentCardName.text = [[[computer cards] objectAtIndex:number] cardName];
     self.computersCurrentCardDescription.text = [[[computer cards] objectAtIndex:number] cardDescription];
     self.computersCurrentCardCost.text = [NSString stringWithFormat:@"%d",[[[computer cards] objectAtIndex:number] cardCost]];
-    //[self.view.layer removeAnimationForKey:@"configureCardAnimation"];
-    
-    
+    [self.view.layer removeAnimationForKey:@"configureCardAnimation"];
+    */
+    /*
     if ([status isEqualToString:@"Discarded"]) {
         self.computersDiscardLabel.hidden = NO;
     } else {
         self.computersDiscardLabel.hidden = YES;
-    }
-    UIImageView *testImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CardsBlank"]];
+    }*/
+    UIImageView *testImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CardBack"]];
     testImage.center = CGPointMake(439, 266);
     [self.view addSubview:testImage];
     CABasicAnimation *testImageMover = [CABasicAnimation animationWithKeyPath:@"position"];
-    testImageMover.removedOnCompletion = NO;
+    testImageMover.removedOnCompletion = YES;
     testImageMover.fillMode = kCAFillModeForwards;
-    testImageMover.duration = 2.0f;
+    testImageMover.duration = 1.0f;
     testImageMover.fromValue = [NSValue valueWithCGPoint:testImage.center];
-    testImageMover.toValue = [NSValue valueWithCGPoint:CGPointMake(110.0f, 40)];
+    testImageMover.toValue = [NSValue valueWithCGPoint:CGPointMake(126, 50)];
     testImageMover.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
     testImageMover.delegate = self;
     [testImage.layer addAnimation:testImageMover forKey:@"testImageMover"];
@@ -151,7 +151,7 @@
 
 - (void)showCurrentCard:(NSInteger)number withStatus:(NSString *)status
 {
-    [self configureCard:number withCardNameLabel:self.currentCardName withCardDescriptionLabel:self.currentCardDescription withCardCostLabel:self.currentCardCost withUseButton:nil withDiscardButton:nil];
+    //[self configureCard:number withCardNameLabel:self.currentCardName withCardDescriptionLabel:self.currentCardDescription withCardCostLabel:self.currentCardCost withUseButton:nil withDiscardButton:nil];
     if ([status isEqualToString:@"Discarded"]) {
         self.discardedImage.hidden = NO;
     } else {
@@ -257,7 +257,7 @@
         [self updateComputerLabels];
         [self updateAllCards];
         [self updateCardsButton];
-        [self updateCurrentCard];
+        //[self updateCurrentCard];
         cardsScope = [CardsScope getCardsScope];
         gameOver = NO;
         self.startButton.titleLabel.textColor = [UIColor lightGrayColor];
@@ -270,13 +270,13 @@
 #pragma mark - UpdatingLabels
 
 - (void)updateAllCards
-{
+{/*
     [self updateCard0];
     [self updateCard1];
     [self updateCard2];
     [self updateCard3];
     [self updateCard4];
-    [self updateCard5];
+    [self updateCard5];*/
 }
 
 - (void)updatePlayerLabels
@@ -304,7 +304,7 @@
     self.computerWall.text = [NSString stringWithFormat:@"%d", computer.wall];
     self.computerTower.text = [NSString stringWithFormat:@"%d", computer.tower];
 }
-
+/*
 - (void)updateCard0
 {
     [self configureCard:0
@@ -377,7 +377,7 @@ withCardDescriptionLabel:self.playersCard5Description
     self.computersCurrentCardDescription.text = @"No card";
     self.computersCurrentCardCost.text = @"No";
 }
-
+*/
 - (BOOL)isButtonAvailableToPlay:(NSInteger)buttonNumber
 {
     NSInteger cardCost = [[player.cards objectAtIndex:buttonNumber] cardCost];

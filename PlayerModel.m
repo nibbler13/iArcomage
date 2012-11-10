@@ -193,6 +193,7 @@ static PlayerModel *player;
         [self.cards replaceObjectAtIndex:([self.cards count] - 1) withObject:cardsScope.getRandomCard];
         }
     }
+    [[self.cards objectAtIndex:number] setCenterOfImageWithPoint:(CGPointMake(number*80, 240))];
 }
 
 

@@ -11,7 +11,6 @@
 		740EA0611641437100AFFA55 /* ComputerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 740EA0601641437100AFFA55 /* ComputerModel.m */; };
 		740EA06D164152D800AFFA55 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 740EA06C164152D800AFFA55 /* Card.m */; };
 		740EA070164152E600AFFA55 /* CardsScope.m in Sources */ = {isa = PBXBuildFile; fileRef = 740EA06F164152E600AFFA55 /* CardsScope.m */; };
-		7425F8D4164A498500876BBD /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 7425F8CA164A498500876BBD /* Background.png */; };
 		7425F8D5164A498500876BBD /* InfoButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7425F8CB164A498500876BBD /* InfoButton.png */; };
 		7425F8D6164A498500876BBD /* InfoButtonHighlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 7425F8CC164A498500876BBD /* InfoButtonHighlighted.png */; };
 		7425F8D7164A498500876BBD /* InfoScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 7425F8CD164A498500876BBD /* InfoScreen.png */; };
@@ -63,6 +62,46 @@
 		744147B41649A0AD00DF07A6 /* ress_up.caf in Resources */ = {isa = PBXBuildFile; fileRef = 744147AA1649A0AD00DF07A6 /* ress_up.caf */; };
 		744147B51649A0AD00DF07A6 /* ress_upa.caf in Resources */ = {isa = PBXBuildFile; fileRef = 744147AB1649A0AD00DF07A6 /* ress_upa.caf */; };
 		744147B61649A0AD00DF07A6 /* towerwall.caf in Resources */ = {isa = PBXBuildFile; fileRef = 744147AC1649A0AD00DF07A6 /* towerwall.caf */; };
+		74728C34164E5CD9009D14EC /* TowerHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C0E164E5CD9009D14EC /* TowerHolder.png */; };
+		74728C35164E5CD9009D14EC /* TowerHolder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C0F164E5CD9009D14EC /* TowerHolder@2x.png */; };
+		74728C36164E5CD9009D14EC /* Brick Shortage.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C10164E5CD9009D14EC /* Brick Shortage.png */; };
+		74728C37164E5CDA009D14EC /* Brick Shortage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C11164E5CD9009D14EC /* Brick Shortage@2x.png */; };
+		74728C38164E5CDA009D14EC /* Lucky Cache.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C12164E5CD9009D14EC /* Lucky Cache.png */; };
+		74728C39164E5CDA009D14EC /* Lucky Cache@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C13164E5CD9009D14EC /* Lucky Cache@2x.png */; };
+		74728C3A164E5CDA009D14EC /* Friendly Terrain.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C14164E5CD9009D14EC /* Friendly Terrain.png */; };
+		74728C3B164E5CDA009D14EC /* Friendly Terrain@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C15164E5CD9009D14EC /* Friendly Terrain@2x.png */; };
+		74728C3C164E5CDA009D14EC /* WallHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C16164E5CD9009D14EC /* WallHolder.png */; };
+		74728C3D164E5CDA009D14EC /* WallHolder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C17164E5CD9009D14EC /* WallHolder@2x.png */; };
+		74728C3E164E5CDA009D14EC /* Player_name.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C18164E5CD9009D14EC /* Player_name.png */; };
+		74728C3F164E5CDA009D14EC /* Player_name@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C19164E5CD9009D14EC /* Player_name@2x.png */; };
+		74728C40164E5CDA009D14EC /* CardBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C1A164E5CD9009D14EC /* CardBack.png */; };
+		74728C41164E5CDA009D14EC /* CardBack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C1B164E5CD9009D14EC /* CardBack@2x.png */; };
+		74728C42164E5CDA009D14EC /* Miners.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C1C164E5CD9009D14EC /* Miners.png */; };
+		74728C43164E5CDA009D14EC /* Miners@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C1D164E5CD9009D14EC /* Miners@2x.png */; };
+		74728C44164E5CDA009D14EC /* Mother Lode.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C1E164E5CD9009D14EC /* Mother Lode.png */; };
+		74728C45164E5CDA009D14EC /* Mother Lode@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C1F164E5CD9009D14EC /* Mother Lode@2x.png */; };
+		74728C46164E5CDA009D14EC /* Dwarven Miners.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C20164E5CD9009D14EC /* Dwarven Miners.png */; };
+		74728C47164E5CDA009D14EC /* Dwarven Miners@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C21164E5CD9009D14EC /* Dwarven Miners@2x.png */; };
+		74728C48164E5CDA009D14EC /* Word Overtime.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C22164E5CD9009D14EC /* Word Overtime.png */; };
+		74728C49164E5CDA009D14EC /* Word Overtime@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C23164E5CD9009D14EC /* Word Overtime@2x.png */; };
+		74728C4A164E5CDA009D14EC /* Copping the Tech.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C24164E5CD9009D14EC /* Copping the Tech.png */; };
+		74728C4B164E5CDA009D14EC /* Copping the Tech@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C25164E5CD9009D14EC /* Copping the Tech@2x.png */; };
+		74728C4C164E5CDA009D14EC /* Basic Wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C26164E5CD9009D14EC /* Basic Wall.png */; };
+		74728C4D164E5CDA009D14EC /* Basic Wall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C27164E5CD9009D14EC /* Basic Wall@2x.png */; };
+		74728C4E164E5CDA009D14EC /* Sturdy Wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C28164E5CD9009D14EC /* Sturdy Wall.png */; };
+		74728C4F164E5CDA009D14EC /* Sturdy Wall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C29164E5CD9009D14EC /* Sturdy Wall@2x.png */; };
+		74728C50164E5CDA009D14EC /* TowerHeaderComputer.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C2A164E5CD9009D14EC /* TowerHeaderComputer.png */; };
+		74728C51164E5CDA009D14EC /* TowerHeaderComputer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C2B164E5CD9009D14EC /* TowerHeaderComputer@2x.png */; };
+		74728C52164E5CDA009D14EC /* TowerHeader.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C2C164E5CD9009D14EC /* TowerHeader.png */; };
+		74728C53164E5CDA009D14EC /* TowerHeader@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C2D164E5CD9009D14EC /* TowerHeader@2x.png */; };
+		74728C54164E5CDA009D14EC /* ResourceHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C2E164E5CD9009D14EC /* ResourceHolder.png */; };
+		74728C55164E5CDA009D14EC /* ResourceHolder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C2F164E5CD9009D14EC /* ResourceHolder@2x.png */; };
+		74728C56164E5CDA009D14EC /* WallWidth.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C30164E5CD9009D14EC /* WallWidth.png */; };
+		74728C57164E5CDA009D14EC /* WallWidth@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C31164E5CD9009D14EC /* WallWidth@2x.png */; };
+		74728C59164E5CDA009D14EC /* TowerWidth@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C33164E5CD9009D14EC /* TowerWidth@2x.png */; };
+		74728C5C164E5E3A009D14EC /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C5A164E5E3A009D14EC /* Background.png */; };
+		74728C5D164E5E3A009D14EC /* Background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C5B164E5E3A009D14EC /* Background@2x.png */; };
+		74728C5F164E5FF4009D14EC /* TowerWidth.png in Resources */ = {isa = PBXBuildFile; fileRef = 74728C5E164E5FF4009D14EC /* TowerWidth.png */; };
 		7484436F1642EA0000AEA2D5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7484436E1642EA0000AEA2D5 /* QuartzCore.framework */; };
 		7484437C1645126A00AEA2D5 /* discard_label.png in Resources */ = {isa = PBXBuildFile; fileRef = 7484437A1645126A00AEA2D5 /* discard_label.png */; };
 		7484437D1645126A00AEA2D5 /* discard_label@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7484437B1645126A00AEA2D5 /* discard_label@2x.png */; };
@@ -79,7 +118,6 @@
 		740EA06C164152D800AFFA55 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
 		740EA06E164152E600AFFA55 /* CardsScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardsScope.h; sourceTree = "<group>"; };
 		740EA06F164152E600AFFA55 /* CardsScope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardsScope.m; sourceTree = "<group>"; };
-		7425F8CA164A498500876BBD /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Background.png; path = iArcomage/Background.png; sourceTree = "<group>"; };
 		7425F8CB164A498500876BBD /* InfoButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = InfoButton.png; path = iArcomage/InfoButton.png; sourceTree = "<group>"; };
 		7425F8CC164A498500876BBD /* InfoButtonHighlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = InfoButtonHighlighted.png; path = iArcomage/InfoButtonHighlighted.png; sourceTree = "<group>"; };
 		7425F8CD164A498500876BBD /* InfoScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = InfoScreen.png; path = iArcomage/InfoScreen.png; sourceTree = "<group>"; };
@@ -139,6 +177,46 @@
 		744147AA1649A0AD00DF07A6 /* ress_up.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ress_up.caf; path = ../ress_up.caf; sourceTree = "<group>"; };
 		744147AB1649A0AD00DF07A6 /* ress_upa.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ress_upa.caf; path = ../ress_upa.caf; sourceTree = "<group>"; };
 		744147AC1649A0AD00DF07A6 /* towerwall.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = towerwall.caf; path = ../towerwall.caf; sourceTree = "<group>"; };
+		74728C0E164E5CD9009D14EC /* TowerHolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TowerHolder.png; path = ../../../../Desktop/resource/TowerHolder.png; sourceTree = "<group>"; };
+		74728C0F164E5CD9009D14EC /* TowerHolder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TowerHolder@2x.png"; path = "../../../../Desktop/resource/TowerHolder@2x.png"; sourceTree = "<group>"; };
+		74728C10164E5CD9009D14EC /* Brick Shortage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Brick Shortage.png"; path = "../../../../Desktop/resource/Brick Shortage.png"; sourceTree = "<group>"; };
+		74728C11164E5CD9009D14EC /* Brick Shortage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Brick Shortage@2x.png"; path = "../../../../Desktop/resource/Brick Shortage@2x.png"; sourceTree = "<group>"; };
+		74728C12164E5CD9009D14EC /* Lucky Cache.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Lucky Cache.png"; path = "../../../../Desktop/resource/Lucky Cache.png"; sourceTree = "<group>"; };
+		74728C13164E5CD9009D14EC /* Lucky Cache@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Lucky Cache@2x.png"; path = "../../../../Desktop/resource/Lucky Cache@2x.png"; sourceTree = "<group>"; };
+		74728C14164E5CD9009D14EC /* Friendly Terrain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Friendly Terrain.png"; path = "../../../../Desktop/resource/Friendly Terrain.png"; sourceTree = "<group>"; };
+		74728C15164E5CD9009D14EC /* Friendly Terrain@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Friendly Terrain@2x.png"; path = "../../../../Desktop/resource/Friendly Terrain@2x.png"; sourceTree = "<group>"; };
+		74728C16164E5CD9009D14EC /* WallHolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WallHolder.png; path = ../../../../Desktop/resource/WallHolder.png; sourceTree = "<group>"; };
+		74728C17164E5CD9009D14EC /* WallHolder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WallHolder@2x.png"; path = "../../../../Desktop/resource/WallHolder@2x.png"; sourceTree = "<group>"; };
+		74728C18164E5CD9009D14EC /* Player_name.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Player_name.png; path = ../../../../Desktop/resource/Player_name.png; sourceTree = "<group>"; };
+		74728C19164E5CD9009D14EC /* Player_name@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Player_name@2x.png"; path = "../../../../Desktop/resource/Player_name@2x.png"; sourceTree = "<group>"; };
+		74728C1A164E5CD9009D14EC /* CardBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CardBack.png; path = ../../../../Desktop/resource/CardBack.png; sourceTree = "<group>"; };
+		74728C1B164E5CD9009D14EC /* CardBack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "CardBack@2x.png"; path = "../../../../Desktop/resource/CardBack@2x.png"; sourceTree = "<group>"; };
+		74728C1C164E5CD9009D14EC /* Miners.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Miners.png; path = ../../../../Desktop/resource/Miners.png; sourceTree = "<group>"; };
+		74728C1D164E5CD9009D14EC /* Miners@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Miners@2x.png"; path = "../../../../Desktop/resource/Miners@2x.png"; sourceTree = "<group>"; };
+		74728C1E164E5CD9009D14EC /* Mother Lode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Mother Lode.png"; path = "../../../../Desktop/resource/Mother Lode.png"; sourceTree = "<group>"; };
+		74728C1F164E5CD9009D14EC /* Mother Lode@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Mother Lode@2x.png"; path = "../../../../Desktop/resource/Mother Lode@2x.png"; sourceTree = "<group>"; };
+		74728C20164E5CD9009D14EC /* Dwarven Miners.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Dwarven Miners.png"; path = "../../../../Desktop/resource/Dwarven Miners.png"; sourceTree = "<group>"; };
+		74728C21164E5CD9009D14EC /* Dwarven Miners@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Dwarven Miners@2x.png"; path = "../../../../Desktop/resource/Dwarven Miners@2x.png"; sourceTree = "<group>"; };
+		74728C22164E5CD9009D14EC /* Word Overtime.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Word Overtime.png"; path = "../../../../Desktop/resource/Word Overtime.png"; sourceTree = "<group>"; };
+		74728C23164E5CD9009D14EC /* Word Overtime@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Word Overtime@2x.png"; path = "../../../../Desktop/resource/Word Overtime@2x.png"; sourceTree = "<group>"; };
+		74728C24164E5CD9009D14EC /* Copping the Tech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Copping the Tech.png"; path = "../../../../Desktop/resource/Copping the Tech.png"; sourceTree = "<group>"; };
+		74728C25164E5CD9009D14EC /* Copping the Tech@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Copping the Tech@2x.png"; path = "../../../../Desktop/resource/Copping the Tech@2x.png"; sourceTree = "<group>"; };
+		74728C26164E5CD9009D14EC /* Basic Wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Basic Wall.png"; path = "../../../../Desktop/resource/Basic Wall.png"; sourceTree = "<group>"; };
+		74728C27164E5CD9009D14EC /* Basic Wall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Basic Wall@2x.png"; path = "../../../../Desktop/resource/Basic Wall@2x.png"; sourceTree = "<group>"; };
+		74728C28164E5CD9009D14EC /* Sturdy Wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Sturdy Wall.png"; path = "../../../../Desktop/resource/Sturdy Wall.png"; sourceTree = "<group>"; };
+		74728C29164E5CD9009D14EC /* Sturdy Wall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Sturdy Wall@2x.png"; path = "../../../../Desktop/resource/Sturdy Wall@2x.png"; sourceTree = "<group>"; };
+		74728C2A164E5CD9009D14EC /* TowerHeaderComputer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TowerHeaderComputer.png; path = ../../../../Desktop/resource/TowerHeaderComputer.png; sourceTree = "<group>"; };
+		74728C2B164E5CD9009D14EC /* TowerHeaderComputer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TowerHeaderComputer@2x.png"; path = "../../../../Desktop/resource/TowerHeaderComputer@2x.png"; sourceTree = "<group>"; };
+		74728C2C164E5CD9009D14EC /* TowerHeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TowerHeader.png; path = ../../../../Desktop/resource/TowerHeader.png; sourceTree = "<group>"; };
+		74728C2D164E5CD9009D14EC /* TowerHeader@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TowerHeader@2x.png"; path = "../../../../Desktop/resource/TowerHeader@2x.png"; sourceTree = "<group>"; };
+		74728C2E164E5CD9009D14EC /* ResourceHolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ResourceHolder.png; path = ../../../../Desktop/resource/ResourceHolder.png; sourceTree = "<group>"; };
+		74728C2F164E5CD9009D14EC /* ResourceHolder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ResourceHolder@2x.png"; path = "../../../../Desktop/resource/ResourceHolder@2x.png"; sourceTree = "<group>"; };
+		74728C30164E5CD9009D14EC /* WallWidth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WallWidth.png; path = ../../../../Desktop/resource/WallWidth.png; sourceTree = "<group>"; };
+		74728C31164E5CD9009D14EC /* WallWidth@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WallWidth@2x.png"; path = "../../../../Desktop/resource/WallWidth@2x.png"; sourceTree = "<group>"; };
+		74728C33164E5CD9009D14EC /* TowerWidth@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "TowerWidth@2x.png"; path = "../../../../Desktop/resource/TowerWidth@2x.png"; sourceTree = "<group>"; };
+		74728C5A164E5E3A009D14EC /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Background.png; path = ../../../../Desktop/resource/Background.png; sourceTree = "<group>"; };
+		74728C5B164E5E3A009D14EC /* Background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Background@2x.png"; path = "../../../../Desktop/resource/Background@2x.png"; sourceTree = "<group>"; };
+		74728C5E164E5FF4009D14EC /* TowerWidth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TowerWidth.png; path = ../../../../Desktop/resource/TowerWidth.png; sourceTree = "<group>"; };
 		7484436E1642EA0000AEA2D5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7484437A1645126A00AEA2D5 /* discard_label.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = discard_label.png; sourceTree = "<group>"; };
 		7484437B1645126A00AEA2D5 /* discard_label@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "discard_label@2x.png"; sourceTree = "<group>"; };
@@ -185,7 +263,6 @@
 				74CE1FF41645AAB800C1461B /* castle.png */,
 				7484437A1645126A00AEA2D5 /* discard_label.png */,
 				7484437B1645126A00AEA2D5 /* discard_label@2x.png */,
-				7425F8CA164A498500876BBD /* Background.png */,
 				7425F8CB164A498500876BBD /* InfoButton.png */,
 				7425F8CC164A498500876BBD /* InfoButtonHighlighted.png */,
 				7425F8CD164A498500876BBD /* InfoScreen.png */,
@@ -265,6 +342,7 @@
 		743E9A76162C76A9005F28A0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				74728C0C164E5C72009D14EC /* Original images */,
 				744147B71649A0E300DF07A6 /* Sounds */,
 				740EA05A1641431600AFFA55 /* Images */,
 				743E9A7E162C76A9005F28A0 /* AppDelegate.h */,
@@ -296,6 +374,53 @@
 				744147AC1649A0AD00DF07A6 /* towerwall.caf */,
 			);
 			name = Sounds;
+			sourceTree = "<group>";
+		};
+		74728C0C164E5C72009D14EC /* Original images */ = {
+			isa = PBXGroup;
+			children = (
+				74728C5A164E5E3A009D14EC /* Background.png */,
+				74728C5B164E5E3A009D14EC /* Background@2x.png */,
+				74728C0E164E5CD9009D14EC /* TowerHolder.png */,
+				74728C0F164E5CD9009D14EC /* TowerHolder@2x.png */,
+				74728C10164E5CD9009D14EC /* Brick Shortage.png */,
+				74728C11164E5CD9009D14EC /* Brick Shortage@2x.png */,
+				74728C12164E5CD9009D14EC /* Lucky Cache.png */,
+				74728C13164E5CD9009D14EC /* Lucky Cache@2x.png */,
+				74728C14164E5CD9009D14EC /* Friendly Terrain.png */,
+				74728C15164E5CD9009D14EC /* Friendly Terrain@2x.png */,
+				74728C16164E5CD9009D14EC /* WallHolder.png */,
+				74728C17164E5CD9009D14EC /* WallHolder@2x.png */,
+				74728C18164E5CD9009D14EC /* Player_name.png */,
+				74728C19164E5CD9009D14EC /* Player_name@2x.png */,
+				74728C1A164E5CD9009D14EC /* CardBack.png */,
+				74728C1B164E5CD9009D14EC /* CardBack@2x.png */,
+				74728C1C164E5CD9009D14EC /* Miners.png */,
+				74728C1D164E5CD9009D14EC /* Miners@2x.png */,
+				74728C1E164E5CD9009D14EC /* Mother Lode.png */,
+				74728C1F164E5CD9009D14EC /* Mother Lode@2x.png */,
+				74728C20164E5CD9009D14EC /* Dwarven Miners.png */,
+				74728C21164E5CD9009D14EC /* Dwarven Miners@2x.png */,
+				74728C22164E5CD9009D14EC /* Word Overtime.png */,
+				74728C23164E5CD9009D14EC /* Word Overtime@2x.png */,
+				74728C24164E5CD9009D14EC /* Copping the Tech.png */,
+				74728C25164E5CD9009D14EC /* Copping the Tech@2x.png */,
+				74728C26164E5CD9009D14EC /* Basic Wall.png */,
+				74728C27164E5CD9009D14EC /* Basic Wall@2x.png */,
+				74728C28164E5CD9009D14EC /* Sturdy Wall.png */,
+				74728C29164E5CD9009D14EC /* Sturdy Wall@2x.png */,
+				74728C2A164E5CD9009D14EC /* TowerHeaderComputer.png */,
+				74728C2B164E5CD9009D14EC /* TowerHeaderComputer@2x.png */,
+				74728C2C164E5CD9009D14EC /* TowerHeader.png */,
+				74728C2D164E5CD9009D14EC /* TowerHeader@2x.png */,
+				74728C2E164E5CD9009D14EC /* ResourceHolder.png */,
+				74728C2F164E5CD9009D14EC /* ResourceHolder@2x.png */,
+				74728C30164E5CD9009D14EC /* WallWidth.png */,
+				74728C31164E5CD9009D14EC /* WallWidth@2x.png */,
+				74728C5E164E5FF4009D14EC /* TowerWidth.png */,
+				74728C33164E5CD9009D14EC /* TowerWidth@2x.png */,
+			);
+			name = "Original images";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,7 +493,6 @@
 				744147B41649A0AD00DF07A6 /* ress_up.caf in Resources */,
 				744147B51649A0AD00DF07A6 /* ress_upa.caf in Resources */,
 				744147B61649A0AD00DF07A6 /* towerwall.caf in Resources */,
-				7425F8D4164A498500876BBD /* Background.png in Resources */,
 				7425F8D5164A498500876BBD /* InfoButton.png in Resources */,
 				7425F8D6164A498500876BBD /* InfoButtonHighlighted.png in Resources */,
 				7425F8D7164A498500876BBD /* InfoScreen.png in Resources */,
@@ -395,6 +519,46 @@
 				7425F905164A868F00876BBD /* sound.png in Resources */,
 				7425F908164A890200876BBD /* EngineOff.png in Resources */,
 				7425F909164A890200876BBD /* EngineOn.png in Resources */,
+				74728C34164E5CD9009D14EC /* TowerHolder.png in Resources */,
+				74728C35164E5CD9009D14EC /* TowerHolder@2x.png in Resources */,
+				74728C36164E5CD9009D14EC /* Brick Shortage.png in Resources */,
+				74728C37164E5CDA009D14EC /* Brick Shortage@2x.png in Resources */,
+				74728C38164E5CDA009D14EC /* Lucky Cache.png in Resources */,
+				74728C39164E5CDA009D14EC /* Lucky Cache@2x.png in Resources */,
+				74728C3A164E5CDA009D14EC /* Friendly Terrain.png in Resources */,
+				74728C3B164E5CDA009D14EC /* Friendly Terrain@2x.png in Resources */,
+				74728C3C164E5CDA009D14EC /* WallHolder.png in Resources */,
+				74728C3D164E5CDA009D14EC /* WallHolder@2x.png in Resources */,
+				74728C3E164E5CDA009D14EC /* Player_name.png in Resources */,
+				74728C3F164E5CDA009D14EC /* Player_name@2x.png in Resources */,
+				74728C40164E5CDA009D14EC /* CardBack.png in Resources */,
+				74728C41164E5CDA009D14EC /* CardBack@2x.png in Resources */,
+				74728C42164E5CDA009D14EC /* Miners.png in Resources */,
+				74728C43164E5CDA009D14EC /* Miners@2x.png in Resources */,
+				74728C44164E5CDA009D14EC /* Mother Lode.png in Resources */,
+				74728C45164E5CDA009D14EC /* Mother Lode@2x.png in Resources */,
+				74728C46164E5CDA009D14EC /* Dwarven Miners.png in Resources */,
+				74728C47164E5CDA009D14EC /* Dwarven Miners@2x.png in Resources */,
+				74728C48164E5CDA009D14EC /* Word Overtime.png in Resources */,
+				74728C49164E5CDA009D14EC /* Word Overtime@2x.png in Resources */,
+				74728C4A164E5CDA009D14EC /* Copping the Tech.png in Resources */,
+				74728C4B164E5CDA009D14EC /* Copping the Tech@2x.png in Resources */,
+				74728C4C164E5CDA009D14EC /* Basic Wall.png in Resources */,
+				74728C4D164E5CDA009D14EC /* Basic Wall@2x.png in Resources */,
+				74728C4E164E5CDA009D14EC /* Sturdy Wall.png in Resources */,
+				74728C4F164E5CDA009D14EC /* Sturdy Wall@2x.png in Resources */,
+				74728C50164E5CDA009D14EC /* TowerHeaderComputer.png in Resources */,
+				74728C51164E5CDA009D14EC /* TowerHeaderComputer@2x.png in Resources */,
+				74728C52164E5CDA009D14EC /* TowerHeader.png in Resources */,
+				74728C53164E5CDA009D14EC /* TowerHeader@2x.png in Resources */,
+				74728C54164E5CDA009D14EC /* ResourceHolder.png in Resources */,
+				74728C55164E5CDA009D14EC /* ResourceHolder@2x.png in Resources */,
+				74728C56164E5CDA009D14EC /* WallWidth.png in Resources */,
+				74728C57164E5CDA009D14EC /* WallWidth@2x.png in Resources */,
+				74728C59164E5CDA009D14EC /* TowerWidth@2x.png in Resources */,
+				74728C5C164E5E3A009D14EC /* Background.png in Resources */,
+				74728C5D164E5E3A009D14EC /* Background@2x.png in Resources */,
+				74728C5F164E5FF4009D14EC /* TowerWidth.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

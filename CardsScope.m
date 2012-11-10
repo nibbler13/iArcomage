@@ -91,6 +91,7 @@
     card.towerEnemy = [[info valueForKey:@"towerEnemy"] integerValue];
     card.additionalTerms =  [[info valueForKey:@"additionalTerms"] boolValue];
     card.cardWeight = 0;
+    card.cardImage.image = [UIImage imageNamed:card.cardName];
     return card;
 }
 
@@ -98,8 +99,8 @@
 
 - (Card*)getRandomCard
 {
-    NSInteger random = (1 + arc4random()%([self.cards count] -1));
-    //NSInteger random = (1 + arc4random()%10);
+    //NSInteger random = (1 + arc4random()%([self.cards count] -1));
+    NSInteger random = (1 + arc4random()%10);
     //return [self.cards objectAtIndex:1];
     return [self.cards objectAtIndex:random];
 }

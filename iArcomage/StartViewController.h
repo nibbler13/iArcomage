@@ -34,7 +34,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *computerRecruits;
 @property (weak, nonatomic) IBOutlet UILabel *computerWall;
 @property (weak, nonatomic) IBOutlet UILabel *computerTower;
-
+/*
 @property (weak, nonatomic) IBOutlet UILabel *currentCardName;
 @property (weak, nonatomic) IBOutlet UILabel *currentCardDescription;
 @property (weak, nonatomic) IBOutlet UILabel *currentCardCost;
@@ -42,9 +42,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *computersCurrentCardDescription;
 @property (weak, nonatomic) IBOutlet UILabel *computersCurrentCardName;
 @property (weak, nonatomic) IBOutlet UILabel *computersCurrentCardCost;
-
+*/
 @property (weak, nonatomic) IBOutlet UIImageView *computersDiscardLabel;
-
+/*
 @property (weak, nonatomic) IBOutlet UILabel *playersCard0Name;
 @property (weak, nonatomic) IBOutlet UILabel *playersCard0Description;
 @property (weak, nonatomic) IBOutlet UILabel *playersCard0Cost;
@@ -68,7 +68,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *playersCard5Name;
 @property (weak, nonatomic) IBOutlet UILabel *playersCard5Description;
 @property (weak, nonatomic) IBOutlet UILabel *playersCard5Cost;
-
+*/
 @property (weak, nonatomic) IBOutlet UIButton *card0UseButton;
 @property (weak, nonatomic) IBOutlet UIButton *card1UseButton;
 @property (weak, nonatomic) IBOutlet UIButton *card2UseButton;
@@ -92,12 +92,14 @@
 - (IBAction)card2UseButtonPressed:(id)sender;
 - (IBAction)card3UseButtonPressed:(id)sender;
 - (IBAction)card4UseButtonPressed:(id)sender;
+- (IBAction)card5UseButtonPressed:(id)sender;
 
 - (IBAction)card0DiscardButtonPressed:(id)sender;
 - (IBAction)card1DiscardButtonPressed:(id)sender;
 - (IBAction)card2DiscardButtonPressed:(id)sender;
 - (IBAction)card3DiscardButtonPressed:(id)sender;
 - (IBAction)card4DiscardButtonPressed:(id)sender;
+- (IBAction)card5DiscardButtonPressed:(id)sender;
 
 - (IBAction)backButtonPressed:(id)sender;
 
