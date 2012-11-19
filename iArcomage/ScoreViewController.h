@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ScoreViewController : UIViewController
-- (IBAction)backButtonPressed:(id)sender;
 
 @end

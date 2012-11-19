@@ -6,12 +6,108 @@
 //  Copyright (c) 2012 nibbler13. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "StartViewController.h"
 #import "Card.h"
-#import <QuartzCore/QuartzCore.h>
 #import "CardsScope.h"
 
 @interface StartViewController ()
+
+@property (weak, nonatomic) IBOutlet UILabel *playerQuarries;
+@property (weak, nonatomic) IBOutlet UILabel *playerMagics;
+@property (weak, nonatomic) IBOutlet UILabel *playerDungeons;
+@property (weak, nonatomic) IBOutlet UILabel *playerBricks;
+@property (weak, nonatomic) IBOutlet UILabel *playerGems;
+@property (weak, nonatomic) IBOutlet UILabel *playerRecruits;
+@property (weak, nonatomic) IBOutlet UILabel *playerWall;
+@property (weak, nonatomic) IBOutlet UILabel *playerTower;
+
+@property (weak, nonatomic) IBOutlet UILabel *computerQuarries;
+@property (weak, nonatomic) IBOutlet UILabel *computerMagics;
+@property (weak, nonatomic) IBOutlet UILabel *computerDungeons;
+@property (weak, nonatomic) IBOutlet UILabel *computerBricks;
+@property (weak, nonatomic) IBOutlet UILabel *computerGems;
+@property (weak, nonatomic) IBOutlet UILabel *computerRecruits;
+@property (weak, nonatomic) IBOutlet UILabel *computerWall;
+@property (weak, nonatomic) IBOutlet UILabel *computerTower;
+
+@property (weak, nonatomic) IBOutlet UILabel *currentCardName;
+@property (weak, nonatomic) IBOutlet UILabel *currentCardDescription;
+@property (weak, nonatomic) IBOutlet UILabel *currentCardCost;
+
+@property (weak, nonatomic) IBOutlet UILabel *computersCurrentCardDescription;
+@property (weak, nonatomic) IBOutlet UILabel *computersCurrentCardName;
+@property (weak, nonatomic) IBOutlet UILabel *computersCurrentCardCost;
+
+@property (weak, nonatomic) IBOutlet UIImageView *computersDiscardLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *playersCard0Name;
+@property (weak, nonatomic) IBOutlet UILabel *playersCard0Description;
+@property (weak, nonatomic) IBOutlet UILabel *playersCard0Cost;
+
+@property (weak, nonatomic) IBOutlet UILabel *playersCard1Name;
+@property (weak, nonatomic) IBOutlet UILabel *playersCard1Description;
+@property (weak, nonatomic) IBOutlet UILabel *playersCard1Cost;
+
+@property (weak, nonatomic) IBOutlet UILabel *playersCard2Name;
+@property (weak, nonatomic) IBOutlet UILabel *playersCard2Description;
+@property (weak, nonatomic) IBOutlet UILabel *playersCard2Cost;
+
+@property (weak, nonatomic) IBOutlet UILabel *playersCard3Name;
+@property (weak, nonatomic) IBOutlet UILabel *playersCard3Description;
+@property (weak, nonatomic) IBOutlet UILabel *playersCard3Cost;
+
+@property (weak, nonatomic) IBOutlet UILabel *playersCard4Name;
+@property (weak, nonatomic) IBOutlet UILabel *playersCard4Description;
+@property (weak, nonatomic) IBOutlet UILabel *playersCard4Cost;
+
+@property (weak, nonatomic) IBOutlet UILabel *playersCard5Name;
+@property (weak, nonatomic) IBOutlet UILabel *playersCard5Description;
+@property (weak, nonatomic) IBOutlet UILabel *playersCard5Cost;
+
+@property (weak, nonatomic) IBOutlet UIButton *card0UseButton;
+@property (weak, nonatomic) IBOutlet UIButton *card1UseButton;
+@property (weak, nonatomic) IBOutlet UIButton *card2UseButton;
+@property (weak, nonatomic) IBOutlet UIButton *card3UseButton;
+@property (weak, nonatomic) IBOutlet UIButton *card4UseButton;
+@property (weak, nonatomic) IBOutlet UIButton *card5UseButton;
+@property (weak, nonatomic) IBOutlet UIButton *card0DiscardButton;
+@property (weak, nonatomic) IBOutlet UIButton *card1DiscardButton;
+@property (weak, nonatomic) IBOutlet UIButton *card2DiscardButton;
+@property (weak, nonatomic) IBOutlet UIButton *card3DiscardButton;
+@property (weak, nonatomic) IBOutlet UIButton *card4DiscardButton;
+@property (weak, nonatomic) IBOutlet UIButton *card5DiscardButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *startButton;
+@property (weak, nonatomic) IBOutlet UIImageView *discardedImage;
+
+@property (weak, nonatomic) IBOutlet UIImageView *card0Background;
+@property (weak, nonatomic) IBOutlet UIImageView *card1Background;
+@property (weak, nonatomic) IBOutlet UIImageView *card2Background;
+@property (weak, nonatomic) IBOutlet UIImageView *card3Background;
+@property (weak, nonatomic) IBOutlet UIImageView *card4Background;
+@property (weak, nonatomic) IBOutlet UIImageView *card5Background;
+@property (weak, nonatomic) IBOutlet UIImageView *computerCurrentCardBackground;
+@property (weak, nonatomic) IBOutlet UIImageView *playerCurrentCardBackground;
+
+
+- (IBAction)card0UseButtonPressed:(id)sender;
+- (IBAction)card1UseButtonPressed:(id)sender;
+- (IBAction)card2UseButtonPressed:(id)sender;
+- (IBAction)card3UseButtonPressed:(id)sender;
+- (IBAction)card4UseButtonPressed:(id)sender;
+- (IBAction)card5UseButtonPressed:(id)sender;
+
+- (IBAction)card0DiscardButtonPressed:(id)sender;
+- (IBAction)card1DiscardButtonPressed:(id)sender;
+- (IBAction)card2DiscardButtonPressed:(id)sender;
+- (IBAction)card3DiscardButtonPressed:(id)sender;
+- (IBAction)card4DiscardButtonPressed:(id)sender;
+- (IBAction)card5DiscardButtonPressed:(id)sender;
+
+- (IBAction)backButtonPressed:(id)sender;
+
+- (IBAction)game:(id)sender;
 
 @end
 
@@ -57,7 +153,7 @@
 
 - (void)needToCheckThatTheVictoryConditionsIsAchievedByComputer
 {
-    if (computer.tower > 100 || computer.wall > 200 || computer.bricks > 200 || computer.gems > 200 || computer.recruits > 200 || player.tower == 0) {
+    if (computer.tower > 100 || computer.wall > 200 || (computer.bricks > 200 && computer.gems > 200 && computer.recruits > 200) || player.tower == 0) {
         [cardsScope playDealSoundEffectForEvent:@"PlayerLose"];
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"You lose!" message:@"The computer has defeated you like a boss" delegate:self cancelButtonTitle:@"Ohhh god why?" otherButtonTitles: nil];
         [alertView show];
@@ -67,54 +163,29 @@
 - (void)showCurrentComputerCard:(NSInteger)number withStatus:(NSString *)status
 {
     NSLog(@"---/--- Should update current computer card");
-    /*
+    
     if ([[[[computer cards] objectAtIndex:number] cardColor] isEqualToString:@"Grey"]) {
-        self.computersCurrentCardName.textColor = [UIColor redColor];
+        //self.computersCurrentCardName.textColor = [UIColor redColor];
+        self.computerCurrentCardBackground.image = [UIImage imageNamed:@"GreyCardBlank"];
     }
     if ([[[[computer cards] objectAtIndex:number] cardColor] isEqualToString:@"Blue"]) {
-        self.computersCurrentCardName.textColor = [UIColor blueColor];
+        //self.computersCurrentCardName.textColor = [UIColor blueColor];
+        self.computerCurrentCardBackground.image = [UIImage imageNamed:@"BlueCardBlank"];
     }
     if ([[[[computer cards] objectAtIndex:number] cardColor] isEqualToString:@"Green"]) {
-        self.computersCurrentCardName.textColor = [UIColor greenColor];
-    }*/
-    /*CATransition *transition = [CATransition animation];
-    transition.type = kCATransitionFade;
-    transition.duration = 1;
-    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault];
-    [self.view.layer addAnimation:transition forKey:@"configureCardAnimation"];
+        //self.computersCurrentCardName.textColor = [UIColor greenColor];
+        self.computerCurrentCardBackground.image = [UIImage imageNamed:@"GreenCardBlank"];
+    }
+    
     self.computersCurrentCardName.text = [[[computer cards] objectAtIndex:number] cardName];
     self.computersCurrentCardDescription.text = [[[computer cards] objectAtIndex:number] cardDescription];
     self.computersCurrentCardCost.text = [NSString stringWithFormat:@"%d",[[[computer cards] objectAtIndex:number] cardCost]];
-    [self.view.layer removeAnimationForKey:@"configureCardAnimation"];
-    */
-    /*
+    
     if ([status isEqualToString:@"Discarded"]) {
         self.computersDiscardLabel.hidden = NO;
     } else {
         self.computersDiscardLabel.hidden = YES;
-    }*/
-    UIImageView *testImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CardBack"]];
-    testImage.center = CGPointMake(439, 266);
-    [self.view addSubview:testImage];
-    CABasicAnimation *testImageMover = [CABasicAnimation animationWithKeyPath:@"position"];
-    testImageMover.removedOnCompletion = YES;
-    testImageMover.fillMode = kCAFillModeForwards;
-    testImageMover.duration = 1.0f;
-    testImageMover.fromValue = [NSValue valueWithCGPoint:testImage.center];
-    testImageMover.toValue = [NSValue valueWithCGPoint:CGPointMake(126, 50)];
-    testImageMover.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
-    testImageMover.delegate = self;
-    [testImage.layer addAnimation:testImageMover forKey:@"testImageMover"];
-    /*
-    testImageMover.removedOnCompletion = NO;
-    testImageMover.fillMode = kCAFillModeRemoved;
-    testImageMover.duration = 1.0f;
-    testImageMover.fromValue = [NSValue valueWithCGPoint:testImage.center];
-    testImageMover.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.bounds.size.width / 2, self.view.bounds.size.height / 2)];
-    testImageMover.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
-    testImageMover.delegate = self;
-    [testImage.layer addAnimation:testImageMover forKey:@"testImageMover"];
-     */
+    }
     
 }
 
@@ -122,7 +193,7 @@
 
 - (void)needToCheckThatTheVictoryConditionsIsAchieved
 {
-    if (player.tower > 100 || player.wall > 200 || player.bricks > 200 || player.gems > 200 || player.recruits > 200 || computer.tower == 0) {
+    if (player.tower > 100 || player.wall > 200 || (player.bricks > 200 && player.gems > 200 && player.recruits > 200) || computer.tower == 0) {
         [cardsScope playDealSoundEffectForEvent:@"PlayerWin"];
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"You win!" message:@"You win because you have completed the needed conditions" delegate:self cancelButtonTitle:@"Yeah! It's great!" otherButtonTitles: nil];
         [alertView show];
@@ -151,7 +222,13 @@
 
 - (void)showCurrentCard:(NSInteger)number withStatus:(NSString *)status
 {
-    //[self configureCard:number withCardNameLabel:self.currentCardName withCardDescriptionLabel:self.currentCardDescription withCardCostLabel:self.currentCardCost withUseButton:nil withDiscardButton:nil];
+    [self configureCard:number
+            withCardNameLabel:self.currentCardName
+            withCardDescriptionLabel:self.currentCardDescription
+            withCardCostLabel:self.currentCardCost
+            withUseButton:nil
+            withDiscardButton:nil
+            withBackground:self.playerCurrentCardBackground];
     if ([status isEqualToString:@"Discarded"]) {
         self.discardedImage.hidden = NO;
     } else {
@@ -177,6 +254,7 @@
 {
     [super viewDidLoad];
     gameOver = YES;
+    [self game:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -257,7 +335,7 @@
         [self updateComputerLabels];
         [self updateAllCards];
         [self updateCardsButton];
-        //[self updateCurrentCard];
+        [self updateCurrentCard];
         cardsScope = [CardsScope getCardsScope];
         gameOver = NO;
         self.startButton.titleLabel.textColor = [UIColor lightGrayColor];
@@ -270,13 +348,13 @@
 #pragma mark - UpdatingLabels
 
 - (void)updateAllCards
-{/*
+{
     [self updateCard0];
     [self updateCard1];
     [self updateCard2];
     [self updateCard3];
     [self updateCard4];
-    [self updateCard5];*/
+    [self updateCard5];
 }
 
 - (void)updatePlayerLabels
@@ -304,7 +382,7 @@
     self.computerWall.text = [NSString stringWithFormat:@"%d", computer.wall];
     self.computerTower.text = [NSString stringWithFormat:@"%d", computer.tower];
 }
-/*
+
 - (void)updateCard0
 {
     [self configureCard:0
@@ -312,7 +390,8 @@
 withCardDescriptionLabel:self.playersCard0Description
        withCardCostLabel:self.playersCard0Cost
            withUseButton:self.card0UseButton
-       withDiscardButton:self.card0DiscardButton];
+       withDiscardButton:self.card0DiscardButton
+          withBackground:self.card0Background];
 
 }
 
@@ -323,7 +402,8 @@ withCardDescriptionLabel:self.playersCard0Description
 withCardDescriptionLabel:self.playersCard1Description
        withCardCostLabel:self.playersCard1Cost
            withUseButton:self.card1UseButton
-       withDiscardButton:self.card1DiscardButton];
+       withDiscardButton:self.card1DiscardButton
+          withBackground:self.card1Background];
 
 }
 
@@ -334,7 +414,8 @@ withCardDescriptionLabel:self.playersCard1Description
 withCardDescriptionLabel:self.playersCard2Description
        withCardCostLabel:self.playersCard2Cost
            withUseButton:self.card2UseButton
-       withDiscardButton:self.card2DiscardButton];
+       withDiscardButton:self.card2DiscardButton
+          withBackground:self.card2Background];
 
 }
 
@@ -345,7 +426,8 @@ withCardDescriptionLabel:self.playersCard2Description
 withCardDescriptionLabel:self.playersCard3Description
        withCardCostLabel:self.playersCard3Cost
            withUseButton:self.card3UseButton
-       withDiscardButton:self.card3DiscardButton];
+       withDiscardButton:self.card3DiscardButton
+          withBackground:self.card3Background];
 }
 
 - (void)updateCard4
@@ -355,29 +437,33 @@ withCardDescriptionLabel:self.playersCard3Description
 withCardDescriptionLabel:self.playersCard4Description
        withCardCostLabel:self.playersCard4Cost
            withUseButton:self.card4UseButton
-       withDiscardButton:self.card4DiscardButton];
+       withDiscardButton:self.card4DiscardButton
+          withBackground:self.card4Background];
 }
 
 - (void)updateCard5
 {
     [self configureCard:5
-      withCardNameLabel:self.playersCard5Name
+       withCardNameLabel:self.playersCard5Name
 withCardDescriptionLabel:self.playersCard5Description
-      withCardCostLabel:self.playersCard5Cost
-          withUseButton:self.card5UseButton
-      withDiscardButton:self.card5DiscardButton];
+       withCardCostLabel:self.playersCard5Cost
+           withUseButton:self.card5UseButton
+       withDiscardButton:self.card5DiscardButton
+          withBackground:self.card5Background];
 }
 
 - (void)updateCurrentCard
 {
-    self.currentCardName.text = @"No card";
-    self.currentCardDescription.text = @"No description";
-    self.currentCardCost.text = @"No";
-    self.computersCurrentCardName.text = @"No card";
-    self.computersCurrentCardDescription.text = @"No card";
-    self.computersCurrentCardCost.text = @"No";
+    self.currentCardName.text = @"";
+    self.currentCardDescription.text = @"";
+    self.currentCardCost.text = @"";
+    self.computersCurrentCardName.text = @"";
+    self.computersCurrentCardDescription.text = @"";
+    self.computersCurrentCardCost.text = @"";
+    self.playerCurrentCardBackground.image = [UIImage imageNamed:@"CardBack"];
+    self.computerCurrentCardBackground.image = [UIImage imageNamed:@"CardBack"];
 }
-*/
+
 - (BOOL)isButtonAvailableToPlay:(NSInteger)buttonNumber
 {
     NSInteger cardCost = [[player.cards objectAtIndex:buttonNumber] cardCost];
@@ -401,18 +487,22 @@ withCardDescriptionLabel:self.playersCard5Description
     withCardCostLabel:(UILabel*)cardCost
     withUseButton:(UIButton*)useButton
     withDiscardButton:(UIButton*)disButton
+    withBackground:(UIImageView*)background
 {
     if ([[[[player cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Grey"]) {
         //cardCost.backgroundColor = [UIColor grayColor];
-        cardName.textColor = [UIColor redColor];
+        //cardName.textColor = [UIColor redColor];
+        background.image = [UIImage imageNamed:@"GreyCardBlank"];
     }
     if ([[[[player cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Blue"]) {
         //cardCost.backgroundColor = [UIColor blueColor];
-        cardName.textColor = [UIColor blueColor];
+        //cardName.textColor = [UIColor blueColor];
+        background.image = [UIImage imageNamed:@"BlueCardBlank"];
     }
     if ([[[[player cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Green"]) {
         //cardCost.backgroundColor = [UIColor greenColor];
-        cardName.textColor = [UIColor greenColor];
+        //cardName.textColor = [UIColor greenColor];
+        background.image = [UIImage imageNamed:@"GreenCardBlank"];
     }
     cardName.text = [[[player cards] objectAtIndex:cardNumber] cardName];
     cardDescription.text = [[[player cards] objectAtIndex:cardNumber] cardDescription];
@@ -442,17 +532,17 @@ withCardDescriptionLabel:self.playersCard5Description
 
     if ([self isButtonAvailableToPlay:number]) {
         use.enabled = YES;
-        use.titleLabel.alpha = 1.0f;
+        use.imageView.alpha = 1.0f;
     } else {
         use.enabled = NO;
-        use.titleLabel.alpha = 0.2f;
+        use.imageView.alpha = 0.5f;
     }
     if ([[[player.cards objectAtIndex:number] cardName] isEqualToString:@"Lodestone"]) {
         dis.enabled = NO;
-        dis.titleLabel.alpha = 0.2f;
+        dis.imageView.alpha = 0.5f;
     } else {
         dis.enabled = YES;
-        dis.titleLabel.alpha = 1.0f;
+        dis.imageView.alpha = 1.0f;
     }
 
 }

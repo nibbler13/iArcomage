@@ -11,6 +11,8 @@
 
 @interface MainViewController ()
 
+@property (strong, nonatomic) IBOutlet UISwitch *SoundSwitcher;
+
 @end
 
 @implementation MainViewController

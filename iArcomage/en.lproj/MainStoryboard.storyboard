@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Mk1-8h-W5Y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3080" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Mk1-8h-W5Y">
     <dependencies>
         <development version="4500" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2078"/>
     </dependencies>
     <scenes>
         <!--Score View Controller-->
@@ -675,7 +675,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Background.png" width="480" height="320"/>
+        <image name="Background.png" width="1024" height="768"/>
         <image name="CardBack.png" width="72" height="96"/>
         <image name="EngineOff.png" width="128" height="127"/>
         <image name="EngineOn.png" width="128" height="127"/>
@@ -697,76 +697,6 @@
         <image name="back-arrow2.png" width="380" height="380"/>
         <image name="sound.png" width="220" height="220"/>
     </resources>
-    <classes>
-        <class className="InfoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButtonPressed:"/>
-            </relationships>
-        </class>
-        <class className="MainViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="SoundSwitcher" candidateClass="UISwitch"/>
-            </relationships>
-        </class>
-        <class className="ScoreViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ScoreViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButtonPressed:"/>
-            </relationships>
-        </class>
-        <class className="StartViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StartViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButtonPressed:"/>
-                <relationship kind="action" name="card0DiscardButtonPressed:"/>
-                <relationship kind="action" name="card0UseButtonPressed:"/>
-                <relationship kind="action" name="card1DiscardButtonPressed:"/>
-                <relationship kind="action" name="card1UseButtonPressed:"/>
-                <relationship kind="action" name="card2DiscardButtonPressed:"/>
-                <relationship kind="action" name="card2UseButtonPressed:"/>
-                <relationship kind="action" name="card3DiscardButtonPressed:"/>
-                <relationship kind="action" name="card3UseButtonPressed:"/>
-                <relationship kind="action" name="card4DiscardButtonPressed:"/>
-                <relationship kind="action" name="card4UseButtonPressed:"/>
-                <relationship kind="action" name="card5DiscardButtonPressed:"/>
-                <relationship kind="action" name="card5UseButtonPressed:"/>
-                <relationship kind="action" name="game:"/>
-                <relationship kind="outlet" name="card0DiscardButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="card0UseButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="card1DiscardButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="card1UseButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="card2DiscardButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="card2UseButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="card3DiscardButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="card3UseButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="card4DiscardButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="card4UseButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="card5DiscardButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="card5UseButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="computerBricks" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerDungeons" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerGems" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerMagics" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerQuarries" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerRecruits" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerTower" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerWall" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computersDiscardLabel" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="discardedImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playerBricks" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerDungeons" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerGems" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerMagics" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerQuarries" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerRecruits" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerTower" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerWall" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
