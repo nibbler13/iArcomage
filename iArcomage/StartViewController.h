@@ -6,7 +6,6 @@
 //  Copyright (c) 2012 nibbler13. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "PlayerModel.h"
 #import "ComputerModel.h"
 
@@ -14,7 +13,8 @@
     <
         PlayerModelDelegate,
         ComputerModelDelegate,
-        UIAlertViewDelegate
+        UIAlertViewDelegate,
+        UIGestureRecognizerDelegate
     >
 
 @property (nonatomic) BOOL soundsOn;

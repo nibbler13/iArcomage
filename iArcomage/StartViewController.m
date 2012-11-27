@@ -6,12 +6,13 @@
 //  Copyright (c) 2012 nibbler13. All rights reserved.
 //
 
-#import <QuartzCore/QuartzCore.h>
 #import "StartViewController.h"
 #import "Card.h"
 #import "CardsScope.h"
 
 @interface StartViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *labelX;
+@property (weak, nonatomic) IBOutlet UILabel *labelY;
 
 @property (weak, nonatomic) IBOutlet UILabel *playerQuarries;
 @property (weak, nonatomic) IBOutlet UILabel *playerMagics;
@@ -109,6 +110,8 @@
 
 - (IBAction)game:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIView *card0View;
+
 @end
 
 @implementation StartViewController
@@ -117,17 +120,122 @@
     ComputerModel *computer;
     BOOL gameOver;
     CardsScope *cardsScope;
+    CGPoint firstTouchLocation;
+    CGPoint defaultPositionCard0View;
+    CGRect defaultRectCard0View;
+}
+
+#pragma mark -TouchDelegationMethods
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    NSLog(@"Touches began");
+    //NSLog(@"touches count: %d", [touches count]);
+    //NSUInteger touchCount = 0;
+    for (UITouch *touch in touches) {
+        [self dispatchFirstTouchAtPoint:[touch locationInView:self.view] forEvent:nil];
+        firstTouchLocation = [touch locationInView:self.view];
+        self.labelX.text = [NSString stringWithFormat:@"X: %0.1f", firstTouchLocation.x];
+        self.labelY.text = [NSString stringWithFormat:@"Y: %0.1f", firstTouchLocation.y];
+        //touchCount++;
+    }
+    //NSLog(@"touch count: %d", touchCount);
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    NSLog(@"Touches cancelled");
+    firstTouchLocation = CGPointMake(0, 0);
+    defaultRectCard0View = self.card0View.frame;
+    defaultPositionCard0View = self.card0View.center;
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    NSLog(@"Touches ended");
+    for (UITouch *touch in touches) {
+        [self dispatchTouchEndEvent:self.card0View toPosition:[touch locationInView:self.view]];
+    }
+    
+    firstTouchLocation = CGPointMake(0, 0);
+    
+    //defaultRectCard0View = self.card0View.frame;
+    //defaultPositionCard0View = self.card0View.center;
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    NSLog(@"Touches moved");
+    NSUInteger touchCount = 0;
+    for (UITouch *touch in touches) {
+        [self dispatchTouchEvent:[touch view] toPosition:[touch locationInView:self.view]];
+        touchCount++;
+    }
+    if (touchCount > 1) {
+        NSLog(@"Found multitouch");
+    }
+}
+
+#pragma mark -DispatchMethods
+
+- (void)dispatchFirstTouchAtPoint:(CGPoint)touchPoint forEvent:(UIEvent*)event
+{
+    NSLog(@"dispatchFirstTouch");
+    if (CGRectContainsPoint(defaultRectCard0View, firstTouchLocation)) {
+        NSLog(@"I'm in card0View");
+        //==========================================================
+        //here should be some cool animation for card0view selection
+        //==========================================================
+    }
+}
+
+- (void)dispatchTouchEvent:(UIView*)theView toPosition:(CGPoint)position
+{
+    NSLog(@"dispatchTouchEvent");
+    if (CGRectContainsPoint(defaultRectCard0View, firstTouchLocation)) {
+        //here were are transiting the cardview to touch
+        [self.card0View setCenter:CGPointMake(defaultPositionCard0View.x - (firstTouchLocation.x - position.x), defaultPositionCard0View.y - (firstTouchLocation.y - position.y))];
+    }
+}
+
+- (void)dispatchTouchEndEvent:(UIView*)theView toPosition:(CGPoint)position
+{
+    NSLog(@"dispatchEndEvent");
+    if (CGRectContainsPoint(defaultRectCard0View, firstTouchLocation)) {
+        //[self animateView:self.card0View toPosition:position];
+        if (firstTouchLocation.y - 80 > position.y) {
+            self.card0View.center = CGPointMake(426, 411);
+            [player cardSelected:0];
+        } else if (firstTouchLocation.y + 80 < position.y) {
+            self.card0View.center = CGPointMake(0, 1000);
+            [player cardDiscarded:0];
+        } else {
+            self.card0View.center = defaultPositionCard0View;
+        }
+        
+        defaultPositionCard0View = self.card0View.center;
+        defaultRectCard0View = self.card0View.frame;
+    }
+}
+
+#pragma mark -AnimationForGestures
+
+- (void)animateView:(UIView*)theView toPosition:(CGPoint)position
+{
+    NSLog(@"animateView");
+    
 }
 
 #pragma mark -UIAlertView's delegate methods
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    player = nil;
-    computer = nil;
-    gameOver = YES;
     [PlayerModel destroyPlayer];
     [ComputerModel destroyComputer];
+    player = nil;
+    computer = nil;
+    cardsScope = nil;
+    gameOver = YES;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -140,12 +248,12 @@
     transition.duration = 1;
     transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
     [self.view.layer addAnimation:transition forKey:@"configureUpdateAnimation"];
-    [self configureUseCardButton:self.card0UseButton andDisButton:self.card0DiscardButton atNumber:0];
+    /*[self configureUseCardButton:self.card0UseButton andDisButton:self.card0DiscardButton atNumber:0];
     [self configureUseCardButton:self.card1UseButton andDisButton:self.card1DiscardButton atNumber:1];
     [self configureUseCardButton:self.card2UseButton andDisButton:self.card2DiscardButton atNumber:2];
     [self configureUseCardButton:self.card3UseButton andDisButton:self.card3DiscardButton atNumber:3];
     [self configureUseCardButton:self.card4UseButton andDisButton:self.card4DiscardButton atNumber:4];
-    [self configureUseCardButton:self.card5UseButton andDisButton:self.card5DiscardButton atNumber:5];
+    [self configureUseCardButton:self.card5UseButton andDisButton:self.card5DiscardButton atNumber:5];*/
     [self.view.layer removeAnimationForKey:@"configureUpdateAnimation"];
     [self updatePlayerLabels];
     [self updateComputerLabels];
@@ -201,23 +309,23 @@
 }
 
 - (void)restoreUseButtons
-{
+{/*
     self.card0UseButton.hidden = NO;
     self.card1UseButton.hidden = NO;
     self.card2UseButton.hidden = NO;
     self.card3UseButton.hidden = NO;
     self.card4UseButton.hidden = NO;
-    self.card5UseButton.hidden = NO;
+    self.card5UseButton.hidden = NO;*/
 }
 
 - (void)shouldDiscardACard
-{
+{/*
     self.card0UseButton.hidden = YES;
     self.card1UseButton.hidden = YES;
     self.card2UseButton.hidden = YES;
     self.card3UseButton.hidden = YES;
     self.card4UseButton.hidden = YES;
-    self.card5UseButton.hidden = YES;
+    self.card5UseButton.hidden = YES;*/
 }
 
 - (void)showCurrentCard:(NSInteger)number withStatus:(NSString *)status
@@ -245,7 +353,9 @@
 {
     [self updatePlayerLabels];
     [self updateComputerLabels];
-    [self updateCardsButton];
+    //=========================
+    //[self updateCardsButton];
+    //=========================
 }
 
 #pragma mark -Initializations
@@ -253,6 +363,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    defaultPositionCard0View = self.card0View.center;
+    defaultRectCard0View = self.card0View.frame;
     gameOver = YES;
     [self game:nil];
 }
@@ -371,8 +483,6 @@
 
 - (void)updateComputerLabels
 {
-    //NSLog(@"update computer label");
-    //NSLog(@"%d", computer.gems);
     self.computerQuarries.text = [NSString stringWithFormat:@"%d", computer.quarries];
     self.computerMagics.text = [NSString stringWithFormat:@"%d", computer.magics];
     self.computerDungeons.text = [NSString stringWithFormat:@"%d", computer.dungeons];
@@ -490,18 +600,12 @@ withCardDescriptionLabel:self.playersCard5Description
     withBackground:(UIImageView*)background
 {
     if ([[[[player cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Grey"]) {
-        //cardCost.backgroundColor = [UIColor grayColor];
-        //cardName.textColor = [UIColor redColor];
         background.image = [UIImage imageNamed:@"GreyCardBlank"];
     }
     if ([[[[player cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Blue"]) {
-        //cardCost.backgroundColor = [UIColor blueColor];
-        //cardName.textColor = [UIColor blueColor];
         background.image = [UIImage imageNamed:@"BlueCardBlank"];
     }
     if ([[[[player cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Green"]) {
-        //cardCost.backgroundColor = [UIColor greenColor];
-        //cardName.textColor = [UIColor greenColor];
         background.image = [UIImage imageNamed:@"GreenCardBlank"];
     }
     cardName.text = [[[player cards] objectAtIndex:cardNumber] cardName];
@@ -512,7 +616,7 @@ withCardDescriptionLabel:self.playersCard5Description
 
 
 - (void)updateCardsButton
-{
+{/*
     CATransition *transition = [CATransition animation];
     transition.type = kCATransitionFade;
     transition.duration = 1;
@@ -524,11 +628,11 @@ withCardDescriptionLabel:self.playersCard5Description
     [self configureUseCardButton:self.card3UseButton andDisButton:self.card3DiscardButton atNumber:3];
     [self configureUseCardButton:self.card4UseButton andDisButton:self.card4DiscardButton atNumber:4];
     [self configureUseCardButton:self.card5UseButton andDisButton:self.card5DiscardButton atNumber:5];
-    [self.view.layer removeAnimationForKey:@"configureCardAnimation"];
+    [self.view.layer removeAnimationForKey:@"configureCardAnimation"];*/
 }
 
 - (void)configureUseCardButton:(UIButton*)use andDisButton:(UIButton*)dis atNumber:(NSInteger)number
-{
+{/*
 
     if ([self isButtonAvailableToPlay:number]) {
         use.enabled = YES;
@@ -544,7 +648,7 @@ withCardDescriptionLabel:self.playersCard5Description
         dis.enabled = YES;
         dis.imageView.alpha = 1.0f;
     }
-
+*/
 }
 
 

@@ -6,7 +6,6 @@
 //  Copyright (c) 2012 nibbler13. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 
 @interface ScoreViewController : UIViewController
 

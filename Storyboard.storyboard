@@ -120,6 +120,15 @@
                                     <action selector="backButtonPressed:" destination="ZgL-cO-tIO" eventType="touchUpInside" id="hnP-3s-14Q"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Created by NIBBLER13" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QlO-5P-Nx1">
+                                <rect key="frame" x="192" y="20" width="641" height="134"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="38"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="0.0" height="4"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -147,10 +156,6 @@
                             </imageView>
                             <imageView userInteractionEnabled="NO" alpha="0.60000000000000009" contentMode="scaleToFill" image="CardSubstrate.png" id="NrA-bh-DSq">
                                 <rect key="frame" x="0.0" y="523" width="1024" height="244"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="GreenCardBlank.png" id="VFS-YF-Jlq">
-                                <rect key="frame" x="12" y="535" width="156" height="208"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="BlueCardBlank.png" id="5DC-CK-Jgx">
@@ -382,37 +387,7 @@
                                 <rect key="frame" x="710" y="431" width="38" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rHu-na-TGL">
-                                <rect key="frame" x="65" y="584" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" image="UseButton.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="card0UseButtonPressed:" destination="UWm-Sj-5Ic" eventType="touchUpInside" id="Xh7-aF-Xjg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jLW-nf-9uV">
-                                <rect key="frame" x="12" y="707" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" image="DIscardButton.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="card0DiscardButtonPressed:" destination="UWm-Sj-5Ic" eventType="touchUpInside" id="OmQ-tS-wtO"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1Av-ru-n6x">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1Av-ru-n6x">
                                 <rect key="frame" x="233" y="598" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -427,7 +402,7 @@
                                     <action selector="card1UseButtonPressed:" destination="UWm-Sj-5Ic" eventType="touchUpInside" id="WU9-iS-sZB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="SSz-ck-Eqt">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="SSz-ck-Eqt">
                                 <rect key="frame" x="180" y="718" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -442,7 +417,7 @@
                                     <action selector="card1DiscardButtonPressed:" destination="UWm-Sj-5Ic" eventType="touchUpInside" id="X3D-tf-eRM"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zdG-WV-s68">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zdG-WV-s68">
                                 <rect key="frame" x="401" y="584" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -457,7 +432,7 @@
                                     <action selector="card2UseButtonPressed:" destination="UWm-Sj-5Ic" eventType="touchUpInside" id="3fE-2l-DYH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mPW-4L-Cam">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mPW-4L-Cam">
                                 <rect key="frame" x="348" y="707" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -472,7 +447,7 @@
                                     <action selector="card2DiscardButtonPressed:" destination="UWm-Sj-5Ic" eventType="touchUpInside" id="1uH-5b-1bN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Wvv-hU-y10">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Wvv-hU-y10">
                                 <rect key="frame" x="573" y="598" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -487,7 +462,7 @@
                                     <action selector="card3UseButtonPressed:" destination="UWm-Sj-5Ic" eventType="touchUpInside" id="QfF-64-Xvj"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="NY4-OJ-sXP">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="NY4-OJ-sXP">
                                 <rect key="frame" x="520" y="718" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -502,7 +477,7 @@
                                     <action selector="card3DiscardButtonPressed:" destination="UWm-Sj-5Ic" eventType="touchUpInside" id="WVN-cO-6U5"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="b2x-bi-UBG">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="b2x-bi-UBG">
                                 <rect key="frame" x="741" y="584" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -517,7 +492,7 @@
                                     <action selector="card4UseButtonPressed:" destination="UWm-Sj-5Ic" eventType="touchUpInside" id="823-MI-pEz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="TfT-4q-lbz">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="TfT-4q-lbz">
                                 <rect key="frame" x="688" y="707" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -532,7 +507,7 @@
                                     <action selector="card4DiscardButtonPressed:" destination="UWm-Sj-5Ic" eventType="touchUpInside" id="b1c-WX-5aH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9BH-dN-b39">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9BH-dN-b39">
                                 <rect key="frame" x="905" y="598" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -547,7 +522,7 @@
                                     <action selector="card5UseButtonPressed:" destination="UWm-Sj-5Ic" eventType="touchUpInside" id="cia-ci-Bt6"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RSL-fk-Sba">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RSL-fk-Sba">
                                 <rect key="frame" x="856" y="718" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -568,7 +543,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
+                                <size key="shadowOffset" width="0.0" height="2"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HAs-31-KKn">
                                 <rect key="frame" x="652" y="723" width="19" height="21"/>
@@ -576,7 +551,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
+                                <size key="shadowOffset" width="0.0" height="2"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="czX-Bv-bTD">
                                 <rect key="frame" x="528" y="551" width="141" height="21"/>
@@ -584,7 +559,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
+                                <size key="shadowOffset" width="0.0" height="2"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card description shall goes here." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MKK-13-7zX">
                                 <rect key="frame" x="695" y="654" width="141" height="56"/>
@@ -592,7 +567,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
+                                <size key="shadowOffset" width="0.0" height="2"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CDx-ae-nJn">
                                 <rect key="frame" x="819" y="713" width="19" height="21"/>
@@ -600,7 +575,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
+                                <size key="shadowOffset" width="0.0" height="2"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KMg-P5-5Uh">
                                 <rect key="frame" x="695" y="541" width="141" height="21"/>
@@ -608,7 +583,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
+                                <size key="shadowOffset" width="0.0" height="2"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card description shall goes here." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gx5-8J-1QK">
                                 <rect key="frame" x="863" y="664" width="141" height="56"/>
@@ -616,7 +591,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
+                                <size key="shadowOffset" width="0.0" height="2"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="O59-RV-UMG">
                                 <rect key="frame" x="987" y="723" width="19" height="21"/>
@@ -624,7 +599,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
+                                <size key="shadowOffset" width="0.0" height="2"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="V8q-d8-3Si">
                                 <rect key="frame" x="863" y="551" width="141" height="21"/>
@@ -632,7 +607,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
+                                <size key="shadowOffset" width="0.0" height="2"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card description shall goes here." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="v4o-ob-2bd">
                                 <rect key="frame" x="355" y="654" width="141" height="56"/>
@@ -640,7 +615,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
+                                <size key="shadowOffset" width="0.0" height="2"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OxN-sS-NXM">
                                 <rect key="frame" x="479" y="713" width="19" height="21"/>
@@ -648,7 +623,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
+                                <size key="shadowOffset" width="0.0" height="2"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nSK-Mm-MIs">
                                 <rect key="frame" x="355" y="541" width="141" height="21"/>
@@ -656,7 +631,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
+                                <size key="shadowOffset" width="0.0" height="2"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card description shall goes here." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="X4f-9n-bSB">
                                 <rect key="frame" x="187" y="664" width="141" height="56"/>
@@ -664,7 +639,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
+                                <size key="shadowOffset" width="0.0" height="2"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eqU-dm-W8u">
                                 <rect key="frame" x="311" y="723" width="19" height="21"/>
@@ -672,7 +647,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
+                                <size key="shadowOffset" width="0.0" height="2"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1S7-M7-kKj">
                                 <rect key="frame" x="187" y="551" width="141" height="21"/>
@@ -680,31 +655,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card description shall goes here." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EzO-oc-2Hp">
-                                <rect key="frame" x="19" y="654" width="141" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wFU-Zq-gNw">
-                                <rect key="frame" x="143" y="713" width="19" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8cg-fa-sto">
-                                <rect key="frame" x="19" y="541" width="141" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
+                                <size key="shadowOffset" width="0.0" height="2"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card description shall goes here." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OR6-NK-Wv7">
                                 <rect key="frame" x="355" y="425" width="141" height="56"/>
@@ -712,7 +663,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
+                                <size key="shadowOffset" width="0.0" height="2"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cCC-k8-E5p">
                                 <rect key="frame" x="479" y="484" width="19" height="21"/>
@@ -720,7 +671,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
+                                <size key="shadowOffset" width="0.0" height="2"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eEV-mm-Ue7">
                                 <rect key="frame" x="355" y="312" width="141" height="21"/>
@@ -728,7 +679,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
+                                <size key="shadowOffset" width="0.0" height="2"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card description shall goes here." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="26M-0g-jqW">
                                 <rect key="frame" x="528" y="413" width="141" height="56"/>
@@ -736,7 +687,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
+                                <size key="shadowOffset" width="0.0" height="2"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Bpt-nt-sHl">
                                 <rect key="frame" x="652" y="472" width="19" height="21"/>
@@ -744,7 +695,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
+                                <size key="shadowOffset" width="0.0" height="2"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iQp-7u-nbz">
                                 <rect key="frame" x="528" y="300" width="141" height="21"/>
@@ -752,7 +703,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
+                                <size key="shadowOffset" width="0.0" height="2"/>
                             </label>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="discard_label.png" id="juA-Xk-erX">
                                 <rect key="frame" x="375" y="333" width="101" height="101"/>
@@ -762,6 +713,85 @@
                                 <rect key="frame" x="548" y="317" width="101" height="101"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <view contentMode="scaleToFill" id="5Kb-yA-iTx" userLabel="Card0 View">
+                                <rect key="frame" x="12" y="535" width="156" height="222"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="GreenCardBlank.png" id="VFS-YF-Jlq">
+                                        <rect key="frame" x="0.0" y="0.0" width="156" height="208"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rHu-na-TGL">
+                                        <rect key="frame" x="53" y="49" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="UseButton.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="card0UseButtonPressed:" destination="UWm-Sj-5Ic" eventType="touchUpInside" id="Xh7-aF-Xjg"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jLW-nf-9uV">
+                                        <rect key="frame" x="0.0" y="172" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="DIscardButton.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="card0DiscardButtonPressed:" destination="UWm-Sj-5Ic" eventType="touchUpInside" id="OmQ-tS-wtO"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card description shall goes here." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EzO-oc-2Hp">
+                                        <rect key="frame" x="7" y="119" width="141" height="56"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <size key="shadowOffset" width="0.0" height="2"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wFU-Zq-gNw">
+                                        <rect key="frame" x="131" y="178" width="19" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <size key="shadowOffset" width="0.0" height="2"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8cg-fa-sto">
+                                        <rect key="frame" x="7" y="6" width="141" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <size key="shadowOffset" width="0.0" height="2"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="X: 11111" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0lg-qq-Vd4">
+                                <rect key="frame" x="462" y="5" width="57" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Y: 22222" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Zy4-lD-4G1">
+                                <rect key="frame" x="528" y="6" width="57" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -774,6 +804,7 @@
                         <outlet property="card0Background" destination="VFS-YF-Jlq" id="dOl-t9-ZHL"/>
                         <outlet property="card0DiscardButton" destination="jLW-nf-9uV" id="boU-Qs-eh0"/>
                         <outlet property="card0UseButton" destination="rHu-na-TGL" id="Jcy-DX-Mqe"/>
+                        <outlet property="card0View" destination="5Kb-yA-iTx" id="mYt-im-22N"/>
                         <outlet property="card1Background" destination="5DC-CK-Jgx" id="S8N-Rp-Dqk"/>
                         <outlet property="card1DiscardButton" destination="SSz-ck-Eqt" id="X7E-u2-ZJ7"/>
                         <outlet property="card1UseButton" destination="1Av-ru-n6x" id="w4R-wU-QoJ"/>
@@ -806,6 +837,8 @@
                         <outlet property="currentCardDescription" destination="OR6-NK-Wv7" id="Hqf-ZY-38h"/>
                         <outlet property="currentCardName" destination="eEV-mm-Ue7" id="Su5-tB-Nr4"/>
                         <outlet property="discardedImage" destination="juA-Xk-erX" id="JeY-gR-Rzo"/>
+                        <outlet property="labelX" destination="0lg-qq-Vd4" id="Nx6-V4-jzO"/>
+                        <outlet property="labelY" destination="Zy4-lD-4G1" id="ovm-uF-dZT"/>
                         <outlet property="playerBricks" destination="392-Ag-5CS" id="ve8-Hi-QXS"/>
                         <outlet property="playerCurrentCardBackground" destination="dBY-UM-pRx" id="aJI-Z5-tqH"/>
                         <outlet property="playerDungeons" destination="XwY-qa-4E0" id="z7c-tz-wY9"/>
@@ -908,6 +941,111 @@
         <image name="WallWidth.png" width="38" height="318"/>
         <image name="discard_label.png" width="101" height="101"/>
     </resources>
+    <classes>
+        <class className="InfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backButtonPressed:"/>
+            </relationships>
+        </class>
+        <class className="MainViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="SoundSwitcher" candidateClass="UISwitch"/>
+            </relationships>
+        </class>
+        <class className="ScoreViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ScoreViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backButtonPressed:"/>
+            </relationships>
+        </class>
+        <class className="StartViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StartViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backButtonPressed:"/>
+                <relationship kind="action" name="card0DiscardButtonPressed:"/>
+                <relationship kind="action" name="card0UseButtonPressed:"/>
+                <relationship kind="action" name="card1DiscardButtonPressed:"/>
+                <relationship kind="action" name="card1UseButtonPressed:"/>
+                <relationship kind="action" name="card2DiscardButtonPressed:"/>
+                <relationship kind="action" name="card2UseButtonPressed:"/>
+                <relationship kind="action" name="card3DiscardButtonPressed:"/>
+                <relationship kind="action" name="card3UseButtonPressed:"/>
+                <relationship kind="action" name="card4DiscardButtonPressed:"/>
+                <relationship kind="action" name="card4UseButtonPressed:"/>
+                <relationship kind="action" name="card5DiscardButtonPressed:"/>
+                <relationship kind="action" name="card5UseButtonPressed:"/>
+                <relationship kind="action" name="game:"/>
+                <relationship kind="outlet" name="card0Background" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="card0DiscardButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="card0UseButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="card0View" candidateClass="UIView"/>
+                <relationship kind="outlet" name="card1Background" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="card1DiscardButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="card1UseButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="card2Background" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="card2DiscardButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="card2UseButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="card3Background" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="card3DiscardButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="card3UseButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="card4Background" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="card4DiscardButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="card4UseButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="card5Background" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="card5DiscardButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="card5UseButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="computerBricks" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="computerCurrentCardBackground" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="computerDungeons" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="computerGems" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="computerMagics" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="computerQuarries" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="computerRecruits" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="computerTower" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="computerWall" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="computersCurrentCardCost" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="computersCurrentCardDescription" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="computersCurrentCardName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="computersDiscardLabel" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="currentCardCost" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="currentCardDescription" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="currentCardName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="discardedImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="labelX" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelY" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playerBricks" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playerCurrentCardBackground" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="playerDungeons" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playerGems" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playerMagics" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playerQuarries" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playerRecruits" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playerTower" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playerWall" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard0Cost" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard0Description" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard0Name" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard1Cost" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard1Description" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard1Name" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard2Cost" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard2Description" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard2Name" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard3Cost" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard3Description" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard3Name" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard4Cost" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard4Description" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard4Name" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard5Cost" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard5Description" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard5Name" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -37,6 +37,7 @@
 @property (nonatomic) BOOL isAvailable;
 @property (nonatomic, readwrite) UIImageView *cardImage;
 
+
 - (void)processCardForPlayer:(PlayerModel*)player andComputer:(ComputerModel*)computer;
 - (void)increaseCardWeightOn:(NSInteger)weight;
 - (void)thatCardIsAvailable:(BOOL)available;

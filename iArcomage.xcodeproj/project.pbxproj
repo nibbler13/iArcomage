@@ -162,8 +162,8 @@
 		7472ED1B165AB465002D5EB4 /* discard_label.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = discard_label.png; sourceTree = "<group>"; };
 		7472ED1D165AC0FA002D5EB4 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Background.png; path = ../Background.png; sourceTree = "<group>"; };
 		7472ED1E165AC0FA002D5EB4 /* Background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Background@2x.png"; path = "../Background@2x.png"; sourceTree = "<group>"; };
-		7472ED25165AC2A5002D5EB4 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
-		7472ED27165AC2AD002D5EB4 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		7472ED25165AC2A5002D5EB4 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape@2x~ipad.png"; path = "../Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
+		7472ED27165AC2AD002D5EB4 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "../Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		7484436E1642EA0000AEA2D5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		74F7366716425B9800D7A0E6 /* CardsList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CardsList.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -202,8 +202,6 @@
 		743E9A60162C76A9005F28A0 = {
 			isa = PBXGroup;
 			children = (
-				7472ED27165AC2AD002D5EB4 /* Default-Landscape~ipad.png */,
-				7472ED25165AC2A5002D5EB4 /* Default-Landscape@2x~ipad.png */,
 				740EA05E1641435A00AFFA55 /* Models */,
 				743E9A75162C76A9005F28A0 /* iArcomage */,
 				743E9A6E162C76A9005F28A0 /* Frameworks */,
@@ -262,6 +260,8 @@
 				743E9A81162C76A9005F28A0 /* Default.png */,
 				743E9A83162C76A9005F28A0 /* Default@2x.png */,
 				743E9A85162C76A9005F28A0 /* Default-568h@2x.png */,
+				7472ED27165AC2AD002D5EB4 /* Default-Landscape~ipad.png */,
+				7472ED25165AC2A5002D5EB4 /* Default-Landscape@2x~ipad.png */,
 				74F7366716425B9800D7A0E6 /* CardsList.plist */,
 			);
 			name = "Supporting Files";
