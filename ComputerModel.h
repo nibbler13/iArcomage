@@ -13,6 +13,11 @@
 - (void)needToUpdateLabels;
 - (void)needToCheckThatTheVictoryConditionsIsAchievedByComputer;
 - (void)showCurrentComputerCard:(NSInteger)number withStatus:(NSString*)status;
+//===========This methods for draw animation for computer cards=======
+- (void)playerShouldTakeANewCard;
+- (void)needToUpdateComputerCards;
+- (void)computerHasDiscardTheCard:(NSInteger)number;
+- (void)computerHasPlayTheCard:(NSInteger)number;
 
 @end
 

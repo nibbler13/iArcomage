@@ -17,6 +17,7 @@ static PlayerModel *player;
 {
     ComputerModel *computer;
     CardsScope *cardsScope;
+    NSInteger playedCard;
 }
 
 #pragma mark -Initialization
@@ -85,14 +86,19 @@ static PlayerModel *player;
         NSLog(@"i'm just discard a card");
         self.shouldDiscardACard = NO;
         self.shouldPlayAgain = NO;
-        [self getNewCardAtNumber:number];
+        //[self getNewCardAtNumber:number];
+        playedCard = number;
+        [self.delegate playerShouldDiscardACard];
         [self.delegate needToUpdateCards];
         [self.delegate restoreUseButtons];
+        //=================================NEED TO CHECK THIS================
         [self nextTurnIncreaseResource];
         return;
     }
-    [self getNewCardAtNumber:number];
+    playedCard = number;
+    //[self getNewCardAtNumber:number];
     [self.delegate needToUpdateCards];
+    //=================================NEED TO CHECK THIS================
     [self nextTurnIncreaseResource];
     self.isThatPlayerTurn = NO;
     [computer computerTurn];
@@ -111,7 +117,8 @@ static PlayerModel *player;
         self.shouldDrawACard = NO;
         NSLog(@"I'm draw a new card");
     }
-    [self getNewCardAtNumber:number];
+    playedCard = number;
+    //[self getNewCardAtNumber:number];
     [self.delegate needToUpdateCards];
     
     if (self.shouldDiscardACard == YES) {
@@ -182,10 +189,10 @@ static PlayerModel *player;
 
 }
 
-- (void)getNewCardAtNumber:(NSInteger)number
+- (void)getNewCardAtNumber
 {
     Card *tempCard;
-    for (int i = number; i < [self.cards count]; i++) {
+    for (int i = playedCard; i < [self.cards count]; i++) {
         if (i != ([self.cards count] -1)) {
             tempCard = [self.cards objectAtIndex:i + 1];
             [self.cards replaceObjectAtIndex:i withObject:tempCard];
@@ -193,7 +200,7 @@ static PlayerModel *player;
         [self.cards replaceObjectAtIndex:([self.cards count] - 1) withObject:cardsScope.getRandomCard];
         }
     }
-    [[self.cards objectAtIndex:number] setCenterOfImageWithPoint:(CGPointMake(number*80, 240))];
+    //[[self.cards objectAtIndex:playedCard] setCenterOfImageWithPoint:(CGPointMake(playedCard*80, 240))];
 }
 
 

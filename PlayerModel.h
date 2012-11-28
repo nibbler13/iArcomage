@@ -17,6 +17,8 @@
 - (void)restoreUseButtons;
 - (void)needToCheckThatTheVictoryConditionsIsAchieved;
 
+- (void)playerShouldDiscardACard;
+
 @end
 
 @interface PlayerModel : NSObject

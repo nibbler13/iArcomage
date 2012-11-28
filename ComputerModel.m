@@ -18,6 +18,7 @@ static ComputerModel *computer;
     CardsScope *cardsScope;
     NSMutableArray *cardsAvailableToPlay;
     PlayerModel *player;
+    NSInteger playedCard;
 }
 
 #pragma mark -Initialization
@@ -83,6 +84,7 @@ static ComputerModel *computer;
     self.isThatComputerTurn = YES;
     NSLog(@"ComputerTurn");
     NSLog(@"Computer have next resource: %d %d %d", self.bricks, self.gems, self.recruits);
+    [self getNewCardAtNumber:playedCard];
     [self analyzeCardsWeight];
     [self printCardsInHand];
     
@@ -100,11 +102,17 @@ static ComputerModel *computer;
         
         if (self.shouldDiscardACard) {
             self.shouldDiscardACard = NO;
+            
+            //==============================NEED TO CHECK============================
             NSLog(@"Computer should discard a card");
+            /*
             NSInteger randomValue = arc4random()%[self.cards count];
             NSLog(@"I want to discard card at number: %d", randomValue);
             [self.cards removeObjectAtIndex:randomValue];
+             */
+             [self discardACard];
             NSLog(@"Now I have %d cards in hand", [self.cards count]);
+            //==============================NEED TO CHECK============================
         }
         
         if (self.shouldPlayAgain) {
@@ -123,6 +131,8 @@ static ComputerModel *computer;
     [self nextTurnIncreaseResource];
     NSLog(@"!!!computer turn nexturnincrease");
     self.isThatComputerTurn = NO;
+    
+    [self.delegate playerShouldTakeANewCard];
 }
 
 - (BOOL)checkAvailableCards
@@ -200,16 +210,18 @@ static ComputerModel *computer;
     [self printCardInfoAtNumber:number];
     [self payForTheCard:number];
     [[self.cards objectAtIndex:number] processCardForPlayer:player andComputer:self];
-    [self getNewCardAtNumber:number];
+    playedCard = number;
+    [self.delegate computerHasPlayTheCard:number];
+    //[self getNewCardAtNumber:number];
     //[self.delegate needToUpdateLabels];
     [self.delegate needToCheckThatTheVictoryConditionsIsAchievedByComputer];
-    
 }
 
 - (void)getNewCardAtNumber:(NSInteger)number
 {
     NSLog(@"I will get a new card");
-    [self.cards replaceObjectAtIndex:number withObject:cardsScope.getRandomCard];
+    [self.delegate needToUpdateComputerCards];
+    [self.cards replaceObjectAtIndex:playedCard withObject:cardsScope.getRandomCard];
 }
 
 - (void)playSomeCard
@@ -249,7 +261,9 @@ static ComputerModel *computer;
     }
     NSInteger randomValue = arc4random()%[cardsWithMinimumWeight count];
     [self.delegate showCurrentComputerCard:[[cardsWithMinimumWeight objectAtIndex:randomValue] integerValue] withStatus:@"Discarded"];
-    [self getNewCardAtNumber:[[cardsWithMinimumWeight objectAtIndex:randomValue] integerValue]];
+    playedCard = [[cardsWithMinimumWeight objectAtIndex:randomValue] integerValue];
+    [self.delegate computerHasDiscardTheCard:playedCard];
+    //[self getNewCardAtNumber:[[cardsWithMinimumWeight objectAtIndex:randomValue] integerValue]];
 }
 
  - (void)analyzeCardsWeight
