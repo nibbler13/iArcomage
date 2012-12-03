@@ -78,63 +78,55 @@ static PlayerModel *player;
 - (void)cardDiscarded:(NSInteger)number
 {
     NSLog(@"PlayerTurn");
+    self.isThatPlayerTurn = YES;
+    
+    [self nextTurnIncreaseResource]; //ДОЛЖНО БЫТЬ В КОНЦЕ ХОДА КОМПЬЮТЕРА
+    
     if (self.soundsOn) {
         [cardsScope playDealSoundEffectForEvent:@"WillTakeACard"];
     }
-    [self.delegate showCurrentCard:number withStatus:@"Discarded"];
     if (self.shouldDiscardACard == YES) {
         NSLog(@"i'm just discard a card");
         self.shouldDiscardACard = NO;
         self.shouldPlayAgain = NO;
-        //[self getNewCardAtNumber:number];
+        [self getNewCardAtNumber:number];
         playedCard = number;
-        [self.delegate playerShouldDiscardACard];
-        [self.delegate needToUpdateCards];
         [self.delegate restoreUseButtons];
-        //=================================NEED TO CHECK THIS================
-        [self nextTurnIncreaseResource];
         return;
     }
     playedCard = number;
-    //[self getNewCardAtNumber:number];
-    [self.delegate needToUpdateCards];
-    //=================================NEED TO CHECK THIS================
-    [self nextTurnIncreaseResource];
+    [self getNewCardAtNumber:number];
     self.isThatPlayerTurn = NO;
-    [computer computerTurn];
 }
 
 - (void)cardSelected:(NSInteger)number
 {
     self.isThatPlayerTurn = YES;
     NSLog(@"PlayerTurn");
-    [self.delegate showCurrentCard:number withStatus:@"Selected"];
+    
+    [self nextTurnIncreaseResource];
+    
     if (self.soundsOn) {
         [cardsScope playDealSoundEffectForEvent:@"WillTakeACard"];
     }
+    
     [self processCard:number];
     if (self.shouldDrawACard == YES) {
         self.shouldDrawACard = NO;
         NSLog(@"I'm draw a new card");
     }
+    
     playedCard = number;
-    //[self getNewCardAtNumber:number];
-    [self.delegate needToUpdateCards];
+    //отрисовать сразу (не в начале следующего хода)
+    //============нужно добавить метод для делегата===========
+    [self getNewCardAtNumber:number];
     
     if (self.shouldDiscardACard == YES) {
+        //
         [self.delegate shouldDiscardACard];
         return;
     }
     
-    [self nextTurnIncreaseResource];
-    if (self.shouldPlayAgain == YES) {
-        self.shouldPlayAgain = NO;
-        NSLog(@"I'm in shouldPlayAgain");
-    } else {
-        NSLog(@"I'm in one step from computerTurn");
-        self.isThatPlayerTurn = NO;
-        [computer computerTurn];
-    }
 }
 
 - (void)payForTheCard:(NSInteger)number
@@ -148,7 +140,6 @@ static PlayerModel *player;
     if ([[[[self cards] objectAtIndex:number] cardColor] isEqualToString:@"Green"]) {
         self.recruits -= [[[self cards] objectAtIndex:number] cardCost];
     }
-
 }
 
 - (void)processCard:(NSInteger)number
@@ -185,22 +176,24 @@ static PlayerModel *player;
         }
     }
     [[self.cards objectAtIndex:number] processCardForPlayer:self andComputer:computer];
+    //здесь нужно добавить анимацию для эффектов карты (уменьшение/увеличение показателей)
     [self.delegate needToCheckThatTheVictoryConditionsIsAchieved];
 
 }
 
-- (void)getNewCardAtNumber
+- (void)getNewCardAtNumber:(NSInteger)number
 {
-    Card *tempCard;
-    for (int i = playedCard; i < [self.cards count]; i++) {
-        if (i != ([self.cards count] -1)) {
-            tempCard = [self.cards objectAtIndex:i + 1];
-            [self.cards replaceObjectAtIndex:i withObject:tempCard];
-        } else {
-        [self.cards replaceObjectAtIndex:([self.cards count] - 1) withObject:cardsScope.getRandomCard];
-        }
-    }
-    //[[self.cards objectAtIndex:playedCard] setCenterOfImageWithPoint:(CGPointMake(playedCard*80, 240))];
+    //карты сдвигаются на одну влево и новая карта добавляется в конец
+    //нужна анимация
+    //Card *tempCard;
+    //for (int i = playedCard; i < [self.cards count]; i++) {
+        //if (i != ([self.cards count] -1)) {
+            //tempCard = [self.cards objectAtIndex:i + 1];
+            //[self.cards replaceObjectAtIndex:i withObject:tempCard];
+        //} else {
+    [self.cards replaceObjectAtIndex:number/*([self.cards count] - 1)*/ withObject:cardsScope.getRandomCard];
+        //}
+    //}
 }
 
 

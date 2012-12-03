@@ -11,13 +11,9 @@
 @protocol PlayerModelDelegate <NSObject>
 
 - (void)needToUpdateLabelAndButton;
-- (void)needToUpdateCards;
-- (void)showCurrentCard:(NSInteger)number withStatus:(NSString*)status;
-- (void)shouldDiscardACard;
-- (void)restoreUseButtons;
+- (void)shouldDiscardACard; //Игрок принудительно должен скинуть карту с руки
+- (void)restoreUseButtons; //Игрок может опять разыграть карту
 - (void)needToCheckThatTheVictoryConditionsIsAchieved;
-
-- (void)playerShouldDiscardACard;
 
 @end
 

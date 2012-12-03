@@ -13,11 +13,6 @@
 - (void)needToUpdateLabels;
 - (void)needToCheckThatTheVictoryConditionsIsAchievedByComputer;
 - (void)showCurrentComputerCard:(NSInteger)number withStatus:(NSString*)status;
-//===========This methods for draw animation for computer cards=======
-- (void)playerShouldTakeANewCard;
-- (void)needToUpdateComputerCards;
-- (void)computerHasDiscardTheCard:(NSInteger)number;
-- (void)computerHasPlayTheCard:(NSInteger)number;
 
 @end
 
@@ -33,6 +28,12 @@
 @property (nonatomic) NSInteger wall;
 @property (nonatomic) NSInteger tower;
 @property (nonatomic) NSMutableArray *cards;
+
+@property (nonatomic) NSInteger playedCard;
+
+@property (nonatomic) BOOL isCardBeenDiscarded;
+
+
 @property (nonatomic) BOOL shouldPlayAgain;
 @property (nonatomic) BOOL shouldDiscardACard;
 @property (nonatomic) BOOL shouldDrawACard;
