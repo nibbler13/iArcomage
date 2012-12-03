@@ -236,7 +236,7 @@ static ComputerModel *computer;
     }
     NSInteger randomValue = arc4random()%[cardsWithMaximumWeight count];
     //карта сыграна, нужно поместить ее в стек сверху на столе
-    [self.delegate showCurrentComputerCard:[[cardsWithMaximumWeight objectAtIndex:randomValue] integerValue] withStatus:@"Selected"];
+    //[self.delegate showCurrentComputerCard:[[cardsWithMaximumWeight objectAtIndex:randomValue] integerValue] withStatus:@"Selected"];
     [self processCard:[[cardsWithMaximumWeight objectAtIndex:randomValue] integerValue]];
     //здесь начинается следующий ход игрока
 }

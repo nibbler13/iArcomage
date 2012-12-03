@@ -11,8 +11,6 @@
 @protocol PlayerModelDelegate <NSObject>
 
 - (void)needToUpdateLabelAndButton;
-- (void)shouldDiscardACard; //Игрок принудительно должен скинуть карту с руки
-- (void)restoreUseButtons; //Игрок может опять разыграть карту
 - (void)needToCheckThatTheVictoryConditionsIsAchieved;
 
 @end
@@ -29,6 +27,7 @@
 @property (nonatomic) NSInteger wall;
 @property (nonatomic) NSInteger tower;
 @property (nonatomic) NSMutableArray *cards;
+@property (nonatomic) NSInteger playedCard;
 @property (nonatomic) BOOL shouldPlayAgain;
 @property (nonatomic) BOOL shouldDiscardACard;
 @property (nonatomic) BOOL shouldDrawACard;
@@ -37,6 +36,8 @@
 
 - (void)cardSelected:(NSInteger)number;
 - (void)cardDiscarded:(NSInteger)number;
+- (void)getANewCard;
+- (void)nextTurnIncreaseResource;
 
 + (PlayerModel*)getPlayer;
 

@@ -140,6 +140,8 @@
     
     BOOL operationComplete;
     
+    BOOL needToReturnCardToDefaultPosition;
+    
     int cardsOffset;
     
     NSArray *computersCards;
@@ -149,11 +151,11 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    NSLog(@"touchBegan");
     
     if (!animationCompleted) {
         return;
     }
-    
     
     NSLog(@"isAnythingSelected: %d", isAnythingCardSelected);
     if (!isAnythingCardSelected) {
@@ -166,12 +168,14 @@
             [self dispatchFirstTouchAtPoint:[touch locationInView:self.view]];
             count++;
         }
-        NSLog(@"count: %d", count);
+        //NSLog(@"count: %d", count);
     }
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    
+    NSLog(@"touchMoved");
     
     if (!animationCompleted) {
         return;
@@ -187,15 +191,17 @@
         lastTouch = [touch locationInView:self.view];
         [self dispatchTouchEventToPosition:[touch locationInView:self.view]];
     }
-    NSLog(@"touchesMoved count: %d", count);
+    //NSLog(@"touchesMoved count: %d", count);
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    NSLog(@"touchesEnded");
     
     if (!animationCompleted) {
         return;
     }
+    
     
     for (UITouch *touch in touches) {
         if (abs(lastTouch.x - [touch locationInView:self.view].x) > 100 |
@@ -203,9 +209,8 @@
             return;
         }
         lastTouch = [touch locationInView:self.view];
-            [self dispatchTouchEndToPosition:[touch locationInView:self.view]];
+        [self dispatchTouchEndToPosition:[touch locationInView:self.view]];
     }
-    isAnythingCardSelected = NO;
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
@@ -215,13 +220,13 @@
         return;
     }
     
-    isAnythingCardSelected = NO;
     for (UITouch *touch in touches) {
         if (abs(lastTouch.x - [touch locationInView:self.view].x) > 100 |
             abs(lastTouch.y - [touch locationInView:self.view].y) > 100) {
             return;
         }
         lastTouch = [touch locationInView:self.view];
+        [self dispatchTouchEndToPosition:[touch locationInView:self.view]];
     }
 
     NSLog(@"@@@@@@@@@@@@@@@@Touches canceled");
@@ -344,8 +349,7 @@
         return;
     }
     [theView setCenter:
-        CGPointMake(defaultPosition.x,// - (firstTouchPoint.x - position.x),
-                    defaultPosition.y - (firstTouchPoint.y - position.y))];
+        CGPointMake(defaultPosition.x, defaultPosition.y - (firstTouchPoint.y - position.y))];
 }
 
 //============================Touch ended algorithm========================
@@ -374,14 +378,15 @@
 - (void)calculateEndPosition:(CGPoint)position toView:(UIView*)view withDefaultPosition:(CGPoint*)defaultPosition withDefaultRect:(CGRect*)defaultRect forCardNumber:(NSUInteger)number
 {
     
-    animationCompleted = NO;
-    
     if (firstTouchPoint.y - 80 > position.y) {
         if (![self isCardAvailableToPlay:number]) {
             [self releaseCardSelectionForView:view withDefaultPosition:defaultPosition withDefaultRect:defaultRect];
             return;
         }
         //=========CARD WAS BEEN SELECTED===========
+        
+        firstTouchPoint = CGPointMake(0, 0);
+        
         [UIView animateWithDuration:0.5
                               delay:0.0
                             options:UIViewAnimationCurveLinear
@@ -411,16 +416,16 @@
                                                   }
                                                   
                                                   
-                                                  animationCompleted = YES;
                                               }];
                              
-                             [self showCurrentCard:number];
                          }];
         
-        //sleep(0.5);
         
     } else if (firstTouchPoint.y + 80 < position.y) {
         //=======CARD WAS BEEN DISCARDED===========
+        
+        firstTouchPoint = CGPointMake(0, 0);
+        
         [UIView animateWithDuration:1.5
                               delay:0.0
                             options:UIViewAnimationCurveLinear
@@ -439,29 +444,18 @@
                                               }completion:^(BOOL finished){
                                                   [self releaseCardSelectionForView:view withDefaultPosition:defaultPosition withDefaultRect:defaultRect];
                                                   
-                                                  
-                                                  [player cardDiscarded:number];
-                                                  
-                                                  
                                                   [computer computerTurn];
-                                                  [self animateComputerTurn];
-                                                  
-                                                  
-                                                  // ЗДЕСЬ НУЖНО ОТМЕНИТЬ ХОД КОМПЬЮТЕРА ПОСЛЕ ИГРОКА, СНАЧАЛА ПРОИГРАТЬ АНИМАЦИЮ НА КЛАДБИЩЕ, ПОВОРОТ КАРТ, А ПОТОМ УЖЕ ПРОСЧИТАТЬ ХОД КОМПЬЮТЕРА, ЗАТЕМ РАЗВЕРНУТЬ КАРТЫ
-                                                  
-                                                  
-                                                  animationCompleted = YES;
+                                                  [self animateComputerTurn];                                                  
                                               }];
                              
-                             [self showCurrentCard:number];
-                             
-                             
                          }];
-        //sleep(0.5);
         
     } else {
         //NSLog(@"                                             i'm in else");
         //========PLAYER PUT THE CARD BACK===========
+        
+        firstTouchPoint = CGPointMake(0, 0);
+        
         [UIView animateWithDuration:1.0
                               delay:0.0
                             options:UIViewAnimationCurveLinear
@@ -469,8 +463,7 @@
                              view.center = *defaultPosition;
                          }completion:^(BOOL finished){
                              
-                             
-                             animationCompleted = YES;
+                             needToReturnCardToDefaultPosition = YES;
                              
                              [self releaseCardSelectionForView:view withDefaultPosition:defaultPosition withDefaultRect:defaultRect];
                          }];
@@ -480,10 +473,9 @@
 - (void)releaseCardSelectionForView:(UIView*)view withDefaultPosition:(CGPoint*)defaultPosition withDefaultRect:(CGRect*)defaultRect
 {
     
-    animationCompleted = NO;
     
     
-    firstTouchPoint = CGPointMake(0, 0);
+    
     *defaultPosition = view.center;
     *defaultRect = view.frame;
     [UIView animateWithDuration:0.2
@@ -493,10 +485,16 @@
                          cardSelectionView.alpha = 0.0;
                      }completion:^(BOOL finished){
                          
-                         animationCompleted = YES;
                          
                          [cardSelectionView removeFromSuperview];
                          cardSelectionView = nil;
+                         
+                         if (needToReturnCardToDefaultPosition) {
+                             animationCompleted = YES;
+                             isAnythingCardSelected = NO;
+                             needToReturnCardToDefaultPosition = NO;
+                         }
+                         
                      }];
 
 }
@@ -578,7 +576,7 @@
                          /////////////////////////////////////////////////////////////////////////////////
                          //Перемещение сыгранной компьютером карты на стол или сброшенной в невидимую зону
                          [UIView animateWithDuration:1.0
-                                               delay:0.0
+                                               delay:0.5
                                              options:UIViewAnimationCurveLinear
                                           animations:^{
                                               
@@ -621,8 +619,77 @@
                                                    }
                                                    
                                                }completion:^(BOOL finished){
+                                                   ////////////////////////////////////////////////////////////////////////////////////////////////
+                                                   //Ход компьютера закончился, начинается ход игрока, нужно очистить стол и привести его в порядок
+                                                   if (isPlayedCard0Present) {
+                                                       self.playedCard0View.hidden = NO;
+                                                   }
+                                                   if (isPlayedCard1Present) {
+                                                       self.playedCard1View.hidden = NO;
+                                                   }
+                                                   if (isPlayedCard2Present) {
+                                                       self.playedCard2View.hidden = NO;
+                                                   }
+                                                   
+                                                   
+                                                   
+                                                   [self updateAllCards];
+                                                   
+                                                   UIImageView *tempView = (UIImageView*)[self.view viewWithTag:1000];
+                                                   [tempView removeFromSuperview];
+                                                   
+                                                   xInitialPositionForCardView = 118;
+                                                   cardsOffset = 196;
+                                                   
                                                    [self setComputersCardsInvisible:YES];
                                                    [self setPlayersCardsInvisible:NO];
+                                                   
+                                                   [self calculateBeforePlayOffseyForPlayerCard:0 withView:self.card0View];
+                                                   [self calculateBeforePlayOffseyForPlayerCard:1 withView:self.card1View];
+                                                   [self calculateBeforePlayOffseyForPlayerCard:2 withView:self.card2View];
+                                                   [self calculateBeforePlayOffseyForPlayerCard:3 withView:self.card3View];
+                                                   [self calculateBeforePlayOffseyForPlayerCard:4 withView:self.card4View];
+                                                   [self calculateBeforePlayOffseyForPlayerCard:5 withView:self.card5View];
+                                                   
+                                                   [UIView animateWithDuration:0.5
+                                                                         delay:0
+                                                                       options:UIViewAnimationCurveLinear
+                                                                    animations:^{
+                                                                        
+                                                                        xInitialPositionForCardView = 90;
+                                                                        cardsOffset = 169;
+                                                                        
+                                                                        
+                                                                        self.card0View.center = CGPointMake(xInitialPositionForCardView, yInitialPositionForCardView);
+                                                                        xInitialPositionForCardView += cardsOffset;
+                                                                        
+                                                                        self.card1View.center = CGPointMake(xInitialPositionForCardView, yInitialPositionForCardView);
+                                                                        xInitialPositionForCardView += cardsOffset;
+                                                                        
+                                                                        self.card2View.center = CGPointMake(xInitialPositionForCardView, yInitialPositionForCardView);
+                                                                        xInitialPositionForCardView += cardsOffset;
+                                                                        
+                                                                        self.card3View.center = CGPointMake(xInitialPositionForCardView, yInitialPositionForCardView);
+                                                                        xInitialPositionForCardView += cardsOffset;
+                                                                        
+                                                                        self.card4View.center = CGPointMake(xInitialPositionForCardView, yInitialPositionForCardView);
+                                                                        xInitialPositionForCardView += cardsOffset;
+                                                                        
+                                                                        self.card5View.center = CGPointMake(xInitialPositionForCardView, yInitialPositionForCardView);
+                                                                        xInitialPositionForCardView += cardsOffset;
+                                                                         
+                                                                        [self updateCardPositions];
+                                                                        
+                                                                    }completion:^(BOOL finished){
+                                                                        
+                                                                        isAnythingCardSelected = NO;
+                                                                        
+                                                                        animationCompleted = YES;
+                                                                        
+                                                                        [player nextTurnIncreaseResource];
+                                                                        
+                                                                    }];
+                                               
                                                }];
                               
                               
@@ -639,6 +706,16 @@
     
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+}
+
+- (void)calculateBeforePlayOffseyForPlayerCard:(NSInteger)number withView:(UIView*)cardView
+{
+    if (player.playedCard != number) {
+        cardView.center = CGPointMake(xInitialPositionForCardView, yInitialPositionForCardView);
+        xInitialPositionForCardView += cardsOffset;
+    } else {
+        cardView.center = CGPointMake(234, 110);
+    }
 }
 
 - (void)calculateBeforePlayOffseyForComputerCard:(NSInteger)number withView:(UIImageView*)cardView
@@ -676,7 +753,7 @@
                      withBackground:self.playedCard0Background];
         cardImageView.center = self.playedCard0View.center;
         isPlayedCard0Present = YES;
-        //self.playedCard0View.hidden = NO;
+        
     } else if (!isPlayedCard1Present){
         [self configureComputerCard:number
                   withCardNameLabel:self.playedCard1Name
@@ -685,7 +762,7 @@
                      withBackground:self.playedCard1Background];
         cardImageView.center = self.playedCard1View.center;
         isPlayedCard1Present = YES;
-        //self.playedCard1View.hidden = NO;
+        
     } else if (!isPlayedCard2Present) {
         [self configureComputerCard:number
                   withCardNameLabel:self.playedCard2Name
@@ -694,7 +771,7 @@
                      withBackground:self.playedCard2Background];
         cardImageView.center = self.playedCard2View.center;
         isPlayedCard2Present = YES;
-        //self.playedCard2View.hidden = NO;
+        
     } else {
         [UIView animateWithDuration:0.5
                               delay:0
@@ -755,95 +832,7 @@
     self.computerCard5.hidden = invisible;
 }
 
-- (void)needToUpdatePlayerCards
-{
-    //здесь нужна анимация для получения новой карты игроком и отрисовки анимации увеличения ресурсов для нового хода
-    NSLog(@"==================need to update players cards===========");
-    
-    [self updateAllCards];
-    
-    UIImageView *tempView = (UIImageView*)[self.view viewWithTag:1000];
-    [tempView removeFromSuperview];
-    
-    yInitialPositionForCardView = 645.0;
-    xInitialPositionForCardView = 90;
-    
-    [UIView animateWithDuration:0.5
-                          delay:0
-                        options:UIViewAnimationCurveLinear
-                     animations:^{
-                         
-                             self.card0View.center = CGPointMake(xInitialPositionForCardView, yInitialPositionForCardView);
-                             xInitialPositionForCardView += 169;
-                         
-                             self.card1View.center = CGPointMake(xInitialPositionForCardView, yInitialPositionForCardView);
-                             xInitialPositionForCardView += 169;
-                         
-                             self.card2View.center = CGPointMake(xInitialPositionForCardView, yInitialPositionForCardView);
-                             xInitialPositionForCardView += 169;
-                         
-                             self.card3View.center = CGPointMake(xInitialPositionForCardView, yInitialPositionForCardView);
-                             xInitialPositionForCardView += 169;
-                         
-                             self.card4View.center = CGPointMake(xInitialPositionForCardView, yInitialPositionForCardView);
-                             xInitialPositionForCardView += 169;
-                         
-                             self.card5View.center = CGPointMake(xInitialPositionForCardView, yInitialPositionForCardView);
-                             xInitialPositionForCardView += 169;
-                             [self updateCardPositions];
-                         
-                     }completion:^(BOOL finished){
-                         //sleep(0.5);
-                         //[self updateCardPositions];
-                     }];
-}
 
-
-
-- (void)computerHasDiscardTheCard:(NSInteger)number
-{
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-}
-
-- (void)computerHasPlayTheCard:(NSInteger)number
-{
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-}
-
-- (void)playerShouldTakeANewCard
-{
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-}
 
 - (void)needToUpdateLabels
 {
@@ -860,31 +849,9 @@
     }
 }
 
-- (void)showCurrentComputerCard:(NSInteger)number withStatus:(NSString *)status
-{
-    
-    
-    
-    
-    
-    
-    
-    
-    
-}
 
 #pragma mark -Player's delegate methods
 
-- (void)playerShouldDiscardACard:(NSInteger)number
-{
-    
-    
-    
-    
-    
-    
-      
-}
 
 - (void)needToCheckThatTheVictoryConditionsIsAchieved
 {
@@ -895,36 +862,7 @@
     }
 }
 
-- (void)restoreUseButtons
-{
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-}
 
-- (void)shouldDiscardACard
-{
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-}
 
 - (void)showCurrentCard:(NSInteger)number
 {
@@ -973,22 +911,12 @@
                          [self updateCardPositions];
                          
                      }completion:^(BOOL finished){
-                         //[self updateCardPositions];
+                         
+                         
+                         
                      }];
     
-    
-    
-    
-    
-    
-    
-    
 }
-
-//- (void)needToUpdateCards
-//{
-//    [self updateAllCards];
-//}
 
 - (void)needToUpdateLabelAndButton
 {

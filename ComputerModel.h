@@ -12,7 +12,6 @@
 
 - (void)needToUpdateLabels;
 - (void)needToCheckThatTheVictoryConditionsIsAchievedByComputer;
-- (void)showCurrentComputerCard:(NSInteger)number withStatus:(NSString*)status;
 
 @end
 

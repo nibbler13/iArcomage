@@ -17,7 +17,6 @@ static PlayerModel *player;
 {
     ComputerModel *computer;
     CardsScope *cardsScope;
-    NSInteger playedCard;
 }
 
 #pragma mark -Initialization
@@ -80,22 +79,12 @@ static PlayerModel *player;
     NSLog(@"PlayerTurn");
     self.isThatPlayerTurn = YES;
     
-    [self nextTurnIncreaseResource]; //ДОЛЖНО БЫТЬ В КОНЦЕ ХОДА КОМПЬЮТЕРА
-    
     if (self.soundsOn) {
         [cardsScope playDealSoundEffectForEvent:@"WillTakeACard"];
     }
-    if (self.shouldDiscardACard == YES) {
-        NSLog(@"i'm just discard a card");
-        self.shouldDiscardACard = NO;
-        self.shouldPlayAgain = NO;
-        [self getNewCardAtNumber:number];
-        playedCard = number;
-        [self.delegate restoreUseButtons];
-        return;
-    }
-    playedCard = number;
-    [self getNewCardAtNumber:number];
+    
+    self.playedCard = number;
+    
     self.isThatPlayerTurn = NO;
 }
 
@@ -104,7 +93,6 @@ static PlayerModel *player;
     self.isThatPlayerTurn = YES;
     NSLog(@"PlayerTurn");
     
-    [self nextTurnIncreaseResource];
     
     if (self.soundsOn) {
         [cardsScope playDealSoundEffectForEvent:@"WillTakeACard"];
@@ -112,18 +100,15 @@ static PlayerModel *player;
     
     [self processCard:number];
     if (self.shouldDrawACard == YES) {
-        self.shouldDrawACard = NO;
-        NSLog(@"I'm draw a new card");
+     
+     
     }
     
-    playedCard = number;
-    //отрисовать сразу (не в начале следующего хода)
-    //============нужно добавить метод для делегата===========
-    [self getNewCardAtNumber:number];
+    self.playedCard = number;
     
     if (self.shouldDiscardACard == YES) {
-        //
-        [self.delegate shouldDiscardACard];
+        
+        
         return;
     }
     
@@ -181,19 +166,9 @@ static PlayerModel *player;
 
 }
 
-- (void)getNewCardAtNumber:(NSInteger)number
+- (void)getANewCard
 {
-    //карты сдвигаются на одну влево и новая карта добавляется в конец
-    //нужна анимация
-    //Card *tempCard;
-    //for (int i = playedCard; i < [self.cards count]; i++) {
-        //if (i != ([self.cards count] -1)) {
-            //tempCard = [self.cards objectAtIndex:i + 1];
-            //[self.cards replaceObjectAtIndex:i withObject:tempCard];
-        //} else {
-    [self.cards replaceObjectAtIndex:number/*([self.cards count] - 1)*/ withObject:cardsScope.getRandomCard];
-        //}
-    //}
+    [self.cards replaceObjectAtIndex:self.playedCard withObject:cardsScope.getRandomCard];
 }
 
 
