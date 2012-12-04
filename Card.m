@@ -115,7 +115,7 @@
         if (computer.tower < 0) {computer.tower = 0;};
         
     } else {
-        NSLog(@"ERROR!!!");
+        NSLog(@"PROCESS CARD ERROR!!!");
     }
     
     if (self.additionalTerms) {
@@ -163,7 +163,6 @@
     if (self.additionalTerms) {
         
         if ([self.cardName isEqualToString:@"Mother Lode"]) {
-            NSLog(@"Calculating Mother Lode effects");
             if (playerModel.isThatPlayerTurn) {
                 if (playerModel.quarries < computerModel.quarries) {
                     return 2;
@@ -180,7 +179,6 @@
         }
         
         if ([self.cardName isEqualToString:@"Copping the Tech"]) {
-            NSLog(@"Calculating Copping the Tech effects");
             if (playerModel.isThatPlayerTurn) {
                 if (playerModel.quarries < computerModel.quarries) {
                     playerModel.quarries = computerModel.quarries;
@@ -208,8 +206,6 @@
 {
     if (self.additionalTerms) {
         if ([self.cardName isEqualToString:@"Parity"]) {
-            NSLog(@"Calculating Parity effects");
-            
             if (playerModel.magics < computerModel.magics) {
                 playerModel.magics = computerModel.magics;
             } else {
@@ -230,8 +226,6 @@
     if (self.additionalTerms) {
         
         if ([self.cardName isEqualToString:@"Flood Water"]) {
-            NSLog(@"Calculating Flood Water effects");
-            
             if (playerModel.isThatPlayerTurn) {
                 if (playerModel.wall < computerModel.wall) {
                     return -1;
@@ -268,8 +262,6 @@
     if (self.additionalTerms) {
         
         if ([self.cardName isEqualToString:@"Flood Water"]) {
-            NSLog(@"Calculating Flood Water effects");
-            
             if (playerModel.isThatPlayerTurn) {
                 if (playerModel.wall > computerModel.wall) {
                     return -1;
@@ -291,8 +283,6 @@
 {
     if (self.additionalTerms) {
         if ([self.cardName isEqualToString:@"Thief"]) {
-            NSLog(@"Calculating Thief effects");
-            
             if (playerModel.isThatPlayerTurn) {
                 if (computerModel.bricks < 5) {
                     return (computerModel.bricks / 2);
@@ -318,8 +308,6 @@
 {
     if (self.additionalTerms) {
         if ([self.cardName isEqualToString:@"Thief"]) {
-            NSLog(@"Calculating Thief effects");
-            
             if (playerModel.isThatPlayerTurn) {
                 if (computerModel.gems < 10) {
                     return (computerModel.gems / 10);
@@ -355,8 +343,6 @@
 {
     if (self.additionalTerms) {
         if ([self.cardName isEqualToString:@"Foundations"]) {
-            NSLog(@"Calculating Foundations effects");
-            
             if (playerModel.isThatPlayerTurn) {
                 if (playerModel.wall == 0) {
                     return 5;
@@ -381,16 +367,12 @@
 {
     if (self.additionalTerms) {
         if ([self.cardName isEqualToString:@"Shift"]) {
-            NSLog(@"Calculating Shift effects");
-            
                 NSInteger temp = playerModel.wall;
                 playerModel.wall = computerModel.wall;
                 computerModel.wall = temp;
         }
         
         if ([self.cardName isEqualToString:@"Lightning Shard"]) {
-            NSLog(@"Calculating Lightning Shard effects");
-            
             if (playerModel.isThatPlayerTurn) {
                 if (playerModel.tower < computerModel.tower) {
                     return -8;
@@ -404,8 +386,6 @@
         }
         
         if ([self.cardName isEqualToString:@"Spizzer"]) {
-            NSLog(@"Calculating Spizzer effects");
-            
             if (playerModel.isThatPlayerTurn) {
                 if (computerModel.wall == 0) {
                     return -10;
@@ -424,8 +404,6 @@
         }
         
         if ([self.cardName isEqualToString:@"Corrosion Cloud"]) {
-            NSLog(@"Calculating Corrosion Cloud effects");
-            
             if (playerModel.isThatPlayerTurn) {
                 if (computerModel.wall > 0) {
                     return -10;
@@ -444,8 +422,6 @@
         }
         
         if ([self.cardName isEqualToString:@"Unicorn"]) {
-            NSLog(@"Calculating Unicorn effects");
-            
             if (playerModel.isThatPlayerTurn) {
                 if (playerModel.magics > computerModel.magics) {
                     return -12;
@@ -464,8 +440,6 @@
         }
         
         if ([self.cardName isEqualToString:@"Elven Archers"]) {
-            NSLog(@"Calculating Elven Archers effects");
-            
             if (playerModel.isThatPlayerTurn) {
                 if (playerModel.wall < computerModel.wall) {
                     return -6;
@@ -480,8 +454,6 @@
         }
         
         if ([self.cardName isEqualToString:@"Spearman"]) {
-            NSLog(@"Calculating Spearman effects");
-            
             if (playerModel.isThatPlayerTurn) {
                 if (playerModel.wall > computerModel.wall) {
                     return -3;
@@ -507,8 +479,6 @@
     if (self.additionalTerms) {
         
         if ([self.cardName isEqualToString:@"Flood Water"]) {
-            NSLog(@"Calculating Flood Water effects");
-            
             if (playerModel.isThatPlayerTurn) {
                 if (playerModel.wall < computerModel.wall) {
                     return -2;
@@ -523,8 +493,6 @@
         }
         
         if ([self.cardName isEqualToString:@"Bag of Baubles"]) {
-            NSLog(@"Calculating Bag of Baubles effects");
-            
             if (playerModel.isThatPlayerTurn) {
                 if (playerModel.tower < computerModel.tower) {
                     return 2;
@@ -550,8 +518,6 @@
     if (self.additionalTerms) {
         
         if ([self.cardName isEqualToString:@"Flood Water"]) {
-            NSLog(@"Calculating Flood Water effects");
-            
             if (playerModel.isThatPlayerTurn) {
                 if (playerModel.wall > computerModel.wall) {
                     return -2;
@@ -566,8 +532,6 @@
         }
         
         if ([self.cardName isEqualToString:@"Lightning Shard"]) {
-            NSLog(@"Calculating Lightning Shard effects");
-            
             if (playerModel.isThatPlayerTurn) {
                 if (playerModel.tower > computerModel.tower) {
                     return -8;
@@ -581,8 +545,6 @@
         }
         
         if ([self.cardName isEqualToString:@"Elven Archers"]) {
-            NSLog(@"Calculating Elven Archers effects");
-            
             if (playerModel.isThatPlayerTurn) {
                 if (playerModel.wall > computerModel.wall) {
                     return -6;

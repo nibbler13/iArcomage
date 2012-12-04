@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3080" systemVersion="12C60" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="iij-81-ILD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3081" systemVersion="12C60" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="iij-81-ILD">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2078"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2080"/>
     </dependencies>
     <scenes>
         <!--Main View Controller-->
@@ -387,6 +387,10 @@
                                         <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <size key="shadowOffset" width="0.0" height="2"/>
                                     </label>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="NotAvailable.png" id="5TW-BT-wgk">
+                                        <rect key="frame" x="5" y="5" width="156" height="208"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -422,6 +426,10 @@
                                         <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <size key="shadowOffset" width="0.0" height="2"/>
                                     </label>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="NotAvailable.png" id="p5u-bI-uwm">
+                                        <rect key="frame" x="0.0" y="0.0" width="156" height="208"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -457,6 +465,10 @@
                                         <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <size key="shadowOffset" width="0.0" height="2"/>
                                     </label>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="NotAvailable.png" id="Vcz-i7-d2f">
+                                        <rect key="frame" x="0.0" y="0.0" width="156" height="208"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -492,6 +504,10 @@
                                         <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <size key="shadowOffset" width="0.0" height="2"/>
                                     </label>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="NotAvailable.png" id="WBn-qW-qgf">
+                                        <rect key="frame" x="0.0" y="0.0" width="156" height="208"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -527,6 +543,10 @@
                                         <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <size key="shadowOffset" width="0.0" height="2"/>
                                     </label>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="NotAvailable.png" id="yOC-cz-2gC">
+                                        <rect key="frame" x="0.0" y="0.0" width="156" height="208"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -562,6 +582,10 @@
                                         <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <size key="shadowOffset" width="0.0" height="2"/>
                                     </label>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="NotAvailable.png" id="VGc-mn-l73">
+                                        <rect key="frame" x="0.0" y="0.0" width="156" height="208"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -708,16 +732,22 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="card0Background" destination="VFS-YF-Jlq" id="dOl-t9-ZHL"/>
+                        <outlet property="card0NotAvailable" destination="5TW-BT-wgk" id="rhL-jB-gjx"/>
                         <outlet property="card0View" destination="5Kb-yA-iTx" id="mYt-im-22N"/>
                         <outlet property="card1Background" destination="5DC-CK-Jgx" id="S8N-Rp-Dqk"/>
+                        <outlet property="card1NotAvailable" destination="p5u-bI-uwm" id="P5a-9g-Sz9"/>
                         <outlet property="card1View" destination="gtG-NO-Oot" id="0lD-jl-CSF"/>
                         <outlet property="card2Background" destination="T9x-Y9-EsA" id="2Rm-rc-sYJ"/>
+                        <outlet property="card2NotAvailable" destination="Vcz-i7-d2f" id="Hyn-1M-EYx"/>
                         <outlet property="card2View" destination="2Sz-TV-pJh" id="v80-IZ-2hw"/>
                         <outlet property="card3Background" destination="efT-tR-asr" id="YHs-qF-PMi"/>
+                        <outlet property="card3NotAvailable" destination="WBn-qW-qgf" id="Kqi-MA-0JJ"/>
                         <outlet property="card3View" destination="nbR-DE-Zr8" id="sIU-x3-uiI"/>
                         <outlet property="card4Background" destination="6k1-Q1-anH" id="eKT-5k-b9m"/>
+                        <outlet property="card4NotAvailable" destination="yOC-cz-2gC" id="4YW-3S-Ees"/>
                         <outlet property="card4View" destination="Q3a-Bd-iEk" id="MbV-s9-hcg"/>
                         <outlet property="card5Background" destination="CtR-y6-lDM" id="fod-yJ-WqF"/>
+                        <outlet property="card5NotAvailable" destination="VGc-mn-l73" id="tzb-mZ-VSt"/>
                         <outlet property="card5View" destination="HDB-Y4-fvZ" id="CjT-CM-Bcu"/>
                         <outlet property="computerBricks" destination="n07-cc-mdH" id="DhS-uf-Pdy"/>
                         <outlet property="computerCard0" destination="oPP-Ba-KwH" id="OP7-fs-6yh"/>
@@ -831,6 +861,7 @@
         <image name="GreyCardBlank.png" width="156" height="208"/>
         <image name="Info_off_orig.png" width="250" height="108"/>
         <image name="Info_on_orig.png" width="250" height="108"/>
+        <image name="NotAvailable.png" width="156" height="208"/>
         <image name="Player_name.png" width="128" height="39"/>
         <image name="Quit_off_orig.png" width="250" height="108"/>
         <image name="Quit_on_orig.png" width="250" height="108"/>

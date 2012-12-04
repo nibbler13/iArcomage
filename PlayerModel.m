@@ -39,7 +39,6 @@ static PlayerModel *player;
 
 - (id)init
 {
-    NSLog(@"init player");
     if ([super init] != nil) {
         self.quarries = 1;
         self.magics = 1;
@@ -59,7 +58,6 @@ static PlayerModel *player;
         cardsScope.soundsOn = self.soundsOn;
         self.cards = [NSMutableArray arrayWithObjects:cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, nil];
         computer = [ComputerModel getComputer];
-        NSLog(@"complete init player");
     }
     return self;
 }
@@ -71,60 +69,20 @@ static PlayerModel *player;
     self.bricks += self.quarries;
     self.gems += self.magics;
     self.recruits += self.dungeons;
-    [self.delegate needToUpdateLabelAndButton];
 }
 
 - (void)cardDiscarded:(NSInteger)number
 {
-    NSLog(@"PlayerTurn");
-    self.isThatPlayerTurn = YES;
-    
-    if (self.soundsOn) {
-        [cardsScope playDealSoundEffectForEvent:@"WillTakeACard"];
-    }
-    
     self.playedCard = number;
-    
-    self.isThatPlayerTurn = NO;
+    self.isCardHasBeenDiscarded = YES;
 }
 
 - (void)cardSelected:(NSInteger)number
 {
-    self.isThatPlayerTurn = YES;
-    NSLog(@"PlayerTurn");
-    
-    
-    if (self.soundsOn) {
-        [cardsScope playDealSoundEffectForEvent:@"WillTakeACard"];
-    }
-    
-    [self processCard:number];
-    if (self.shouldDrawACard == YES) {
-     
-     
-    }
-    
     self.playedCard = number;
+    self.isCardHasBeenDiscarded = NO;
+    [self processCard:number];
     
-    if (self.shouldDiscardACard == YES) {
-        
-        
-        return;
-    }
-    
-}
-
-- (void)payForTheCard:(NSInteger)number
-{
-    if ([[[[self cards] objectAtIndex:number] cardColor] isEqualToString:@"Grey"]) {
-        self.bricks -= [[[self cards] objectAtIndex:number] cardCost];
-    }
-    if ([[[[self cards] objectAtIndex:number] cardColor] isEqualToString:@"Blue"]) {
-        self.gems -= [[[self cards] objectAtIndex:number] cardCost];
-    }
-    if ([[[[self cards] objectAtIndex:number] cardColor] isEqualToString:@"Green"]) {
-        self.recruits -= [[[self cards] objectAtIndex:number] cardCost];
-    }
 }
 
 - (void)processCard:(NSInteger)number
@@ -161,9 +119,22 @@ static PlayerModel *player;
         }
     }
     [[self.cards objectAtIndex:number] processCardForPlayer:self andComputer:computer];
-    //здесь нужно добавить анимацию для эффектов карты (уменьшение/увеличение показателей)
+    
     [self.delegate needToCheckThatTheVictoryConditionsIsAchieved];
+    
+}
 
+- (void)payForTheCard:(NSInteger)number
+{
+    if ([[[[self cards] objectAtIndex:number] cardColor] isEqualToString:@"Grey"]) {
+        self.bricks -= [[[self cards] objectAtIndex:number] cardCost];
+    }
+    if ([[[[self cards] objectAtIndex:number] cardColor] isEqualToString:@"Blue"]) {
+        self.gems -= [[[self cards] objectAtIndex:number] cardCost];
+    }
+    if ([[[[self cards] objectAtIndex:number] cardColor] isEqualToString:@"Green"]) {
+        self.recruits -= [[[self cards] objectAtIndex:number] cardCost];
+    }
 }
 
 - (void)getANewCard

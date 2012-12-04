@@ -62,7 +62,6 @@
 
 - (void)dealloc
 {
-    NSLog(@"dealloc cardscope");
     [self unloadSoundEffect];
 }
 
@@ -100,8 +99,6 @@
 - (Card*)getRandomCard
 {
     NSInteger random = (1 + arc4random()%([self.cards count] -1));
-    //NSInteger random = (1 + arc4random()%10);
-    //return [self.cards objectAtIndex:1];
     return [self.cards objectAtIndex:random];
 }
 
@@ -130,9 +127,8 @@
 
 - (void)playDealSoundEffectForEvent:(NSString *)event
 {
-    NSLog(@"sound status: %u", self.soundsOn);
     if (self.soundsOn) {
-        NSLog(@"===========sounds on===========");
+        //NSLog(@"===========sounds on===========");
         if ([event isEqualToString:@"WillTakeACard"]) {
             AudioServicesPlaySystemSound(soundDealID);
         } else if ([event isEqualToString:@"WillTakeDamage"]) {

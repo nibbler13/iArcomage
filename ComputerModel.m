@@ -70,7 +70,7 @@ static ComputerModel *computer;
     self.bricks += self.quarries;
     self.gems += self.magics;
     self.recruits += self.dungeons;
-    [self.delegate needToUpdateLabels];
+    //[self.delegate needToUpdateLabels];
 }
 
 - (void)computerTurn
@@ -207,7 +207,8 @@ static ComputerModel *computer;
     [[self.cards objectAtIndex:number] processCardForPlayer:player andComputer:self];
     self.playedCard = number;
     //[self getNewCardAtNumber:number];
-    [self.delegate needToUpdateLabels];
+    //[self.delegate needToUpdateLabels];
+    
     [self.delegate needToCheckThatTheVictoryConditionsIsAchievedByComputer];
 }
 
@@ -235,10 +236,8 @@ static ComputerModel *computer;
         }
     }
     NSInteger randomValue = arc4random()%[cardsWithMaximumWeight count];
-    //карта сыграна, нужно поместить ее в стек сверху на столе
-    //[self.delegate showCurrentComputerCard:[[cardsWithMaximumWeight objectAtIndex:randomValue] integerValue] withStatus:@"Selected"];
+    
     [self processCard:[[cardsWithMaximumWeight objectAtIndex:randomValue] integerValue]];
-    //здесь начинается следующий ход игрока
 }
 
 - (void)discardACard
@@ -257,12 +256,10 @@ static ComputerModel *computer;
         }
     }
     NSInteger randomValue = arc4random()%[cardsWithMinimumWeight count];
-    //[self.delegate showCurrentComputerCard:[[cardsWithMinimumWeight objectAtIndex:randomValue] integerValue] withStatus:@"Discarded"];
+    
     self.isCardBeenDiscarded = YES;
+    
     self.playedCard = [[cardsWithMinimumWeight objectAtIndex:randomValue] integerValue];
-    //компьютер сбросил карту и берет новую, но отрисовать анимацию надо только в начале следующего хода
-    //[self getNewCardAtNumber:[[cardsWithMinimumWeight objectAtIndex:randomValue] integerValue]];
-    //здесь начинается следующий ход игрока
 }
 
  - (void)analyzeCardsWeight

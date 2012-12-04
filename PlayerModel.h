@@ -10,7 +10,6 @@
 
 @protocol PlayerModelDelegate <NSObject>
 
-- (void)needToUpdateLabelAndButton;
 - (void)needToCheckThatTheVictoryConditionsIsAchieved;
 
 @end
@@ -33,6 +32,7 @@
 @property (nonatomic) BOOL shouldDrawACard;
 @property (nonatomic) BOOL isThatPlayerTurn;
 @property (nonatomic) BOOL soundsOn;
+@property (nonatomic) BOOL isCardHasBeenDiscarded;
 
 - (void)cardSelected:(NSInteger)number;
 - (void)cardDiscarded:(NSInteger)number;
