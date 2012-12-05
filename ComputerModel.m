@@ -70,7 +70,7 @@ static ComputerModel *computer;
     self.bricks += self.quarries;
     self.gems += self.magics;
     self.recruits += self.dungeons;
-    //[self.delegate needToUpdateLabels];
+    [self.delegate needToUpdateLabels];
 }
 
 - (void)computerTurn
@@ -82,7 +82,7 @@ static ComputerModel *computer;
     self.isThatComputerTurn = YES;
     NSLog(@"ComputerTurn");
     
-    [self nextTurnIncreaseResource];
+    //[self nextTurnIncreaseResource];
     [self getANewCard];
     
     NSLog(@"Computer have next resource: %d %d %d", self.bricks, self.gems, self.recruits);
@@ -90,36 +90,10 @@ static ComputerModel *computer;
     [self printCardsInHand];
     
     if ([self checkAvailableCards]) {
-        
         NSLog(@"There are some available cards");
         [self printAvailableCards];
         [self playSomeCard];
         self.isCardBeenDiscarded = NO;
-        
-        /*
-        if (self.shouldDrawACard) {
-            self.shouldDrawACard = NO;
-            NSLog(@"Computer should draw a new card");
-            [self.cards addObject:cardsScope.getRandomCard];
-            NSLog(@"Now I have %d cards in hand", [self.cards count]);
-        }
-        
-        if (self.shouldDiscardACard) {
-            self.shouldDiscardACard = NO;
-            
-            NSLog(@"Computer should discard a card");
-            [self discardACard];
-            self.isCardBeenDiscarded = YES;
-            NSLog(@"Now I have %d cards in hand", [self.cards count]);
-        }
-        
-        if (self.shouldPlayAgain) {
-            NSLog(@"Computer should play again");
-            self.shouldPlayAgain = NO;
-            [self computerTurn];
-            return;
-        }
-         */
     
     } else {
         NSLog(@"No available cards to play");
@@ -206,8 +180,6 @@ static ComputerModel *computer;
     [self payForTheCard:number];
     [[self.cards objectAtIndex:number] processCardForPlayer:player andComputer:self];
     self.playedCard = number;
-    //[self getNewCardAtNumber:number];
-    //[self.delegate needToUpdateLabels];
     
     [self.delegate needToCheckThatTheVictoryConditionsIsAchievedByComputer];
 }
@@ -252,14 +224,34 @@ static ComputerModel *computer;
     NSMutableArray *cardsWithMinimumWeight = [[NSMutableArray alloc] init];
     for (int i = 0; i < [self.cards count]; i ++) {
         if ([[self.cards objectAtIndex:i] cardWeight] == minimumValue) {
-            [cardsWithMinimumWeight addObject:[NSNumber numberWithInt:i]];
+            
+            if (![[[self.cards objectAtIndex:i] cardName] isEqualToString:@"Lodestone"]) {
+                [cardsWithMinimumWeight addObject:[NSNumber numberWithInt:i]];
+            }
         }
     }
-    NSInteger randomValue = arc4random()%[cardsWithMinimumWeight count];
+    
+    NSInteger randomValue = 0;
+    
+    if ([cardsWithMinimumWeight count] != 0) {
+        randomValue = arc4random()%[cardsWithMinimumWeight count];
+        self.playedCard = [[cardsWithMinimumWeight objectAtIndex:randomValue] integerValue];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
+                                                        message:@"There's no available cards to discard"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Ok, I'll check this"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
+
+    
+    
     
     self.isCardBeenDiscarded = YES;
     
-    self.playedCard = [[cardsWithMinimumWeight objectAtIndex:randomValue] integerValue];
+    //==================НУЖНО ПРОВЕРИТЬ УСЛОВИЯ НЕ ЗАПРЕТ ДИСКАРДИДЬ КАРТУ С ЯВНЫМ ЗАПРЕТОМ================
 }
 
  - (void)analyzeCardsWeight
