@@ -29,7 +29,6 @@
 @property (nonatomic) NSInteger playedCard;
 @property (nonatomic) BOOL shouldPlayAgain;
 @property (nonatomic) BOOL shouldDiscardACard;
-@property (nonatomic) BOOL shouldDrawACard;
 @property (nonatomic) BOOL isThatPlayerTurn;
 @property (nonatomic) BOOL soundsOn;
 @property (nonatomic) BOOL isCardHasBeenDiscarded;

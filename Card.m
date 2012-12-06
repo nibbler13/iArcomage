@@ -128,7 +128,8 @@
         ||  [self.cardName isEqualToString:@"Prism"]
         ||  [self.cardName isEqualToString:@"Faerie"]
         ||  [self.cardName isEqualToString:@"Elven Scout"]
-        ||  [self.cardName isEqualToString:@"Shadow Faerie"]) {
+        ||  [self.cardName isEqualToString:@"Shadow Faerie"]
+        ||  [self.cardName isEqualToString:@"Smoky Quartz"]) {
             if (player.isThatPlayerTurn) {
                 player.shouldPlayAgain = YES;
             } else if (computer.isThatComputerTurn) {
@@ -145,14 +146,14 @@
             }
         }
         
-        if ([self.cardName isEqualToString:@"Prism"]
-        ||  [self.cardName isEqualToString:@"Elven Scout"]) {
-            if (player.isThatPlayerTurn) {
-                player.shouldDrawACard = YES;
-            } else if (computer.isThatComputerTurn) {
-                computer.shouldDrawACard = YES;
-            }
-        }
+        //if ([self.cardName isEqualToString:@"Prism"]
+        //||  [self.cardName isEqualToString:@"Elven Scout"]) {
+          //  if (player.isThatPlayerTurn) {
+            //    player.shouldDrawACard = YES;
+            //} else if (computer.isThatComputerTurn) {
+              //  computer.shouldDrawACard = YES;
+            //}
+        //}
     }
 }
 

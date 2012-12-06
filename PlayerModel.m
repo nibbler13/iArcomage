@@ -49,7 +49,6 @@ static PlayerModel *player;
         self.wall = 20;
         self.tower = 20;
         self.isThatPlayerTurn = NO;
-        self.shouldDrawACard = NO;
         self.shouldDiscardACard = NO;
         self.shouldPlayAgain = NO;
         self.cards = [[NSMutableArray alloc] initWithCapacity:6];

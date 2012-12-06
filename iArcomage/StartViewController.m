@@ -482,10 +482,10 @@
                              
                              [self releaseCardSelectionForView:view withDefaultPosition:defaultPosition withDefaultRect:defaultRect];
                              
-                             NSInteger howLongShouldBeAnimation;
+                             double howLongShouldBeAnimation;
                              
                              if (doNotClearStack) {
-                                 howLongShouldBeAnimation = 0;
+                                 howLongShouldBeAnimation = 0.0;
                              } else {
                                  howLongShouldBeAnimation = 0.5;
                              }
@@ -519,6 +519,12 @@
                                                       self.playedCard0View.center = CGPointMake(400, 110);
                                                       self.playedCard1View.center = CGPointMake(566, 110);
                                                       self.playedCard2View.center = CGPointMake(732, 110);
+                                                      UIImageView *tempView = (UIImageView*)[self.view viewWithTag:1001];
+                                                      [tempView removeFromSuperview];
+                                                      tempView = (UIImageView*)[self.view viewWithTag:1002];
+                                                      [tempView removeFromSuperview];
+                                                      tempView = (UIImageView*)[self.view viewWithTag:1003];
+                                                      [tempView removeFromSuperview];
                                                   }
                              
                                                   [UIView animateWithDuration:0.5
@@ -542,7 +548,7 @@
                                                   
                                                   
                                                   
-                                                    if (player.shouldPlayAgain || player.shouldDrawACard || player.shouldDiscardACard) {
+                                                    if (player.shouldPlayAgain || player.shouldDiscardACard) {
                                                       doNotClearStack = YES;
                                                       
                                                       xInitialPositionForCardView = 118;
@@ -597,10 +603,14 @@
                                                                        }];
                                                   }
                                                   if (!player.shouldPlayAgain) {
+                                                      
                                                   player.isThatPlayerTurn = NO;
+                                                      
                                                   doNotClearStack = NO;
+                                                      
                                                   [computer computerTurn];
                                                   [self animateComputerTurn];
+                                                      
                                                   }
                                     }];
                          }];
@@ -625,10 +635,10 @@
                              [player cardDiscarded:number];
                              [self needToUpdateLabels];
                              
-                             NSInteger howLongShouldBeAnimation;
+                             double howLongShouldBeAnimation;
                              
                              if (doNotClearStack) {
-                                 howLongShouldBeAnimation = 0;
+                                 howLongShouldBeAnimation = 0.0;
                              } else {
                                  howLongShouldBeAnimation = 0.5;
                              }
@@ -661,14 +671,35 @@
                                                       self.playedCard0View.center = CGPointMake(400, 110);
                                                       self.playedCard1View.center = CGPointMake(566, 110);
                                                       self.playedCard2View.center = CGPointMake(732, 110);
+                                                      UIImageView *tempView = (UIImageView*)[self.view viewWithTag:1001];
+                                                      [tempView removeFromSuperview];
+                                                      tempView = (UIImageView*)[self.view viewWithTag:1002];
+                                                      [tempView removeFromSuperview];
+                                                      tempView = (UIImageView*)[self.view viewWithTag:1003];
+                                                      [tempView removeFromSuperview];
                                                   }
                                                   
                                                   [UIView animateWithDuration:0.5
                                                                         delay:0.5
                                                                       options:UIViewAnimationCurveLinear
                                                                    animations:^{
-                                                                       
+                                                                    
                                                                        [self configurePlayedCardsForPlayerCardNumber:number withView:view];
+                                                                       
+                                                                       if (number == 0) {
+                                                                           self.card0NotAvailable.hidden = YES;
+                                                                       } else if (number == 1) {
+                                                                           self.card1NotAvailable.hidden = YES;
+                                                                       } else if (number == 2) {
+                                                                           self.card2NotAvailable.hidden = YES;
+                                                                       } else if (number == 3) {
+                                                                           self.card3NotAvailable.hidden = YES;
+                                                                       } else if (number == 4) {
+                                                                           self.card4NotAvailable.hidden = YES;
+                                                                       } else if (number == 5) {
+                                                                           self.card5NotAvailable.hidden = YES;
+                                                                       }
+                                                                       
                                                   
                                                                    }completion:^(BOOL finished){
                                                   
@@ -743,9 +774,10 @@
                                                   
                                                   ///////////////////////////////////////////////////////
                                                   
+                                                  doNotClearStack = NO;
                                                   [computer computerTurn];
                                                   [self needToUpdateLabels];
-                                                  [self animateComputerTurn];                                                  
+                                                  [self animateComputerTurn];
                                               }];
                                     }];
                          }];
@@ -939,46 +971,61 @@
                                       [[computer.cards objectAtIndex:computer.playedCard] wallSelf] < 0) {
                                       [cardsScope playDealSoundEffectForEvent:@"WillTakeDamage"];
                               }}
+                              
+                              double howLongShouldBeAnimation;
+                              
+                              if (doNotClearStack) {
+                                  howLongShouldBeAnimation = 0.0;
+                              } else {
+                                  howLongShouldBeAnimation = 0.5;
+                              }
 
                               
-                            [UIView animateWithDuration:0.5
+                              [UIView animateWithDuration:howLongShouldBeAnimation
                                                     delay:0.0
                                                   options:UIViewAnimationCurveLinear
                                                animations:^{
-                                                   self.playedCard0View.center = CGPointMake(234, 110);
-                                                   self.playedCard1View.center = CGPointMake(234, 110);
-                                                   self.playedCard2View.center = CGPointMake(234, 110);
-                                                   self.playedCard0View.alpha = 0.0;
-                                                   self.playedCard1View.alpha = 0.0;
-                                                   self.playedCard2View.alpha = 0.0;
+                                                   if (!doNotClearStack) {
+                                                       self.playedCard0View.center = CGPointMake(234, 110);
+                                                       self.playedCard1View.center = CGPointMake(234, 110);
+                                                       self.playedCard2View.center = CGPointMake(234, 110);
+                                                       self.playedCard0View.alpha = 0.0;
+                                                       self.playedCard1View.alpha = 0.0;
+                                                       self.playedCard2View.alpha = 0.0;
+                                                   }
+                                                   
                                                }completion:^(BOOL finished){
-                                                   isPlayedCard0Present = NO;
-                                                   isPlayedCard1Present = NO;
-                                                   isPlayedCard2Present = NO;
-                                                   self.playedCard0Background.alpha = 1.0;
-                                                   self.playedCard1Background.alpha = 1.0;
-                                                   self.playedCard2Background.alpha = 1.0;
-                                                   self.playedCard0View.hidden = YES;
-                                                   self.playedCard1View.hidden = YES;
-                                                   self.playedCard2View.hidden = YES;
-                                                   self.playedCard0View.alpha = 1.0;
-                                                   self.playedCard1View.alpha = 1.0;
-                                                   self.playedCard2View.alpha = 1.0;
-                                                   self.playedCard0View.center = CGPointMake(400, 110);
-                                                   self.playedCard1View.center = CGPointMake(566, 110);
-                                                   self.playedCard2View.center = CGPointMake(732, 110);
-                                                   UIImageView *tempView = (UIImageView*)[self.view viewWithTag:1001];
-                                                   [tempView removeFromSuperview];
-                                                   tempView = (UIImageView*)[self.view viewWithTag:1002];
-                                                   [tempView removeFromSuperview];
-                                                   tempView = (UIImageView*)[self.view viewWithTag:1003];
-                                                   [tempView removeFromSuperview];
+                                                   if (!doNotClearStack) {
+                                                       isPlayedCard0Present = NO;
+                                                       isPlayedCard1Present = NO;
+                                                       isPlayedCard2Present = NO;
+                                                       self.playedCard0Background.alpha = 1.0;
+                                                       self.playedCard1Background.alpha = 1.0;
+                                                       self.playedCard2Background.alpha = 1.0;
+                                                       self.playedCard0View.hidden = YES;
+                                                       self.playedCard1View.hidden = YES;
+                                                       self.playedCard2View.hidden = YES;
+                                                       self.playedCard0View.alpha = 1.0;
+                                                       self.playedCard1View.alpha = 1.0;
+                                                       self.playedCard2View.alpha = 1.0;
+                                                       self.playedCard0View.center = CGPointMake(400, 110);
+                                                       self.playedCard1View.center = CGPointMake(566, 110);
+                                                       self.playedCard2View.center = CGPointMake(732, 110);
+                                                       UIImageView *tempView = (UIImageView*)[self.view viewWithTag:1001];
+                                                       [tempView removeFromSuperview];
+                                                       tempView = (UIImageView*)[self.view viewWithTag:1002];
+                                                       [tempView removeFromSuperview];
+                                                       tempView = (UIImageView*)[self.view viewWithTag:1003];
+                                                       [tempView removeFromSuperview];
+                                                   }
                               
                               
                               [UIView animateWithDuration:0.5
                                                     delay:0.2
                                                   options:UIViewAnimationCurveLinear
                                                animations:^{
+                                                   
+                                                   self.card0NotAvailable.hidden = YES;
                                                    
                                                    if (computer.playedCard == 0) {
                                                        [self configurePlayedCardsForComputerCardNumber:0 withView:self.computerCard0];
@@ -1001,8 +1048,8 @@
                                                    
                                                    
                                                }completion:^(BOOL finished){
-                                                   ////////////////////////////////////////////////////////////////////////////////////////////////
-                                                   //Ход компьютера закончился, начинается ход игрока, нужно очистить стол и привести его в порядок
+                                                   
+                                                   [self needToUpdateLabels];
                                                    
                                                    if (isPlayedCard0Present) {
                                                        self.playedCard0View.hidden = NO;
@@ -1014,9 +1061,39 @@
                                                        self.playedCard2View.hidden = NO;
                                                    }
                                                    
+                                                   NSLog(@"computer.shouldDiscard: %d, computer.shouldPlayAgain: %d", computer.shouldDiscardACard, computer.shouldPlayAgain);
+                                                   
+                                                   ///////////////////////////////////////////////////////////////////////////////////////////////////
+                                                   //Проверяем нужно ли компьютеру сыграть еще раз
+                                                   if (computer.shouldDiscardACard) {
+                                                       doNotClearStack = YES;
+                                                       
+                                                       computerLastPlayedCard = computer.playedCard;
+                                                       
+                                                       [computer computerTurn];
+                                                       [self animateComputerTurn];
+                                                       return;
+                                                   }
                                                    
                                                    
-                                                   [self updateAllCards];
+                                                   if (computer.shouldPlayAgain) {
+                                                       doNotClearStack = YES;
+                                                       computer.shouldPlayAgain = NO;
+                                                       
+                                                       computerLastPlayedCard = computer.playedCard;
+                                                       
+                                                       [computer computerTurn];
+                                                       [self animateComputerTurn];
+                                                       return;
+                                                   }
+                                                   
+                                                   ////////////////////////////////////////////////////////////////////////////////////////////////
+                                                   //Ход компьютера закончился, начинается ход игрока, нужно очистить стол и привести его в порядок
+                                                   
+                                                   
+                                                   if (!computer.shouldPlayAgain) {
+                                                       
+                                                       [self updateAllCards];
                                                    
                                                    xInitialPositionForCardView = 118;
                                                    cardsOffset = 196;
@@ -1076,7 +1153,9 @@
                                                                         
                                                                         animationCompleted = YES;
                                                                         
-                                                                    }];
+                                                                        doNotClearStack = NO;
+                                                                        
+                                                                    }];}
                                                         }];
                                                }];
                                     }];
@@ -1463,6 +1542,7 @@
         [self updateCardPositions];
         cardsScope = [CardsScope getCardsScope];
         gameOver = NO;
+        doNotClearStack = NO;
         computerLastPlayedCard = -1;
         yInitialPositionForCardView = 645.0;
         computersCards = @[self.computerCard0,

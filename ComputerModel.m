@@ -93,12 +93,10 @@ static ComputerModel *computer;
         NSLog(@"There are some available cards");
         [self printAvailableCards];
         [self playSomeCard];
-        self.isCardBeenDiscarded = NO;
     
     } else {
         NSLog(@"No available cards to play");
         [self discardACard];
-        self.isCardBeenDiscarded = YES;
     }
     NSLog(@"END OF COMPUTER TURN");
     self.isThatComputerTurn = NO;
@@ -135,7 +133,9 @@ static ComputerModel *computer;
         }
     }
     if ([cardsAvailableToPlay count] > 0) {
-        return YES;
+        if (!self.shouldDiscardACard) {
+            return YES;
+        }
     }
     return NO;
 }
@@ -194,6 +194,8 @@ static ComputerModel *computer;
 
 - (void)playSomeCard
 {
+    self.isCardBeenDiscarded = NO;
+    
     NSInteger maximumWeight = 0;
     for (int i = 0; i < [cardsAvailableToPlay count]; i++) {
         if (maximumWeight < [[self.cards objectAtIndex:[[cardsAvailableToPlay objectAtIndex:i] integerValue]] cardWeight]) {
@@ -214,6 +216,12 @@ static ComputerModel *computer;
 
 - (void)discardACard
 {
+    self.isCardBeenDiscarded = YES;
+    
+    if (self.shouldDiscardACard) {
+        self.shouldDiscardACard = NO;
+    }
+    
     NSInteger minimumValue = 20;
     for (int i = 0; i < [self.cards count]; i++) {
         if (minimumValue > [[self.cards objectAtIndex:i] cardWeight]) {
