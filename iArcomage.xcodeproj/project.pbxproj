@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		740D2EC21671E1A30097F952 /* WallWidth@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 740D2EC11671E1A30097F952 /* WallWidth@2x.png */; };
 		740EA05D1641434000AFFA55 /* PlayerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 740EA05C1641434000AFFA55 /* PlayerModel.m */; };
 		740EA0611641437100AFFA55 /* ComputerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 740EA0601641437100AFFA55 /* ComputerModel.m */; };
 		740EA06D164152D800AFFA55 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 740EA06C164152D800AFFA55 /* Card.m */; };
@@ -86,6 +87,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		740D2EC11671E1A30097F952 /* WallWidth@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WallWidth@2x.png"; sourceTree = "<group>"; };
 		740EA05B1641434000AFFA55 /* PlayerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerModel.h; sourceTree = "<group>"; };
 		740EA05C1641434000AFFA55 /* PlayerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerModel.m; sourceTree = "<group>"; };
 		740EA05F1641437100AFFA55 /* ComputerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComputerModel.h; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 				7472ECB5165A7DDD002D5EB4 /* TowerHeaderComputer.png */,
 				7472ECC7165A9B47002D5EB4 /* TowerHeaderComputer@2x.png */,
 				7472ECB8165A7E76002D5EB4 /* WallWidth.png */,
+				740D2EC11671E1A30097F952 /* WallWidth@2x.png */,
 				7472ECBC165A9299002D5EB4 /* DIscardButton.png */,
 				7472ECBD165A9299002D5EB4 /* DIscardButton@2x.png */,
 				7472ECBE165A9299002D5EB4 /* UseButton.png */,
@@ -454,6 +457,7 @@
 				74DD458F1666220C0028CA1D /* CardSelection@2x.png in Resources */,
 				74F5A3DC166E618E004B872A /* NotAvailable.png in Resources */,
 				74F5A3DD166E618E004B872A /* NotAvailable@2x.png in Resources */,
+				740D2EC21671E1A30097F952 /* WallWidth@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

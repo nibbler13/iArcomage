@@ -145,15 +145,6 @@
                 computer.shouldDiscardACard = YES;
             }
         }
-        
-        //if ([self.cardName isEqualToString:@"Prism"]
-        //||  [self.cardName isEqualToString:@"Elven Scout"]) {
-          //  if (player.isThatPlayerTurn) {
-            //    player.shouldDrawACard = YES;
-            //} else if (computer.isThatComputerTurn) {
-              //  computer.shouldDrawACard = YES;
-            //}
-        //}
     }
 }
 

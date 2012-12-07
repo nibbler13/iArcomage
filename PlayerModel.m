@@ -90,34 +90,53 @@ static PlayerModel *player;
     if (self.soundsOn) {
         if ([[self.cards objectAtIndex:number] quarriesSelf] > 0 ||
             [[self.cards objectAtIndex:number] magicsSelf] > 0 ||
-            [[self.cards objectAtIndex:number] dungeonsSelf] > 0) {
+            [[self.cards objectAtIndex:number] dungeonsSelf] > 0 ||
+            [[self.cards objectAtIndex:number] quarriesEnemy] > 0 ||
+            [[self.cards objectAtIndex:number] magicsEnemy] > 0 ||
+            [[self.cards objectAtIndex:number] dungeonsEnemy] > 0) {
             [cardsScope playDealSoundEffectForEvent:@"WillIncreaseSelfGeneralResource"];
         }
         if ([[self.cards objectAtIndex:number] quarriesSelf] < 0 ||
             [[self.cards objectAtIndex:number] magicsSelf] < 0 ||
-            [[self.cards objectAtIndex:number] dungeonsSelf] < 0) {
+            [[self.cards objectAtIndex:number] dungeonsSelf] < 0 ||
+            [[self.cards objectAtIndex:number] quarriesEnemy] < 0 ||
+            [[self.cards objectAtIndex:number] magicsEnemy] < 0 ||
+            [[self.cards objectAtIndex:number] dungeonsEnemy] < 0) {
             [cardsScope playDealSoundEffectForEvent:@"WillDecreaseSelfGeneralResource"];
         }
         if ([[self.cards objectAtIndex:number] bricksSelf] > 0 ||
             [[self.cards objectAtIndex:number] gemsSelf] > 0 ||
-            [[self.cards objectAtIndex:number] recruitsSelf] > 0) {
+            [[self.cards objectAtIndex:number] recruitsSelf] > 0 ||
+            [[self.cards objectAtIndex:number] bricksEnemy] > 0 ||
+            [[self.cards objectAtIndex:number] gemsEnemy] > 0 ||
+            [[self.cards objectAtIndex:number] recruitsEnemy] > 0) {
             [cardsScope playDealSoundEffectForEvent:@"WillIncreaseSelfCommonResource"];
         }
         if ([[self.cards objectAtIndex:number] bricksSelf] < 0 ||
             [[self.cards objectAtIndex:number] gemsSelf] < 0 ||
-            [[self.cards objectAtIndex:number] recruitsSelf] < 0) {
+            [[self.cards objectAtIndex:number] recruitsSelf] < 0 ||
+            [[self.cards objectAtIndex:number] bricksEnemy] < 0 ||
+            [[self.cards objectAtIndex:number] gemsEnemy] < 0 ||
+            [[self.cards objectAtIndex:number] recruitsEnemy] < 0) {
             [cardsScope playDealSoundEffectForEvent:@"WillDecreaseSelfCommonResource"];
         }
         if ([[self.cards objectAtIndex:number] towerSelf] > 0 ||
-            [[self.cards objectAtIndex:number] wallSelf] > 0) {
+            [[self.cards objectAtIndex:number] wallSelf] > 0 ||
+            [[self.cards objectAtIndex:number] towerEnemy] > 0 ||
+            [[self.cards objectAtIndex:number] wallEnemy] > 0) {
             [cardsScope playDealSoundEffectForEvent:@"WillIncreaseTowerOrWall"];
         }
         if ([[self.cards objectAtIndex:number] towerSelf] < 0 ||
-            [[self.cards objectAtIndex:number] wallSelf] < 0) {
+            [[self.cards objectAtIndex:number] wallSelf] < 0 ||
+            [[self.cards objectAtIndex:number] towerEnemy] < 0 ||
+            [[self.cards objectAtIndex:number] wallEnemy] < 0) {
             [cardsScope playDealSoundEffectForEvent:@"WillTakeDamage"];
         }
     }
+    self.isThatPlayerTurn = YES;
+    computer.isThatComputerTurn = NO;
     [[self.cards objectAtIndex:number] processCardForPlayer:self andComputer:computer];
+    self.isThatPlayerTurn = NO;
     
     [self.delegate needToCheckThatTheVictoryConditionsIsAchieved];
     

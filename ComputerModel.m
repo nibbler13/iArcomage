@@ -80,9 +80,10 @@ static ComputerModel *computer;
     }
     
     self.isThatComputerTurn = YES;
+    player.isThatPlayerTurn = NO;
     NSLog(@"ComputerTurn");
     
-    //[self nextTurnIncreaseResource];
+    [self nextTurnIncreaseResource];
     [self getANewCard];
     
     NSLog(@"Computer have next resource: %d %d %d", self.bricks, self.gems, self.recruits);
