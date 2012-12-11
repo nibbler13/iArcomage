@@ -1011,6 +1011,9 @@
                                       [cardsScope playDealSoundEffectForEvent:@"WillTakeDamage"];
                               }}
                               
+                              [self needToUpdateLabels];
+                              [self updateTowersAndWalls];
+                              
                               double howLongShouldBeAnimation;
                               
                               if (doNotClearStack) {
@@ -1018,12 +1021,6 @@
                               } else {
                                   howLongShouldBeAnimation = 0.5;
                               }
-                              
-                              
-                              [self updateComputerLabels];
-                              [self updatePlayerLabels];
-                              [self updateTowersAndWalls];
-
                               
                               [UIView animateWithDuration:howLongShouldBeAnimation
                                                     delay:0.0
@@ -1067,8 +1064,6 @@
                                                     delay:0.2
                                                   options:UIViewAnimationCurveLinear
                                                animations:^{
-                                                   
-                                                   
                                                    
                                                    self.card0NotAvailable.hidden = YES;
                                                    
@@ -1249,54 +1244,73 @@
     NSLog(@"ComputerPlayedCards state: isPlayedCard0Present: %d, isPlayedCard1Present: %d, isPlayedCard2Present: %d", isPlayedCard0Present, isPlayedCard1Present, isPlayedCard2Present);
     
     if (!isPlayedCard0Present) {
+        
+        NSLog(@"PlayedCard0 not present");
+        
         [self configureComputerCard:number
                   withCardNameLabel:self.playedCard0Name
            withCardDescriptionLabel:self.playedCard0Desription
                   withCardCostLabel:self.playedCard0Cost
                      withBackground:self.playedCard0Background
                            withNotAvailableView:nil];
+        
         self.card0View.center = CGPointMake(400, 110);
+        
         if (computer.isCardBeenDiscarded && number == computer.playedCard) {
             UIImageView *discardLabel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"discard_label"]];
             discardLabel.center = CGPointMake(self.playedCard0View.bounds.size.width/2, self.playedCard0View.bounds.size.height/2-30);
             discardLabel.tag = 1001;
             [self.playedCard0View addSubview:discardLabel];
         }
+        
         isPlayedCard0Present = YES;
         
     } else if (!isPlayedCard1Present){
+        
+        NSLog(@"PlayedCard1 not present");
+        
         [self configureComputerCard:number
                   withCardNameLabel:self.playedCard1Name
            withCardDescriptionLabel:self.playedCard1Desription
                   withCardCostLabel:self.playedCard1Cost
                      withBackground:self.playedCard1Background
                            withNotAvailableView:nil];
+        
         self.card0View.center = CGPointMake(566, 110);
+        
         if (computer.isCardBeenDiscarded && number == computer.playedCard) {
             UIImageView *discardLabel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"discard_label"]];
             discardLabel.center = CGPointMake(self.playedCard1View.bounds.size.width/2, self.playedCard1View.bounds.size.height/2-30);
             discardLabel.tag = 1002;
             [self.playedCard1View addSubview:discardLabel];
         }
+        
         isPlayedCard1Present = YES;
         
     } else if (!isPlayedCard2Present) {
+        
+        NSLog(@"PlayedCard2 not present");
+        
         [self configureComputerCard:number
                   withCardNameLabel:self.playedCard2Name
            withCardDescriptionLabel:self.playedCard2Desription
                   withCardCostLabel:self.playedCard2Cost
                      withBackground:self.playedCard2Background
                            withNotAvailableView:nil];
+        
         self.card0View.center = CGPointMake(732, 110);
+        
         if (computer.isCardBeenDiscarded && number == computer.playedCard) {
             UIImageView *discardLabel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"discard_label"]];
             discardLabel.center = CGPointMake(self.playedCard2View.bounds.size.width/2, self.playedCard2View.bounds.size.height/2-30);
             discardLabel.tag = 1003;
             [self.playedCard2View addSubview:discardLabel];
         }
+        
         isPlayedCard2Present = YES;
         
     } else {
+        NSLog(@"All PlayedCards are present and I'm should move stack left");
         [UIView animateWithDuration:0.5
                               delay:0
                             options:UIViewAnimationCurveLinear
@@ -1314,15 +1328,15 @@
                              self.playedCard1View.center = CGPointMake(566, 110);
                              self.playedCard2View.center = CGPointMake(732, 110);
                              
-                             self.playedCard0Background = self.playedCard1Background;
-                             self.playedCard0Cost = self.playedCard1Cost;
-                             self.playedCard0Name = self.playedCard1Name;
-                             self.playedCard0Desription = self.playedCard1Desription;
+                             self.playedCard0Background.image = self.playedCard1Background.image;
+                             self.playedCard0Cost.text = self.playedCard1Cost.text;
+                             self.playedCard0Name.text = self.playedCard1Name.text;
+                             self.playedCard0Desription.text = self.playedCard1Desription.text;
                              
-                             self.playedCard1Background = self.playedCard2Background;
-                             self.playedCard1Cost = self.playedCard2Cost;
-                             self.playedCard1Name = self.playedCard2Name;
-                             self.playedCard1Desription = self.playedCard2Desription;
+                             self.playedCard1Background.image = self.playedCard2Background.image;
+                             self.playedCard1Cost.text = self.playedCard2Cost.text;
+                             self.playedCard1Name.text = self.playedCard2Name.text;
+                             self.playedCard1Desription.text = self.playedCard2Desription.text;
                              
                              [self configureComputerCard:number
                                        withCardNameLabel:self.playedCard2Name
@@ -1330,6 +1344,7 @@
                                        withCardCostLabel:self.playedCard2Cost
                                           withBackground:self.playedCard2Background
                                                           withNotAvailableView:nil];
+                             
                              if (computer.isCardBeenDiscarded && number == computer.playedCard) {
                                  UIImageView *discardLabel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"discard_label"]];
                                  discardLabel.center = CGPointMake(self.playedCard2View.bounds.size.width/2, self.playedCard2View.bounds.size.height/2-30);
@@ -1349,14 +1364,18 @@
     NSLog(@"PlayersPlayedCards state: isPlayedCard0Present: %d, isPlayedCard1Present: %d, isPlayedCard2Present: %d", isPlayedCard0Present, isPlayedCard1Present, isPlayedCard2Present);
     
     if (!isPlayedCard0Present) {
+        
         [self configureCard:number
                   withCardNameLabel:self.playedCard0Name
            withCardDescriptionLabel:self.playedCard0Desription
                   withCardCostLabel:self.playedCard0Cost
                      withBackground:self.playedCard0Background
                        withNotAvailableView:nil];
+        
         cardView.center = CGPointMake(400, 110);
+        
         isPlayedCard0Present = YES;
+        
         if (player.isCardHasBeenDiscarded) {
             UIImageView *discardLabel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"discard_label"]];
             discardLabel.center = CGPointMake(self.playedCard0View.bounds.size.width/2, self.playedCard0View.bounds.size.height/2-30);
@@ -1365,14 +1384,18 @@
         }
         
     } else if (!isPlayedCard1Present){
+        
         [self configureCard:number
                   withCardNameLabel:self.playedCard1Name
            withCardDescriptionLabel:self.playedCard1Desription
                   withCardCostLabel:self.playedCard1Cost
                     withBackground:self.playedCard1Background
                       withNotAvailableView:nil];
+        
         cardView.center = CGPointMake(566, 110);
+        
         isPlayedCard1Present = YES;
+        
         if (player.isCardHasBeenDiscarded) {
             UIImageView *discardLabel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"discard_label"]];
             discardLabel.center = CGPointMake(self.playedCard1View.bounds.size.width/2, self.playedCard1View.bounds.size.height/2-30);
@@ -1381,14 +1404,18 @@
         }
         
     } else if (!isPlayedCard2Present) {
+        
         [self configureCard:number
                   withCardNameLabel:self.playedCard2Name
            withCardDescriptionLabel:self.playedCard2Desription
                   withCardCostLabel:self.playedCard2Cost
                      withBackground:self.playedCard2Background
                        withNotAvailableView:nil];
+        
         cardView.center = CGPointMake(732, 110);
+        
         isPlayedCard2Present = YES;
+        
         if (player.isCardHasBeenDiscarded) {
             UIImageView *discardLabel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"discard_label"]];
             discardLabel.center = CGPointMake(self.playedCard2View.bounds.size.width/2, self.playedCard2View.bounds.size.height/2-30);
@@ -1409,27 +1436,28 @@
                              
                          }completion:^(BOOL finished){
                              
-                             self.playedCard0View.alpha = 1.0;
-                             self.playedCard0View.center = CGPointMake(400, 110);
-                             self.playedCard1View.center = CGPointMake(566, 110);
-                             self.playedCard2View.center = CGPointMake(732, 110);
+                            self.playedCard0View.alpha = 1.0;
+                            self.playedCard0View.center = CGPointMake(400, 110);
+                            self.playedCard1View.center = CGPointMake(566, 110);
+                            self.playedCard2View.center = CGPointMake(732, 110);
                              
-                             self.playedCard0Background = self.playedCard1Background;
-                             self.playedCard0Cost = self.playedCard1Cost;
-                             self.playedCard0Name = self.playedCard1Name;
-                             self.playedCard0Desription = self.playedCard1Desription;
+                             self.playedCard0Background.image = self.playedCard1Background.image;
+                             self.playedCard0Cost.text = self.playedCard1Cost.text;
+                             self.playedCard0Name.text = self.playedCard1Name.text;
+                             self.playedCard0Desription.text = self.playedCard1Desription.text;
                              
-                             self.playedCard1Background = self.playedCard2Background;
-                             self.playedCard1Cost = self.playedCard2Cost;
-                             self.playedCard1Name = self.playedCard2Name;
-                             self.playedCard1Desription = self.playedCard2Desription;
+                             self.playedCard1Background.image = self.playedCard2Background.image;
+                             self.playedCard1Cost.text = self.playedCard2Cost.text;
+                             self.playedCard1Name.text = self.playedCard2Name.text;
+                             self.playedCard1Desription.text = self.playedCard2Desription.text;
                              
-                             [self configureCard:number
+                            [self configureCard:number
                                        withCardNameLabel:self.playedCard2Name
                                 withCardDescriptionLabel:self.playedCard2Desription
                                        withCardCostLabel:self.playedCard2Cost
                                           withBackground:self.playedCard2Background
                                             withNotAvailableView:nil];
+                             
                              if (player.isCardHasBeenDiscarded) {
                                  UIImageView *discardLabel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"discard_label"]];
                                  discardLabel.center = CGPointMake(self.playedCard2View.bounds.size.width/2, self.playedCard2View.bounds.size.height/2-30);
@@ -1440,9 +1468,7 @@
         
         cardView.center = CGPointMake(732, 110);
     }
-    
 }
-
 
 - (void)setPlayersCardsInvisible:(BOOL)invisible
 {
@@ -1474,7 +1500,7 @@
 
 - (void)needToCheckThatTheVictoryConditionsIsAchievedByComputer
 {
-    if (computer.tower > towerAim || computer.wall > wallAim || (computer.bricks > 200 && computer.gems > 200 && computer.recruits > 200) || player.tower == 0) {
+    if (computer.tower >= towerAim || computer.wall >= wallAim || (computer.bricks >= 200 && computer.gems >= 200 && computer.recruits >= 200) || player.tower < 1) {
         [cardsScope playDealSoundEffectForEvent:@"PlayerLose"];
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"You lose!" message:@"The computer has defeated you like a boss" delegate:self cancelButtonTitle:@"Ohhh god why?" otherButtonTitles: nil];
         [alertView show];
@@ -1487,7 +1513,7 @@
 
 - (void)needToCheckThatTheVictoryConditionsIsAchieved
 {
-    if (player.tower > towerAim || player.wall > wallAim || (player.bricks > 200 && player.gems > 200 && player.recruits > 200) || computer.tower == 0) {
+    if (player.tower >= towerAim || player.wall >= wallAim || (player.bricks >= 200 && player.gems >= 200 && player.recruits >= 200) || computer.tower < 1) {
         [cardsScope playDealSoundEffectForEvent:@"PlayerWin"];
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"You win!" message:@"You win because you have completed the needed conditions" delegate:self cancelButtonTitle:@"Yeah! It's great!" otherButtonTitles: nil];
         [alertView show];
@@ -1555,18 +1581,8 @@
         
         self.computerWallView.autoresizesSubviews = NO;
         self.computerWallView.clipsToBounds = YES;
-        ////////////////////////////////////////////////////////////////////////////////////
-
+        
         [self updateTowersAndWalls];
-        
-        
-        ////////////////////////////////////////////////////////////////////////////////////
-        computersCards = @[self.computerCard0,
-                           self.computerCard1,
-                           self.computerCard2,
-                           self.computerCard3,
-                           self.computerCard4,
-                           self.computerCard5];
     }
 }
 
@@ -1733,13 +1749,13 @@ withCardDescriptionLabel:self.playersCard5Description
 {
 
     if ([[[[player cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Grey"]) {
-        background.image = [UIImage imageNamed:@"GreyCardBlank"];
+        background.image = [UIImage imageNamed:@"CardBlank_Red"];
     }
     if ([[[[player cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Blue"]) {
-        background.image = [UIImage imageNamed:@"BlueCardBlank"];
+        background.image = [UIImage imageNamed:@"CardBlank_Blue"];
     }
     if ([[[[player cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Green"]) {
-        background.image = [UIImage imageNamed:@"GreenCardBlank"];
+        background.image = [UIImage imageNamed:@"CardBlank_Green"];
     }
     cardName.text = [[[player cards] objectAtIndex:cardNumber] cardName];
     cardDescription.text = [[[player cards] objectAtIndex:cardNumber] cardDescription];
@@ -1762,16 +1778,16 @@ withCardDescriptionLabel:(UILabel*)cardDescription
              withNotAvailableView:(UIImageView*)view
 {
     
-    NSLog(@"ConfiguringComputerCard: %d", cardNumber);
+    NSLog(@"--------ConfiguringComputerCard: %d, %@", cardNumber, [[[computer cards] objectAtIndex:cardNumber] cardName]);
     
     if ([[[[computer cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Grey"]) {
-        background.image = [UIImage imageNamed:@"GreyCardBlank"];
+        background.image = [UIImage imageNamed:@"CardBlank_Red"];
     }
     if ([[[[computer cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Blue"]) {
-        background.image = [UIImage imageNamed:@"BlueCardBlank"];
+        background.image = [UIImage imageNamed:@"CardBlank_Blue"];
     }
     if ([[[[computer cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Green"]) {
-        background.image = [UIImage imageNamed:@"GreenCardBlank"];
+        background.image = [UIImage imageNamed:@"CardBlank_Green"];
     }
     cardName.text = [[[computer cards] objectAtIndex:cardNumber] cardName];
     cardDescription.text = [[[computer cards] objectAtIndex:cardNumber] cardDescription];

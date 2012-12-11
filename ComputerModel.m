@@ -66,7 +66,7 @@ static ComputerModel *computer;
 
 - (void)nextTurnIncreaseResource
 {
-    NSLog(@"=============next increase===========");
+    //NSLog(@"=============next increase===========");
     self.bricks += self.quarries;
     self.gems += self.magics;
     self.recruits += self.dungeons;
@@ -81,25 +81,25 @@ static ComputerModel *computer;
     
     self.isThatComputerTurn = YES;
     player.isThatPlayerTurn = NO;
-    NSLog(@"ComputerTurn");
+    //NSLog(@"ComputerTurn");
     
     [self nextTurnIncreaseResource];
     [self getANewCard];
     
-    NSLog(@"Computer have next resource: %d %d %d", self.bricks, self.gems, self.recruits);
+    //NSLog(@"Computer have next resource: %d %d %d", self.bricks, self.gems, self.recruits);
     [self analyzeCardsWeight];
     [self printCardsInHand];
     
     if ([self checkAvailableCards]) {
-        NSLog(@"There are some available cards");
+        //NSLog(@"There are some available cards");
         [self printAvailableCards];
         [self playSomeCard];
     
     } else {
-        NSLog(@"No available cards to play");
+        //NSLog(@"No available cards to play");
         [self discardACard];
     }
-    NSLog(@"END OF COMPUTER TURN");
+    //NSLog(@"END OF COMPUTER TURN");
     self.isThatComputerTurn = NO;
 }
 
@@ -122,7 +122,7 @@ static ComputerModel *computer;
         }
         
         if (cardCost <= computerResource) {
-            NSLog(@"--- Found another one available card");
+            //NSLog(@"--- Found another one available card");
             [cardsAvailableToPlay addObject:[NSNumber numberWithInt:i]];
             [[self.cards objectAtIndex:i] thatCardIsAvailable:YES];
         } else if (computerResource - cardCost < -10) {
@@ -150,13 +150,13 @@ static ComputerModel *computer;
 
 - (void)printCardInfoAtNumber:(NSInteger)number
 {
-    NSLog(@"*** %d - %@, descr: %@, cost: %d, color: %@, weight: %d", number, [[self.cards objectAtIndex:number] cardName], [[self.cards objectAtIndex:number] cardDescription], [[self.cards objectAtIndex:number] cardCost], [[self.cards objectAtIndex:number] cardColor], [[self.cards objectAtIndex:number] cardWeight]);
+    //NSLog(@"*** %d - %@, descr: %@, cost: %d, color: %@, weight: %d", number, [[self.cards objectAtIndex:number] cardName], [[self.cards objectAtIndex:number] cardDescription], [[self.cards objectAtIndex:number] cardCost], [[self.cards objectAtIndex:number] cardColor], [[self.cards objectAtIndex:number] cardWeight]);
 }
 
 - (void)printAvailableCards
 {
     for (int i = 0; i < [cardsAvailableToPlay count]; i++) {
-        NSLog(@"--- Available to play: %@", [cardsAvailableToPlay objectAtIndex:i]);
+        //NSLog(@"--- Available to play: %@", [cardsAvailableToPlay objectAtIndex:i]);
     }
 }
 
@@ -176,7 +176,7 @@ static ComputerModel *computer;
 
 - (void)processCard:(NSInteger)number
 {
-    NSLog(@"=== I will play the next card:");
+    //NSLog(@"=== I will play the next card:");
     [self printCardInfoAtNumber:number];
     [self payForTheCard:number];
     [[self.cards objectAtIndex:number] processCardForPlayer:player andComputer:self];
@@ -187,7 +187,7 @@ static ComputerModel *computer;
 
 - (void)getANewCard
 {
-    NSLog(@"I will get a new card");
+    //NSLog(@"I will get a new card");
     if (self.playedCard != -1) {
         [self.cards replaceObjectAtIndex:self.playedCard withObject:cardsScope.getRandomCard];
     }
@@ -203,7 +203,7 @@ static ComputerModel *computer;
             maximumWeight = [[self.cards objectAtIndex:[[cardsAvailableToPlay objectAtIndex:i] integerValue]] cardWeight];
         }
     }
-    NSLog(@"MaximumWeight: %d", maximumWeight);
+    //NSLog(@"MaximumWeight: %d", maximumWeight);
     NSMutableArray *cardsWithMaximumWeight = [[NSMutableArray alloc] init];
     for (int i = 0; i < [cardsAvailableToPlay count]; i ++) {
         if ([[self.cards objectAtIndex:[[cardsAvailableToPlay objectAtIndex:i] integerValue]] cardWeight] == maximumWeight) {
@@ -229,7 +229,7 @@ static ComputerModel *computer;
             minimumValue = [[self.cards objectAtIndex:i] cardWeight];
         }
     }
-    NSLog(@"MinimumWeight: %d", minimumValue);
+    //NSLog(@"MinimumWeight: %d", minimumValue);
     NSMutableArray *cardsWithMinimumWeight = [[NSMutableArray alloc] init];
     for (int i = 0; i < [self.cards count]; i ++) {
         if ([[self.cards objectAtIndex:i] cardWeight] == minimumValue) {
