@@ -106,8 +106,11 @@
 @property (weak, nonatomic) IBOutlet UIView *computerTowerView;
 @property (weak, nonatomic) IBOutlet UIView *computerWallView;
 
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundPicture;
+@property (weak, nonatomic) IBOutlet UILabel *backgroundLabel;
 
 - (IBAction)backButtonPressed:(id)sender;
+- (IBAction)changeBackground:(id)sender;
 
 @end
 
@@ -163,11 +166,14 @@
     
     NSInteger computerLastPlayedCard;
     
-    NSUInteger towerAim;
-    NSUInteger wallAim;
+    float towerAim;
+    float wallAim;
     
     CGFloat playerTowerBodyOriginY;
     CGFloat playerTowerBodyOriginX;
+    
+    NSInteger backgroundsCounter;
+    NSArray *backgroundPictures;
 }
 
 #pragma mark - TouchDelegationMethods
@@ -265,28 +271,32 @@
 - (void)dispatchFirstTouchAtPoint:(CGPoint)touchPoint
 {
     if (CGRectContainsPoint(defaultRectCard0View, firstTouchPoint)) {
-        [self animateFirstTouchForCardView:self.card0View forCardImage:self.card0Background];
+        [self animateFirstTouchForCardView:self.card0View forCardImage:self.card0Background withCardNumber:0];
         
     } else if (CGRectContainsPoint(defaultRectCard1View, firstTouchPoint)) {
-        [self animateFirstTouchForCardView:self.card1View forCardImage:self.card1Background];
+        [self animateFirstTouchForCardView:self.card1View forCardImage:self.card1Background withCardNumber:1];
         
     } else if (CGRectContainsPoint(defaultRectCard2View, firstTouchPoint)) {
-        [self animateFirstTouchForCardView:self.card2View forCardImage:self.card2Background];
+        [self animateFirstTouchForCardView:self.card2View forCardImage:self.card2Background withCardNumber:2];
         
     } else if (CGRectContainsPoint(defaultRectCard3View, firstTouchPoint)) {
-        [self animateFirstTouchForCardView:self.card3View forCardImage:self.card3Background];
+        [self animateFirstTouchForCardView:self.card3View forCardImage:self.card3Background withCardNumber:3];
         
     } else if (CGRectContainsPoint(defaultRectCard4View, firstTouchPoint)) {
-        [self animateFirstTouchForCardView:self.card4View forCardImage:self.card4Background];
+        [self animateFirstTouchForCardView:self.card4View forCardImage:self.card4Background withCardNumber:4];
         
     } else if (CGRectContainsPoint(defaultRectCard5View, firstTouchPoint)) {
-        [self animateFirstTouchForCardView:self.card5View forCardImage:self.card5Background];
+        [self animateFirstTouchForCardView:self.card5View forCardImage:self.card5Background withCardNumber:5];
     }
 }
 
-- (void)animateFirstTouchForCardView:(UIView*)cardView forCardImage:(UIImageView*)image
+- (void)animateFirstTouchForCardView:(UIView*)cardView forCardImage:(UIImageView*)image withCardNumber:(NSInteger)number
 {
-    cardSelectionView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CardSelection"]];
+    if ([self isCardAvailableToPlay:number] && !player.shouldDiscardACard) {
+        cardSelectionView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CardSelection"]];
+    } else {
+        cardSelectionView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CardSelectionRed"]];
+    }
     cardSelectionView.center = image.center;
     cardSelectionView.alpha = 0.0;
     [cardView addSubview:cardSelectionView];
@@ -315,7 +325,7 @@
             }
         }
         
-        [self calculateNewPosition:position forTheView:self.card0View withDefaultPosition:defaultPositionCard0View];
+        [self calculateNewPosition:position forTheView:self.card0View withDefaultPosition:defaultPositionCard0View withCardNumber:0];
         
     } else if (CGRectContainsPoint(defaultRectCard1View, firstTouchPoint)) {
         if (![self isCardAvailableToPlay:1] || player.shouldDiscardACard) {
@@ -330,7 +340,7 @@
             }
         }
         
-        [self calculateNewPosition:position forTheView:self.card1View withDefaultPosition:defaultPositionCard1View];
+        [self calculateNewPosition:position forTheView:self.card1View withDefaultPosition:defaultPositionCard1View withCardNumber:1];
         
     } else if (CGRectContainsPoint(defaultRectCard2View, firstTouchPoint)) {
         if (![self isCardAvailableToPlay:2] || player.shouldDiscardACard) {
@@ -345,7 +355,7 @@
             }
         }
         
-        [self calculateNewPosition:position forTheView:self.card2View withDefaultPosition:defaultPositionCard2View];
+        [self calculateNewPosition:position forTheView:self.card2View withDefaultPosition:defaultPositionCard2View withCardNumber:2];
         
     } else if (CGRectContainsPoint(defaultRectCard3View, firstTouchPoint)) {
         if (![self isCardAvailableToPlay:3] || player.shouldDiscardACard) {
@@ -360,7 +370,7 @@
             }
         }
         
-        [self calculateNewPosition:position forTheView:self.card3View withDefaultPosition:defaultPositionCard3View];
+        [self calculateNewPosition:position forTheView:self.card3View withDefaultPosition:defaultPositionCard3View withCardNumber:3];
         
     } else if (CGRectContainsPoint(defaultRectCard4View, firstTouchPoint)) {
         if (![self isCardAvailableToPlay:4] || player.shouldDiscardACard) {
@@ -375,7 +385,7 @@
             }
         }
         
-        [self calculateNewPosition:position forTheView:self.card4View withDefaultPosition:defaultPositionCard4View];
+        [self calculateNewPosition:position forTheView:self.card4View withDefaultPosition:defaultPositionCard4View withCardNumber:4];
         
     } else if (CGRectContainsPoint(defaultRectCard5View, firstTouchPoint)) {
         if (![self isCardAvailableToPlay:5] || player.shouldDiscardACard) {
@@ -390,17 +400,25 @@
             }
         }
         
-        [self calculateNewPosition:position forTheView:self.card5View withDefaultPosition:defaultPositionCard5View];
+        [self calculateNewPosition:position forTheView:self.card5View withDefaultPosition:defaultPositionCard5View withCardNumber:5];
     }
 }
 
-- (void)calculateNewPosition:(CGPoint)position forTheView:(UIView*)theView withDefaultPosition:(CGPoint)defaultPosition
+- (void)calculateNewPosition:(CGPoint)position forTheView:(UIView*)theView withDefaultPosition:(CGPoint)defaultPosition withCardNumber:(NSInteger)number
 {
+    
+    if (firstTouchPoint.y < position.y) {
+        cardSelectionView.image = [UIImage imageNamed:@"CardSelectionRed"];
+    } else {
+        if ([self isCardAvailableToPlay:number]) {
+            cardSelectionView.image = [UIImage imageNamed:@"CardSelection"];
+        }
+    }
+    
     if ((firstTouchPoint.y - position.y) > 91) {
         return;
     }
-    [theView setCenter:
-        CGPointMake(defaultPosition.x, defaultPosition.y - (firstTouchPoint.y - position.y))];
+    [theView setCenter:CGPointMake(defaultPosition.x, defaultPosition.y - (firstTouchPoint.y - position.y))];
 }
 
 //============================Touch ended algorithm========================
@@ -1099,7 +1117,7 @@
                                                        self.playedCard2View.hidden = NO;
                                                    }
                                                    
-                                                   NSLog(@"computer.shouldDiscard: %d, computer.shouldPlayAgain: %d", computer.shouldDiscardACard, computer.shouldPlayAgain);
+                                                   //NSLog(@"computer.shouldDiscard: %d, computer.shouldPlayAgain: %d", computer.shouldDiscardACard, computer.shouldPlayAgain);
                                                    
                                                    ///////////////////////////////////////////////////////////////////////////////////////////////////
                                                    //Проверяем нужно ли компьютеру сыграть еще раз
@@ -1241,11 +1259,11 @@
 - (void)configurePlayedCardsForComputerCardNumber:(NSInteger)number
 {
     
-    NSLog(@"ComputerPlayedCards state: isPlayedCard0Present: %d, isPlayedCard1Present: %d, isPlayedCard2Present: %d", isPlayedCard0Present, isPlayedCard1Present, isPlayedCard2Present);
+    //NSLog(@"ComputerPlayedCards state: isPlayedCard0Present: %d, isPlayedCard1Present: %d, isPlayedCard2Present: %d", isPlayedCard0Present, isPlayedCard1Present, isPlayedCard2Present);
     
     if (!isPlayedCard0Present) {
         
-        NSLog(@"PlayedCard0 not present");
+        //NSLog(@"PlayedCard0 not present");
         
         [self configureComputerCard:number
                   withCardNameLabel:self.playedCard0Name
@@ -1267,7 +1285,7 @@
         
     } else if (!isPlayedCard1Present){
         
-        NSLog(@"PlayedCard1 not present");
+        //NSLog(@"PlayedCard1 not present");
         
         [self configureComputerCard:number
                   withCardNameLabel:self.playedCard1Name
@@ -1289,7 +1307,7 @@
         
     } else if (!isPlayedCard2Present) {
         
-        NSLog(@"PlayedCard2 not present");
+        //NSLog(@"PlayedCard2 not present");
         
         [self configureComputerCard:number
                   withCardNameLabel:self.playedCard2Name
@@ -1310,7 +1328,7 @@
         isPlayedCard2Present = YES;
         
     } else {
-        NSLog(@"All PlayedCards are present and I'm should move stack left");
+        //NSLog(@"All PlayedCards are present and I'm should move stack left");
         [UIView animateWithDuration:0.5
                               delay:0
                             options:UIViewAnimationCurveLinear
@@ -1361,7 +1379,7 @@
 - (void)configurePlayedCardsForPlayerCardNumber:(NSInteger)number withView:(UIView*)cardView
 {
     
-    NSLog(@"PlayersPlayedCards state: isPlayedCard0Present: %d, isPlayedCard1Present: %d, isPlayedCard2Present: %d", isPlayedCard0Present, isPlayedCard1Present, isPlayedCard2Present);
+    //NSLog(@"PlayersPlayedCards state: isPlayedCard0Present: %d, isPlayedCard1Present: %d, isPlayedCard2Present: %d", isPlayedCard0Present, isPlayedCard1Present, isPlayedCard2Present);
     
     if (!isPlayedCard0Present) {
         
@@ -1548,6 +1566,16 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (IBAction)changeBackground:(id)sender
+{
+    self.backgroundPicture.image = [UIImage imageNamed:backgroundPictures[backgroundsCounter]];
+    self.backgroundLabel.text = backgroundPictures[backgroundsCounter];
+    backgroundsCounter++;
+    if (backgroundsCounter > [backgroundPictures count] - 1) {
+        backgroundsCounter = 0;
+    }
+}
+
 #pragma mark - Main game cycle
 
 - (void)game
@@ -1567,8 +1595,8 @@
         doNotClearStack = NO;
         computerLastPlayedCard = -1;
         yInitialPositionForCardView = 645.0;
-        towerAim = 100;
-        wallAim = 100;
+        towerAim = 100.0;
+        wallAim = 100.0;
         
         self.playerTowerView.autoresizesSubviews = NO;
         self.playerTowerView.clipsToBounds = YES;
@@ -1583,33 +1611,74 @@
         self.computerWallView.clipsToBounds = YES;
         
         [self updateTowersAndWalls];
+        
+        backgroundsCounter = 0;
+        backgroundPictures = @[@"Background",
+                                        @"Background2",
+                                        @"Background3",
+                                        @"Background4.jpg",
+                                        @"Background5",
+                                        @"Background9",
+                                        @"Background10",
+                                        @"Background11",
+                                        @"Background12",
+                                        @"Background13",
+                                        @"Background14",
+                                        @"Background15",
+                                        @"Background16",
+                                        @"Background17",
+                                        @"Background18",
+                                        @"Background19",
+                                        @"Background20.jpg",
+                                        @"Background21.jpg",
+                                        @"Background22.jpg",
+                                        @"Background23.jpg",
+                                        @"Background24.jpg",
+                                        @"Background25.jpg",
+                                        @"Background26.jpg",
+                                        @"Background30.jpg",
+                                        @"Background31.jpg",
+                                        @"Background33.jpg",
+                                        @"Background34.jpg",
+                                        @"Background36.jpg",
+                                        @"Background37.jpg",
+                                        @"Background38.jpg",
+                                        @"Background39.jpg",
+                                        @"Background40.jpg",
+                                        @"Background41.jpg",
+                                        @"Background42.jpg",
+                                        @"Background43.jpg",
+                                        @"Background44.jpg",
+                                        @"Background45.jpg",
+                                        @"Background46.jpg",
+                                        @"Background48.jpg",
+                                        @"Background49.jpg"];
     }
 }
-
 
 #pragma mark - UpdatingLabels
 
 - (void)updateTowersAndWalls
 {
     [self.playerTowerView setFrame:CGRectMake(self.playerTowerView.frame.origin.x,
-                                              494-((CGFloat)152+324*((CGFloat)player.tower/(CGFloat)towerAim)),
+                                              (float)(495-(152+324*(player.tower/towerAim))),
                                               self.playerTowerView.frame.size.width,
-                                              (CGFloat)152+324*((CGFloat)player.tower/(CGFloat)towerAim))];
+                                              (float)(152+324*(player.tower/towerAim)))];
     
     [self.playerWallView setFrame:CGRectMake(self.playerWallView.frame.origin.x,
-                                             494-(318*((CGFloat)player.wall/(CGFloat)wallAim)),
+                                             (float)(495-(318*(player.wall/wallAim))),
                                              self.playerWallView.frame.size.width,
-                                             318*((CGFloat)player.wall/(CGFloat)wallAim))];
+                                             (float)(318*(player.wall/wallAim)))];
     
     [self.computerTowerView setFrame:CGRectMake(self.computerTowerView.frame.origin.x,
-                                              494-((CGFloat)152+324*((CGFloat)computer.tower/(CGFloat)towerAim)),
+                                              (float)(495-(152+324*(computer.tower/towerAim))),
                                               self.computerTowerView.frame.size.width,
-                                              (CGFloat)152+324*((CGFloat)computer.tower/(CGFloat)towerAim))];
+                                              (float)(152+324*(computer.tower/towerAim)))];
     
     [self.computerWallView setFrame:CGRectMake(self.computerWallView.frame.origin.x,
-                                             494-(318*((CGFloat)computer.wall/(CGFloat)wallAim)),
+                                             (float)(495-(318*(computer.wall/wallAim))),
                                              self.computerWallView.frame.size.width,
-                                             318*((CGFloat)computer.wall/(CGFloat)wallAim))];
+                                             (float)(318*(computer.wall/wallAim)))];
 }
 
 - (void)updateAllCards
@@ -1778,7 +1847,7 @@ withCardDescriptionLabel:(UILabel*)cardDescription
              withNotAvailableView:(UIImageView*)view
 {
     
-    NSLog(@"--------ConfiguringComputerCard: %d, %@", cardNumber, [[[computer cards] objectAtIndex:cardNumber] cardName]);
+    //NSLog(@"--------ConfiguringComputerCard: %d, %@", cardNumber, [[[computer cards] objectAtIndex:cardNumber] cardName]);
     
     if ([[[[computer cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Grey"]) {
         background.image = [UIImage imageNamed:@"CardBlank_Red"];
