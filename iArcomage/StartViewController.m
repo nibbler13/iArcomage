@@ -2345,7 +2345,7 @@ withCardDescriptionLabel:(UILabel*)cardDescription
 {
     //NSLog(@"+++drawPositive");
     UIImageView *healImage = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, 96, 96)];
-    healImage.animationImages = @[[UIImage imageNamed:@"Heal01.png"],
+    /*healImage.animationImages = @[[UIImage imageNamed:@"Heal01.png"],
                                   [UIImage imageNamed:@"Heal02.png"],
                                   [UIImage imageNamed:@"Heal03.png"],
                                   [UIImage imageNamed:@"Heal04.png"],
@@ -2369,29 +2369,29 @@ withCardDescriptionLabel:(UILabel*)cardDescription
                                   [UIImage imageNamed:@"Heal22.png"],
                                   [UIImage imageNamed:@"Heal23.png"],
                                   [UIImage imageNamed:@"Heal24.png"],
-                                  [UIImage imageNamed:@"Heal25.png"]];
+                                  [UIImage imageNamed:@"Heal25.png"]];*/
     
-    /*healImage.animationImages = @[[UIImage imageNamed:@"Magic01.png"],
-                                  [UIImage imageNamed:@"Magic02.png"],
-                                  [UIImage imageNamed:@"Magic03.png"],
-                                  [UIImage imageNamed:@"Magic04.png"],
-                                  [UIImage imageNamed:@"Magic05.png"],
-                                  [UIImage imageNamed:@"Magic06.png"],
-                                  [UIImage imageNamed:@"Magic07.png"],
-                                  [UIImage imageNamed:@"Magic08.png"],
-                                  [UIImage imageNamed:@"Magic09.png"],
-                                  [UIImage imageNamed:@"Magic10.png"],
-                                  [UIImage imageNamed:@"Magic11.png"],
-                                  [UIImage imageNamed:@"Magic12.png"],
-                                  [UIImage imageNamed:@"Magic13.png"],
-                                  [UIImage imageNamed:@"Magic14.png"],
-                                  [UIImage imageNamed:@"Magic15.png"],
-                                  [UIImage imageNamed:@"Magic16.png"],
-                                  [UIImage imageNamed:@"Magic17.png"],
-                                  [UIImage imageNamed:@"Magic18.png"],
-                                  [UIImage imageNamed:@"Magic19.png"],
-                                  [UIImage imageNamed:@"Magic20.png"]];*/
-    healImage.animationDuration = 1.5;
+    healImage.animationImages = @[[UIImage imageNamed:@"Firework01.png"],
+                                  [UIImage imageNamed:@"Firework02.png"],
+                                  [UIImage imageNamed:@"Firework03.png"],
+                                  [UIImage imageNamed:@"Firework04.png"],
+                                  [UIImage imageNamed:@"Firework05.png"],
+                                  [UIImage imageNamed:@"Firework06.png"],
+                                  [UIImage imageNamed:@"Firework07.png"],
+                                  [UIImage imageNamed:@"Firework08.png"],
+                                  [UIImage imageNamed:@"Firework09.png"],
+                                  [UIImage imageNamed:@"Firework10.png"],
+                                  [UIImage imageNamed:@"Firework11.png"],
+                                  [UIImage imageNamed:@"Firework12.png"],
+                                  [UIImage imageNamed:@"Firework13.png"],
+                                  [UIImage imageNamed:@"Firework14.png"],
+                                  [UIImage imageNamed:@"Firework15.png"],
+                                  [UIImage imageNamed:@"Firework16.png"],
+                                  [UIImage imageNamed:@"Firework17.png"],
+                                  [UIImage imageNamed:@"Firework18.png"],
+                                  [UIImage imageNamed:@"Firework19.png"],
+                                  [UIImage imageNamed:@"Firework20.png"]];
+    healImage.animationDuration = 1.2;
     healImage.animationRepeatCount = 1;
     [healImage startAnimating];
     [self.view addSubview:healImage];
