@@ -19,12 +19,18 @@ static PlayerModel *player;
     CardsScope *cardsScope;
 }
 
+- (void)dealloc
+{
+    //NSLog(@"player dealloc");
+}
+
 #pragma mark -Initialization
 
 + (PlayerModel*)getPlayer
 {
-    NSLog(@"get player");
+    //NSLog(@"get player");
     if (player == nil) {
+        //NSLog(@"player Alloc");
         player = [[PlayerModel alloc] init];
     }
     return player;
@@ -32,6 +38,7 @@ static PlayerModel *player;
 
 + (void)destroyPlayer
 {
+    //NSLog(@"destroy Player");
     if (player != nil) {
         player = nil;
     }
@@ -39,6 +46,7 @@ static PlayerModel *player;
 
 - (id)init
 {
+    //NSLog(@"init Player");
     if ([super init] != nil) {
         self.quarries = 1;
         self.magics = 1;
@@ -86,8 +94,35 @@ static PlayerModel *player;
 
 - (void)processCard:(NSInteger)number
 {
+    [[[self cards] objectAtIndex:number] initPlayerModel:self andComputerModel:computer];
+    
+    self.isThatPlayerTurn = YES;
+    computer.isThatComputerTurn = NO;
+    
     [self payForTheCard:number];
     if (self.soundsOn) {
+        
+        
+        //NSLog(@"---player card name: %@", [[self.cards objectAtIndex:self.playedCard] cardName]);
+        //NSLog(@"---card additional term: %d", [[self.cards objectAtIndex:self.playedCard] additionalTerms]);
+        /*NSLog(@"---%d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d",
+              [[self.cards objectAtIndex:number] quarriesSelf],
+              [[self.cards objectAtIndex:number] quarriesEnemy],
+              [[self.cards objectAtIndex:number] magicsSelf],
+              [[self.cards objectAtIndex:number] magicsEnemy],
+              [[self.cards objectAtIndex:number] dungeonsSelf],
+              [[self.cards objectAtIndex:number] dungeonsEnemy],
+              [[self.cards objectAtIndex:number] bricksSelf],
+              [[self.cards objectAtIndex:number] bricksEnemy],
+              [[self.cards objectAtIndex:number] gemsSelf],
+              [[self.cards objectAtIndex:number] gemsEnemy],
+              [[self.cards objectAtIndex:number] recruitsSelf],
+              [[self.cards objectAtIndex:number] recruitsEnemy],
+              [[self.cards objectAtIndex:number] towerSelf],
+              [[self.cards objectAtIndex:number] towerEnemy],
+              [[self.cards objectAtIndex:number] wallSelf],
+              [[self.cards objectAtIndex:number] wallEnemy]);*/
+        
         if ([[self.cards objectAtIndex:number] quarriesSelf] > 0 ||
             [[self.cards objectAtIndex:number] magicsSelf] > 0 ||
             [[self.cards objectAtIndex:number] dungeonsSelf] > 0 ||
@@ -133,9 +168,9 @@ static PlayerModel *player;
             [cardsScope playDealSoundEffectForEvent:@"WillTakeDamage"];
         }
     }
-    self.isThatPlayerTurn = YES;
-    computer.isThatComputerTurn = NO;
-    [[self.cards objectAtIndex:number] processCardForPlayer:self andComputer:computer];
+    
+    [[self.cards objectAtIndex:number] processCard];//ForPlayer:self andComputer:computer];
+    
     self.isThatPlayerTurn = NO;
     
     [self.delegate needToCheckThatTheVictoryConditionsIsAchieved];

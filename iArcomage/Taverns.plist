@@ -18,15 +18,15 @@
 		<key>towerBackground</key>
 		<string>TowerWidth.png</string>
 		<key>towerHeadPlayerBackground</key>
-		<string>NoData</string>
+		<string>TowerHeader2.png</string>
 		<key>towerHeadComputerBackground</key>
-		<string>NoData</string>
+		<string>TowerHeader3.png</string>
 		<key>wallBackground</key>
 		<string>WallWidth.png</string>
 		<key>backgroundMusic</key>
 		<string>NoData</string>
 		<key>imageForTavern</key>
-		<string>ScaryMonster</string>
+		<string>TavernPreview.jpg</string>
 		<key>isAchieved</key>
 		<true/>
 	</dict>
@@ -46,15 +46,15 @@
 		<key>towerBackground</key>
 		<string>TowerWidth.png</string>
 		<key>towerHeadPlayerBackground</key>
-		<string>NoData</string>
+		<string>TowerHeader2.png</string>
 		<key>towerHeadComputerBackground</key>
-		<string>NoData</string>
+		<string>TowerHeader3.png</string>
 		<key>wallBackground</key>
 		<string>WallWidth.png</string>
 		<key>backgroundMusic</key>
 		<string>NoData</string>
 		<key>imageForTavern</key>
-		<string>ScaryMonster</string>
+		<string>TavernPreview.jpg</string>
 		<key>isAchieved</key>
 		<false/>
 	</dict>
@@ -82,7 +82,7 @@
 		<key>backgroundMusic</key>
 		<string>NoData</string>
 		<key>imageForTavern</key>
-		<string>ScaryMonster</string>
+		<string>TavernPreview.jpg</string>
 		<key>isAchieved</key>
 		<false/>
 	</dict>
@@ -110,7 +110,7 @@
 		<key>backgroundMusic</key>
 		<string>NoData</string>
 		<key>imageForTavern</key>
-		<string>ScaryMonster</string>
+		<string>TavernPreview.jpg</string>
 		<key>isAchieved</key>
 		<false/>
 	</dict>
@@ -138,7 +138,7 @@
 		<key>backgroundMusic</key>
 		<string>NoData</string>
 		<key>imageForTavern</key>
-		<string>ScaryMonster</string>
+		<string>TavernPreview.jpg</string>
 		<key>isAchieved</key>
 		<false/>
 	</dict>
@@ -166,7 +166,7 @@
 		<key>backgroundMusic</key>
 		<string>NoData</string>
 		<key>imageForTavern</key>
-		<string>ScaryMonster</string>
+		<string>TavernPreview.jpg</string>
 		<key>isAchieved</key>
 		<false/>
 	</dict>
@@ -194,7 +194,7 @@
 		<key>backgroundMusic</key>
 		<string>NoData</string>
 		<key>imageForTavern</key>
-		<string>ScaryMonster</string>
+		<string>TavernPreview.jpg</string>
 		<key>isAchieved</key>
 		<false/>
 	</dict>
@@ -222,7 +222,7 @@
 		<key>backgroundMusic</key>
 		<string>NoData</string>
 		<key>imageForTavern</key>
-		<string>ScaryMonster</string>
+		<string>TavernPreview.jpg</string>
 		<key>isAchieved</key>
 		<false/>
 	</dict>
@@ -250,9 +250,9 @@
 		<key>backgroundMusic</key>
 		<string>NoData</string>
 		<key>imageForTavern</key>
-		<string>ScaryMonster</string>
+		<string>TavernPreview.jpg</string>
 		<key>isAchieved</key>
-		<true/>
+		<false/>
 	</dict>
 	<dict>
 		<key>tavernName</key>
@@ -278,7 +278,7 @@
 		<key>backgroundMusic</key>
 		<string>NoData</string>
 		<key>imageForTavern</key>
-		<string>ScaryMonster</string>
+		<string>TavernPreview.jpg</string>
 		<key>isAchieved</key>
 		<false/>
 	</dict>
@@ -306,9 +306,9 @@
 		<key>backgroundMusic</key>
 		<string>NoData</string>
 		<key>imageForTavern</key>
-		<string>ScaryMonster</string>
+		<string>TavernPreview.jpg</string>
 		<key>isAchieved</key>
-		<true/>
+		<false/>
 	</dict>
 	<dict>
 		<key>tavernName</key>
@@ -334,7 +334,7 @@
 		<key>backgroundMusic</key>
 		<string>NoData</string>
 		<key>imageForTavern</key>
-		<string>ScaryMonster</string>
+		<string>TavernPreview.jpg</string>
 		<key>isAchieved</key>
 		<false/>
 	</dict>
@@ -362,9 +362,9 @@
 		<key>backgroundMusic</key>
 		<string>NoData</string>
 		<key>imageForTavern</key>
-		<string>ScaryMonster</string>
+		<string>TavernPreview.jpg</string>
 		<key>isAchieved</key>
-		<true/>
+		<false/>
 	</dict>
 </array>
 </plist>

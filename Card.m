@@ -12,107 +12,138 @@
 {
     PlayerModel *playerModel;
     ComputerModel *computerModel;
+    
+    NSInteger playerWall;
+    NSInteger computerWall;
 }
 
 #pragma mark -Initialization
 
 - (id)init
 {
+    //NSLog(@"card init");
     if ([super init] != nil) {
+        playerWall = 0;
+        computerWall = 0;
     }
     return self;
 }
 
+- (void)dealloc
+{
+    //NSLog(@"card Dealloc");
+}
+
 #pragma mark -GamePlay
 
-- (void)processCardForPlayer:(PlayerModel *)player andComputer:(ComputerModel *)computer
+- (void)initPlayerModel:(PlayerModel*)player andComputerModel:(ComputerModel*)computer
 {
     if (playerModel == nil) {
+        //NSLog(@"card - init player");
         playerModel = player;
     }
     if (computerModel == nil) {
+        //NSLog(@"card - init computer");
         computerModel = computer;
+    }
+}
+
+- (void)processCard
+{
+    playerWall = playerModel.wall;
+    computerWall = computerModel.wall;
+    //NSLog(@"------------------------------------");
+    //NSLog(@"isThisPlayer: %d, isThisComputer: %d", playerModel.isThatPlayerTurn, computerModel.isThatComputerTurn);
+    //NSLog(@"%@, %d", self.cardName, self.cardCost);
+    //NSLog(@"%d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d", self.quarriesSelf, self.quarriesEnemy, self.magicsSelf, self.magicsEnemy, self.dungeonsSelf, self.dungeonsEnemy, self.bricksSelf, self.bricksEnemy, self.gemsSelf, self.gemsEnemy, self.recruitsSelf, self.recruitsEnemy, self.towerSelf, self.towerEnemy, self.wallSelf, self.wallEnemy);
+    
+    if (playerModel.isThatPlayerTurn & computerModel.isThatComputerTurn){
+        NSLog(@"=============Both isThatTurn are positive=============");
+    }
+    
+    if (!playerModel.isThatPlayerTurn & !computerModel.isThatComputerTurn) {
+        NSLog(@"=============Both isThatTurn are negative=============");
     }
     
     if (playerModel.isThatPlayerTurn) {
         
-        player.quarries += self.quarriesSelf;
-        if (player.quarries <1) {player.quarries = 1;}
-        player.magics += self.magicsSelf;
-        if (player.magics <1) {player.magics = 1;}
-        player.dungeons += self.dungeonsSelf;
-        if (player.dungeons <1) {player.dungeons = 1;}
-        player.bricks += self.bricksSelf;
-        if (player.bricks < 0) {player.bricks = 0;}
-        player.gems += self.gemsSelf;
-        if (player.gems < 0) {player.gems = 0;}
-        player.recruits += self.recruitsSelf;
-        if (player.recruits < 0) {player.recruits = 0;}
-        player.wall += self.wallSelf;
-        if (player.wall < 0) {
-            player.tower += player.wall;
-            player.wall = 0;}
-        player.tower += self.towerSelf;
-        if (player.tower < 0) {player.tower = 0;}
+        playerModel.quarries += self.quarriesSelf;
+        if (playerModel.quarries <1) {playerModel.quarries = 1;}
+        playerModel.magics += self.magicsSelf;
+        if (playerModel.magics <1) {playerModel.magics = 1;}
+        playerModel.dungeons += self.dungeonsSelf;
+        if (playerModel.dungeons <1) {playerModel.dungeons = 1;}
+        playerModel.bricks += self.bricksSelf;
+        if (playerModel.bricks < 0) {playerModel.bricks = 0;}
+        playerModel.gems += self.gemsSelf;
+        if (playerModel.gems < 0) {playerModel.gems = 0;}
+        playerModel.recruits += self.recruitsSelf;
+        if (playerModel.recruits < 0) {playerModel.recruits = 0;}
+        playerModel.wall += self.wallSelf;
+        if (playerModel.wall < 0) {
+            playerModel.tower += playerModel.wall;
+            playerModel.wall = 0;}
+        playerModel.tower += self.towerSelf;
+        if (playerModel.tower < 0) {playerModel.tower = 0;}
     
-        computer.quarries += self.quarriesEnemy;
-        if (computer.quarries <1) {computer.quarries = 1;}
-        computer.magics += self.magicsEnemy;
-        if (computer.magics <1) {computer.magics = 1;}
-        computer.dungeons += self.dungeonsEnemy;
-        if (computer.dungeons <1) {computer.dungeons = 1;}
-        computer.bricks += self.bricksEnemy;
-        if (computer.bricks < 0) {computer.bricks = 0;}
-        computer.gems += self.gemsEnemy;
-        if (computer.gems < 0) {computer.gems = 0;}
-        computer.recruits += self.recruitsEnemy;
-        if (computer.recruits < 0) {computer.recruits = 0;}
-        computer.wall += self.wallEnemy;
-        if (computer.wall < 0) {
-            computer.tower += computer.wall;        
-            computer.wall = 0;}
-        computer.tower += self.towerEnemy;
-        if (computer.tower < 0) {computer.tower = 0;};
+        computerModel.quarries += self.quarriesEnemy;
+        if (computerModel.quarries <1) {computerModel.quarries = 1;}
+        computerModel.magics += self.magicsEnemy;
+        if (computerModel.magics <1) {computerModel.magics = 1;}
+        computerModel.dungeons += self.dungeonsEnemy;
+        if (computerModel.dungeons <1) {computerModel.dungeons = 1;}
+        computerModel.bricks += self.bricksEnemy;
+        if (computerModel.bricks < 0) {computerModel.bricks = 0;}
+        computerModel.gems += self.gemsEnemy;
+        if (computerModel.gems < 0) {computerModel.gems = 0;}
+        computerModel.recruits += self.recruitsEnemy;
+        if (computerModel.recruits < 0) {computerModel.recruits = 0;}
+        computerModel.wall += self.wallEnemy;
+        if (computerModel.wall < 0) {
+            computerModel.tower += computerModel.wall;        
+            computerModel.wall = 0;}
+        computerModel.tower += self.towerEnemy;
+        if (computerModel.tower < 0) {computerModel.tower = 0;};
         
     } else if (computerModel.isThatComputerTurn){
         
-        player.quarries += self.quarriesEnemy;
-        if (player.quarries <1) {player.quarries = 1;}
-        player.magics += self.magicsEnemy;
-        if (player.magics <1) {player.magics = 1;}
-        player.dungeons += self.dungeonsEnemy;
-        if (player.dungeons <1) {player.dungeons = 1;}
-        player.bricks += self.bricksEnemy;
-        if (player.bricks < 0) {player.bricks = 0;}
-        player.gems += self.gemsEnemy;
-        if (player.gems < 0) {player.gems = 0;}
-        player.recruits += self.recruitsEnemy;
-        if (player.recruits < 0) {player.recruits = 0;}
-        player.wall += self.wallEnemy;
-        if (player.wall < 0) {
-            player.tower += player.wall;
-            player.wall = 0;}
-        player.tower += self.towerEnemy;
-        if (player.tower < 0) {player.tower = 0;}
+        playerModel.quarries += self.quarriesEnemy;
+        if (playerModel.quarries <1) {playerModel.quarries = 1;}
+        playerModel.magics += self.magicsEnemy;
+        if (playerModel.magics <1) {playerModel.magics = 1;}
+        playerModel.dungeons += self.dungeonsEnemy;
+        if (playerModel.dungeons <1) {playerModel.dungeons = 1;}
+        playerModel.bricks += self.bricksEnemy;
+        if (playerModel.bricks < 0) {playerModel.bricks = 0;}
+        playerModel.gems += self.gemsEnemy;
+        if (playerModel.gems < 0) {playerModel.gems = 0;}
+        playerModel.recruits += self.recruitsEnemy;
+        if (playerModel.recruits < 0) {playerModel.recruits = 0;}
+        playerModel.wall += self.wallEnemy;
+        if (playerModel.wall < 0) {
+            playerModel.tower += playerModel.wall;
+            playerModel.wall = 0;}
+        playerModel.tower += self.towerEnemy;
+        if (playerModel.tower < 0) {playerModel.tower = 0;}
         
-        computer.quarries += self.quarriesSelf;
-        if (computer.quarries <1) {computer.quarries = 1;}
-        computer.magics += self.magicsSelf;
-        if (computer.magics <1) {computer.magics = 1;}
-        computer.dungeons += self.dungeonsSelf;
-        if (computer.dungeons <1) {computer.dungeons = 1;}
-        computer.bricks += self.bricksSelf;
-        if (computer.bricks < 0) {computer.bricks = 0;}
-        computer.gems += self.gemsSelf;
-        if (computer.gems < 0) {computer.gems = 0;}
-        computer.recruits += self.recruitsSelf;
-        if (computer.recruits < 0) {computer.recruits = 0;}
-        computer.wall += self.wallSelf;
-        if (computer.wall < 0) {
-            computer.tower += computer.wall;
-            computer.wall = 0;}
-        computer.tower += self.towerSelf;
-        if (computer.tower < 0) {computer.tower = 0;};
+        computerModel.quarries += self.quarriesSelf;
+        if (computerModel.quarries <1) {computerModel.quarries = 1;}
+        computerModel.magics += self.magicsSelf;
+        if (computerModel.magics <1) {computerModel.magics = 1;}
+        computerModel.dungeons += self.dungeonsSelf;
+        if (computerModel.dungeons <1) {computerModel.dungeons = 1;}
+        computerModel.bricks += self.bricksSelf;
+        if (computerModel.bricks < 0) {computerModel.bricks = 0;}
+        computerModel.gems += self.gemsSelf;
+        if (computerModel.gems < 0) {computerModel.gems = 0;}
+        computerModel.recruits += self.recruitsSelf;
+        if (computerModel.recruits < 0) {computerModel.recruits = 0;}
+        computerModel.wall += self.wallSelf;
+        if (computerModel.wall < 0) {
+            computerModel.tower += computerModel.wall;
+            computerModel.wall = 0;}
+        computerModel.tower += self.towerSelf;
+        if (computerModel.tower < 0) {computerModel.tower = 0;};
         
     } else {
         NSLog(@"PROCESS CARD ERROR!!!");
@@ -130,19 +161,19 @@
         ||  [self.cardName isEqualToString:@"Elven Scout"]
         ||  [self.cardName isEqualToString:@"Shadow Faerie"]
         ||  [self.cardName isEqualToString:@"Smoky Quartz"]) {
-            if (player.isThatPlayerTurn) {
-                player.shouldPlayAgain = YES;
-            } else if (computer.isThatComputerTurn) {
-                computer.shouldPlayAgain = YES;
+            if (playerModel.isThatPlayerTurn) {
+                playerModel.shouldPlayAgain = YES;
+            } else if (computerModel.isThatComputerTurn) {
+                computerModel.shouldPlayAgain = YES;
             }
         }
         
         if ([self.cardName isEqualToString:@"Prism"]
         ||  [self.cardName isEqualToString:@"Elven Scout"]) {
-            if (player.isThatPlayerTurn) {
-                player.shouldDiscardACard = YES;
-            } else if (computer.isThatComputerTurn) {
-                computer.shouldDiscardACard = YES;
+            if (playerModel.isThatPlayerTurn) {
+                playerModel.shouldDiscardACard = YES;
+            } else if (computerModel.isThatComputerTurn) {
+                computerModel.shouldDiscardACard = YES;
             }
         }
     }
@@ -173,14 +204,12 @@
         if ([self.cardName isEqualToString:@"Copping the Tech"]) {
             if (playerModel.isThatPlayerTurn) {
                 if (playerModel.quarries < computerModel.quarries) {
-                    playerModel.quarries = computerModel.quarries;
-                    return 0;
+                    return computerModel.quarries - playerModel.quarries;
                 }
                 
             } else if (computerModel.isThatComputerTurn) {
                 if (computerModel.quarries < playerModel.quarries) {
-                    computerModel.quarries = playerModel.quarries;
-                    return 0;
+                    return playerModel.quarries - computerModel.quarries;
                 }
             }
         }
@@ -198,10 +227,14 @@
 {
     if (self.additionalTerms) {
         if ([self.cardName isEqualToString:@"Parity"]) {
-            if (playerModel.magics < computerModel.magics) {
-                playerModel.magics = computerModel.magics;
-            } else {
-                computerModel.magics = playerModel.magics;
+            if (playerModel.isThatPlayerTurn) {
+                if (playerModel.magics < computerModel.magics) {
+                    return computerModel.magics - playerModel.magics;
+                }
+            } else if (computerModel.isThatComputerTurn) {
+                if (computerModel.magics < playerModel.magics) {
+                    return playerModel.magics - computerModel.magics;
+                }
             }
         }
     }
@@ -210,6 +243,19 @@
 
 - (NSInteger)magicsEnemy
 {
+    if (self.additionalTerms) {
+        if ([self.cardName isEqualToString:@"Parity"]) {
+            if (playerModel.isThatPlayerTurn) {
+                if (computerModel.magics < playerModel.magics) {
+                    return playerModel.magics - computerModel.magics;
+                }
+            } else if (computerModel.isThatComputerTurn) {
+                if (playerModel.magics < computerModel.magics) {
+                    return computerModel.magics - playerModel.magics;
+                }
+            }
+        }
+    }
     return _magicsEnemy;
 }
 
@@ -302,13 +348,13 @@
         if ([self.cardName isEqualToString:@"Thief"]) {
             if (playerModel.isThatPlayerTurn) {
                 if (computerModel.gems < 10) {
-                    return (computerModel.gems / 10);
+                    return (computerModel.gems / 2);
                 }
             }
             
             if (computerModel.isThatComputerTurn) {
                 if (playerModel.gems < 10) {
-                    return (playerModel.gems / 10);
+                    return (playerModel.gems / 2);
                 }
             }
         }
@@ -334,6 +380,14 @@
 - (NSInteger)wallSelf
 {
     if (self.additionalTerms) {
+        if ([self.cardName isEqualToString:@"Shift"]) {
+            if (playerModel.isThatPlayerTurn) {
+                return computerWall - playerWall;
+            } else if (computerModel.isThatComputerTurn) {
+                return playerWall - computerWall;
+            }
+        }
+
         if ([self.cardName isEqualToString:@"Foundations"]) {
             if (playerModel.isThatPlayerTurn) {
                 if (playerModel.wall == 0) {
@@ -359,9 +413,11 @@
 {
     if (self.additionalTerms) {
         if ([self.cardName isEqualToString:@"Shift"]) {
-                NSInteger temp = playerModel.wall;
-                playerModel.wall = computerModel.wall;
-                computerModel.wall = temp;
+            if (playerModel.isThatPlayerTurn) {
+                return playerWall - computerWall;
+            } else if (computerModel.isThatComputerTurn) {
+                return computerWall - playerWall;
+            }
         }
         
         if ([self.cardName isEqualToString:@"Lightning Shard"]) {
@@ -556,16 +612,6 @@
 - (void)increaseCardWeightOn:(NSInteger)weight
 {
     self.cardWeight += weight;
-}
-
-- (void)thatCardIsAvailable:(BOOL)available
-{
-    self.isAvailable = available;
-}
-
-- (void)setCenterOfImageWithPoint:(CGPoint)point
-{
-    self.cardImage.center = point;
 }
 
 @end

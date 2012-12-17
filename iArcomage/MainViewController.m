@@ -33,9 +33,7 @@
 {
     if ([[segue identifier] isEqualToString:@"toStart"]) {
         StartViewController *controller = [segue destinationViewController];
-        NSLog(@"self.soundsOn %u", self.SoundSwitcher.on);
         controller.soundsOn = self.SoundSwitcher.on;
-        NSLog(@"controller.soundOn %u", controller.soundsOn);
     }
 }
 

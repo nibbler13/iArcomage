@@ -106,8 +106,17 @@
 @property (weak, nonatomic) IBOutlet UIView *computerTowerView;
 @property (weak, nonatomic) IBOutlet UIView *computerWallView;
 
-@property (weak, nonatomic) IBOutlet UIImageView *backgroundPicture;
 @property (weak, nonatomic) IBOutlet UILabel *backgroundLabel;
+
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundPicture;
+
+@property (weak, nonatomic) IBOutlet UIImageView *playerTowerBodyBackground;
+@property (weak, nonatomic) IBOutlet UIImageView *playerTowerHeadBackground;
+@property (weak, nonatomic) IBOutlet UIImageView *playerWallBackground;
+
+@property (weak, nonatomic) IBOutlet UIImageView *computerTowerBodyBackground;
+@property (weak, nonatomic) IBOutlet UIImageView *computerTowerHeadBackground;
+@property (weak, nonatomic) IBOutlet UIImageView *computerWallBackground;
 
 - (IBAction)backButtonPressed:(id)sender;
 - (IBAction)changeBackground:(id)sender;
@@ -118,7 +127,7 @@
 {
     PlayerModel *player;
     ComputerModel *computer;
-    BOOL gameOver;
+    //BOOL gameOver;
     CardsScope *cardsScope;
     CGPoint firstTouchPoint;
     
@@ -514,6 +523,37 @@
                              
                              [self releaseCardSelectionForView:view withDefaultPosition:defaultPosition withDefaultRect:defaultRect];
                              
+                             ///////////////////////
+                             //AddingAnimationHere//
+                             ///////////////////////
+                             
+                             UIImageView *healImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 96, 96)];
+                             healImage.animationImages = @[[UIImage imageNamed:@"Magic01.png"],
+                                                           [UIImage imageNamed:@"Magic02.png"],
+                                                           [UIImage imageNamed:@"Magic03.png"],
+                                                           [UIImage imageNamed:@"Magic04.png"],
+                                                           [UIImage imageNamed:@"Magic05.png"],
+                                                           [UIImage imageNamed:@"Magic06.png"],
+                                                           [UIImage imageNamed:@"Magic07.png"],
+                                                           [UIImage imageNamed:@"Magic08.png"],
+                                                           [UIImage imageNamed:@"Magic09.png"],
+                                                           [UIImage imageNamed:@"Magic10.png"],
+                                                           [UIImage imageNamed:@"Magic11.png"],
+                                                           [UIImage imageNamed:@"Magic12.png"],
+                                                           [UIImage imageNamed:@"Magic13.png"],
+                                                           [UIImage imageNamed:@"Magic14.png"],
+                                                           [UIImage imageNamed:@"Magic15.png"],
+                                                           [UIImage imageNamed:@"Magic16.png"],
+                                                           [UIImage imageNamed:@"Magic17.png"],
+                                                           [UIImage imageNamed:@"Magic18.png"],
+                                                           [UIImage imageNamed:@"Magic19.png"],
+                                                           [UIImage imageNamed:@"Magic20.png"]];
+                             healImage.animationDuration = 1.2;
+                             healImage.animationRepeatCount = 1;
+                             [healImage startAnimating];
+                             [self.view addSubview:healImage];
+                             
+                             
                              double howLongShouldBeAnimation;
                              
                              if (doNotClearStack) {
@@ -866,12 +906,12 @@
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    [PlayerModel destroyPlayer];
-    [ComputerModel destroyComputer];
-    player = nil;
-    computer = nil;
-    cardsScope = nil;
-    gameOver = YES;
+    //[PlayerModel destroyPlayer];
+    //[ComputerModel destroyComputer];
+    //player = nil;
+    //computer = nil;
+    //cardsScope = nil;
+    //gameOver = YES;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -984,6 +1024,7 @@
                               
                               if (!computer.isCardBeenDiscarded) {
                                   
+                                  //NSLog(@"computer card name: %@", [[computer.cards objectAtIndex:computer.playedCard] cardName]);
                                   if ([[computer.cards objectAtIndex:computer.playedCard] quarriesSelf] > 0 ||
                                       [[computer.cards objectAtIndex:computer.playedCard] magicsSelf] > 0 ||
                                       [[computer.cards objectAtIndex:computer.playedCard] dungeonsSelf] > 0 ||
@@ -1027,7 +1068,11 @@
                                       [[computer.cards objectAtIndex:computer.playedCard] towerEnemy] < 0 ||
                                       [[computer.cards objectAtIndex:computer.playedCard] wallEnemy] < 0) {
                                       [cardsScope playDealSoundEffectForEvent:@"WillTakeDamage"];
-                              }}
+                                  }
+                                  
+                                  [[computer.cards objectAtIndex:computer.playedCard] processCard];
+                                  [computer.delegate needToCheckThatTheVictoryConditionsIsAchievedByComputer];
+                              }
                               
                               [self needToUpdateLabels];
                               [self updateTowersAndWalls];
@@ -1202,6 +1247,8 @@
                                                                         [self updateCardPositions];
                                                                         
                                                                     }completion:^(BOOL finished){
+                                                                        
+                                                                        computer.isThatComputerTurn = NO;
                                                                         
                                                                         computerLastPlayedCard = computer.playedCard;
                                                                         
@@ -1544,7 +1591,7 @@
 {
     [super viewDidLoad];
     self.view.multipleTouchEnabled = NO;
-    gameOver = YES;
+    //gameOver = YES;
     
     animationCompleted = YES;
     
@@ -1553,12 +1600,13 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    player = nil;
-    computer = nil;
-    gameOver = YES;
     [PlayerModel destroyPlayer];
     [ComputerModel destroyComputer];
-    [super viewDidLoad];
+    [CardsScope destroyCardsScope];
+    player = nil;
+    computer = nil;
+    cardsScope = nil;
+    [super viewWillDisappear:YES];
 }
 
 #pragma mark - Buttons method
@@ -1580,23 +1628,60 @@
 
 - (void)game
 {
-    if (gameOver) {    
+    //NSLog(@"player: %@, computer: %@, cardscope: %@", player, computer, cardsScope);
+    //if (gameOver) {
         player = [PlayerModel getPlayer];
         player.delegate = self;
         player.soundsOn = self.soundsOn;
         computer = [ComputerModel getComputer];
         computer.delegate = self;
+        
+        //Campaign game initialization
+        if (self.isThisCampaignPlaying) {
+            
+            player.tower = self.initialTowerValue;
+            player.wall = self.initialWallValue;
+            computer.tower = self.initialTowerValue;
+            computer.wall = self.initialWallValue;
+            towerAim = self.towerCampaignAim;
+            wallAim = self.towerCampaignAim * 2;
+            
+            self.backgroundPicture.image = [UIImage imageNamed:self.backgroundImage];
+            
+            self.playerTowerBodyBackground.image = [UIImage imageNamed:self.towerImage];
+            self.playerTowerHeadBackground.image = [UIImage imageNamed:self.playerTowerHeadImage];
+            self.playerWallBackground.image = [UIImage imageNamed:self.wallImage];
+            
+            self.computerTowerBodyBackground.image = [UIImage imageNamed:self.towerImage];
+            self.computerTowerHeadBackground.image = [UIImage imageNamed:self.computerTowerHeadImage];
+            self.computerWallBackground.image = [UIImage imageNamed:self.wallImage];
+            
+        } else {
+            towerAim = 100.0;
+            wallAim = 100.0;
+        }
+        
+        //NSLog(@"%@", [NSString stringWithFormat:@"%@", self.backgroundPicture.image]);
+        
         [self updatePlayerLabels];
         [self updateComputerLabels];
         [self updateAllCards];
         [self updateCardPositions];
+        
         cardsScope = [CardsScope getCardsScope];
-        gameOver = NO;
+        //gameOver = NO;
         doNotClearStack = NO;
         computerLastPlayedCard = -1;
         yInitialPositionForCardView = 645.0;
-        towerAim = 100.0;
-        wallAim = 100.0;
+        
+        if (player.tower == 0 ||
+            player.wall == 0 ||
+            computer.tower == 0 ||
+            computer.wall == 0 ||
+            towerAim == 0 ||
+            wallAim == 0) {
+            NSLog(@"THERE IS AN ERROR WITH INITIALIZATION BASIC PARAMETERS");
+        }
         
         self.playerTowerView.autoresizesSubviews = NO;
         self.playerTowerView.clipsToBounds = YES;
@@ -1653,7 +1738,7 @@
                                         @"Background46.jpg",
                                         @"Background48.jpg",
                                         @"Background49.jpg"];
-    }
+    //}
 }
 
 #pragma mark - UpdatingLabels

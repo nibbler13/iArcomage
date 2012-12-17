@@ -19,5 +19,6 @@
 - (void)playDealSoundEffectForEvent:(NSString*)event;
 
 + (CardsScope*)getCardsScope;
++ (void)destroyCardsScope;
 
 @end

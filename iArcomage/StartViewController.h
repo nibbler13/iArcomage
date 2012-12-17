@@ -13,10 +13,23 @@
     <
         PlayerModelDelegate,
         ComputerModelDelegate,
-        UIAlertViewDelegate,
-        UIGestureRecognizerDelegate
+        UIAlertViewDelegate
     >
 
 @property (nonatomic) BOOL soundsOn;
+@property (nonatomic) BOOL isThisCampaignPlaying;
+
+@property (nonatomic) NSInteger initialTowerValue;
+@property (nonatomic) NSInteger initialWallValue;
+@property (nonatomic) NSInteger towerCampaignAim;
+
+@property (nonatomic) NSString *backgroundImage;
+
+@property (nonatomic) NSString *towerImage;
+@property (nonatomic) NSString *wallImage;
+@property (nonatomic) NSString *playerTowerHeadImage;
+@property (nonatomic) NSString *computerTowerHeadImage;
+
+@property (nonatomic) NSString *backgroundMusic;
 
 @end

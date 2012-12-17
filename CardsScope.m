@@ -8,6 +8,9 @@
 
 #import "CardsScope.h"
 
+
+static CardsScope *cardsScope;
+
 @implementation CardsScope
 {
     SystemSoundID soundDamageID;
@@ -25,15 +28,25 @@
 
 + (CardsScope*)getCardsScope
 {
-    static CardsScope *cardsScope;
+    //NSLog(@"getCardScope");
     if (cardsScope == nil) {
+        //NSLog(@"cardScope alloc");
         cardsScope = [[CardsScope alloc] init];
     }
     return cardsScope;
 }
 
++ (void)destroyCardsScope
+{
+    //NSLog(@"destroy cardsScope");
+    if (cardsScope != nil) {
+        cardsScope = nil;
+    }
+}
+
 - (id)init
 {
+    //NSLog(@"init CardScope");
     if ([super init] != nil) {
         
         NSString *path = [[NSBundle mainBundle] bundlePath];
@@ -62,6 +75,7 @@
 
 - (void)dealloc
 {
+    //NSLog(@"cardScope dealloc");
     [self unloadSoundEffect];
 }
 
@@ -90,7 +104,6 @@
     card.towerEnemy = [[info valueForKey:@"towerEnemy"] integerValue];
     card.additionalTerms =  [[info valueForKey:@"additionalTerms"] boolValue];
     card.cardWeight = 0;
-    card.cardImage.image = [UIImage imageNamed:card.cardName];
     return card;
 }
 

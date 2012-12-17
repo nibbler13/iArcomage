@@ -17,14 +17,21 @@ static ComputerModel *computer;
 {
     CardsScope *cardsScope;
     NSMutableArray *cardsAvailableToPlay;
-    PlayerModel *player;}
+    PlayerModel *player;
+}
+
+- (void)dealloc
+{
+    //NSLog(@"computer dealloc");
+}
 
 #pragma mark -Initialization
 
 + (ComputerModel*)getComputer
 {
-    NSLog(@"get computer");
+    //NSLog(@"get computer");
     if (computer == nil) {
+        //NSLog(@"computer alloc");
         computer = [[ComputerModel alloc] init];
     }
     return computer;
@@ -32,6 +39,7 @@ static ComputerModel *computer;
 
 + (void)destroyComputer
 {
+    //NSLog(@"destroy computer");
     if (computer != nil) {
         computer = nil;
     }
@@ -39,7 +47,7 @@ static ComputerModel *computer;
 
 - (id)init
 {
-    NSLog(@"init computer");
+    //NSLog(@"init computer");
     if ([super init] != nil) {
         self.quarries = 1;
         self.magics = 1;
@@ -57,7 +65,7 @@ static ComputerModel *computer;
         cardsScope = [CardsScope getCardsScope];
         self.playedCard = -1;
         self.cards = [NSMutableArray arrayWithObjects:cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, nil];
-        NSLog(@"done with init computer");
+        //NSLog(@"done with init computer");
     }
     return self;
 }
@@ -75,12 +83,13 @@ static ComputerModel *computer;
 
 - (void)computerTurn
 {
+    self.isThatComputerTurn = YES;
+    player.isThatPlayerTurn = NO;
+    
     if (player == nil) {
         player = [PlayerModel getPlayer];
     }
     
-    self.isThatComputerTurn = YES;
-    player.isThatPlayerTurn = NO;
     //NSLog(@"ComputerTurn");
     
     [self nextTurnIncreaseResource];
@@ -100,7 +109,6 @@ static ComputerModel *computer;
         [self discardACard];
     }
     //NSLog(@"END OF COMPUTER TURN");
-    self.isThatComputerTurn = NO;
 }
 
 - (BOOL)checkAvailableCards
@@ -110,7 +118,6 @@ static ComputerModel *computer;
     cardsAvailableToPlay = nil;
     cardsAvailableToPlay = [[NSMutableArray alloc] init];
     for (int i = 0; i < 5; i++) {
-        [[self.cards objectAtIndex:i] thatCardIsAvailable:NO];
         cardCost = [[computer.cards objectAtIndex:i] cardCost];
         
         if ([[[computer.cards objectAtIndex:i] cardColor] isEqualToString:@"Grey"]) {
@@ -124,7 +131,6 @@ static ComputerModel *computer;
         if (cardCost <= computerResource) {
             //NSLog(@"--- Found another one available card");
             [cardsAvailableToPlay addObject:[NSNumber numberWithInt:i]];
-            [[self.cards objectAtIndex:i] thatCardIsAvailable:YES];
         } else if (computerResource - cardCost < -10) {
             [[self.cards objectAtIndex:i] increaseCardWeightOn:maxIdle];
         } else if (computerResource - cardCost < -5 && computerResource - cardCost > -10) {
@@ -179,10 +185,11 @@ static ComputerModel *computer;
     //NSLog(@"=== I will play the next card:");
     [self printCardInfoAtNumber:number];
     [self payForTheCard:number];
-    [[self.cards objectAtIndex:number] processCardForPlayer:player andComputer:self];
+    [[[self cards] objectAtIndex:number] initPlayerModel:player andComputerModel:self];
+    //[[self.cards objectAtIndex:number] processCard];
     self.playedCard = number;
     
-    [self.delegate needToCheckThatTheVictoryConditionsIsAchievedByComputer];
+    //[self.delegate needToCheckThatTheVictoryConditionsIsAchievedByComputer];
 }
 
 - (void)getANewCard
@@ -259,8 +266,6 @@ static ComputerModel *computer;
     
     
     self.isCardBeenDiscarded = YES;
-    
-    //==================НУЖНО ПРОВЕРИТЬ УСЛОВИЯ НЕ ЗАПРЕТ ДИСКАРДИДЬ КАРТУ С ЯВНЫМ ЗАПРЕТОМ================
 }
 
  - (void)analyzeCardsWeight
