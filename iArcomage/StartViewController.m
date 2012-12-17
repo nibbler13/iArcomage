@@ -2345,7 +2345,33 @@ withCardDescriptionLabel:(UILabel*)cardDescription
 {
     //NSLog(@"+++drawPositive");
     UIImageView *healImage = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, 96, 96)];
-    healImage.animationImages = @[[UIImage imageNamed:@"Magic01.png"],
+    healImage.animationImages = @[[UIImage imageNamed:@"Heal01.png"],
+                                  [UIImage imageNamed:@"Heal02.png"],
+                                  [UIImage imageNamed:@"Heal03.png"],
+                                  [UIImage imageNamed:@"Heal04.png"],
+                                  [UIImage imageNamed:@"Heal05.png"],
+                                  [UIImage imageNamed:@"Heal06.png"],
+                                  [UIImage imageNamed:@"Heal07.png"],
+                                  [UIImage imageNamed:@"Heal08.png"],
+                                  [UIImage imageNamed:@"Heal09.png"],
+                                  [UIImage imageNamed:@"Heal10.png"],
+                                  [UIImage imageNamed:@"Heal11.png"],
+                                  [UIImage imageNamed:@"Heal12.png"],
+                                  [UIImage imageNamed:@"Heal13.png"],
+                                  [UIImage imageNamed:@"Heal14.png"],
+                                  [UIImage imageNamed:@"Heal15.png"],
+                                  [UIImage imageNamed:@"Heal16.png"],
+                                  [UIImage imageNamed:@"Heal17.png"],
+                                  [UIImage imageNamed:@"Heal18.png"],
+                                  [UIImage imageNamed:@"Heal19.png"],
+                                  [UIImage imageNamed:@"Heal20.png"],
+                                  [UIImage imageNamed:@"Heal21.png"],
+                                  [UIImage imageNamed:@"Heal22.png"],
+                                  [UIImage imageNamed:@"Heal23.png"],
+                                  [UIImage imageNamed:@"Heal24.png"],
+                                  [UIImage imageNamed:@"Heal25.png"]];
+    
+    /*healImage.animationImages = @[[UIImage imageNamed:@"Magic01.png"],
                                   [UIImage imageNamed:@"Magic02.png"],
                                   [UIImage imageNamed:@"Magic03.png"],
                                   [UIImage imageNamed:@"Magic04.png"],
@@ -2364,8 +2390,8 @@ withCardDescriptionLabel:(UILabel*)cardDescription
                                   [UIImage imageNamed:@"Magic17.png"],
                                   [UIImage imageNamed:@"Magic18.png"],
                                   [UIImage imageNamed:@"Magic19.png"],
-                                  [UIImage imageNamed:@"Magic20.png"]];
-    healImage.animationDuration = 1.2;
+                                  [UIImage imageNamed:@"Magic20.png"]];*/
+    healImage.animationDuration = 1.5;
     healImage.animationRepeatCount = 1;
     [healImage startAnimating];
     [self.view addSubview:healImage];
