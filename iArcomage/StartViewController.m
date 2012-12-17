@@ -517,6 +517,57 @@
                          }completion:^(BOOL finished){
                              
                              player.isThatPlayerTurn = YES;
+                             
+                             if (self.soundsOn) {
+                                 
+                                 if ([[player.cards objectAtIndex:number] quarriesSelf] > 0 ||
+                                     [[player.cards objectAtIndex:number] magicsSelf] > 0 ||
+                                     [[player.cards objectAtIndex:number] dungeonsSelf] > 0 ||
+                                     [[player.cards objectAtIndex:number] quarriesEnemy] > 0 ||
+                                     [[player.cards objectAtIndex:number] magicsEnemy] > 0 ||
+                                     [[player.cards objectAtIndex:number] dungeonsEnemy] > 0) {
+                                     [cardsScope playDealSoundEffectForEvent:@"WillIncreaseSelfGeneralResource"];
+                                 }
+                                 if ([[player.cards objectAtIndex:number] quarriesSelf] < 0 & player.quarries > 1 ||
+                                     [[player.cards objectAtIndex:number] magicsSelf] < 0 & player.magics > 1 ||
+                                     [[player.cards objectAtIndex:number] dungeonsSelf] < 0 & player.dungeons > 1 ||
+                                     [[player.cards objectAtIndex:number] quarriesEnemy] < 0 & computer.quarries > 1 ||
+                                     [[player.cards objectAtIndex:number] magicsEnemy] < 0 & computer.magics > 1 ||
+                                     [[player.cards objectAtIndex:number] dungeonsEnemy] < 0 & computer.dungeons > 1) {
+                                     [cardsScope playDealSoundEffectForEvent:@"WillDecreaseSelfGeneralResource"];
+                                 }
+                                 if ([[player.cards objectAtIndex:number] bricksSelf] > 0 ||
+                                     [[player.cards objectAtIndex:number] gemsSelf] > 0 ||
+                                     [[player.cards objectAtIndex:number] recruitsSelf] > 0 ||
+                                     [[player.cards objectAtIndex:number] bricksEnemy] > 0 ||
+                                     [[player.cards objectAtIndex:number] gemsEnemy] > 0 ||
+                                     [[player.cards objectAtIndex:number] recruitsEnemy] > 0) {
+                                     [cardsScope playDealSoundEffectForEvent:@"WillIncreaseSelfCommonResource"];
+                                 }
+                                 if ([[player.cards objectAtIndex:number] bricksSelf] < 0 & player.bricks > 0 ||
+                                     [[player.cards objectAtIndex:number] gemsSelf] < 0 & player.gems > 0 ||
+                                     [[player.cards objectAtIndex:number] recruitsSelf] < 0 & player.recruits > 0 ||
+                                     [[player.cards objectAtIndex:number] bricksEnemy] < 0 & computer.bricks > 0 ||
+                                     [[player.cards objectAtIndex:number] gemsEnemy] < 0 & computer.gems > 0 ||
+                                     [[player.cards objectAtIndex:number] recruitsEnemy] < 0 & computer.recruits > 0) {
+                                     [cardsScope playDealSoundEffectForEvent:@"WillDecreaseSelfCommonResource"];
+                                 }
+                                 if ([[player.cards objectAtIndex:number] towerSelf] > 0 ||
+                                     [[player.cards objectAtIndex:number] wallSelf] > 0 ||
+                                     [[player.cards objectAtIndex:number] towerEnemy] > 0 ||
+                                     [[player.cards objectAtIndex:number] wallEnemy] > 0) {
+                                     [cardsScope playDealSoundEffectForEvent:@"WillIncreaseTowerOrWall"];
+                                 }
+                                 if ([[player.cards objectAtIndex:number] towerSelf] < 0 ||
+                                     [[player.cards objectAtIndex:number] wallSelf] < 0 ||
+                                     [[player.cards objectAtIndex:number] towerEnemy] < 0 ||
+                                     [[player.cards objectAtIndex:number] wallEnemy] < 0) {
+                                     [cardsScope playDealSoundEffectForEvent:@"WillTakeDamage"];
+                                 }
+                             }
+                             
+                             
+                             [self configureAnimationsForCardNumber:number];
                              [player cardSelected:number];
                              [self needToUpdateLabels];
                              [self updateTowersAndWalls];
@@ -527,31 +578,6 @@
                              //AddingAnimationHere//
                              ///////////////////////
                              
-                             UIImageView *healImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 96, 96)];
-                             healImage.animationImages = @[[UIImage imageNamed:@"Magic01.png"],
-                                                           [UIImage imageNamed:@"Magic02.png"],
-                                                           [UIImage imageNamed:@"Magic03.png"],
-                                                           [UIImage imageNamed:@"Magic04.png"],
-                                                           [UIImage imageNamed:@"Magic05.png"],
-                                                           [UIImage imageNamed:@"Magic06.png"],
-                                                           [UIImage imageNamed:@"Magic07.png"],
-                                                           [UIImage imageNamed:@"Magic08.png"],
-                                                           [UIImage imageNamed:@"Magic09.png"],
-                                                           [UIImage imageNamed:@"Magic10.png"],
-                                                           [UIImage imageNamed:@"Magic11.png"],
-                                                           [UIImage imageNamed:@"Magic12.png"],
-                                                           [UIImage imageNamed:@"Magic13.png"],
-                                                           [UIImage imageNamed:@"Magic14.png"],
-                                                           [UIImage imageNamed:@"Magic15.png"],
-                                                           [UIImage imageNamed:@"Magic16.png"],
-                                                           [UIImage imageNamed:@"Magic17.png"],
-                                                           [UIImage imageNamed:@"Magic18.png"],
-                                                           [UIImage imageNamed:@"Magic19.png"],
-                                                           [UIImage imageNamed:@"Magic20.png"]];
-                             healImage.animationDuration = 1.2;
-                             healImage.animationRepeatCount = 1;
-                             [healImage startAnimating];
-                             [self.view addSubview:healImage];
                              
                              
                              double howLongShouldBeAnimation;
@@ -1033,12 +1059,12 @@
                                       [[computer.cards objectAtIndex:computer.playedCard] dungeonsEnemy] > 0) {
                                       [cardsScope playDealSoundEffectForEvent:@"WillIncreaseSelfGeneralResource"];
                                   }
-                                  if ([[computer.cards objectAtIndex:computer.playedCard] quarriesSelf] < 0 ||
-                                      [[computer.cards objectAtIndex:computer.playedCard] magicsSelf] < 0 ||
-                                      [[computer.cards objectAtIndex:computer.playedCard] dungeonsSelf] < 0 ||
-                                      [[computer.cards objectAtIndex:computer.playedCard] quarriesEnemy] < 0 ||
-                                      [[computer.cards objectAtIndex:computer.playedCard] magicsEnemy] < 0 ||
-                                      [[computer.cards objectAtIndex:computer.playedCard] dungeonsEnemy] < 0) {
+                                  if ([[computer.cards objectAtIndex:computer.playedCard] quarriesSelf] < 0 & computer.quarries > 1 ||
+                                      [[computer.cards objectAtIndex:computer.playedCard] magicsSelf] < 0 & computer.magics > 1 ||
+                                      [[computer.cards objectAtIndex:computer.playedCard] dungeonsSelf] < 0 & computer.dungeons > 1 ||
+                                      [[computer.cards objectAtIndex:computer.playedCard] quarriesEnemy] < 0 & player.quarries > 1 ||
+                                      [[computer.cards objectAtIndex:computer.playedCard] magicsEnemy] < 0 & player.magics > 1 ||
+                                      [[computer.cards objectAtIndex:computer.playedCard] dungeonsEnemy] < 0 & player.dungeons > 1) {
                                       [cardsScope playDealSoundEffectForEvent:@"WillDecreaseSelfGeneralResource"];
                                   }
                                   if ([[computer.cards objectAtIndex:computer.playedCard] bricksSelf] > 0 ||
@@ -1049,12 +1075,12 @@
                                       [[computer.cards objectAtIndex:computer.playedCard] recruitsEnemy] > 0) {
                                       [cardsScope playDealSoundEffectForEvent:@"WillIncreaseSelfCommonResource"];
                                   }
-                                  if ([[computer.cards objectAtIndex:computer.playedCard] bricksSelf] < 0 ||
-                                      [[computer.cards objectAtIndex:computer.playedCard] gemsSelf] < 0 ||
-                                      [[computer.cards objectAtIndex:computer.playedCard] recruitsSelf] < 0 ||
-                                      [[computer.cards objectAtIndex:computer.playedCard] bricksEnemy] < 0 ||
-                                      [[computer.cards objectAtIndex:computer.playedCard] gemsEnemy] < 0 ||
-                                      [[computer.cards objectAtIndex:computer.playedCard] recruitsEnemy] < 0) {
+                                  if ([[computer.cards objectAtIndex:computer.playedCard] bricksSelf] < 0 & computer.bricks > 0 ||
+                                      [[computer.cards objectAtIndex:computer.playedCard] gemsSelf] < 0 & computer.gems > 0 ||
+                                      [[computer.cards objectAtIndex:computer.playedCard] recruitsSelf] < 0 & computer.recruits > 0 ||
+                                      [[computer.cards objectAtIndex:computer.playedCard] bricksEnemy] < 0 & player.bricks > 0 ||
+                                      [[computer.cards objectAtIndex:computer.playedCard] gemsEnemy] < 0 & player.gems > 0 ||
+                                      [[computer.cards objectAtIndex:computer.playedCard] recruitsEnemy] < 0 & player.recruits > 0) {
                                       [cardsScope playDealSoundEffectForEvent:@"WillDecreaseSelfCommonResource"];
                                   }
                                   if ([[computer.cards objectAtIndex:computer.playedCard] towerSelf] > 0 ||
@@ -1071,6 +1097,7 @@
                                   }
                                   
                                   [[computer.cards objectAtIndex:computer.playedCard] processCard];
+                                  [self configureAnimationsForCardNumber:computer.playedCard];
                                   [computer.delegate needToCheckThatTheVictoryConditionsIsAchievedByComputer];
                               }
                               
@@ -1974,6 +2001,404 @@ withCardDescriptionLabel:(UILabel*)cardDescription
     
     defaultPositionCard5View = self.card5View.center;
     defaultRectCard5View = self.card5View.frame;
+}
+
+#pragma mark - Animations
+
+- (void)configureAnimationsForCardNumber:(NSInteger)number
+{
+    float x;
+    float y;
+    
+    //NSLog(@"configureAnimations");
+    if (player.isThatPlayerTurn) {
+        if ([[player.cards objectAtIndex:number] quarriesSelf] > 0){
+            x = -10.0;
+            y = 78.0;
+            [self drawPositiveAnimationAtX:x andAtY:y];
+        } else if ([[player.cards objectAtIndex:number] quarriesSelf] < 0 & player.quarries > 1) {
+            x = -10.0;
+            y = 78.0;
+            [self drawNegativeAnimationAtX:x andAtY:y];
+        }
+        
+        if ([[player.cards objectAtIndex:number] magicsSelf] > 0) {
+            x = -10.0;
+            y = 198.0;
+            [self drawPositiveAnimationAtX:x andAtY:y];
+        } else if ([[player.cards objectAtIndex:number] magicsSelf] < 0 & player.magics > 1) {
+            x = -10.0;
+            y = 198.0;
+            [self drawNegativeAnimationAtX:x andAtY:y];
+        }
+        
+        if ([[player.cards objectAtIndex:number] dungeonsSelf] > 0) {
+            x = -10.0;
+            y = 318.0;
+            [self drawPositiveAnimationAtX:x andAtY:y];
+        } else if ([[player.cards objectAtIndex:number] dungeonsSelf] < 0 & player.dungeons > 1) {
+            x = -10.0;
+            y = 318.0;
+            [self drawNegativeAnimationAtX:x andAtY:y];
+        }
+        
+        if ([[player.cards objectAtIndex:number] quarriesEnemy] > 0) {
+            x = 870.0;
+            y = 78.0;
+            [self drawPositiveAnimationAtX:x andAtY:y];
+        } else if ([[player.cards objectAtIndex:number] quarriesEnemy] < 0 & computer.quarries > 1) {
+            x = 870.0;
+            y = 78.0;
+            [self drawNegativeAnimationAtX:x andAtY:y];
+        }
+        
+        if ([[player.cards objectAtIndex:number] magicsEnemy] > 0) {
+            x = 870.0;
+            y = 198.0;
+            [self drawPositiveAnimationAtX:x andAtY:y];
+        } else if ([[player.cards objectAtIndex:number] magicsEnemy] < 0 & computer.magics > 1) {
+            x = 870.0;
+            y = 198.0;
+            [self drawNegativeAnimationAtX:x andAtY:y];
+        }
+        
+        if ([[player.cards objectAtIndex:number] dungeonsEnemy] > 0) {
+            x = 870.0;
+            y = 318.0;
+            [self drawPositiveAnimationAtX:x andAtY:y];
+        } else if ([[player.cards objectAtIndex:number] dungeonsEnemy] < 0 & computer.dungeons > 1) {
+            x = 870.0;
+            y = 318.0;
+            [self drawNegativeAnimationAtX:x andAtY:y];
+        }
+        
+        
+        if ([[player.cards objectAtIndex:number] bricksSelf] > 0) {
+            x = -16.0;
+            y = 108.0;
+            [self drawPositiveAnimationAtX:x andAtY:y];
+        } else if ([[player.cards objectAtIndex:number] bricksSelf] < 0 & player.bricks > 0) {
+            x = -16.0;
+            y = 108.0;
+            [self drawNegativeAnimationAtX:x andAtY:y];
+        }
+        
+        if ([[player.cards objectAtIndex:number] gemsSelf] > 0) {
+            x = -16.0;
+            y = 226.0;
+            [self drawPositiveAnimationAtX:x andAtY:y];
+        } else if ([[player.cards objectAtIndex:number] gemsSelf] < 0 & player.gems > 0) {
+            x = -16.0;
+            y = 226.0;
+            [self drawNegativeAnimationAtX:x andAtY:y];
+        }
+        
+        if ([[player.cards objectAtIndex:number] recruitsSelf] > 0) {
+            x = -16.0;
+            y = 346.0;
+            [self drawPositiveAnimationAtX:x andAtY:y];
+        } else if ([[player.cards objectAtIndex:number] recruitsSelf] < 0 & player.recruits > 0) {
+            x = -16.0;
+            y = 346.0;
+            [self drawNegativeAnimationAtX:x andAtY:y];
+        }
+        
+        if ([[player.cards objectAtIndex:number] bricksEnemy] > 0) {
+            x = 866.0;
+            y = 108.0;
+            [self drawPositiveAnimationAtX:x andAtY:y];
+        } else if ([[player.cards objectAtIndex:number] bricksEnemy] < 0 & computer.bricks > 0) {
+            x = 866.0;
+            y = 108.0;
+            [self drawNegativeAnimationAtX:x andAtY:y];
+        }
+        
+        if ([[player.cards objectAtIndex:number] gemsEnemy] > 0) {
+            x = 866.0;
+            y = 226.0;
+            [self drawPositiveAnimationAtX:x andAtY:y];
+        } else if ([[player.cards objectAtIndex:number] gemsEnemy] < 0 & computer.gems > 0) {
+            x = 866.0;
+            y = 226.0;
+            [self drawNegativeAnimationAtX:x andAtY:y];
+        }
+        
+        if ([[player.cards objectAtIndex:number] recruitsEnemy] > 0) {
+            x = 866.0;
+            y = 346.0;
+            [self drawPositiveAnimationAtX:x andAtY:y];
+        } else if ([[player.cards objectAtIndex:number] recruitsEnemy] < 0 & computer.recruits > 0) {
+            x = 866.0;
+            y = 346.0;
+            [self drawNegativeAnimationAtX:x andAtY:y];
+        }
+        
+        if ([[player.cards objectAtIndex:number] towerSelf] > 0) {
+            x = 149.0;
+            y = 466.0;
+            [self drawPositiveAnimationAtX:x andAtY:y];
+        } else if ([[player.cards objectAtIndex:number] towerSelf] < 0) {
+            x = 149.0;
+            y = 466.0;
+            [self drawNegativeAnimationAtX:x andAtY:y];
+        }
+        
+        if ([[player.cards objectAtIndex:number] wallSelf] > 0) {
+            x = 253.0;
+            y = 466.0;
+            [self drawPositiveAnimationAtX:x andAtY:y];
+        } else if ([[player.cards objectAtIndex:number] wallSelf] < 0) {
+            x = 253.0;
+            y = 466.0;
+            [self drawNegativeAnimationAtX:x andAtY:y];
+        }
+        
+        if ([[player.cards objectAtIndex:number] towerEnemy] > 0) {
+            x = 776.0;
+            y = 466.0;
+            [self drawPositiveAnimationAtX:x andAtY:y];
+        } else if ([[player.cards objectAtIndex:number] towerEnemy] < 0) {
+            x = 776.0;
+            y = 466.0;
+            [self drawNegativeAnimationAtX:x andAtY:y];
+        }
+        
+        if ([[player.cards objectAtIndex:number] wallEnemy] > 0) {
+            x = 681.0;
+            y = 466.0;
+            [self drawPositiveAnimationAtX:x andAtY:y];
+        } else if ([[player.cards objectAtIndex:number] wallEnemy] < 0) {
+            x = 681.0;
+            y = 466.0;
+            [self drawNegativeAnimationAtX:x andAtY:y];
+        }
+        
+        ////////////////////////////////////////////////////
+    } else if (computer.isThatComputerTurn) {
+        if ([[computer.cards objectAtIndex:number] quarriesSelf] > 0){
+            x = 870.0;
+            y = 78.0;
+            [self drawPositiveAnimationAtX:x andAtY:y];
+        } else if ([[computer.cards objectAtIndex:number] quarriesSelf] < 0 & computer.quarries > 1) {
+            x = 870.0;
+            y = 78.0;
+            [self drawNegativeAnimationAtX:x andAtY:y];
+        }
+        
+        if ([[computer.cards objectAtIndex:number] magicsSelf] > 0) {
+            x = 870.0;
+            y = 198.0;
+            [self drawPositiveAnimationAtX:x andAtY:y];
+        } else if ([[computer.cards objectAtIndex:number] magicsSelf] < 0 & computer.magics > 1) {
+            x = 870.0;
+            y = 198.0;
+            [self drawNegativeAnimationAtX:x andAtY:y];
+        }
+        
+        if ([[player.cards objectAtIndex:number] dungeonsSelf] > 0) {
+            x = 870.0;
+            y = 318.0;
+            [self drawPositiveAnimationAtX:x andAtY:y];
+        } else if ([[computer.cards objectAtIndex:number] dungeonsSelf] < 0 & computer.dungeons > 1) {
+            x = 870.0;
+            y = 318.0;
+            [self drawNegativeAnimationAtX:x andAtY:y];
+        }
+        
+        if ([[computer.cards objectAtIndex:number] quarriesEnemy] > 0) {
+            x = -10.0;
+            y = 78.0;
+            [self drawPositiveAnimationAtX:x andAtY:y];
+        } else if ([[computer.cards objectAtIndex:number] quarriesEnemy] < 0 & player.quarries > 1) {
+            x = -10.0;
+            y = 78.0;
+            [self drawNegativeAnimationAtX:x andAtY:y];
+        }
+        
+        if ([[computer.cards objectAtIndex:number] magicsEnemy] > 0) {
+            x = -10.0;
+            y = 198.0;
+            [self drawPositiveAnimationAtX:x andAtY:y];
+        } else if ([[computer.cards objectAtIndex:number] magicsEnemy] < 0 & player.magics > 1) {
+            x = -10.0;
+            y = 198.0;
+            [self drawNegativeAnimationAtX:x andAtY:y];
+        }
+        
+        if ([[computer.cards objectAtIndex:number] dungeonsEnemy] > 0) {
+            x = -10.0;
+            y = 318.0;
+            [self drawPositiveAnimationAtX:x andAtY:y];
+        } else if ([[computer.cards objectAtIndex:number] dungeonsEnemy] < 0 & player.dungeons > 1) {
+            x = -10.0;
+            y = 318.0;
+            [self drawNegativeAnimationAtX:x andAtY:y];
+        }
+        
+        
+        if ([[computer.cards objectAtIndex:number] bricksSelf] > 0) {
+            x = 866.0;
+            y = 108.0;
+            [self drawPositiveAnimationAtX:x andAtY:y];
+        } else if ([[computer.cards objectAtIndex:number] bricksSelf] < 0 & computer.bricks > 0) {
+            x = 866.0;
+            y = 108.0;
+            [self drawNegativeAnimationAtX:x andAtY:y];
+        }
+        
+        if ([[computer.cards objectAtIndex:number] gemsSelf] > 0) {
+            x = 866.0;
+            y = 226.0;
+            [self drawPositiveAnimationAtX:x andAtY:y];
+        } else if ([[computer.cards objectAtIndex:number] gemsSelf] < 0 & computer.gems > 0) {
+            x = 866.0;
+            y = 226.0;
+            [self drawNegativeAnimationAtX:x andAtY:y];
+        }
+        
+        if ([[computer.cards objectAtIndex:number] recruitsSelf] > 0) {
+            x = 866.0;
+            y = 346.0;
+            [self drawPositiveAnimationAtX:x andAtY:y];
+        } else if ([[computer.cards objectAtIndex:number] recruitsSelf] < 0 & computer.recruits > 0) {
+            x = 866.0;
+            y = 346.0;
+            [self drawNegativeAnimationAtX:x andAtY:y];
+        }
+        
+        if ([[computer.cards objectAtIndex:number] bricksEnemy] > 0) {
+            x = -16.0;
+            y = 108.0;
+            [self drawPositiveAnimationAtX:x andAtY:y];
+        } else if ([[computer.cards objectAtIndex:number] bricksEnemy] < 0 & player.bricks > 0) {
+            x = -16.0;
+            y = 108.0;
+            [self drawNegativeAnimationAtX:x andAtY:y];
+        }
+        
+        if ([[computer.cards objectAtIndex:number] gemsEnemy] > 0) {
+            x = -16.0;
+            y = 226.0;
+            [self drawPositiveAnimationAtX:x andAtY:y];
+        } else if ([[computer.cards objectAtIndex:number] gemsEnemy] < 0 & player.gems > 0) {
+            x = -16.0;
+            y = 226.0;
+            [self drawNegativeAnimationAtX:x andAtY:y];
+        }
+        
+        if ([[computer.cards objectAtIndex:number] recruitsEnemy] > 0) {
+            x = -16.0;
+            y = 346.0;
+            [self drawPositiveAnimationAtX:x andAtY:y];
+        } else if ([[computer.cards objectAtIndex:number] recruitsEnemy] < 0 & player.recruits > 0) {
+            x = -16.0;
+            y = 346.0;
+            [self drawNegativeAnimationAtX:x andAtY:y];
+        }
+        
+        if ([[computer.cards objectAtIndex:number] towerSelf] > 0) {
+            x = 776.0;
+            y = 466.0;
+            [self drawPositiveAnimationAtX:x andAtY:y];
+        } else if ([[computer.cards objectAtIndex:number] towerSelf] < 0) {
+            x = 776.0;
+            y = 466.0;
+            [self drawNegativeAnimationAtX:x andAtY:y];
+        }
+        
+        if ([[computer.cards objectAtIndex:number] wallSelf] > 0) {
+            x = 681.0;
+            y = 466.0;
+            [self drawPositiveAnimationAtX:x andAtY:y];
+        } else if ([[computer.cards objectAtIndex:number] wallSelf] < 0) {
+            x = 681.0;
+            y = 466.0;
+            [self drawNegativeAnimationAtX:x andAtY:y];
+        }
+        
+        if ([[computer.cards objectAtIndex:number] towerEnemy] > 0) {
+            x = 149.0;
+            y = 466.0;
+            [self drawPositiveAnimationAtX:x andAtY:y];
+        } else if ([[computer.cards objectAtIndex:number] towerEnemy] < 0) {
+            x = 149.0;
+            y = 466.0;
+            [self drawNegativeAnimationAtX:x andAtY:y];
+        }
+        
+        if ([[computer.cards objectAtIndex:number] wallEnemy] > 0) {
+            x = 253.0;
+            y = 466.0;
+            [self drawPositiveAnimationAtX:x andAtY:y];
+        } else if ([[computer.cards objectAtIndex:number] wallEnemy] < 0) {
+            x = 253.0;
+            y = 466.0;
+            [self drawNegativeAnimationAtX:x andAtY:y];
+        }
+
+    } else {
+        NSLog(@"wrongAnimationConfigurating");
+    }
+}
+
+- (void)drawPositiveAnimationAtX:(float)x andAtY:(float)y
+{
+    //NSLog(@"+++drawPositive");
+    UIImageView *healImage = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, 96, 96)];
+    healImage.animationImages = @[[UIImage imageNamed:@"Magic01.png"],
+                                  [UIImage imageNamed:@"Magic02.png"],
+                                  [UIImage imageNamed:@"Magic03.png"],
+                                  [UIImage imageNamed:@"Magic04.png"],
+                                  [UIImage imageNamed:@"Magic05.png"],
+                                  [UIImage imageNamed:@"Magic06.png"],
+                                  [UIImage imageNamed:@"Magic07.png"],
+                                  [UIImage imageNamed:@"Magic08.png"],
+                                  [UIImage imageNamed:@"Magic09.png"],
+                                  [UIImage imageNamed:@"Magic10.png"],
+                                  [UIImage imageNamed:@"Magic11.png"],
+                                  [UIImage imageNamed:@"Magic12.png"],
+                                  [UIImage imageNamed:@"Magic13.png"],
+                                  [UIImage imageNamed:@"Magic14.png"],
+                                  [UIImage imageNamed:@"Magic15.png"],
+                                  [UIImage imageNamed:@"Magic16.png"],
+                                  [UIImage imageNamed:@"Magic17.png"],
+                                  [UIImage imageNamed:@"Magic18.png"],
+                                  [UIImage imageNamed:@"Magic19.png"],
+                                  [UIImage imageNamed:@"Magic20.png"]];
+    healImage.animationDuration = 1.2;
+    healImage.animationRepeatCount = 1;
+    [healImage startAnimating];
+    [self.view addSubview:healImage];
+}
+
+- (void)drawNegativeAnimationAtX:(float)x andAtY:(float)y
+{
+    //NSLog(@"---drawNegative");/*
+    UIImageView *healImage = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, 96, 96)];
+    healImage.animationImages = @[[UIImage imageNamed:@"Fire01.png"],
+                                  [UIImage imageNamed:@"Fire02.png"],
+                                  [UIImage imageNamed:@"Fire03.png"],
+                                  [UIImage imageNamed:@"Fire04.png"],
+                                  [UIImage imageNamed:@"Fire05.png"],
+                                  [UIImage imageNamed:@"Fire06.png"],
+                                  [UIImage imageNamed:@"Fire07.png"],
+                                  [UIImage imageNamed:@"Fire08.png"],
+                                  [UIImage imageNamed:@"Fire09.png"],
+                                  [UIImage imageNamed:@"Fire10.png"],
+                                  [UIImage imageNamed:@"Fire11.png"],
+                                  [UIImage imageNamed:@"Fire12.png"],
+                                  [UIImage imageNamed:@"Fire13.png"],
+                                  [UIImage imageNamed:@"Fire14.png"],
+                                  [UIImage imageNamed:@"Fire15.png"],
+                                  [UIImage imageNamed:@"Fire16.png"],
+                                  [UIImage imageNamed:@"Fire17.png"],
+                                  [UIImage imageNamed:@"Fire18.png"],
+                                  [UIImage imageNamed:@"Fire19.png"],
+                                  [UIImage imageNamed:@"Fire20.png"]];
+    healImage.animationDuration = 1.2;
+    healImage.animationRepeatCount = 1;
+    [healImage startAnimating];
+    [self.view addSubview:healImage];
 }
 
 @end
