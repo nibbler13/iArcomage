@@ -354,6 +354,32 @@
 		74F5A3DC166E618E004B872A /* NotAvailable.png in Resources */ = {isa = PBXBuildFile; fileRef = 74F5A3DA166E618E004B872A /* NotAvailable.png */; };
 		74F5A3DD166E618E004B872A /* NotAvailable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74F5A3DB166E618E004B872A /* NotAvailable@2x.png */; };
 		74F7366816425B9800D7A0E6 /* CardsList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74F7366716425B9800D7A0E6 /* CardsList.plist */; };
+		74FD72CA16824EC3002CF2C5 /* Amethyst.png in Resources */ = {isa = PBXBuildFile; fileRef = 74FD72B016824EC3002CF2C5 /* Amethyst.png */; };
+		74FD72CB16824EC3002CF2C5 /* Amethyst@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74FD72B116824EC3002CF2C5 /* Amethyst@2x.png */; };
+		74FD72CC16824EC3002CF2C5 /* Apprentice.png in Resources */ = {isa = PBXBuildFile; fileRef = 74FD72B216824EC3002CF2C5 /* Apprentice.png */; };
+		74FD72CD16824EC3002CF2C5 /* Apprentice@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74FD72B316824EC3002CF2C5 /* Apprentice@2x.png */; };
+		74FD72CE16824EC3002CF2C5 /* Bag of Baubles.png in Resources */ = {isa = PBXBuildFile; fileRef = 74FD72B416824EC3002CF2C5 /* Bag of Baubles.png */; };
+		74FD72CF16824EC3002CF2C5 /* Bag of Baubles@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74FD72B516824EC3002CF2C5 /* Bag of Baubles@2x.png */; };
+		74FD72D016824EC3002CF2C5 /* Basic Wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 74FD72B616824EC3002CF2C5 /* Basic Wall.png */; };
+		74FD72D116824EC3002CF2C5 /* Basic Wall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74FD72B716824EC3002CF2C5 /* Basic Wall@2x.png */; };
+		74FD72D216824EC3002CF2C5 /* Berserker.png in Resources */ = {isa = PBXBuildFile; fileRef = 74FD72B816824EC3002CF2C5 /* Berserker.png */; };
+		74FD72D316824EC3002CF2C5 /* Berserker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74FD72B916824EC3002CF2C5 /* Berserker@2x.png */; };
+		74FD72D416824EC3002CF2C5 /* Big Wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 74FD72BA16824EC3002CF2C5 /* Big Wall.png */; };
+		74FD72D516824EC3002CF2C5 /* Big Wall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74FD72BB16824EC3002CF2C5 /* Big Wall@2x.png */; };
+		74FD72D616824EC3002CF2C5 /* Brick Shortage.png in Resources */ = {isa = PBXBuildFile; fileRef = 74FD72BC16824EC3002CF2C5 /* Brick Shortage.png */; };
+		74FD72D716824EC3002CF2C5 /* Brick Shortage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74FD72BD16824EC3002CF2C5 /* Brick Shortage@2x.png */; };
+		74FD72D816824EC3002CF2C5 /* Collapse!.png in Resources */ = {isa = PBXBuildFile; fileRef = 74FD72BE16824EC3002CF2C5 /* Collapse!.png */; };
+		74FD72D916824EC3002CF2C5 /* Collapse!@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74FD72BF16824EC3002CF2C5 /* Collapse!@2x.png */; };
+		74FD72DA16824EC3002CF2C5 /* Copping the Tech.png in Resources */ = {isa = PBXBuildFile; fileRef = 74FD72C016824EC3002CF2C5 /* Copping the Tech.png */; };
+		74FD72DB16824EC3002CF2C5 /* Copping the Tech@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74FD72C116824EC3002CF2C5 /* Copping the Tech@2x.png */; };
+		74FD72DC16824EC3002CF2C5 /* Corrosion Cloud.png in Resources */ = {isa = PBXBuildFile; fileRef = 74FD72C216824EC3002CF2C5 /* Corrosion Cloud.png */; };
+		74FD72DD16824EC3002CF2C5 /* Corrosion Cloud@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74FD72C316824EC3002CF2C5 /* Corrosion Cloud@2x.png */; };
+		74FD72DE16824EC3002CF2C5 /* Crystal Matrix.png in Resources */ = {isa = PBXBuildFile; fileRef = 74FD72C416824EC3002CF2C5 /* Crystal Matrix.png */; };
+		74FD72DF16824EC3002CF2C5 /* Crystal Matrix@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74FD72C516824EC3002CF2C5 /* Crystal Matrix@2x.png */; };
+		74FD72E016824EC3002CF2C5 /* Crystal Shield.png in Resources */ = {isa = PBXBuildFile; fileRef = 74FD72C616824EC3002CF2C5 /* Crystal Shield.png */; };
+		74FD72E116824EC3002CF2C5 /* Crystal Shield@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74FD72C716824EC3002CF2C5 /* Crystal Shield@2x.png */; };
+		74FD72E216824EC3002CF2C5 /* Crystalize.png in Resources */ = {isa = PBXBuildFile; fileRef = 74FD72C816824EC3002CF2C5 /* Crystalize.png */; };
+		74FD72E316824EC3002CF2C5 /* Crystalize@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74FD72C916824EC3002CF2C5 /* Crystalize@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -718,6 +744,32 @@
 		74F5A3DA166E618E004B872A /* NotAvailable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotAvailable.png; sourceTree = "<group>"; };
 		74F5A3DB166E618E004B872A /* NotAvailable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotAvailable@2x.png"; sourceTree = "<group>"; };
 		74F7366716425B9800D7A0E6 /* CardsList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CardsList.plist; sourceTree = "<group>"; };
+		74FD72B016824EC3002CF2C5 /* Amethyst.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Amethyst.png; sourceTree = "<group>"; };
+		74FD72B116824EC3002CF2C5 /* Amethyst@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Amethyst@2x.png"; sourceTree = "<group>"; };
+		74FD72B216824EC3002CF2C5 /* Apprentice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Apprentice.png; sourceTree = "<group>"; };
+		74FD72B316824EC3002CF2C5 /* Apprentice@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Apprentice@2x.png"; sourceTree = "<group>"; };
+		74FD72B416824EC3002CF2C5 /* Bag of Baubles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bag of Baubles.png"; sourceTree = "<group>"; };
+		74FD72B516824EC3002CF2C5 /* Bag of Baubles@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bag of Baubles@2x.png"; sourceTree = "<group>"; };
+		74FD72B616824EC3002CF2C5 /* Basic Wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Basic Wall.png"; sourceTree = "<group>"; };
+		74FD72B716824EC3002CF2C5 /* Basic Wall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Basic Wall@2x.png"; sourceTree = "<group>"; };
+		74FD72B816824EC3002CF2C5 /* Berserker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Berserker.png; sourceTree = "<group>"; };
+		74FD72B916824EC3002CF2C5 /* Berserker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Berserker@2x.png"; sourceTree = "<group>"; };
+		74FD72BA16824EC3002CF2C5 /* Big Wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Big Wall.png"; sourceTree = "<group>"; };
+		74FD72BB16824EC3002CF2C5 /* Big Wall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Big Wall@2x.png"; sourceTree = "<group>"; };
+		74FD72BC16824EC3002CF2C5 /* Brick Shortage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Brick Shortage.png"; sourceTree = "<group>"; };
+		74FD72BD16824EC3002CF2C5 /* Brick Shortage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Brick Shortage@2x.png"; sourceTree = "<group>"; };
+		74FD72BE16824EC3002CF2C5 /* Collapse!.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Collapse!.png"; sourceTree = "<group>"; };
+		74FD72BF16824EC3002CF2C5 /* Collapse!@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Collapse!@2x.png"; sourceTree = "<group>"; };
+		74FD72C016824EC3002CF2C5 /* Copping the Tech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Copping the Tech.png"; sourceTree = "<group>"; };
+		74FD72C116824EC3002CF2C5 /* Copping the Tech@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Copping the Tech@2x.png"; sourceTree = "<group>"; };
+		74FD72C216824EC3002CF2C5 /* Corrosion Cloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Corrosion Cloud.png"; sourceTree = "<group>"; };
+		74FD72C316824EC3002CF2C5 /* Corrosion Cloud@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Corrosion Cloud@2x.png"; sourceTree = "<group>"; };
+		74FD72C416824EC3002CF2C5 /* Crystal Matrix.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Crystal Matrix.png"; sourceTree = "<group>"; };
+		74FD72C516824EC3002CF2C5 /* Crystal Matrix@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Crystal Matrix@2x.png"; sourceTree = "<group>"; };
+		74FD72C616824EC3002CF2C5 /* Crystal Shield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Crystal Shield.png"; sourceTree = "<group>"; };
+		74FD72C716824EC3002CF2C5 /* Crystal Shield@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Crystal Shield@2x.png"; sourceTree = "<group>"; };
+		74FD72C816824EC3002CF2C5 /* Crystalize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Crystalize.png; sourceTree = "<group>"; };
+		74FD72C916824EC3002CF2C5 /* Crystalize@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Crystalize@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1198,6 +1250,7 @@
 		74C69576167BAEB50083763D /* StartViewController */ = {
 			isa = PBXGroup;
 			children = (
+				74FD72AF16824EB3002CF2C5 /* CardImages */,
 				742D2B5A167FB68E0023E024 /* AnimationFirework */,
 				742D2AF5167FAF780023E024 /* AnimationHeal */,
 				742D2AA4167FA1550023E024 /* AnimationFire */,
@@ -1237,6 +1290,39 @@
 				74364A991678792A00C7AA42 /* TowerWidth@2x.png */,
 			);
 			name = StartViewController;
+			sourceTree = "<group>";
+		};
+		74FD72AF16824EB3002CF2C5 /* CardImages */ = {
+			isa = PBXGroup;
+			children = (
+				74FD72B016824EC3002CF2C5 /* Amethyst.png */,
+				74FD72B116824EC3002CF2C5 /* Amethyst@2x.png */,
+				74FD72B216824EC3002CF2C5 /* Apprentice.png */,
+				74FD72B316824EC3002CF2C5 /* Apprentice@2x.png */,
+				74FD72B416824EC3002CF2C5 /* Bag of Baubles.png */,
+				74FD72B516824EC3002CF2C5 /* Bag of Baubles@2x.png */,
+				74FD72B616824EC3002CF2C5 /* Basic Wall.png */,
+				74FD72B716824EC3002CF2C5 /* Basic Wall@2x.png */,
+				74FD72B816824EC3002CF2C5 /* Berserker.png */,
+				74FD72B916824EC3002CF2C5 /* Berserker@2x.png */,
+				74FD72BA16824EC3002CF2C5 /* Big Wall.png */,
+				74FD72BB16824EC3002CF2C5 /* Big Wall@2x.png */,
+				74FD72BC16824EC3002CF2C5 /* Brick Shortage.png */,
+				74FD72BD16824EC3002CF2C5 /* Brick Shortage@2x.png */,
+				74FD72BE16824EC3002CF2C5 /* Collapse!.png */,
+				74FD72BF16824EC3002CF2C5 /* Collapse!@2x.png */,
+				74FD72C016824EC3002CF2C5 /* Copping the Tech.png */,
+				74FD72C116824EC3002CF2C5 /* Copping the Tech@2x.png */,
+				74FD72C216824EC3002CF2C5 /* Corrosion Cloud.png */,
+				74FD72C316824EC3002CF2C5 /* Corrosion Cloud@2x.png */,
+				74FD72C416824EC3002CF2C5 /* Crystal Matrix.png */,
+				74FD72C516824EC3002CF2C5 /* Crystal Matrix@2x.png */,
+				74FD72C616824EC3002CF2C5 /* Crystal Shield.png */,
+				74FD72C716824EC3002CF2C5 /* Crystal Shield@2x.png */,
+				74FD72C816824EC3002CF2C5 /* Crystalize.png */,
+				74FD72C916824EC3002CF2C5 /* Crystalize@2x.png */,
+			);
+			name = CardImages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1620,6 +1706,32 @@
 				742D2BA8167FB6A90023E024 /* Firework19@2x.png in Resources */,
 				742D2BA9167FB6A90023E024 /* Firework20.png in Resources */,
 				742D2BAA167FB6A90023E024 /* Firework20@2x.png in Resources */,
+				74FD72CA16824EC3002CF2C5 /* Amethyst.png in Resources */,
+				74FD72CB16824EC3002CF2C5 /* Amethyst@2x.png in Resources */,
+				74FD72CC16824EC3002CF2C5 /* Apprentice.png in Resources */,
+				74FD72CD16824EC3002CF2C5 /* Apprentice@2x.png in Resources */,
+				74FD72CE16824EC3002CF2C5 /* Bag of Baubles.png in Resources */,
+				74FD72CF16824EC3002CF2C5 /* Bag of Baubles@2x.png in Resources */,
+				74FD72D016824EC3002CF2C5 /* Basic Wall.png in Resources */,
+				74FD72D116824EC3002CF2C5 /* Basic Wall@2x.png in Resources */,
+				74FD72D216824EC3002CF2C5 /* Berserker.png in Resources */,
+				74FD72D316824EC3002CF2C5 /* Berserker@2x.png in Resources */,
+				74FD72D416824EC3002CF2C5 /* Big Wall.png in Resources */,
+				74FD72D516824EC3002CF2C5 /* Big Wall@2x.png in Resources */,
+				74FD72D616824EC3002CF2C5 /* Brick Shortage.png in Resources */,
+				74FD72D716824EC3002CF2C5 /* Brick Shortage@2x.png in Resources */,
+				74FD72D816824EC3002CF2C5 /* Collapse!.png in Resources */,
+				74FD72D916824EC3002CF2C5 /* Collapse!@2x.png in Resources */,
+				74FD72DA16824EC3002CF2C5 /* Copping the Tech.png in Resources */,
+				74FD72DB16824EC3002CF2C5 /* Copping the Tech@2x.png in Resources */,
+				74FD72DC16824EC3002CF2C5 /* Corrosion Cloud.png in Resources */,
+				74FD72DD16824EC3002CF2C5 /* Corrosion Cloud@2x.png in Resources */,
+				74FD72DE16824EC3002CF2C5 /* Crystal Matrix.png in Resources */,
+				74FD72DF16824EC3002CF2C5 /* Crystal Matrix@2x.png in Resources */,
+				74FD72E016824EC3002CF2C5 /* Crystal Shield.png in Resources */,
+				74FD72E116824EC3002CF2C5 /* Crystal Shield@2x.png in Resources */,
+				74FD72E216824EC3002CF2C5 /* Crystalize.png in Resources */,
+				74FD72E316824EC3002CF2C5 /* Crystalize@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

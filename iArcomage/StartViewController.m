@@ -1928,6 +1928,10 @@ withCardDescriptionLabel:self.playersCard5Description
     withBackground:(UIImageView*)background
     withNotAvailableView:(UIImageView*)view
 {
+    
+    
+    UIImageView *tempImage = (UIImageView*)[self.view viewWithTag:3000+cardNumber];
+    [tempImage removeFromSuperview];
 
     if ([[[[player cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Grey"]) {
         background.image = [UIImage imageNamed:@"CardBlank_Red"];
@@ -1938,6 +1942,12 @@ withCardDescriptionLabel:self.playersCard5Description
     if ([[[[player cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Green"]) {
         background.image = [UIImage imageNamed:@"CardBlank_Green"];
     }
+    
+    UIImageView *cardImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[[player cards] objectAtIndex:cardNumber] cardName]]];
+    cardImage.tag = 3000 + cardNumber;
+    cardImage.center = CGPointMake(view.center.x, view.center.y - 30);
+    [view insertSubview:cardImage aboveSubview:background];
+    
     cardName.text = [[[player cards] objectAtIndex:cardNumber] cardName];
     cardDescription.text = [[[player cards] objectAtIndex:cardNumber] cardDescription];
     cardCost.text = [NSString stringWithFormat:@"%d",[[[player cards] objectAtIndex:cardNumber] cardCost]];
@@ -1959,6 +1969,9 @@ withCardDescriptionLabel:(UILabel*)cardDescription
              withNotAvailableView:(UIImageView*)view
 {
     
+    UIImageView *tempImage = (UIImageView*)[self.view viewWithTag:3000+cardNumber];
+    [tempImage removeFromSuperview];
+    
     //NSLog(@"--------ConfiguringComputerCard: %d, %@", cardNumber, [[[computer cards] objectAtIndex:cardNumber] cardName]);
     
     if ([[[[computer cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Grey"]) {
@@ -1970,6 +1983,12 @@ withCardDescriptionLabel:(UILabel*)cardDescription
     if ([[[[computer cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Green"]) {
         background.image = [UIImage imageNamed:@"CardBlank_Green"];
     }
+    
+    UIImageView *cardImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[[computer cards] objectAtIndex:cardNumber] cardName]]];
+    cardImage.tag = 3000 + cardNumber;
+    cardImage.center = CGPointMake(view.center.x, view.center.y - 30);
+    [view insertSubview:cardImage aboveSubview:background];
+    
     cardName.text = [[[computer cards] objectAtIndex:cardNumber] cardName];
     cardDescription.text = [[[computer cards] objectAtIndex:cardNumber] cardDescription];
     cardCost.text = [NSString stringWithFormat:@"%d",[[[computer cards] objectAtIndex:cardNumber] cardCost]];
@@ -2343,33 +2362,7 @@ withCardDescriptionLabel:(UILabel*)cardDescription
 
 - (void)drawPositiveAnimationAtX:(float)x andAtY:(float)y
 {
-    //NSLog(@"+++drawPositive");
     UIImageView *healImage = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, 96, 96)];
-    /*healImage.animationImages = @[[UIImage imageNamed:@"Heal01.png"],
-                                  [UIImage imageNamed:@"Heal02.png"],
-                                  [UIImage imageNamed:@"Heal03.png"],
-                                  [UIImage imageNamed:@"Heal04.png"],
-                                  [UIImage imageNamed:@"Heal05.png"],
-                                  [UIImage imageNamed:@"Heal06.png"],
-                                  [UIImage imageNamed:@"Heal07.png"],
-                                  [UIImage imageNamed:@"Heal08.png"],
-                                  [UIImage imageNamed:@"Heal09.png"],
-                                  [UIImage imageNamed:@"Heal10.png"],
-                                  [UIImage imageNamed:@"Heal11.png"],
-                                  [UIImage imageNamed:@"Heal12.png"],
-                                  [UIImage imageNamed:@"Heal13.png"],
-                                  [UIImage imageNamed:@"Heal14.png"],
-                                  [UIImage imageNamed:@"Heal15.png"],
-                                  [UIImage imageNamed:@"Heal16.png"],
-                                  [UIImage imageNamed:@"Heal17.png"],
-                                  [UIImage imageNamed:@"Heal18.png"],
-                                  [UIImage imageNamed:@"Heal19.png"],
-                                  [UIImage imageNamed:@"Heal20.png"],
-                                  [UIImage imageNamed:@"Heal21.png"],
-                                  [UIImage imageNamed:@"Heal22.png"],
-                                  [UIImage imageNamed:@"Heal23.png"],
-                                  [UIImage imageNamed:@"Heal24.png"],
-                                  [UIImage imageNamed:@"Heal25.png"]];*/
     
     healImage.animationImages = @[[UIImage imageNamed:@"Firework01.png"],
                                   [UIImage imageNamed:@"Firework02.png"],
@@ -2399,7 +2392,6 @@ withCardDescriptionLabel:(UILabel*)cardDescription
 
 - (void)drawNegativeAnimationAtX:(float)x andAtY:(float)y
 {
-    //NSLog(@"---drawNegative");/*
     UIImageView *healImage = [[UIImageView alloc] initWithFrame:CGRectMake(x, y, 96, 96)];
     healImage.animationImages = @[[UIImage imageNamed:@"Fire01.png"],
                                   [UIImage imageNamed:@"Fire02.png"],
