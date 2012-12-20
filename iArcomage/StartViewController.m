@@ -61,6 +61,13 @@
 @property (weak, nonatomic) IBOutlet UIImageView *card4Background;
 @property (weak, nonatomic) IBOutlet UIImageView *card5Background;
 
+@property (weak, nonatomic) IBOutlet UIImageView *card0Image;
+@property (weak, nonatomic) IBOutlet UIImageView *card1Image;
+@property (weak, nonatomic) IBOutlet UIImageView *card2Image;
+@property (weak, nonatomic) IBOutlet UIImageView *card3Image;
+@property (weak, nonatomic) IBOutlet UIImageView *card4Image;
+@property (weak, nonatomic) IBOutlet UIImageView *card5Image;
+
 @property (weak, nonatomic) IBOutlet UIView *card0View;
 @property (weak, nonatomic) IBOutlet UIView *card1View;
 @property (weak, nonatomic) IBOutlet UIView *card2View;
@@ -85,6 +92,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *playedCard2Desription;
 @property (weak, nonatomic) IBOutlet UILabel *playedCard2Cost;
 @property (weak, nonatomic) IBOutlet UILabel *playedCard2Name;
+
+@property (weak, nonatomic) IBOutlet UIImageView *playedCard0Image;
+@property (weak, nonatomic) IBOutlet UIImageView *playedCard1Image;
+@property (weak, nonatomic) IBOutlet UIImageView *playedCard2Image;
 
 @property (weak, nonatomic) IBOutlet UIImageView *computerCard0;
 @property (weak, nonatomic) IBOutlet UIImageView *computerCard1;
@@ -1004,7 +1015,8 @@
                             withCardDescriptionLabel:self.playersCard0Description
                                    withCardCostLabel:self.playersCard0Cost
                                       withBackground:self.card0Background
-                                withNotAvailableView:self.card0NotAvailable];
+                                withNotAvailableView:self.card0NotAvailable
+                          withCardImage:self.card0Image];
                          
                          if (computer.playedCard == 0) {
                              self.card0View.center = CGPointMake(self.computerCard0.center.x, self.computerCard0.center.y);
@@ -1344,7 +1356,8 @@
            withCardDescriptionLabel:self.playedCard0Desription
                   withCardCostLabel:self.playedCard0Cost
                      withBackground:self.playedCard0Background
-                           withNotAvailableView:nil];
+                           withNotAvailableView:nil
+         withCardImage:self.playedCard0Image];
         
         self.card0View.center = CGPointMake(400, 110);
         
@@ -1366,7 +1379,8 @@
            withCardDescriptionLabel:self.playedCard1Desription
                   withCardCostLabel:self.playedCard1Cost
                      withBackground:self.playedCard1Background
-                           withNotAvailableView:nil];
+                           withNotAvailableView:nil
+         withCardImage:self.playedCard1Image];
         
         self.card0View.center = CGPointMake(566, 110);
         
@@ -1388,7 +1402,8 @@
            withCardDescriptionLabel:self.playedCard2Desription
                   withCardCostLabel:self.playedCard2Cost
                      withBackground:self.playedCard2Background
-                           withNotAvailableView:nil];
+                           withNotAvailableView:nil
+         withCardImage:self.playedCard2Image];
         
         self.card0View.center = CGPointMake(732, 110);
         
@@ -1435,7 +1450,8 @@
                                 withCardDescriptionLabel:self.playedCard2Desription
                                        withCardCostLabel:self.playedCard2Cost
                                           withBackground:self.playedCard2Background
-                                                          withNotAvailableView:nil];
+                                                          withNotAvailableView:nil
+                              withCardImage:self.playedCard2Image];
                              
                              if (computer.isCardBeenDiscarded && number == computer.playedCard) {
                                  UIImageView *discardLabel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"discard_label"]];
@@ -1462,7 +1478,8 @@
            withCardDescriptionLabel:self.playedCard0Desription
                   withCardCostLabel:self.playedCard0Cost
                      withBackground:self.playedCard0Background
-                       withNotAvailableView:nil];
+                       withNotAvailableView:nil
+         withCardImage:self.playedCard0Image];
         
         cardView.center = CGPointMake(400, 110);
         
@@ -1482,7 +1499,8 @@
            withCardDescriptionLabel:self.playedCard1Desription
                   withCardCostLabel:self.playedCard1Cost
                     withBackground:self.playedCard1Background
-                      withNotAvailableView:nil];
+                      withNotAvailableView:nil
+         withCardImage:self.playedCard1Image];
         
         cardView.center = CGPointMake(566, 110);
         
@@ -1502,7 +1520,8 @@
            withCardDescriptionLabel:self.playedCard2Desription
                   withCardCostLabel:self.playedCard2Cost
                      withBackground:self.playedCard2Background
-                       withNotAvailableView:nil];
+                       withNotAvailableView:nil
+         withCardImage:self.playedCard2Image];
         
         cardView.center = CGPointMake(732, 110);
         
@@ -1548,7 +1567,8 @@
                                 withCardDescriptionLabel:self.playedCard2Desription
                                        withCardCostLabel:self.playedCard2Cost
                                           withBackground:self.playedCard2Background
-                                            withNotAvailableView:nil];
+                                            withNotAvailableView:nil
+                             withCardImage:self.playedCard2Image];
                              
                              if (player.isCardHasBeenDiscarded) {
                                  UIImageView *discardLabel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"discard_label"]];
@@ -1845,7 +1865,8 @@
 withCardDescriptionLabel:self.playersCard0Description
        withCardCostLabel:self.playersCard0Cost
           withBackground:self.card0Background
-            withNotAvailableView:self.card0NotAvailable];
+            withNotAvailableView:self.card0NotAvailable
+     withCardImage:self.card0Image];
 
 }
 
@@ -1856,7 +1877,8 @@ withCardDescriptionLabel:self.playersCard0Description
 withCardDescriptionLabel:self.playersCard1Description
        withCardCostLabel:self.playersCard1Cost
          withBackground:self.card1Background
-           withNotAvailableView:self.card1NotAvailable];
+           withNotAvailableView:self.card1NotAvailable
+     withCardImage:self.card1Image];
 
 }
 
@@ -1867,7 +1889,8 @@ withCardDescriptionLabel:self.playersCard1Description
 withCardDescriptionLabel:self.playersCard2Description
        withCardCostLabel:self.playersCard2Cost
          withBackground:self.card2Background
-           withNotAvailableView:self.card2NotAvailable];
+           withNotAvailableView:self.card2NotAvailable
+     withCardImage:self.card2Image];
 
 }
 
@@ -1878,7 +1901,8 @@ withCardDescriptionLabel:self.playersCard2Description
 withCardDescriptionLabel:self.playersCard3Description
        withCardCostLabel:self.playersCard3Cost
          withBackground:self.card3Background
-           withNotAvailableView:self.card3NotAvailable];
+           withNotAvailableView:self.card3NotAvailable
+     withCardImage:self.card3Image];
 }
 
 - (void)updateCard4
@@ -1888,7 +1912,8 @@ withCardDescriptionLabel:self.playersCard3Description
 withCardDescriptionLabel:self.playersCard4Description
        withCardCostLabel:self.playersCard4Cost
          withBackground:self.card4Background
-           withNotAvailableView:self.card4NotAvailable];
+           withNotAvailableView:self.card4NotAvailable
+     withCardImage:self.card4Image];
 }
 
 - (void)updateCard5
@@ -1898,7 +1923,8 @@ withCardDescriptionLabel:self.playersCard4Description
 withCardDescriptionLabel:self.playersCard5Description
        withCardCostLabel:self.playersCard5Cost
          withBackground:self.card5Background
-           withNotAvailableView:self.card5NotAvailable];
+           withNotAvailableView:self.card5NotAvailable
+     withCardImage:self.card5Image];
 }
 
 - (BOOL)isCardAvailableToPlay:(NSInteger)cardNumber
@@ -1927,12 +1953,8 @@ withCardDescriptionLabel:self.playersCard5Description
     withCardCostLabel:(UILabel*)cardCost
     withBackground:(UIImageView*)background
     withNotAvailableView:(UIImageView*)view
+    withCardImage:(UIImageView*)cardImage
 {
-    
-    
-    UIImageView *tempImage = (UIImageView*)[self.view viewWithTag:3000+cardNumber];
-    [tempImage removeFromSuperview];
-
     if ([[[[player cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Grey"]) {
         background.image = [UIImage imageNamed:@"CardBlank_Red"];
     }
@@ -1943,11 +1965,7 @@ withCardDescriptionLabel:self.playersCard5Description
         background.image = [UIImage imageNamed:@"CardBlank_Green"];
     }
     
-    UIImageView *cardImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[[player cards] objectAtIndex:cardNumber] cardName]]];
-    cardImage.tag = 3000 + cardNumber;
-    cardImage.center = CGPointMake(view.center.x, view.center.y - 30);
-    [view insertSubview:cardImage aboveSubview:background];
-    
+    cardImage.image = [UIImage imageNamed:[[[player cards] objectAtIndex:cardNumber] cardName]];
     cardName.text = [[[player cards] objectAtIndex:cardNumber] cardName];
     cardDescription.text = [[[player cards] objectAtIndex:cardNumber] cardDescription];
     cardCost.text = [NSString stringWithFormat:@"%d",[[[player cards] objectAtIndex:cardNumber] cardCost]];
@@ -1962,18 +1980,13 @@ withCardDescriptionLabel:self.playersCard5Description
 }
 
 - (void)configureComputerCard:(NSInteger)cardNumber
-    withCardNameLabel:(UILabel*)cardName
-withCardDescriptionLabel:(UILabel*)cardDescription
-    withCardCostLabel:(UILabel*)cardCost
-       withBackground:(UIImageView*)background
-             withNotAvailableView:(UIImageView*)view
+            withCardNameLabel:(UILabel*)cardName
+     withCardDescriptionLabel:(UILabel*)cardDescription
+            withCardCostLabel:(UILabel*)cardCost
+               withBackground:(UIImageView*)background
+         withNotAvailableView:(UIImageView*)view
+                withCardImage:(UIImageView*)cardImage
 {
-    
-    UIImageView *tempImage = (UIImageView*)[self.view viewWithTag:3000+cardNumber];
-    [tempImage removeFromSuperview];
-    
-    //NSLog(@"--------ConfiguringComputerCard: %d, %@", cardNumber, [[[computer cards] objectAtIndex:cardNumber] cardName]);
-    
     if ([[[[computer cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Grey"]) {
         background.image = [UIImage imageNamed:@"CardBlank_Red"];
     }
@@ -1984,11 +1997,8 @@ withCardDescriptionLabel:(UILabel*)cardDescription
         background.image = [UIImage imageNamed:@"CardBlank_Green"];
     }
     
-    UIImageView *cardImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[[computer cards] objectAtIndex:cardNumber] cardName]]];
-    cardImage.tag = 3000 + cardNumber;
-    cardImage.center = CGPointMake(view.center.x, view.center.y - 30);
-    [view insertSubview:cardImage aboveSubview:background];
     
+    cardImage.image = [UIImage imageNamed:[[[computer cards] objectAtIndex:cardNumber] cardName]];
     cardName.text = [[[computer cards] objectAtIndex:cardNumber] cardName];
     cardDescription.text = [[[computer cards] objectAtIndex:cardNumber] cardDescription];
     cardCost.text = [NSString stringWithFormat:@"%d",[[[computer cards] objectAtIndex:cardNumber] cardCost]];

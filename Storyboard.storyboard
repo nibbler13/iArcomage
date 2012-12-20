@@ -848,6 +848,10 @@
                                         <color key="shadowColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Amethyst.png" id="rGn-rJ-6KD">
+                                        <rect key="frame" x="7" y="31.5" width="143" height="85"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -883,6 +887,10 @@
                                         <color key="shadowColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Amethyst.png" id="iU0-7N-loe">
+                                        <rect key="frame" x="7" y="31.5" width="143" height="85"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -918,6 +926,10 @@
                                         <color key="shadowColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Amethyst.png" id="jZh-f6-p5a">
+                                        <rect key="frame" x="7" y="31.5" width="143" height="85"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -1077,6 +1089,10 @@
                                         <color key="shadowColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Amethyst.png" id="dBj-uQ-mS3">
+                                        <rect key="frame" x="6" y="32" width="143" height="85"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="NotAvailable.png" id="5TW-BT-wgk">
                                         <rect key="frame" x="0.0" y="0.0" width="156" height="208"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1116,6 +1132,10 @@
                                         <color key="shadowColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Amethyst.png" id="NiN-r7-mh1">
+                                        <rect key="frame" x="6" y="31.5" width="143" height="85"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="NotAvailable.png" id="p5u-bI-uwm">
                                         <rect key="frame" x="0.0" y="0.0" width="156" height="208"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1155,6 +1175,10 @@
                                         <color key="shadowColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Amethyst.png" id="gh4-IB-Sze">
+                                        <rect key="frame" x="7" y="31.5" width="143" height="85"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="NotAvailable.png" id="Vcz-i7-d2f">
                                         <rect key="frame" x="0.0" y="0.0" width="156" height="208"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1194,6 +1218,10 @@
                                         <color key="shadowColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Amethyst.png" id="90Z-c0-eLP">
+                                        <rect key="frame" x="6.5" y="31.5" width="143" height="85"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="NotAvailable.png" id="WBn-qW-qgf">
                                         <rect key="frame" x="0.0" y="0.0" width="156" height="208"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1233,6 +1261,10 @@
                                         <color key="shadowColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Amethyst.png" id="b3q-0M-KTf">
+                                        <rect key="frame" x="7" y="31.5" width="143" height="85"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="NotAvailable.png" id="yOC-cz-2gC">
                                         <rect key="frame" x="0.0" y="0.0" width="156" height="208"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1272,6 +1304,10 @@
                                         <color key="shadowColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Amethyst.png" id="dge-DJ-irD">
+                                        <rect key="frame" x="7" y="31.5" width="143" height="85"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="NotAvailable.png" id="VGc-mn-l73">
                                         <rect key="frame" x="0.0" y="0.0" width="156" height="208"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1316,21 +1352,27 @@
                         <outlet property="backgroundLabel" destination="NH3-WY-rRb" id="rHF-DE-fpU"/>
                         <outlet property="backgroundPicture" destination="4Zk-3i-d2k" id="AGS-QN-ZP1"/>
                         <outlet property="card0Background" destination="VFS-YF-Jlq" id="dOl-t9-ZHL"/>
+                        <outlet property="card0Image" destination="dBj-uQ-mS3" id="bZN-y2-jim"/>
                         <outlet property="card0NotAvailable" destination="5TW-BT-wgk" id="rhL-jB-gjx"/>
                         <outlet property="card0View" destination="5Kb-yA-iTx" id="mYt-im-22N"/>
                         <outlet property="card1Background" destination="5DC-CK-Jgx" id="S8N-Rp-Dqk"/>
+                        <outlet property="card1Image" destination="NiN-r7-mh1" id="4hm-Dp-W5b"/>
                         <outlet property="card1NotAvailable" destination="p5u-bI-uwm" id="P5a-9g-Sz9"/>
                         <outlet property="card1View" destination="gtG-NO-Oot" id="0lD-jl-CSF"/>
                         <outlet property="card2Background" destination="T9x-Y9-EsA" id="2Rm-rc-sYJ"/>
+                        <outlet property="card2Image" destination="gh4-IB-Sze" id="BQR-H0-aXj"/>
                         <outlet property="card2NotAvailable" destination="Vcz-i7-d2f" id="Hyn-1M-EYx"/>
                         <outlet property="card2View" destination="2Sz-TV-pJh" id="v80-IZ-2hw"/>
                         <outlet property="card3Background" destination="efT-tR-asr" id="YHs-qF-PMi"/>
+                        <outlet property="card3Image" destination="90Z-c0-eLP" id="jko-ji-xq1"/>
                         <outlet property="card3NotAvailable" destination="WBn-qW-qgf" id="Kqi-MA-0JJ"/>
                         <outlet property="card3View" destination="nbR-DE-Zr8" id="sIU-x3-uiI"/>
                         <outlet property="card4Background" destination="6k1-Q1-anH" id="eKT-5k-b9m"/>
+                        <outlet property="card4Image" destination="b3q-0M-KTf" id="E0P-GQ-93l"/>
                         <outlet property="card4NotAvailable" destination="yOC-cz-2gC" id="4YW-3S-Ees"/>
                         <outlet property="card4View" destination="Q3a-Bd-iEk" id="MbV-s9-hcg"/>
                         <outlet property="card5Background" destination="CtR-y6-lDM" id="fod-yJ-WqF"/>
+                        <outlet property="card5Image" destination="dge-DJ-irD" id="fkQ-9U-g1M"/>
                         <outlet property="card5NotAvailable" destination="VGc-mn-l73" id="tzb-mZ-VSt"/>
                         <outlet property="card5View" destination="HDB-Y4-fvZ" id="CjT-CM-Bcu"/>
                         <outlet property="computerBricks" destination="n07-cc-mdH" id="DhS-uf-Pdy"/>
@@ -1355,16 +1397,19 @@
                         <outlet property="playedCard0Background" destination="fwL-vn-wlW" id="znG-WS-7UJ"/>
                         <outlet property="playedCard0Cost" destination="enO-cj-WAW" id="pCq-lx-KnY"/>
                         <outlet property="playedCard0Desription" destination="61G-x7-eyh" id="nsB-za-NCv"/>
+                        <outlet property="playedCard0Image" destination="rGn-rJ-6KD" id="tey-Z7-V4h"/>
                         <outlet property="playedCard0Name" destination="NnX-TM-fjq" id="29d-Px-Dze"/>
                         <outlet property="playedCard0View" destination="O2s-1b-lfP" id="zht-8n-qY4"/>
                         <outlet property="playedCard1Background" destination="9ZM-t1-QdY" id="nkf-6U-7AM"/>
                         <outlet property="playedCard1Cost" destination="Keo-d9-YHO" id="C4I-TQ-yuM"/>
                         <outlet property="playedCard1Desription" destination="khd-yh-OIz" id="1pt-SI-fHg"/>
+                        <outlet property="playedCard1Image" destination="iU0-7N-loe" id="AbQ-du-Q3g"/>
                         <outlet property="playedCard1Name" destination="GZd-gR-pTT" id="jo1-qP-VKN"/>
                         <outlet property="playedCard1View" destination="33U-4M-ww6" id="MsI-07-3Lo"/>
                         <outlet property="playedCard2Background" destination="wcj-cN-sQf" id="bYE-Bg-CJF"/>
                         <outlet property="playedCard2Cost" destination="CmM-Gg-JaP" id="WdU-gg-m6y"/>
                         <outlet property="playedCard2Desription" destination="5oj-jD-cQj" id="iAn-Su-a0W"/>
+                        <outlet property="playedCard2Image" destination="jZh-f6-p5a" id="HV7-Pe-hPu"/>
                         <outlet property="playedCard2Name" destination="EGR-bK-w0I" id="3Hg-dH-3pL"/>
                         <outlet property="playedCard2View" destination="21o-7M-Gb4" id="lyn-e1-s4t"/>
                         <outlet property="playerBricks" destination="392-Ag-5CS" id="ve8-Hi-QXS"/>
@@ -1487,6 +1532,7 @@ DQ
         </scene>
     </scenes>
     <resources>
+        <image name="Amethyst.png" width="143" height="85"/>
         <image name="Background2.png" width="1024" height="768"/>
         <image name="CardBack.png" width="156" height="208"/>
         <image name="CardBlank_Blue.png" width="156" height="208"/>
@@ -1513,160 +1559,6 @@ DQ
         <image name="WallHolder.png" width="70" height="40"/>
         <image name="WallWidth.png" width="38" height="316"/>
     </resources>
-    <classes>
-        <class className="CampaignViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CampaignViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButtonPressed:"/>
-                <relationship kind="action" name="tavernButton0Pressed:"/>
-                <relationship kind="action" name="tavernButton10Pressed:"/>
-                <relationship kind="action" name="tavernButton11Pressed:"/>
-                <relationship kind="action" name="tavernButton12Pressed:"/>
-                <relationship kind="action" name="tavernButton1Pressed:"/>
-                <relationship kind="action" name="tavernButton2Pressed:"/>
-                <relationship kind="action" name="tavernButton3Pressed:"/>
-                <relationship kind="action" name="tavernButton4Pressed:"/>
-                <relationship kind="action" name="tavernButton5Pressed:"/>
-                <relationship kind="action" name="tavernButton6Pressed:"/>
-                <relationship kind="action" name="tavernButton7Pressed:"/>
-                <relationship kind="action" name="tavernButton8Pressed:"/>
-                <relationship kind="action" name="tavernButton9Pressed:"/>
-                <relationship kind="action" name="tavernCloseButtonPressed:"/>
-                <relationship kind="action" name="tavernStartButtonPressed:"/>
-                <relationship kind="outlet" name="finalResourcesLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="finalTowerLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="initialTowerLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="initialWallLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="selectedTavernView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="shadowView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="tavernButton0" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton1" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton10" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton11" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton12" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton2" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton3" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton4" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton5" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton6" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton7" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton8" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton9" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="tavernNameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="InfoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButtonPressed:"/>
-            </relationships>
-        </class>
-        <class className="MainViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="SoundSwitcher" candidateClass="UISwitch"/>
-            </relationships>
-        </class>
-        <class className="ScoreViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ScoreViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButtonPressed:"/>
-            </relationships>
-        </class>
-        <class className="StartViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StartViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButtonPressed:"/>
-                <relationship kind="action" name="changeBackground:"/>
-                <relationship kind="outlet" name="backgroundLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="backgroundPicture" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card0Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card0NotAvailable" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card0View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="card1Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card1NotAvailable" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card1View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="card2Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card2NotAvailable" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card2View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="card3Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card3NotAvailable" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card3View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="card4Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card4NotAvailable" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card4View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="card5Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card5NotAvailable" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card5View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="computerBricks" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerCard0" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerCard1" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerCard2" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerCard3" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerCard4" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerCard5" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerDungeons" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerGems" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerMagics" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerQuarries" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerRecruits" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerTower" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerTowerBodyBackground" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerTowerHeadBackground" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerTowerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="computerWall" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerWallBackground" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerWallView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="playedCard0Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playedCard0Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard0Desription" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard0Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard0View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="playedCard1Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playedCard1Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard1Desription" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard1Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard1View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="playedCard2Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playedCard2Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard2Desription" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard2Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard2View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="playerBricks" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerDungeons" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerGems" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerMagics" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerQuarries" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerRecruits" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerTower" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerTowerBodyBackground" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playerTowerHeadBackground" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playerTowerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="playerWall" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerWallBackground" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playerWallView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="playersCard0Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard0Description" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard0Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard1Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard1Description" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard1Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard2Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard2Description" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard2Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard3Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard3Description" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard3Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard4Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard4Description" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard4Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard5Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard5Description" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard5Name" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
