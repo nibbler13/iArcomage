@@ -164,7 +164,7 @@ static CardsScope *cardsScope;
             NSLog(@"===========  Unknown sound!!!");
         }
     } else {
-        NSLog(@"===========sounds off===========");
+        //NSLog(@"===========sounds off===========");
     }
 }
 

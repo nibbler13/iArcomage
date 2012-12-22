@@ -52,10 +52,10 @@
 {
     playerWall = playerModel.wall;
     computerWall = computerModel.wall;
-    //NSLog(@"------------------------------------");
-    //NSLog(@"isThisPlayer: %d, isThisComputer: %d", playerModel.isThatPlayerTurn, computerModel.isThatComputerTurn);
-    //NSLog(@"%@, %d", self.cardName, self.cardCost);
-    //NSLog(@"%d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d", self.quarriesSelf, self.quarriesEnemy, self.magicsSelf, self.magicsEnemy, self.dungeonsSelf, self.dungeonsEnemy, self.bricksSelf, self.bricksEnemy, self.gemsSelf, self.gemsEnemy, self.recruitsSelf, self.recruitsEnemy, self.towerSelf, self.towerEnemy, self.wallSelf, self.wallEnemy);
+    NSLog(@"------------------------------------");
+    NSLog(@"isThisPlayer: %d, isThisComputer: %d", playerModel.isThatPlayerTurn, computerModel.isThatComputerTurn);
+    NSLog(@"%@, %d", self.cardName, self.cardCost);
+    NSLog(@"%d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d", self.quarriesSelf, self.quarriesEnemy, self.magicsSelf, self.magicsEnemy, self.dungeonsSelf, self.dungeonsEnemy, self.bricksSelf, self.bricksEnemy, self.gemsSelf, self.gemsEnemy, self.recruitsSelf, self.recruitsEnemy, self.towerSelf, self.towerEnemy, self.wallSelf, self.wallEnemy);
     
     if (playerModel.isThatPlayerTurn & computerModel.isThatComputerTurn){
         NSLog(@"=============Both isThatTurn are positive=============");

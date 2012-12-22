@@ -218,6 +218,7 @@ static ComputerModel *computer;
         }
     }
     NSInteger randomValue = arc4random()%[cardsWithMaximumWeight count];
+    //self.playedCard = [[cardsWithMaximumWeight objectAtIndex:randomValue] integerValue];
     
     [self processCard:[[cardsWithMaximumWeight objectAtIndex:randomValue] integerValue]];
 }

@@ -267,9 +267,9 @@
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"touch canceled" message:@"touch has been canceled" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+    //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"touch canceled" message:@"touch has been canceled" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
     
-    [alert show];
+    //[alert show];
     
     if (!animationCompleted) {
         return;
@@ -487,7 +487,7 @@
             }
         }
     
-    if ([[[player.cards objectAtIndex:0] cardName] isEqualToString:@"Lodestone"]) {
+    if ([[[player.cards objectAtIndex:number] cardName] isEqualToString:@"Lodestone"]) {
         if (firstTouchPoint.y < position.y) {
             
             firstTouchPoint = CGPointMake(0, 0);
@@ -528,6 +528,8 @@
                          }completion:^(BOOL finished){
                              
                              player.isThatPlayerTurn = YES;
+                             
+                             [[[player cards] objectAtIndex:number] initPlayerModel:player andComputerModel:computer];
                              
                              if (self.soundsOn) {
                                  
@@ -578,6 +580,7 @@
                              }
                              
                              
+                             NSLog(@"===should present animation for player===");
                              [self configureAnimationsForCardNumber:number];
                              [player cardSelected:number];
                              [self needToUpdateLabels];
@@ -1061,6 +1064,7 @@
                               
                               
                               if (!computer.isCardBeenDiscarded) {
+                                  if (self.soundsOn) {
                                   
                                   //NSLog(@"computer card name: %@", [[computer.cards objectAtIndex:computer.playedCard] cardName]);
                                   if ([[computer.cards objectAtIndex:computer.playedCard] quarriesSelf] > 0 ||
@@ -1107,9 +1111,12 @@
                                       [[computer.cards objectAtIndex:computer.playedCard] wallEnemy] < 0) {
                                       [cardsScope playDealSoundEffectForEvent:@"WillTakeDamage"];
                                   }
+                                  }
+                                  
+                                  [self configureAnimationsForCardNumber:computer.playedCard];
                                   
                                   [[computer.cards objectAtIndex:computer.playedCard] processCard];
-                                  [self configureAnimationsForCardNumber:computer.playedCard];
+                                  
                                   [computer.delegate needToCheckThatTheVictoryConditionsIsAchievedByComputer];
                               }
                               
@@ -1716,6 +1723,7 @@
         [self updateCardPositions];
         
         cardsScope = [CardsScope getCardsScope];
+        cardsScope.soundsOn = self.soundsOn;
         //gameOver = NO;
         doNotClearStack = NO;
         computerLastPlayedCard = -1;
@@ -2036,337 +2044,280 @@ withCardDescriptionLabel:self.playersCard5Description
 
 - (void)configureAnimationsForCardNumber:(NSInteger)number
 {
-    float x;
-    float y;
-    
-    //NSLog(@"configureAnimations");
+    NSLog(@"configureAnimations for card: %d", number);
     if (player.isThatPlayerTurn) {
+        NSLog(@"animation: this is player turn");
+        NSLog(@"isThisPlayer: %d, isThisComputer: %d", player.isThatPlayerTurn, computer.isThatComputerTurn);
+        NSLog(@"%@, %d", [[[player cards] objectAtIndex:number] cardName], [[[player cards] objectAtIndex:number] cardCost]);
+        NSLog(@"%d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d",
+              [[[player cards] objectAtIndex:number] quarriesSelf],
+              [[[player cards] objectAtIndex:number] quarriesEnemy],
+              [[[player cards] objectAtIndex:number] magicsSelf],
+              [[[player cards] objectAtIndex:number] magicsEnemy],
+              [[[player cards] objectAtIndex:number] dungeonsSelf],
+              [[[player cards] objectAtIndex:number] dungeonsEnemy],
+              [[[player cards] objectAtIndex:number] bricksSelf],
+              [[[player cards] objectAtIndex:number] bricksEnemy],
+              [[[player cards] objectAtIndex:number] gemsSelf],
+              [[[player cards] objectAtIndex:number] gemsEnemy],
+              [[[player cards] objectAtIndex:number] recruitsSelf],
+              [[[player cards] objectAtIndex:number] recruitsEnemy],
+              [[[player cards] objectAtIndex:number] towerSelf],
+              [[[player cards] objectAtIndex:number] towerEnemy],
+              [[[player cards] objectAtIndex:number] wallSelf],
+              [[[player cards] objectAtIndex:number] wallEnemy]);
+        
         if ([[player.cards objectAtIndex:number] quarriesSelf] > 0){
-            x = -10.0;
-            y = 78.0;
-            [self drawPositiveAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.playerQuarries isAnimationPositive:YES isThisForTowerOrWall:NO isThisForGeneralResources:YES];
         } else if ([[player.cards objectAtIndex:number] quarriesSelf] < 0 & player.quarries > 1) {
-            x = -10.0;
-            y = 78.0;
-            [self drawNegativeAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.playerQuarries isAnimationPositive:NO isThisForTowerOrWall:NO isThisForGeneralResources:YES];
         }
         
         if ([[player.cards objectAtIndex:number] magicsSelf] > 0) {
-            x = -10.0;
-            y = 198.0;
-            [self drawPositiveAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.playerMagics isAnimationPositive:YES isThisForTowerOrWall:NO isThisForGeneralResources:YES];
         } else if ([[player.cards objectAtIndex:number] magicsSelf] < 0 & player.magics > 1) {
-            x = -10.0;
-            y = 198.0;
-            [self drawNegativeAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.playerMagics isAnimationPositive:NO isThisForTowerOrWall:NO isThisForGeneralResources:YES];
         }
         
         if ([[player.cards objectAtIndex:number] dungeonsSelf] > 0) {
-            x = -10.0;
-            y = 318.0;
-            [self drawPositiveAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.playerDungeons isAnimationPositive:YES isThisForTowerOrWall:NO isThisForGeneralResources:YES];
         } else if ([[player.cards objectAtIndex:number] dungeonsSelf] < 0 & player.dungeons > 1) {
-            x = -10.0;
-            y = 318.0;
-            [self drawNegativeAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.playerDungeons isAnimationPositive:NO isThisForTowerOrWall:NO isThisForGeneralResources:YES];
         }
         
         if ([[player.cards objectAtIndex:number] quarriesEnemy] > 0) {
-            x = 870.0;
-            y = 78.0;
-            [self drawPositiveAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.computerQuarries isAnimationPositive:YES isThisForTowerOrWall:NO isThisForGeneralResources:YES];
         } else if ([[player.cards objectAtIndex:number] quarriesEnemy] < 0 & computer.quarries > 1) {
-            x = 870.0;
-            y = 78.0;
-            [self drawNegativeAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.computerQuarries isAnimationPositive:NO isThisForTowerOrWall:NO isThisForGeneralResources:YES];
         }
         
         if ([[player.cards objectAtIndex:number] magicsEnemy] > 0) {
-            x = 870.0;
-            y = 198.0;
-            [self drawPositiveAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.computerMagics isAnimationPositive:YES isThisForTowerOrWall:NO isThisForGeneralResources:YES];
         } else if ([[player.cards objectAtIndex:number] magicsEnemy] < 0 & computer.magics > 1) {
-            x = 870.0;
-            y = 198.0;
-            [self drawNegativeAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.computerMagics isAnimationPositive:NO isThisForTowerOrWall:NO isThisForGeneralResources:YES];
         }
         
         if ([[player.cards objectAtIndex:number] dungeonsEnemy] > 0) {
-            x = 870.0;
-            y = 318.0;
-            [self drawPositiveAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.computerDungeons isAnimationPositive:YES isThisForTowerOrWall:NO isThisForGeneralResources:YES];
         } else if ([[player.cards objectAtIndex:number] dungeonsEnemy] < 0 & computer.dungeons > 1) {
-            x = 870.0;
-            y = 318.0;
-            [self drawNegativeAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.computerDungeons isAnimationPositive:NO isThisForTowerOrWall:NO isThisForGeneralResources:YES];
         }
         
         
         if ([[player.cards objectAtIndex:number] bricksSelf] > 0) {
-            x = -16.0;
-            y = 108.0;
-            [self drawPositiveAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.playerBricks isAnimationPositive:YES isThisForTowerOrWall:NO isThisForGeneralResources:NO];
         } else if ([[player.cards objectAtIndex:number] bricksSelf] < 0 & player.bricks > 0) {
-            x = -16.0;
-            y = 108.0;
-            [self drawNegativeAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.playerBricks isAnimationPositive:NO isThisForTowerOrWall:NO isThisForGeneralResources:NO];
         }
         
         if ([[player.cards objectAtIndex:number] gemsSelf] > 0) {
-            x = -16.0;
-            y = 226.0;
-            [self drawPositiveAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.playerGems isAnimationPositive:YES isThisForTowerOrWall:NO isThisForGeneralResources:NO];
         } else if ([[player.cards objectAtIndex:number] gemsSelf] < 0 & player.gems > 0) {
-            x = -16.0;
-            y = 226.0;
-            [self drawNegativeAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.playerGems isAnimationPositive:NO isThisForTowerOrWall:NO isThisForGeneralResources:NO];
         }
         
         if ([[player.cards objectAtIndex:number] recruitsSelf] > 0) {
-            x = -16.0;
-            y = 346.0;
-            [self drawPositiveAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.playerRecruits isAnimationPositive:YES isThisForTowerOrWall:NO isThisForGeneralResources:NO];
         } else if ([[player.cards objectAtIndex:number] recruitsSelf] < 0 & player.recruits > 0) {
-            x = -16.0;
-            y = 346.0;
-            [self drawNegativeAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.playerRecruits isAnimationPositive:NO isThisForTowerOrWall:NO isThisForGeneralResources:NO];
         }
         
         if ([[player.cards objectAtIndex:number] bricksEnemy] > 0) {
-            x = 866.0;
-            y = 108.0;
-            [self drawPositiveAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.computerBricks isAnimationPositive:YES isThisForTowerOrWall:NO isThisForGeneralResources:NO];
         } else if ([[player.cards objectAtIndex:number] bricksEnemy] < 0 & computer.bricks > 0) {
-            x = 866.0;
-            y = 108.0;
-            [self drawNegativeAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.computerBricks isAnimationPositive:NO isThisForTowerOrWall:NO isThisForGeneralResources:NO];
         }
         
         if ([[player.cards objectAtIndex:number] gemsEnemy] > 0) {
-            x = 866.0;
-            y = 226.0;
-            [self drawPositiveAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.computerGems isAnimationPositive:YES isThisForTowerOrWall:NO isThisForGeneralResources:NO];
         } else if ([[player.cards objectAtIndex:number] gemsEnemy] < 0 & computer.gems > 0) {
-            x = 866.0;
-            y = 226.0;
-            [self drawNegativeAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.computerGems isAnimationPositive:NO isThisForTowerOrWall:NO isThisForGeneralResources:NO];
         }
         
         if ([[player.cards objectAtIndex:number] recruitsEnemy] > 0) {
-            x = 866.0;
-            y = 346.0;
-            [self drawPositiveAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.computerRecruits isAnimationPositive:YES isThisForTowerOrWall:NO isThisForGeneralResources:NO];
         } else if ([[player.cards objectAtIndex:number] recruitsEnemy] < 0 & computer.recruits > 0) {
-            x = 866.0;
-            y = 346.0;
-            [self drawNegativeAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.computerRecruits isAnimationPositive:NO isThisForTowerOrWall:NO isThisForGeneralResources:NO];
         }
         
         if ([[player.cards objectAtIndex:number] towerSelf] > 0) {
-            x = 149.0;
-            y = 466.0;
-            [self drawPositiveAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.playerTower isAnimationPositive:YES isThisForTowerOrWall:YES isThisForGeneralResources:NO];
         } else if ([[player.cards objectAtIndex:number] towerSelf] < 0) {
-            x = 149.0;
-            y = 466.0;
-            [self drawNegativeAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.playerTower isAnimationPositive:NO isThisForTowerOrWall:YES isThisForGeneralResources:NO];
         }
         
         if ([[player.cards objectAtIndex:number] wallSelf] > 0) {
-            x = 253.0;
-            y = 466.0;
-            [self drawPositiveAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.playerWall isAnimationPositive:YES isThisForTowerOrWall:YES isThisForGeneralResources:NO];
         } else if ([[player.cards objectAtIndex:number] wallSelf] < 0) {
-            x = 253.0;
-            y = 466.0;
-            [self drawNegativeAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.playerWall isAnimationPositive:NO isThisForTowerOrWall:YES isThisForGeneralResources:NO];
         }
         
         if ([[player.cards objectAtIndex:number] towerEnemy] > 0) {
-            x = 776.0;
-            y = 466.0;
-            [self drawPositiveAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.computerTower isAnimationPositive:YES isThisForTowerOrWall:YES isThisForGeneralResources:NO];
         } else if ([[player.cards objectAtIndex:number] towerEnemy] < 0) {
-            x = 776.0;
-            y = 466.0;
-            [self drawNegativeAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.computerTower isAnimationPositive:NO isThisForTowerOrWall:YES isThisForGeneralResources:NO];
         }
         
         if ([[player.cards objectAtIndex:number] wallEnemy] > 0) {
-            x = 681.0;
-            y = 466.0;
-            [self drawPositiveAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.computerWall isAnimationPositive:YES isThisForTowerOrWall:YES isThisForGeneralResources:NO];
         } else if ([[player.cards objectAtIndex:number] wallEnemy] < 0) {
-            x = 681.0;
-            y = 466.0;
-            [self drawNegativeAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.computerWall isAnimationPositive:NO isThisForTowerOrWall:YES isThisForGeneralResources:NO];
         }
         
         ////////////////////////////////////////////////////
     } else if (computer.isThatComputerTurn) {
+        NSLog(@"animation: this is computer turn");
+        NSLog(@"isThisPlayer: %d, isThisComputer: %d", player.isThatPlayerTurn, computer.isThatComputerTurn);
+        NSLog(@"%@, %d", [[[computer cards] objectAtIndex:number] cardName], [[[computer cards] objectAtIndex:number] cardCost]);
+        NSLog(@"%d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d",
+              [[[computer cards] objectAtIndex:number] quarriesSelf],
+              [[[computer cards] objectAtIndex:number] quarriesEnemy],
+              [[[computer cards] objectAtIndex:number] magicsSelf],
+              [[[computer cards] objectAtIndex:number] magicsEnemy],
+              [[[computer cards] objectAtIndex:number] dungeonsSelf],
+              [[[computer cards] objectAtIndex:number] dungeonsEnemy],
+              [[[computer cards] objectAtIndex:number] bricksSelf],
+              [[[computer cards] objectAtIndex:number] bricksEnemy],
+              [[[computer cards] objectAtIndex:number] gemsSelf],
+              [[[computer cards] objectAtIndex:number] gemsEnemy],
+              [[[computer cards] objectAtIndex:number] recruitsSelf],
+              [[[computer cards] objectAtIndex:number] recruitsEnemy],
+              [[[computer cards] objectAtIndex:number] towerSelf],
+              [[[computer cards] objectAtIndex:number] towerEnemy],
+              [[[computer cards] objectAtIndex:number] wallSelf],
+              [[[computer cards] objectAtIndex:number] wallEnemy]);
+            
         if ([[computer.cards objectAtIndex:number] quarriesSelf] > 0){
-            x = 870.0;
-            y = 78.0;
-            [self drawPositiveAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.computerQuarries isAnimationPositive:YES isThisForTowerOrWall:NO isThisForGeneralResources:YES];
         } else if ([[computer.cards objectAtIndex:number] quarriesSelf] < 0 & computer.quarries > 1) {
-            x = 870.0;
-            y = 78.0;
-            [self drawNegativeAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.computerQuarries isAnimationPositive:NO isThisForTowerOrWall:NO isThisForGeneralResources:YES];
         }
         
         if ([[computer.cards objectAtIndex:number] magicsSelf] > 0) {
-            x = 870.0;
-            y = 198.0;
-            [self drawPositiveAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.computerMagics isAnimationPositive:YES isThisForTowerOrWall:NO isThisForGeneralResources:YES];
         } else if ([[computer.cards objectAtIndex:number] magicsSelf] < 0 & computer.magics > 1) {
-            x = 870.0;
-            y = 198.0;
-            [self drawNegativeAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.computerMagics isAnimationPositive:NO isThisForTowerOrWall:NO isThisForGeneralResources:YES];
         }
         
-        if ([[player.cards objectAtIndex:number] dungeonsSelf] > 0) {
-            x = 870.0;
-            y = 318.0;
-            [self drawPositiveAnimationAtX:x andAtY:y];
+        if ([[computer.cards objectAtIndex:number] dungeonsSelf] > 0) {
+            [self calculatePositionOfAnimationForLabel:self.computerDungeons isAnimationPositive:YES isThisForTowerOrWall:NO isThisForGeneralResources:YES];
         } else if ([[computer.cards objectAtIndex:number] dungeonsSelf] < 0 & computer.dungeons > 1) {
-            x = 870.0;
-            y = 318.0;
-            [self drawNegativeAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.computerDungeons isAnimationPositive:NO isThisForTowerOrWall:NO isThisForGeneralResources:YES];
         }
         
         if ([[computer.cards objectAtIndex:number] quarriesEnemy] > 0) {
-            x = -10.0;
-            y = 78.0;
-            [self drawPositiveAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.playerQuarries isAnimationPositive:YES isThisForTowerOrWall:NO isThisForGeneralResources:YES];
         } else if ([[computer.cards objectAtIndex:number] quarriesEnemy] < 0 & player.quarries > 1) {
-            x = -10.0;
-            y = 78.0;
-            [self drawNegativeAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.playerQuarries isAnimationPositive:NO isThisForTowerOrWall:NO isThisForGeneralResources:YES];
         }
         
         if ([[computer.cards objectAtIndex:number] magicsEnemy] > 0) {
-            x = -10.0;
-            y = 198.0;
-            [self drawPositiveAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.playerMagics isAnimationPositive:YES isThisForTowerOrWall:NO isThisForGeneralResources:YES];
         } else if ([[computer.cards objectAtIndex:number] magicsEnemy] < 0 & player.magics > 1) {
-            x = -10.0;
-            y = 198.0;
-            [self drawNegativeAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.playerMagics isAnimationPositive:NO isThisForTowerOrWall:NO isThisForGeneralResources:YES];
         }
         
         if ([[computer.cards objectAtIndex:number] dungeonsEnemy] > 0) {
-            x = -10.0;
-            y = 318.0;
-            [self drawPositiveAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.playerDungeons isAnimationPositive:YES isThisForTowerOrWall:NO isThisForGeneralResources:YES];
         } else if ([[computer.cards objectAtIndex:number] dungeonsEnemy] < 0 & player.dungeons > 1) {
-            x = -10.0;
-            y = 318.0;
-            [self drawNegativeAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.playerDungeons isAnimationPositive:NO isThisForTowerOrWall:NO isThisForGeneralResources:YES];
         }
         
         
         if ([[computer.cards objectAtIndex:number] bricksSelf] > 0) {
-            x = 866.0;
-            y = 108.0;
-            [self drawPositiveAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.computerBricks isAnimationPositive:YES isThisForTowerOrWall:NO isThisForGeneralResources:NO];
         } else if ([[computer.cards objectAtIndex:number] bricksSelf] < 0 & computer.bricks > 0) {
-            x = 866.0;
-            y = 108.0;
-            [self drawNegativeAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.computerBricks isAnimationPositive:NO isThisForTowerOrWall:NO isThisForGeneralResources:NO];
         }
         
         if ([[computer.cards objectAtIndex:number] gemsSelf] > 0) {
-            x = 866.0;
-            y = 226.0;
-            [self drawPositiveAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.computerGems isAnimationPositive:YES isThisForTowerOrWall:NO isThisForGeneralResources:NO];
         } else if ([[computer.cards objectAtIndex:number] gemsSelf] < 0 & computer.gems > 0) {
-            x = 866.0;
-            y = 226.0;
-            [self drawNegativeAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.computerGems isAnimationPositive:NO isThisForTowerOrWall:NO isThisForGeneralResources:NO];
         }
         
         if ([[computer.cards objectAtIndex:number] recruitsSelf] > 0) {
-            x = 866.0;
-            y = 346.0;
-            [self drawPositiveAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.computerRecruits isAnimationPositive:YES isThisForTowerOrWall:NO isThisForGeneralResources:NO];
         } else if ([[computer.cards objectAtIndex:number] recruitsSelf] < 0 & computer.recruits > 0) {
-            x = 866.0;
-            y = 346.0;
-            [self drawNegativeAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.computerRecruits isAnimationPositive:NO isThisForTowerOrWall:NO isThisForGeneralResources:NO];
         }
         
         if ([[computer.cards objectAtIndex:number] bricksEnemy] > 0) {
-            x = -16.0;
-            y = 108.0;
-            [self drawPositiveAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.playerBricks isAnimationPositive:YES isThisForTowerOrWall:NO isThisForGeneralResources:NO];
         } else if ([[computer.cards objectAtIndex:number] bricksEnemy] < 0 & player.bricks > 0) {
-            x = -16.0;
-            y = 108.0;
-            [self drawNegativeAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.playerBricks isAnimationPositive:NO isThisForTowerOrWall:NO isThisForGeneralResources:NO];
         }
         
         if ([[computer.cards objectAtIndex:number] gemsEnemy] > 0) {
-            x = -16.0;
-            y = 226.0;
-            [self drawPositiveAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.playerGems isAnimationPositive:YES isThisForTowerOrWall:NO isThisForGeneralResources:NO];
         } else if ([[computer.cards objectAtIndex:number] gemsEnemy] < 0 & player.gems > 0) {
-            x = -16.0;
-            y = 226.0;
-            [self drawNegativeAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.playerGems isAnimationPositive:NO isThisForTowerOrWall:NO isThisForGeneralResources:NO];
         }
         
         if ([[computer.cards objectAtIndex:number] recruitsEnemy] > 0) {
-            x = -16.0;
-            y = 346.0;
-            [self drawPositiveAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.playerRecruits isAnimationPositive:YES isThisForTowerOrWall:NO isThisForGeneralResources:NO];
         } else if ([[computer.cards objectAtIndex:number] recruitsEnemy] < 0 & player.recruits > 0) {
-            x = -16.0;
-            y = 346.0;
-            [self drawNegativeAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.playerRecruits isAnimationPositive:NO isThisForTowerOrWall:NO isThisForGeneralResources:NO];
         }
         
         if ([[computer.cards objectAtIndex:number] towerSelf] > 0) {
-            x = 776.0;
-            y = 466.0;
-            [self drawPositiveAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.computerTower isAnimationPositive:YES isThisForTowerOrWall:YES isThisForGeneralResources:NO];
         } else if ([[computer.cards objectAtIndex:number] towerSelf] < 0) {
-            x = 776.0;
-            y = 466.0;
-            [self drawNegativeAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.computerTower isAnimationPositive:NO isThisForTowerOrWall:YES isThisForGeneralResources:NO];
         }
         
         if ([[computer.cards objectAtIndex:number] wallSelf] > 0) {
-            x = 681.0;
-            y = 466.0;
-            [self drawPositiveAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.computerWall isAnimationPositive:YES isThisForTowerOrWall:YES isThisForGeneralResources:NO];
         } else if ([[computer.cards objectAtIndex:number] wallSelf] < 0) {
-            x = 681.0;
-            y = 466.0;
-            [self drawNegativeAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.computerWall isAnimationPositive:NO isThisForTowerOrWall:YES isThisForGeneralResources:NO];
         }
         
         if ([[computer.cards objectAtIndex:number] towerEnemy] > 0) {
-            x = 149.0;
-            y = 466.0;
-            [self drawPositiveAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.playerTower isAnimationPositive:YES isThisForTowerOrWall:YES isThisForGeneralResources:NO];
         } else if ([[computer.cards objectAtIndex:number] towerEnemy] < 0) {
-            x = 149.0;
-            y = 466.0;
-            [self drawNegativeAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.playerTower isAnimationPositive:NO isThisForTowerOrWall:YES isThisForGeneralResources:NO];
         }
         
         if ([[computer.cards objectAtIndex:number] wallEnemy] > 0) {
-            x = 253.0;
-            y = 466.0;
-            [self drawPositiveAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.playerWall isAnimationPositive:YES isThisForTowerOrWall:YES isThisForGeneralResources:NO];
         } else if ([[computer.cards objectAtIndex:number] wallEnemy] < 0) {
-            x = 253.0;
-            y = 466.0;
-            [self drawNegativeAnimationAtX:x andAtY:y];
+            [self calculatePositionOfAnimationForLabel:self.playerWall isAnimationPositive:NO isThisForTowerOrWall:YES isThisForGeneralResources:NO];
         }
 
     } else {
         NSLog(@"wrongAnimationConfigurating");
+    }
+}
+
+- (void)calculatePositionOfAnimationForLabel:(UILabel*)label isAnimationPositive:(BOOL)positive isThisForTowerOrWall:(BOOL)tower isThisForGeneralResources:(BOOL)general
+{
+    float centerOfAnimation = 48.0;
+    float labelOffsetX;
+    
+    if (general) {
+        if ([label.text integerValue] > 9) {
+            labelOffsetX = 0.0;
+        } else {
+            labelOffsetX = label.frame.size.height / 4;
+        }
+    } else if (!tower) {
+        if ([label.text integerValue] > 9) {
+            labelOffsetX = label.frame.size.height / 2 - 5.0;
+        } else if ([label.text integerValue] > 99) {
+            labelOffsetX = 0.0;
+        } else {
+            labelOffsetX = label.frame.size.height / 3;
+        }
+    }
+    
+    if (tower) {
+        labelOffsetX = 0.0;
+    }
+    
+    if (positive) {
+        [self drawPositiveAnimationAtX:(label.center.x - centerOfAnimation - labelOffsetX) andAtY:(label.center.y - 48.0)];
+    } else {
+        [self drawNegativeAnimationAtX:(label.center.x - centerOfAnimation - labelOffsetX) andAtY:(label.center.y - 48.0)];
     }
 }
 
