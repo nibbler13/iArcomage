@@ -816,7 +816,7 @@
                                 <rect key="frame" x="156" y="6" width="156" height="208"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <view hidden="YES" contentMode="scaleToFill" id="O2s-1b-lfP" userLabel="PlayedCard0">
+                            <view hidden="YES" autoresizesSubviews="NO" contentMode="scaleToFill" id="O2s-1b-lfP" userLabel="PlayedCard0">
                                 <rect key="frame" x="322" y="6" width="156" height="208"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -849,13 +849,13 @@
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Amethyst.png" id="rGn-rJ-6KD">
-                                        <rect key="frame" x="6.5" y="31.5" width="143" height="85"/>
+                                        <rect key="frame" x="7" y="32" width="143" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" id="33U-4M-ww6" userLabel="PlayedCard1">
+                            <view hidden="YES" autoresizesSubviews="NO" contentMode="scaleToFill" id="33U-4M-ww6" userLabel="PlayedCard1">
                                 <rect key="frame" x="488" y="6" width="156" height="208"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -888,13 +888,13 @@
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Amethyst.png" id="iU0-7N-loe">
-                                        <rect key="frame" x="6.5" y="31.5" width="143" height="85"/>
+                                        <rect key="frame" x="7" y="32" width="143" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" id="21o-7M-Gb4" userLabel="PlayedCard2">
+                            <view hidden="YES" autoresizesSubviews="NO" contentMode="scaleToFill" id="21o-7M-Gb4" userLabel="PlayedCard2">
                                 <rect key="frame" x="654" y="6" width="156" height="208"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -927,7 +927,7 @@
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Amethyst.png" id="jZh-f6-p5a">
-                                        <rect key="frame" x="6.5" y="31.5" width="143" height="85"/>
+                                        <rect key="frame" x="7" y="32" width="143" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
@@ -1057,7 +1057,7 @@
                                 <rect key="frame" x="856" y="541" width="156" height="208"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <view contentMode="scaleToFill" id="5Kb-yA-iTx" userLabel="Card0 View">
+                            <view autoresizesSubviews="NO" contentMode="scaleToFill" id="5Kb-yA-iTx" userLabel="Card0 View">
                                 <rect key="frame" x="12" y="541" width="156" height="208"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -1084,13 +1084,13 @@
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8cg-fa-sto">
                                         <rect key="frame" x="7.5" y="5.5" width="141" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                         <nil key="highlightedColor"/>
                                         <color key="shadowColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Amethyst.png" id="dBj-uQ-mS3">
-                                        <rect key="frame" x="6.5" y="31.5" width="143" height="85"/>
+                                        <rect key="frame" x="7" y="32" width="143" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="NotAvailable.png" id="5TW-BT-wgk">
@@ -1100,7 +1100,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" id="gtG-NO-Oot" userLabel="Card1 View">
+                            <view autoresizesSubviews="NO" contentMode="scaleToFill" id="gtG-NO-Oot" userLabel="Card1 View">
                                 <rect key="frame" x="180" y="541" width="156" height="208"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -1127,13 +1127,13 @@
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1S7-M7-kKj">
                                         <rect key="frame" x="7.5" y="5.5" width="141" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                         <nil key="highlightedColor"/>
                                         <color key="shadowColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Amethyst.png" id="NiN-r7-mh1">
-                                        <rect key="frame" x="6.5" y="31.5" width="143" height="85"/>
+                                        <rect key="frame" x="7" y="32" width="143" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="NotAvailable.png" id="p5u-bI-uwm">
@@ -1143,7 +1143,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" id="2Sz-TV-pJh" userLabel="Card2 View">
+                            <view autoresizesSubviews="NO" contentMode="scaleToFill" id="2Sz-TV-pJh" userLabel="Card2 View">
                                 <rect key="frame" x="348" y="541" width="156" height="208"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -1170,13 +1170,13 @@
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nSK-Mm-MIs">
                                         <rect key="frame" x="7.5" y="5.5" width="141" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                         <nil key="highlightedColor"/>
                                         <color key="shadowColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Amethyst.png" id="gh4-IB-Sze">
-                                        <rect key="frame" x="6.5" y="31.5" width="143" height="85"/>
+                                        <rect key="frame" x="7" y="32" width="143" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="NotAvailable.png" id="Vcz-i7-d2f">
@@ -1186,7 +1186,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" id="nbR-DE-Zr8" userLabel="Card3 View">
+                            <view autoresizesSubviews="NO" contentMode="scaleToFill" id="nbR-DE-Zr8" userLabel="Card3 View">
                                 <rect key="frame" x="520" y="541" width="156" height="208"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -1213,13 +1213,13 @@
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="czX-Bv-bTD">
                                         <rect key="frame" x="7.5" y="5.5" width="141" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                         <nil key="highlightedColor"/>
                                         <color key="shadowColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Amethyst.png" id="90Z-c0-eLP">
-                                        <rect key="frame" x="6.5" y="31.5" width="143" height="85"/>
+                                        <rect key="frame" x="7" y="32" width="143" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="NotAvailable.png" id="WBn-qW-qgf">
@@ -1229,7 +1229,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" id="Q3a-Bd-iEk" userLabel="Card4 View">
+                            <view autoresizesSubviews="NO" contentMode="scaleToFill" id="Q3a-Bd-iEk" userLabel="Card4 View">
                                 <rect key="frame" x="688" y="541" width="156" height="208"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -1256,13 +1256,13 @@
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KMg-P5-5Uh">
                                         <rect key="frame" x="7.5" y="5.5" width="141" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                         <nil key="highlightedColor"/>
                                         <color key="shadowColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Amethyst.png" id="b3q-0M-KTf">
-                                        <rect key="frame" x="6.5" y="31.5" width="143" height="85"/>
+                                        <rect key="frame" x="7" y="32" width="143" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="NotAvailable.png" id="yOC-cz-2gC">
@@ -1272,7 +1272,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" id="HDB-Y4-fvZ" userLabel="Card5 View">
+                            <view autoresizesSubviews="NO" contentMode="scaleToFill" id="HDB-Y4-fvZ" userLabel="Card5 View">
                                 <rect key="frame" x="856" y="541" width="156" height="208"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -1299,13 +1299,13 @@
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="V8q-d8-3Si">
                                         <rect key="frame" x="7.5" y="5.5" width="141" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                         <nil key="highlightedColor"/>
                                         <color key="shadowColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Amethyst.png" id="dge-DJ-irD">
-                                        <rect key="frame" x="6.5" y="31.5" width="143" height="85"/>
+                                        <rect key="frame" x="7" y="32" width="143" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="NotAvailable.png" id="VGc-mn-l73">

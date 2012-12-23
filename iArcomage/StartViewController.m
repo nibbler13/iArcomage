@@ -1644,6 +1644,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSLog(@"Documents folder is %@", [self documentsDirectory]);
+    NSLog(@"Data file paths is %@", [self dataFilePath]);
+    
     self.view.multipleTouchEnabled = NO;
     //gameOver = YES;
     
@@ -2378,6 +2382,20 @@ withCardDescriptionLabel:self.playersCard5Description
     healImage.animationRepeatCount = 1;
     [healImage startAnimating];
     [self.view addSubview:healImage];
+}
+
+#pragma mark - Persistence data file
+
+- (NSString*)documentsDirectory
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = paths[0];
+    return documentsDirectory;
+}
+
+- (NSString*)dataFilePath
+{
+    return [[self documentsDirectory] stringByAppendingPathComponent:@"iArcomage.plist"];
 }
 
 @end
