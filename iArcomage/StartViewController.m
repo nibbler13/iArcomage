@@ -946,12 +946,7 @@
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    //[PlayerModel destroyPlayer];
-    //[ComputerModel destroyComputer];
-    //player = nil;
-    //computer = nil;
-    //cardsScope = nil;
-    //gameOver = YES;
+    [self deleteOldFile];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -2457,6 +2452,15 @@ withCardDescriptionLabel:self.playersCard5Description
         computer.shouldDiscardACard = computerRestored.shouldDiscardACard;
         computer.shouldDrawACard = computerRestored.shouldDrawACard;
         computer.isThatComputerTurn = computerRestored.isThatComputerTurn;
+    }
+}
+
+- (void)deleteOldFile
+{
+    NSString *path = [self dataFilePath];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        NSFileManager *filemanager = [NSFileManager defaultManager];
+        [filemanager removeItemAtPath:path error:nil];
     }
 }
 
