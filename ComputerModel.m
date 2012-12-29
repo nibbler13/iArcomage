@@ -185,7 +185,7 @@ static ComputerModel *computer;
     //NSLog(@"=== I will play the next card:");
     [self printCardInfoAtNumber:number];
     [self payForTheCard:number];
-    [[[self cards] objectAtIndex:number] initPlayerModel:player andComputerModel:self];
+    //[[[self cards] objectAtIndex:number] initPlayerModel:player andComputerModel:self];
     //[[self.cards objectAtIndex:number] processCard];
     self.playedCard = number;
     
@@ -196,6 +196,9 @@ static ComputerModel *computer;
 {
     //NSLog(@"I will get a new card");
     if (self.playedCard != -1) {
+        NSLog(@"computer.playedCard %d", self.playedCard);
+        NSLog(@"computerCards %@", self.cards);
+        NSLog(@"computerCardScope %@", cardsScope);
         [self.cards replaceObjectAtIndex:self.playedCard withObject:cardsScope.getRandomCard];
     }
 }
@@ -203,6 +206,10 @@ static ComputerModel *computer;
 - (void)playSomeCard
 {
     self.isCardBeenDiscarded = NO;
+    
+    for (int i = 0; i < [[self cards] count]; i++) {
+        [[[self cards] objectAtIndex:i] initPlayerModel:player andComputerModel:self];
+    }
     
     NSInteger maximumWeight = 0;
     for (int i = 0; i < [cardsAvailableToPlay count]; i++) {
@@ -478,6 +485,51 @@ static ComputerModel *computer;
         }
     
     }
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    NSLog(@"computer initWithCoder");
+    if (self = [super init]) {
+        self.quarries = [aDecoder decodeIntegerForKey:@"computerQuarries"];
+        self.magics = [aDecoder decodeIntegerForKey:@"computerMagics"];
+        self.dungeons = [aDecoder decodeIntegerForKey:@"computerDungeons"];
+        self.bricks = [aDecoder decodeIntegerForKey:@"computerBricks"];
+        self.gems = [aDecoder decodeIntegerForKey:@"computerGems"];
+        self.recruits = [aDecoder decodeIntegerForKey:@"computerRecruits"];
+        self.wall = [aDecoder decodeIntegerForKey:@"computerWall"];
+        self.tower = [aDecoder decodeIntegerForKey:@"computerTower"];
+        self.cards = [aDecoder decodeObjectForKey:@"computerCards"];
+        self.playedCard = [aDecoder decodeIntegerForKey:@"computerPlayedCard"];
+        self.isCardBeenDiscarded = [aDecoder decodeBoolForKey:@"computerIsCardBeenDiscarded"];
+        self.shouldPlayAgain = [aDecoder decodeBoolForKey:@"computerShouldPlayAgain"];
+        self.shouldDiscardACard = [aDecoder decodeBoolForKey:@"computerShouldDiscardACard"];
+        self.shouldDrawACard = [aDecoder decodeBoolForKey:@"computerShouldDrawACard"];
+        self.isThatComputerTurn = [aDecoder decodeBoolForKey:@"computerIsThatComputerTurn"];
+        cardsScope = [CardsScope getCardsScope];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    NSLog(@"computer encodeWithCoder");
+    //[aCoder encodeObject:self.delegate forKey:@"computerDelegate"];
+    [aCoder encodeInteger:self.quarries forKey:@"computerQuarries"];
+    [aCoder encodeInteger:self.magics forKey:@"computerMagics"];
+    [aCoder encodeInteger:self.dungeons forKey:@"computerDungeons"];
+    [aCoder encodeInteger:self.bricks forKey:@"computerBricks"];
+    [aCoder encodeInteger:self.gems forKey:@"computerGems"];
+    [aCoder encodeInteger:self.recruits forKey:@"computerRecruits"];
+    [aCoder encodeInteger:self.wall forKey:@"computerWall"];
+    [aCoder encodeInteger:self.tower forKey:@"computerTower"];
+    [aCoder encodeObject:self.cards forKey:@"computerCards"];
+    [aCoder encodeInteger:self.playedCard forKey:@"computerPlayedCard"];
+    [aCoder encodeBool:self.isCardBeenDiscarded forKey:@"computerIsCardBeenDiscarded"];
+    [aCoder encodeBool:self.shouldPlayAgain forKey:@"computerShouldPlayAgain"];
+    [aCoder encodeBool:self.shouldDiscardACard forKey:@"computerShouldDiscardACard"];
+    [aCoder encodeBool:self.shouldDrawACard forKey:@"computerShouldDrawACard"];
+    [aCoder encodeBool:self.isThatComputerTurn forKey:@"computerIsThatComputerTurn"];
 }
 
 @end

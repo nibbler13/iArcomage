@@ -10,7 +10,7 @@
 #import "PlayerModel.h"
 #import "ComputerModel.h"
 
-@interface Card : NSObject
+@interface Card : NSObject <NSCoding>
 
 @property (nonatomic) NSString *cardColor;
 @property (nonatomic) NSString *cardName;

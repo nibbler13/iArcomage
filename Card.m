@@ -614,4 +614,61 @@
     self.cardWeight += weight;
 }
 
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    NSLog(@"card EncodeWithCoder");
+    [aCoder encodeObject:self.cardColor forKey:@"cardColor"];
+    [aCoder encodeObject:self.cardName forKey:@"cardName"];
+    [aCoder encodeObject:self.cardDescription forKey:@"cardDescription"];
+    [aCoder encodeInteger:self.cardCost forKey:@"cardCost"];
+    [aCoder encodeInteger:self.quarriesSelf forKey:@"quarriesSelf"];
+    [aCoder encodeInteger:self.quarriesEnemy forKey:@"quarriesEnemy"];
+    [aCoder encodeInteger:self.magicsSelf forKey:@"magicsSelf"];
+    [aCoder encodeInteger:self.magicsEnemy forKey:@"magicsEnemy"];
+    [aCoder encodeInteger:self.dungeonsSelf forKey:@"dungeonsSelf"];
+    [aCoder encodeInteger:self.dungeonsEnemy forKey:@"dungeonsEnemy"];
+    [aCoder encodeInteger:self.bricksSelf forKey:@"bricksSelf"];
+    [aCoder encodeInteger:self.bricksEnemy forKey:@"bricksEnemy"];
+    [aCoder encodeInteger:self.gemsSelf forKey:@"gemsSelf"];
+    [aCoder encodeInteger:self.gemsEnemy forKey:@"gemsEnemy"];
+    [aCoder encodeInteger:self.recruitsSelf forKey:@"recruitsSelf"];
+    [aCoder encodeInteger:self.recruitsEnemy forKey:@"recruitsEnemy"];
+    [aCoder encodeInteger:self.wallSelf forKey:@"wallSelf"];
+    [aCoder encodeInteger:self.wallEnemy forKey:@"wallEnemy"];
+    [aCoder encodeInteger:self.towerSelf forKey:@"towerSelf"];
+    [aCoder encodeInteger:self.towerEnemy forKey:@"towerEnemy"];
+    [aCoder encodeBool:self.additionalTerms forKey:@"additionalTerms"];
+    [aCoder encodeInteger:self.cardWeight forKey:@"cardWeight"];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    NSLog(@"card initWithCoder");
+    if (self = [super init]) {
+        self.cardColor = [aDecoder decodeObjectForKey:@"cardColor"];
+        self.cardName = [aDecoder decodeObjectForKey:@"cardName"];
+        self.cardDescription = [aDecoder decodeObjectForKey:@"cardDescription"];
+        self.cardCost = [aDecoder decodeIntegerForKey:@"cardCost"];
+        self.quarriesSelf = [aDecoder decodeIntegerForKey:@"quarriesSelf"];
+        self.quarriesEnemy = [aDecoder decodeIntegerForKey:@"quarriesEnemy"];
+        self.magicsSelf = [aDecoder decodeIntegerForKey:@"magicsSelf"];
+        self.magicsEnemy = [aDecoder decodeIntegerForKey:@"magicsEnemy"];
+        self.dungeonsSelf = [aDecoder decodeIntegerForKey:@"dungeonsSelf"];
+        self.dungeonsEnemy = [aDecoder decodeIntegerForKey:@"dungeonsEnemy"];
+        self.bricksSelf = [aDecoder decodeIntegerForKey:@"bricksSelf"];
+        self.bricksEnemy = [aDecoder decodeIntegerForKey:@"bricksEnemy"];
+        self.gemsSelf = [aDecoder decodeIntegerForKey:@"gemsSelf"];
+        self.gemsEnemy = [aDecoder decodeIntegerForKey:@"gemsEnemy"];
+        self.recruitsSelf = [aDecoder decodeIntegerForKey:@"recruitsSelf"];
+        self.recruitsEnemy = [aDecoder decodeIntegerForKey:@"recruitsEnemy"];
+        self.wallSelf = [aDecoder decodeIntegerForKey:@"wallSelf"];
+        self.wallEnemy = [aDecoder decodeIntegerForKey:@"wallEnemy"];
+        self.towerSelf = [aDecoder decodeIntegerForKey:@"towerSelf"];
+        self.towerEnemy = [aDecoder decodeIntegerForKey:@"towerEnemy"];
+        self.additionalTerms = [aDecoder decodeBoolForKey:@"additionalTerms"];
+        self.cardWeight = [aDecoder decodeIntegerForKey:@"cardWeight"];
+    }
+    return self;
+}
+
 @end

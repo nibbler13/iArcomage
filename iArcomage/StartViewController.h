@@ -13,7 +13,8 @@
     <
         PlayerModelDelegate,
         ComputerModelDelegate,
-        UIAlertViewDelegate
+        UIAlertViewDelegate,
+        NSCoding
     >
 
 @property (nonatomic) BOOL soundsOn;
@@ -31,5 +32,7 @@
 @property (nonatomic) NSString *computerTowerHeadImage;
 
 @property (nonatomic) NSString *backgroundMusic;
+
+@property (nonatomic) BOOL needToLoadGame;
 
 @end

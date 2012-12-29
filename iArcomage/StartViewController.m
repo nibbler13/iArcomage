@@ -266,11 +266,6 @@
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    
-    //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"touch canceled" message:@"touch has been canceled" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
-    
-    //[alert show];
-    
     if (!animationCompleted) {
         return;
     }
@@ -435,7 +430,7 @@
         }
     }
     
-    if ((firstTouchPoint.y - position.y) > 91) {
+    if ((firstTouchPoint.y - position.y) > 91) {////////////////////////////////////91
         return;
     }
     [theView setCenter:CGPointMake(defaultPosition.x, defaultPosition.y - (firstTouchPoint.y - position.y))];
@@ -509,7 +504,7 @@
         }
     }
     
-    if (firstTouchPoint.y - 80 > position.y) {
+    if (firstTouchPoint.y - 40 > position.y) {/////////////////////////////80
         if (![self isCardAvailableToPlay:number]) {
             [self releaseCardSelectionForView:view withDefaultPosition:defaultPosition withDefaultRect:defaultRect];
             return;
@@ -720,6 +715,8 @@
                                                       
                                                   doNotClearStack = NO;
                                                       
+                                                      [self savePlayerAndComputerModels];
+                                                      
                                                   [computer computerTurn];
                                                   [self animateComputerTurn];
                                                       
@@ -728,7 +725,8 @@
                          }];
             }];
         
-    } else if (firstTouchPoint.y + 80 < position.y) {
+    } else if (firstTouchPoint.y + 40 < position.y) {/////////////////////////////80
+        
         //=======CARD WAS BEEN DISCARDED===========
         
         firstTouchPoint = CGPointMake(0, 0);
@@ -889,6 +887,8 @@
                                                                        
                                                                        
                                                   player.isThatPlayerTurn = NO;
+                                                                       
+                                                  [self savePlayerAndComputerModels];
                                                                        
                                                   [computer computerTurn];
                                                                        
@@ -1304,6 +1304,8 @@
                                                                         
                                                                         doNotClearStack = NO;
                                                                         
+                                                                        [self savePlayerAndComputerModels];
+                                                                        
                                                                     }];}
                                                         }];
                                                }];
@@ -1693,7 +1695,11 @@
         player.soundsOn = self.soundsOn;
         computer = [ComputerModel getComputer];
         computer.delegate = self;
-        
+    
+    if (self.needToLoadGame) {
+        [self loadPlayerAndComputer];
+    }
+    
         //Campaign game initialization
         if (self.isThisCampaignPlaying) {
             
@@ -2398,4 +2404,83 @@ withCardDescriptionLabel:self.playersCard5Description
     return [[self documentsDirectory] stringByAppendingPathComponent:@"iArcomage.plist"];
 }
 
+- (void)savePlayerAndComputerModels
+{
+    NSMutableData *playerData = [[NSMutableData alloc] init];
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:playerData];
+    [archiver encodeObject:player forKey:@"PlayerModel"];
+    [archiver encodeObject:computer forKey:@"ComputerModel"];
+    [archiver finishEncoding];
+    [playerData writeToFile:[self dataFilePath] atomically:YES];
+}
+
+- (void)loadPlayerAndComputer
+{
+    NSString *path = [self dataFilePath];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        NSData *data = [[NSData alloc] initWithContentsOfFile:path];
+        NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+        PlayerModel *playerRestored;
+        ComputerModel *computerRestored;
+        playerRestored = [unarchiver decodeObjectForKey:@"PlayerModel"];
+        computerRestored = [unarchiver decodeObjectForKey:@"ComputerModel"];
+        [unarchiver finishDecoding];
+        
+        player.quarries = playerRestored.quarries;
+        player.magics = playerRestored.magics;
+        player.dungeons = playerRestored.dungeons;
+        player.bricks = playerRestored.bricks;
+        player.gems = playerRestored.gems;
+        player.recruits = playerRestored.recruits;
+        player.wall = playerRestored.wall;
+        player.tower = playerRestored.tower;
+        player.cards = playerRestored.cards;
+        player.playedCard = playerRestored.playedCard;
+        player.shouldPlayAgain = playerRestored.shouldPlayAgain;
+        player.shouldDiscardACard = playerRestored.shouldDiscardACard;
+        player.isThatPlayerTurn = playerRestored.isThatPlayerTurn;
+        player.soundsOn = playerRestored.soundsOn;
+        player.isCardHasBeenDiscarded = playerRestored.isCardHasBeenDiscarded;
+        
+        computer.quarries = computerRestored.quarries;
+        computer.magics = computerRestored.magics;
+        computer.dungeons = computerRestored.dungeons;
+        computer.bricks = computerRestored.bricks;
+        computer.gems = computerRestored.gems;
+        computer.recruits = computerRestored.recruits;
+        computer.wall = computerRestored.wall;
+        computer.tower = computerRestored.tower;
+        computer.cards = computerRestored.cards;
+        computer.playedCard = computerRestored.playedCard;
+        computer.isCardBeenDiscarded = computerRestored.isCardBeenDiscarded;
+        computer.shouldPlayAgain = computerRestored.shouldPlayAgain;
+        computer.shouldDiscardACard = computerRestored.shouldDiscardACard;
+        computer.shouldDrawACard = computerRestored.shouldDrawACard;
+        computer.isThatComputerTurn = computerRestored.isThatComputerTurn;
+    }
+}
+
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -14,7 +14,7 @@
 
 @end
 
-@interface PlayerModel : NSObject
+@interface PlayerModel : NSObject <NSCoding>
 
 @property (nonatomic, strong) id <PlayerModelDelegate> delegate;
 @property (nonatomic) NSInteger quarries;

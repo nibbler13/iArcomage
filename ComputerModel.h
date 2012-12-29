@@ -15,7 +15,7 @@
 
 @end
 
-@interface ComputerModel : NSObject
+@interface ComputerModel : NSObject <NSCoding>
 
 @property (nonatomic, strong) id <ComputerModelDelegate> delegate;
 @property (nonatomic) NSInteger quarries;
@@ -27,12 +27,8 @@
 @property (nonatomic) NSInteger wall;
 @property (nonatomic) NSInteger tower;
 @property (nonatomic) NSMutableArray *cards;
-
 @property (nonatomic) NSInteger playedCard;
-
 @property (nonatomic) BOOL isCardBeenDiscarded;
-
-
 @property (nonatomic) BOOL shouldPlayAgain;
 @property (nonatomic) BOOL shouldDiscardACard;
 @property (nonatomic) BOOL shouldDrawACard;
