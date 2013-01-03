@@ -425,6 +425,7 @@
 		7472ED28165AC2AD002D5EB4 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7472ED27165AC2AD002D5EB4 /* Default-Landscape~ipad.png */; };
 		7484436F1642EA0000AEA2D5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7484436E1642EA0000AEA2D5 /* QuartzCore.framework */; };
 		74C0436F168F08020002F59A /* IncompletedGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C0436E168F08020002F59A /* IncompletedGameViewController.m */; };
+		74C1E81F1696005900D911E7 /* Score.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74C1E81E1696005900D911E7 /* Score.plist */; };
 		74C4C4311685EAF8004D6DBA /* NibblerLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74C4C42F1685EAF8004D6DBA /* NibblerLogo@2x.png */; };
 		74C4C4321685EAF8004D6DBA /* NibblerLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 74C4C4301685EAF8004D6DBA /* NibblerLogo.png */; };
 		74C4C4351685F530004D6DBA /* Lucky Cache.png in Resources */ = {isa = PBXBuildFile; fileRef = 74C4C4331685F530004D6DBA /* Lucky Cache.png */; };
@@ -995,6 +996,7 @@
 		7484436E1642EA0000AEA2D5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		74C0436D168F08020002F59A /* IncompletedGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IncompletedGameViewController.h; path = ../IncompletedGameViewController.h; sourceTree = "<group>"; };
 		74C0436E168F08020002F59A /* IncompletedGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IncompletedGameViewController.m; path = ../IncompletedGameViewController.m; sourceTree = "<group>"; };
+		74C1E81E1696005900D911E7 /* Score.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Score.plist; sourceTree = "<group>"; };
 		74C4C42F1685EAF8004D6DBA /* NibblerLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NibblerLogo@2x.png"; sourceTree = "<group>"; };
 		74C4C4301685EAF8004D6DBA /* NibblerLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NibblerLogo.png; sourceTree = "<group>"; };
 		74C4C4331685F530004D6DBA /* Lucky Cache.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Lucky Cache.png"; sourceTree = "<group>"; };
@@ -1491,6 +1493,7 @@
 				743E9A85162C76A9005F28A0 /* Default-568h@2x.png */,
 				7472ED27165AC2AD002D5EB4 /* Default-Landscape~ipad.png */,
 				7472ED25165AC2A5002D5EB4 /* Default-Landscape@2x~ipad.png */,
+				74C1E81E1696005900D911E7 /* Score.plist */,
 				74F7366716425B9800D7A0E6 /* CardsList.plist */,
 				74E0D632167A352F00B6512E /* Taverns.plist */,
 			);
@@ -2457,6 +2460,7 @@
 				74C4C47A16863C16004D6DBA /* Dragon's Heart@2x.png in Resources */,
 				74DDA6991687869B00B062A5 /* Quarry's Help.png in Resources */,
 				74DDA69A1687869B00B062A5 /* Quarry's Help@2x.png in Resources */,
+				74C1E81F1696005900D911E7 /* Score.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -194,6 +194,9 @@
     
     NSInteger backgroundsCounter;
     NSArray *backgroundPictures;
+    
+    NSInteger gamesPlayed;
+    NSInteger gamesWined;
 }
 
 #pragma mark - TouchDelegationMethods
@@ -1616,9 +1619,11 @@
 
 - (void)needToCheckThatTheVictoryConditionsIsAchievedByComputer
 {
-    if (computer.tower >= towerAim || computer.wall >= wallAim || (computer.bricks >= 200 && computer.gems >= 200 && computer.recruits >= 200) || player.tower < 1) {
+    if (computer.tower >= towerAim || computer.wall >= wallAim || (computer.bricks >= self.resourcesCampaignAim && computer.gems >= self.resourcesCampaignAim && computer.recruits >= self.resourcesCampaignAim) || player.tower < 1) {
         [cardsScope playDealSoundEffectForEvent:@"PlayerLose"];
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"You lose!" message:@"The computer has defeated you like a boss" delegate:self cancelButtonTitle:@"Ohhh god why?" otherButtonTitles: nil];
+        gamesPlayed++;
+        [self saveScore];
         [alertView show];
     }
 }
@@ -1629,9 +1634,12 @@
 
 - (void)needToCheckThatTheVictoryConditionsIsAchieved
 {
-    if (player.tower >= towerAim || player.wall >= wallAim || (player.bricks >= 200 && player.gems >= 200 && player.recruits >= 200) || computer.tower < 1) {
+    if (player.tower >= towerAim || player.wall >= wallAim || (player.bricks >= self.resourcesCampaignAim && player.gems >= self.resourcesCampaignAim && player.recruits >= self.resourcesCampaignAim) || computer.tower < 1) {
         [cardsScope playDealSoundEffectForEvent:@"PlayerWin"];
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"You win!" message:@"You win because you have completed the needed conditions" delegate:self cancelButtonTitle:@"Yeah! It's great!" otherButtonTitles: nil];
+        gamesPlayed++;
+        gamesWined++;
+        [self saveScore];
         [alertView show];
     }
 }
@@ -1718,6 +1726,7 @@
         } else {
             towerAim = 100.0;
             wallAim = 100.0;
+            self.resourcesCampaignAim = 200;
         }
         
         //NSLog(@"%@", [NSString stringWithFormat:@"%@", self.backgroundPicture.image]);
@@ -1726,7 +1735,10 @@
         [self updateComputerLabels];
         [self updateAllCards];
         [self updateCardPositions];
-        
+    
+    /////loading score to nsinteger
+        [self loadScore];
+    
         cardsScope = [CardsScope getCardsScope];
         cardsScope.soundsOn = self.soundsOn;
         //gameOver = NO;
@@ -2396,7 +2408,11 @@ withCardDescriptionLabel:self.playersCard5Description
 
 - (NSString*)dataFilePath
 {
-    return [[self documentsDirectory] stringByAppendingPathComponent:@"iArcomage.plist"];
+    if (!self.isThisCampaignPlaying) {
+        return [[self documentsDirectory] stringByAppendingPathComponent:@"quickGameSave.plist"];
+    } else {
+        return [[self documentsDirectory] stringByAppendingPathComponent:[NSString stringWithFormat:@"campaignSave-%@.plist", self.levelName]];
+    }
 }
 
 - (void)savePlayerAndComputerModels
@@ -2461,6 +2477,41 @@ withCardDescriptionLabel:self.playersCard5Description
     if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
         NSFileManager *filemanager = [NSFileManager defaultManager];
         [filemanager removeItemAtPath:path error:nil];
+    }
+}
+
+- (void)loadScore
+{
+    NSString *errorDesc = nil;
+    NSPropertyListFormat format;
+    NSString *plistPath;
+    NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    plistPath = [rootPath stringByAppendingPathComponent:@"Score.plist"];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:plistPath]) {
+        plistPath = [[NSBundle mainBundle] pathForResource:@"Score" ofType:@"plist"];
+    }
+    NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistPath];
+    NSDictionary *temp = (NSDictionary*)[NSPropertyListSerialization propertyListFromData:plistXML mutabilityOption:NSPropertyListMutableContainersAndLeaves format:&format errorDescription:&errorDesc];
+    if (!temp) {
+        NSLog(@"Error reading plist: %@, format: %d", errorDesc, format);
+    }
+    
+    gamesPlayed = [[temp objectForKey:@"GamesPlayed"] integerValue];
+    gamesWined = [[temp objectForKey:@"GamesWined"] integerValue];
+    NSLog(@"gamesPlayed: %d, gamesWined: %d", gamesPlayed, gamesWined);
+}
+
+- (void)saveScore
+{
+    NSString *error;
+    NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *plistPath = [rootPath stringByAppendingPathComponent:@"Score.plist"];
+    NSDictionary *plistDict = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[NSNumber numberWithInteger:gamesPlayed], [NSNumber numberWithInteger:gamesWined], nil] forKeys:[NSArray arrayWithObjects:@"GamesPlayed", @"GamesWined", nil]];
+    NSData *plistData = [NSPropertyListSerialization dataFromPropertyList:plistDict format:NSPropertyListXMLFormat_v1_0 errorDescription:&error];
+    if (plistData) {
+        [plistData writeToFile:plistPath atomically:YES];
+    } else {
+        NSLog(@"%@", error);
     }
 }
 

@@ -19,10 +19,12 @@
 
 @property (nonatomic) BOOL soundsOn;
 @property (nonatomic) BOOL isThisCampaignPlaying;
+@property (nonatomic) NSString *levelName;
 
 @property (nonatomic) NSInteger initialTowerValue;
 @property (nonatomic) NSInteger initialWallValue;
 @property (nonatomic) NSInteger towerCampaignAim;
+@property (nonatomic) NSInteger resourcesCampaignAim;
 
 @property (nonatomic) NSString *backgroundImage;
 

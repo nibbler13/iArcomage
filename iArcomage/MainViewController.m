@@ -35,14 +35,17 @@
     NSLog(@"quickGameButton");
     NSString *path = [self dataFilePath];
     if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        NSLog(@"file exist");
         self.incompletedGameView.hidden = NO;
     } else {
+        NSLog(@"file dont exist");
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
         NSLog(@"storyboard: %@", storyboard);
         StartViewController *startController = [storyboard instantiateViewControllerWithIdentifier:@"startViewControllerStoryboard"];
         NSLog(@"controller: %@", startController);
         self.incompletedGameView.hidden = YES;
         startController.needToLoadGame = NO;
+        startController.soundsOn = self.SoundSwitcher.on;
         [self presentViewController:startController animated:YES completion:nil];
     }
 }
@@ -55,6 +58,7 @@
     NSLog(@"controller: %@", startController);
     self.incompletedGameView.hidden = YES;
     startController.needToLoadGame = YES;
+    startController.soundsOn = self.SoundSwitcher.on;
     [self presentViewController:startController animated:YES completion:nil];
 }
 
@@ -66,6 +70,7 @@
     NSLog(@"controller: %@", startController);
     self.incompletedGameView.hidden = YES;
     startController.needToLoadGame = NO;
+    startController.soundsOn = self.SoundSwitcher.on;
     [self presentViewController:startController animated:YES completion:nil];
 }
 
@@ -80,7 +85,7 @@
 
 - (NSString*)dataFilePath
 {
-    return [[self documentsDirectory] stringByAppendingPathComponent:@"iArcomage.plist"];
+    return [[self documentsDirectory] stringByAppendingPathComponent:@"quickGameSave.plist"];
 }
 
 @end

@@ -68,15 +68,21 @@
 - (void)viewDidLoad
 {
     selectedTavern = -1;
-    NSString *path = [[NSBundle mainBundle] bundlePath];
-    NSString *finalPath = [path stringByAppendingPathComponent:@"Taverns.plist"];
-    NSArray *plistArray = [NSArray arrayWithContentsOfFile:finalPath];
     taverns = [[NSMutableArray alloc] init];
-    int x = [plistArray count];
-    for (int i = 0; i < x; i++) {
-        NSDictionary *info = plistArray[i];
-        [taverns addObject:[self fillCampaignDataWithInfo:info]];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:[self dataFilePath]]) {
+        [self loadCampaignStatus];
+    } else {
+        NSString *path = [[NSBundle mainBundle] bundlePath];
+        NSString *finalPath = [path stringByAppendingPathComponent:@"Taverns.plist"];
+        NSArray *plistArray = [NSArray arrayWithContentsOfFile:finalPath];
+        int x = [plistArray count];
+        for (int i = 0; i < x; i++) {
+            NSDictionary *info = plistArray[i];
+            [taverns addObject:[self fillCampaignDataWithInfo:info]];
+        }
+        [self saveCampaignStatus];
     }
+    
     tavernButtons = [[NSArray alloc] init];
     tavernButtons = @[self.tavernButton0,
                       self.tavernButton1,
@@ -261,6 +267,7 @@
             controller.initialTowerValue = [[taverns objectAtIndex:selectedTavern] initialTower];
             controller.initialWallValue = [[taverns objectAtIndex:selectedTavern] initialWall];
             controller.towerCampaignAim = [[taverns objectAtIndex:selectedTavern] finalTower];
+            controller.resourcesCampaignAim = [[taverns objectAtIndex:selectedTavern] finalResources];
             
             controller.backgroundImage = [[taverns objectAtIndex:selectedTavern] backgroundPicture];
             
@@ -270,7 +277,40 @@
             controller.computerTowerHeadImage = [[taverns objectAtIndex:selectedTavern] towerHeadComputerBackground];
             
             controller.backgroundMusic = [[taverns objectAtIndex:selectedTavern] backgroundMusic];
+            controller.levelName = [[taverns objectAtIndex:selectedTavern] tavernName];
         }
+    }
+}
+
+- (NSString*)documentsDirectory
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = paths[0];
+    return documentsDirectory;
+}
+
+- (NSString*)dataFilePath
+{
+    return [[self documentsDirectory] stringByAppendingPathComponent:@"CampaignProgressSave.plist"];
+}
+
+- (void)saveCampaignStatus
+{
+    NSMutableData *campaignData = [[NSMutableData alloc] init];
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:campaignData];
+    [archiver encodeObject:taverns forKey:@"taverns"];
+    [archiver finishEncoding];
+    [campaignData writeToFile:[self dataFilePath] atomically:YES];
+}
+
+- (void)loadCampaignStatus
+{
+    NSString *path = [self dataFilePath];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        NSData *data = [[NSData alloc] initWithContentsOfFile:path];
+        NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+        taverns = [unarchiver decodeObjectForKey:@"taverns"];
+        [unarchiver finishDecoding];
     }
 }
 
