@@ -8,9 +8,10 @@
 
 #import "CampaignViewController.h"
 #import "CampaignData.h"
-#import "StartViewController.h"
 
 @interface CampaignViewController ()
+
+@property (weak, nonatomic) IBOutlet UIButton *startButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *tavernButton0;
 @property (weak, nonatomic) IBOutlet UIButton *tavernButton1;
@@ -63,6 +64,7 @@
     NSMutableArray *taverns;
     NSArray *tavernButtons;
     NSInteger selectedTavern;
+    UIPopoverController *popoverController;
 }
 
 - (void)viewDidLoad
@@ -122,6 +124,7 @@
 
 - (void)checkWhichTavernAvailableToPlay
 {
+    NSLog(@"CheckWhichTavernAvailable");
     for (int i = 0; i < [taverns count]; i++) {
         if ([[taverns objectAtIndex:i] isAchieved]) {
             if (i != [taverns count] - 1) {
@@ -195,7 +198,8 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)tavernCloseButtonPressed:(id)sender {
+- (IBAction)tavernCloseButtonPressed:(id)sender
+{
     [UIView animateWithDuration:0.7
                           delay:0.0
                         options:UIViewAnimationCurveEaseIn
@@ -208,7 +212,27 @@
                      }];
 }
 
-- (IBAction)tavernStartButtonPressed:(id)sender {
+- (IBAction)tavernStartButtonPressed:(id)sender
+{
+    NSLog(@"tavernStartButtonPressed");
+    NSString *path = [self savedCampaignGameFilePath];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        NSLog(@"file exist");
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
+        NSLog(@"storyboard: %@", storyboard);
+        IncompletedGameViewController *incompletedController = [storyboard instantiateViewControllerWithIdentifier:@"IncompletedGameStoryboard"];
+        incompletedController.delegate = (id)self;
+        NSLog(@"incompletedController: %@", incompletedController);
+        
+        popoverController = [[UIPopoverController alloc] initWithContentViewController:incompletedController];
+        popoverController.delegate = (id)self;
+        [popoverController presentPopoverFromRect:CGRectMake(self.startButton.frame.origin.x - 50, self.startButton.frame.origin.y + self.selectedTavernView.frame.origin.y, incompletedController.view.frame.size.width, incompletedController.view.frame.size.height) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        
+        
+    } else {
+        NSLog(@"file dont exist");
+        [self loadGameWithLoadSave:NO];
+    }
 }
 
 - (void)setAllTavernButonsEnableStatusTo:(BOOL)status
@@ -247,39 +271,10 @@
                      animations:^{
                          self.selectedTavernView.hidden = NO;
                          self.selectedTavernView.center = CGPointMake(512, 384);
-                     }completion:^(BOOL finished){
                          selectedTavern = number;
+                     }completion:^(BOOL finished){
+                         
                      }];
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"toStartFromCampaign"]) {
-        StartViewController *controller = [segue destinationViewController];
-        
-        [self tavernCloseButtonPressed:nil];
-        
-        //THIS IS NEED TO FIX
-        controller.soundsOn = YES;
-        controller.isThisCampaignPlaying = YES;
-        
-        if ((selectedTavern != -1)) {
-            controller.initialTowerValue = [[taverns objectAtIndex:selectedTavern] initialTower];
-            controller.initialWallValue = [[taverns objectAtIndex:selectedTavern] initialWall];
-            controller.towerCampaignAim = [[taverns objectAtIndex:selectedTavern] finalTower];
-            controller.resourcesCampaignAim = [[taverns objectAtIndex:selectedTavern] finalResources];
-            
-            controller.backgroundImage = [[taverns objectAtIndex:selectedTavern] backgroundPicture];
-            
-            controller.towerImage = [[taverns objectAtIndex:selectedTavern] towerBackground];
-            controller.wallImage = [[taverns objectAtIndex:selectedTavern] wallBackground];
-            controller.playerTowerHeadImage = [[taverns objectAtIndex:selectedTavern] towerHeadPlayerBackground];
-            controller.computerTowerHeadImage = [[taverns objectAtIndex:selectedTavern] towerHeadComputerBackground];
-            
-            controller.backgroundMusic = [[taverns objectAtIndex:selectedTavern] backgroundMusic];
-            controller.levelName = [[taverns objectAtIndex:selectedTavern] tavernName];
-        }
-    }
 }
 
 - (NSString*)documentsDirectory
@@ -292,6 +287,12 @@
 - (NSString*)dataFilePath
 {
     return [[self documentsDirectory] stringByAppendingPathComponent:@"CampaignProgressSave.plist"];
+}
+
+- (NSString*)savedCampaignGameFilePath
+{
+    NSLog(@"selectedTavern: %d", selectedTavern);
+    return [[self documentsDirectory] stringByAppendingPathComponent:[NSString stringWithFormat:@"campaignSave-%@.plist", [[taverns objectAtIndex:selectedTavern] tavernName]]];
 }
 
 - (void)saveCampaignStatus
@@ -311,6 +312,62 @@
         NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
         taverns = [unarchiver decodeObjectForKey:@"taverns"];
         [unarchiver finishDecoding];
+    }
+}
+
+- (void)levelCompletedWithVictory:(BOOL)victory
+{
+    if (victory) {
+        [taverns[selectedTavern] changeIsAchievedValueTo:YES];
+        [self checkWhichTavernAvailableToPlay];
+        [self saveCampaignStatus];
+    }
+}
+
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+{
+    NSLog(@"popover was dismissed");
+}
+
+- (void)needToLoadSavedGame:(BOOL)needToLoad
+{
+    NSLog(@"button: %d", needToLoad);
+    [popoverController dismissPopoverAnimated:YES];
+    [self loadGameWithLoadSave:needToLoad];
+}
+
+- (void)loadGameWithLoadSave:(BOOL)load
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
+    NSLog(@"storyboard: %@", storyboard);
+    StartViewController *startController = [storyboard instantiateViewControllerWithIdentifier:@"startViewControllerStoryboard"];
+    NSLog(@"controller: %@", startController);
+    
+    startController.needToLoadGame = load;
+    startController.soundsOn = self.soundsOn;
+    
+    [self tavernCloseButtonPressed:nil];
+    
+    startController.isThisCampaignPlaying = YES;
+    
+    if ((selectedTavern != -1)) {
+        startController.initialTowerValue = [[taverns objectAtIndex:selectedTavern] initialTower];
+        startController.initialWallValue = [[taverns objectAtIndex:selectedTavern] initialWall];
+        startController.towerCampaignAim = [[taverns objectAtIndex:selectedTavern] finalTower];
+        startController.resourcesCampaignAim = [[taverns objectAtIndex:selectedTavern] finalResources];
+        
+        startController.backgroundImage = [[taverns objectAtIndex:selectedTavern] backgroundPicture];
+        
+        startController.towerImage = [[taverns objectAtIndex:selectedTavern] towerBackground];
+        startController.wallImage = [[taverns objectAtIndex:selectedTavern] wallBackground];
+        startController.playerTowerHeadImage = [[taverns objectAtIndex:selectedTavern] towerHeadPlayerBackground];
+        startController.computerTowerHeadImage = [[taverns objectAtIndex:selectedTavern] towerHeadComputerBackground];
+        
+        startController.backgroundMusic = [[taverns objectAtIndex:selectedTavern] backgroundMusic];
+        startController.levelName = [[taverns objectAtIndex:selectedTavern] tavernName];
+        startController.delegate = (id)self;
+        
+        [self presentViewController:startController animated:YES completion:nil];
     }
 }
 

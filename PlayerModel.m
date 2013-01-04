@@ -21,16 +21,16 @@ static PlayerModel *player;
 
 - (void)dealloc
 {
-    //NSLog(@"player dealloc");
+    NSLog(@"player dealloc");
 }
 
 #pragma mark -Initialization
 
 + (PlayerModel*)getPlayer
 {
-    //NSLog(@"get player");
+    NSLog(@"get player");
     if (player == nil) {
-        //NSLog(@"player Alloc");
+        NSLog(@"player Alloc");
         player = [[PlayerModel alloc] init];
     }
     return player;
@@ -38,7 +38,7 @@ static PlayerModel *player;
 
 + (void)destroyPlayer
 {
-    //NSLog(@"destroy Player");
+    NSLog(@"destroy Player");
     if (player != nil) {
         player = nil;
     }
@@ -46,7 +46,7 @@ static PlayerModel *player;
 
 - (id)init
 {
-    //NSLog(@"init Player");
+    NSLog(@"init Player");
     if ([super init] != nil) {
         self.quarries = 1;
         self.magics = 1;
@@ -101,7 +101,7 @@ static PlayerModel *player;
     
     [self payForTheCard:number];
     
-    [[self.cards objectAtIndex:number] processCard];//ForPlayer:self andComputer:computer];
+    [[self.cards objectAtIndex:number] processCard];
     
     self.isThatPlayerTurn = NO;
     
@@ -159,7 +159,6 @@ static PlayerModel *player;
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
     NSLog(@"player EncodeWithCoder");
-    //[aCoder encodeObject:self.delegate forKey:@"playerDelegate"];
     [aCoder encodeInteger:self.quarries forKey:@"playerQuarries"];
     [aCoder encodeInteger:self.magics forKey:@"playerMagics"];
     [aCoder encodeInteger:self.dungeons forKey:@"playerDungeons"];

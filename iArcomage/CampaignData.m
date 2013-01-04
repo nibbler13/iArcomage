@@ -49,4 +49,9 @@
     [aCoder encodeBool:self.isAchieved forKey:@"isAchieved"];
 }
 
+- (void)changeIsAchievedValueTo:(BOOL)newValue
+{
+    self.isAchieved = newValue;
+}
+
 @end

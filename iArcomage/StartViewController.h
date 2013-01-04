@@ -9,6 +9,12 @@
 #import "PlayerModel.h"
 #import "ComputerModel.h"
 
+@protocol StartViewControllerDelegate <NSObject>
+
+- (void)levelCompletedWithVictory:(BOOL)victory;
+
+@end
+
 @interface StartViewController : UIViewController
     <
         PlayerModelDelegate,
@@ -16,6 +22,8 @@
         UIAlertViewDelegate,
         NSCoding
     >
+
+@property (nonatomic, strong) id <StartViewControllerDelegate> delegate;
 
 @property (nonatomic) BOOL soundsOn;
 @property (nonatomic) BOOL isThisCampaignPlaying;

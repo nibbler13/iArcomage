@@ -22,6 +22,8 @@
 @property (nonatomic) NSString *wallBackground;
 @property (nonatomic) NSString *backgroundMusic;
 @property (nonatomic) NSString *imageForTavern;
-@property (nonatomic) BOOL isAchieved;
+@property (nonatomic, readwrite) BOOL isAchieved;
+
+- (void)changeIsAchievedValueTo:(BOOL)newValue;
 
 @end

@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StartViewController.h"
+#import "IncompletedGameViewController.h"
 
-@interface CampaignViewController : UIViewController
+@interface CampaignViewController : UIViewController <StartViewControllerDelegate, IncompletedGameDelegate, UIPopoverControllerDelegate>
+
+@property (nonatomic) BOOL soundsOn;
 
 @end

@@ -28,7 +28,7 @@
 		<key>imageForTavern</key>
 		<string>TavernPreview.jpg</string>
 		<key>isAchieved</key>
-		<true/>
+		<false/>
 	</dict>
 	<dict>
 		<key>tavernName</key>

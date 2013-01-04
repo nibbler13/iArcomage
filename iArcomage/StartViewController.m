@@ -131,6 +131,7 @@
 
 - (IBAction)backButtonPressed:(id)sender;
 - (IBAction)changeBackground:(id)sender;
+- (IBAction)makePlayerWinButton:(id)sender;
 
 @end
 
@@ -581,6 +582,9 @@
                              NSLog(@"===should present animation for player===");
                              [self configureAnimationsForCardNumber:number];
                              [player cardSelected:number];
+                             
+                             [self savePlayerAndComputerModels];
+                             
                              [self needToUpdateLabels];
                              [self updateTowersAndWalls];
                              
@@ -718,7 +722,6 @@
                                                       
                                                   doNotClearStack = NO;
                                                       
-                                                      [self savePlayerAndComputerModels];
                                                       
                                                   [computer computerTurn];
                                                   [self animateComputerTurn];
@@ -970,6 +973,9 @@
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Разложение либо всех карт компьютера на столе (если первый ход), либо оставшихся пяти в руке, выдача новой карты
+    
+    [self savePlayerAndComputerModels];
+    
     [self calculateBeforePlayOffsetForComputerCard:0 withView:self.computerCard0];
     [self calculateBeforePlayOffsetForComputerCard:1 withView:self.computerCard1];
     [self calculateBeforePlayOffsetForComputerCard:2 withView:self.computerCard2];
@@ -1302,7 +1308,6 @@
                                                                         
                                                                         doNotClearStack = NO;
                                                                         
-                                                                        [self savePlayerAndComputerModels];
                                                                         
                                                                     }];}
                                                         }];
@@ -1623,7 +1628,13 @@
         [cardsScope playDealSoundEffectForEvent:@"PlayerLose"];
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"You lose!" message:@"The computer has defeated you like a boss" delegate:self cancelButtonTitle:@"Ohhh god why?" otherButtonTitles: nil];
         gamesPlayed++;
+        
         [self saveScore];
+        
+        if (self.isThisCampaignPlaying) {
+            [self.delegate levelCompletedWithVictory:NO];
+        }
+        
         [alertView show];
     }
 }
@@ -1639,7 +1650,13 @@
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"You win!" message:@"You win because you have completed the needed conditions" delegate:self cancelButtonTitle:@"Yeah! It's great!" otherButtonTitles: nil];
         gamesPlayed++;
         gamesWined++;
+        
         [self saveScore];
+        
+        if (self.isThisCampaignPlaying) {
+            [self.delegate levelCompletedWithVictory:YES];
+        }
+        
         [alertView show];
     }
 }
@@ -1685,6 +1702,10 @@
     if (backgroundsCounter > [backgroundPictures count] - 1) {
         backgroundsCounter = 0;
     }
+}
+
+- (IBAction)makePlayerWinButton:(id)sender {
+    player.tower = 400;
 }
 
 #pragma mark - Main game cycle
@@ -2487,18 +2508,23 @@ withCardDescriptionLabel:self.playersCard5Description
     NSString *plistPath;
     NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     plistPath = [rootPath stringByAppendingPathComponent:@"Score.plist"];
+    
     if (![[NSFileManager defaultManager] fileExistsAtPath:plistPath]) {
         plistPath = [[NSBundle mainBundle] pathForResource:@"Score" ofType:@"plist"];
     }
+    
     NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistPath];
     NSDictionary *temp = (NSDictionary*)[NSPropertyListSerialization propertyListFromData:plistXML mutabilityOption:NSPropertyListMutableContainersAndLeaves format:&format errorDescription:&errorDesc];
+    
     if (!temp) {
         NSLog(@"Error reading plist: %@, format: %d", errorDesc, format);
+        gamesPlayed = 0;
+        gamesWined = 0;
+    } else {
+        gamesPlayed = [[temp objectForKey:@"GamesPlayed"] integerValue];
+        gamesWined = [[temp objectForKey:@"GamesWined"] integerValue];
+        NSLog(@"gamesPlayed: %d, gamesWined: %d", gamesPlayed, gamesWined);
     }
-    
-    gamesPlayed = [[temp objectForKey:@"GamesPlayed"] integerValue];
-    gamesWined = [[temp objectForKey:@"GamesWined"] integerValue];
-    NSLog(@"gamesPlayed: %d, gamesWined: %d", gamesPlayed, gamesWined);
 }
 
 - (void)saveScore
@@ -2508,6 +2534,7 @@ withCardDescriptionLabel:self.playersCard5Description
     NSString *plistPath = [rootPath stringByAppendingPathComponent:@"Score.plist"];
     NSDictionary *plistDict = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[NSNumber numberWithInteger:gamesPlayed], [NSNumber numberWithInteger:gamesWined], nil] forKeys:[NSArray arrayWithObjects:@"GamesPlayed", @"GamesWined", nil]];
     NSData *plistData = [NSPropertyListSerialization dataFromPropertyList:plistDict format:NSPropertyListXMLFormat_v1_0 errorDescription:&error];
+    
     if (plistData) {
         [plistData writeToFile:plistPath atomically:YES];
     } else {

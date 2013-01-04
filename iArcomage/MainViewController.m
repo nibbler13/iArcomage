@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "StartViewController.h"
+#import "CampaignViewController.h"
 
 @interface MainViewController ()
 
@@ -24,8 +25,8 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"toStart"]) {
-        StartViewController *controller = [segue destinationViewController];
+    if ([[segue identifier] isEqualToString:@"toCampaign"]) {
+        CampaignViewController *controller = [segue destinationViewController];
         controller.soundsOn = self.SoundSwitcher.on;
     }
 }
