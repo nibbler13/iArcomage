@@ -2438,6 +2438,7 @@ withCardDescriptionLabel:self.playersCard5Description
 
 - (void)savePlayerAndComputerModels
 {
+    [self deleteOldFile];
     NSMutableData *playerData = [[NSMutableData alloc] init];
     NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:playerData];
     [archiver encodeObject:player forKey:@"PlayerModel"];
@@ -2543,26 +2544,3 @@ withCardDescriptionLabel:self.playersCard5Description
 }
 
 @end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
