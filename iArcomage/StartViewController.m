@@ -524,6 +524,19 @@
                             options:UIViewAnimationCurveLinear
                          animations:^{
                              view.center = CGPointMake(512, 400);
+                             
+                             xInitialPositionForCardView = 118;
+                             cardsOffset = 196;
+                             
+                             player.playedCard = number;
+                             
+                             if (number != 0) { [self calculateBeforePlayOffsetForPlayerCard:0 withView:self.card0View]; }
+                             if (number != 1) { [self calculateBeforePlayOffsetForPlayerCard:1 withView:self.card1View]; }
+                             if (number != 2) { [self calculateBeforePlayOffsetForPlayerCard:2 withView:self.card2View]; }
+                             if (number != 3) { [self calculateBeforePlayOffsetForPlayerCard:3 withView:self.card3View]; }
+                             if (number != 4) { [self calculateBeforePlayOffsetForPlayerCard:4 withView:self.card4View]; }
+                             if (number != 5) { [self calculateBeforePlayOffsetForPlayerCard:5 withView:self.card5View]; }
+                             
                          }completion:^(BOOL finished){
                              
                              player.isThatPlayerTurn = YES;
@@ -579,8 +592,9 @@
                              }
                              
                              
-                             NSLog(@"===should present animation for player===");
+                             //NSLog(@"===should present animation for player===");
                              [self configureAnimationsForCardNumber:number];
+                             
                              [player cardSelected:number];
                              
                              [self savePlayerAndComputerModels];
@@ -593,8 +607,6 @@
                              ///////////////////////
                              //AddingAnimationHere//
                              ///////////////////////
-                             
-                             
                              
                              double howLongShouldBeAnimation;
                              
@@ -723,7 +735,6 @@
                                                   doNotClearStack = NO;
                                                       
                                                       
-                                                  [computer computerTurn];
                                                   [self animateComputerTurn];
                                                       
                                                   }
@@ -745,10 +756,27 @@
                          animations:^{
                              
                              view.center = CGPointMake(view.center.x, 1000);
+                             
+                             xInitialPositionForCardView = 118;
+                             cardsOffset = 196;
+                             
+                             player.playedCard = number;
+                             
+                             if (number != 0) { [self calculateBeforePlayOffsetForPlayerCard:0 withView:self.card0View]; }
+                             if (number != 1) { [self calculateBeforePlayOffsetForPlayerCard:1 withView:self.card1View]; }
+                             if (number != 2) { [self calculateBeforePlayOffsetForPlayerCard:2 withView:self.card2View]; }
+                             if (number != 3) { [self calculateBeforePlayOffsetForPlayerCard:3 withView:self.card3View]; }
+                             if (number != 4) { [self calculateBeforePlayOffsetForPlayerCard:4 withView:self.card4View]; }
+                             if (number != 5) { [self calculateBeforePlayOffsetForPlayerCard:5 withView:self.card5View]; }
+                             
                          }completion:^(BOOL finished){
                              
                              player.isThatPlayerTurn = YES;
+                             
                              [player cardDiscarded:number];
+                             
+                             [self savePlayerAndComputerModels];
+                             
                              [self needToUpdateLabels];
                              
                              double howLongShouldBeAnimation;
@@ -894,10 +922,6 @@
                                                                        
                                                   player.isThatPlayerTurn = NO;
                                                                        
-                                                  [self savePlayerAndComputerModels];
-                                                                       
-                                                  [computer computerTurn];
-                                                                       
                                                   [self needToUpdateLabels];
                                                                        
                                                   [self animateComputerTurn];
@@ -960,6 +984,13 @@
 
 - (void)animateComputerTurn
 {
+    
+    
+    [computer computerTurn];
+    
+    [self savePlayerAndComputerModels];
+    
+    
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     [self setPlayersCardsInvisible:YES];
     
@@ -973,8 +1004,6 @@
     
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Разложение либо всех карт компьютера на столе (если первый ход), либо оставшихся пяти в руке, выдача новой карты
-    
-    [self savePlayerAndComputerModels];
     
     [self calculateBeforePlayOffsetForComputerCard:0 withView:self.computerCard0];
     [self calculateBeforePlayOffsetForComputerCard:1 withView:self.computerCard1];
@@ -1635,6 +1664,8 @@
             [self.delegate levelCompletedWithVictory:NO];
         }
         
+        //gameOver = YES;
+        
         [alertView show];
     }
 }
@@ -1656,6 +1687,8 @@
         if (self.isThisCampaignPlaying) {
             [self.delegate levelCompletedWithVictory:YES];
         }
+        
+        //gameOver = YES;
         
         [alertView show];
     }
@@ -1691,6 +1724,7 @@
 
 #pragma mark - Buttons method
 - (IBAction)backButtonPressed:(id)sender {
+    [self savePlayerAndComputerModels];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -1726,11 +1760,15 @@
     
         //Campaign game initialization
         if (self.isThisCampaignPlaying) {
+            //NSLog(@"===----campaign game init");
             
-            player.tower = self.initialTowerValue;
-            player.wall = self.initialWallValue;
-            computer.tower = self.initialTowerValue;
-            computer.wall = self.initialWallValue;
+            if (!self.needToLoadGame) {
+                //NSLog(@"===----loading initial data");
+                player.tower = self.initialTowerValue;
+                player.wall = self.initialWallValue;
+                computer.tower = self.initialTowerValue;
+                computer.wall = self.initialWallValue;
+            }
             towerAim = self.towerCampaignAim;
             wallAim = self.towerCampaignAim * 2;
             
@@ -1757,12 +1795,11 @@
         [self updateAllCards];
         [self updateCardPositions];
     
-    /////loading score to nsinteger
+        //loading score to nsinteger
         [self loadScore];
     
         cardsScope = [CardsScope getCardsScope];
         cardsScope.soundsOn = self.soundsOn;
-        //gameOver = NO;
         doNotClearStack = NO;
         computerLastPlayedCard = -1;
         yInitialPositionForCardView = 645.0;
@@ -1831,32 +1868,41 @@
                                         @"Background46.jpg",
                                         @"Background48.jpg",
                                         @"Background49.jpg"];
-    //}
 }
 
 #pragma mark - UpdatingLabels
 
 - (void)updateTowersAndWalls
 {
+    NSInteger playerTower = player.tower;
+    NSInteger playerWall = player.wall;
+    NSInteger computerTower = computer.tower;
+    NSInteger computerWall = computer.wall;
+    
+    if (playerTower > towerAim) { playerTower = towerAim; }
+    if (playerWall > wallAim) { playerWall = wallAim; }
+    if (computerTower > towerAim) { computerTower = towerAim; }
+    if (computerWall > wallAim) { computerWall = wallAim; }
+    
     [self.playerTowerView setFrame:CGRectMake(self.playerTowerView.frame.origin.x,
-                                              (float)(495-(152+324*(player.tower/towerAim))),
+                                              (float)(495-(152+324*(playerTower/towerAim))),
                                               self.playerTowerView.frame.size.width,
-                                              (float)(152+324*(player.tower/towerAim)))];
+                                              (float)(152+324*(playerTower/towerAim)))];
     
     [self.playerWallView setFrame:CGRectMake(self.playerWallView.frame.origin.x,
-                                             (float)(495-(318*(player.wall/wallAim))),
+                                             (float)(495-(318*(playerWall/wallAim))),
                                              self.playerWallView.frame.size.width,
-                                             (float)(318*(player.wall/wallAim)))];
+                                             (float)(318*(playerWall/wallAim)))];
     
     [self.computerTowerView setFrame:CGRectMake(self.computerTowerView.frame.origin.x,
-                                              (float)(495-(152+324*(computer.tower/towerAim))),
+                                              (float)(495-(152+324*(computerTower/towerAim))),
                                               self.computerTowerView.frame.size.width,
-                                              (float)(152+324*(computer.tower/towerAim)))];
+                                              (float)(152+324*(computerTower/towerAim)))];
     
     [self.computerWallView setFrame:CGRectMake(self.computerWallView.frame.origin.x,
-                                             (float)(495-(318*(computer.wall/wallAim))),
+                                             (float)(495-(318*(computerWall/wallAim))),
                                              self.computerWallView.frame.size.width,
-                                             (float)(318*(computer.wall/wallAim)))];
+                                             (float)(318*(computerWall/wallAim)))];
 }
 
 - (void)updateAllCards
@@ -2082,12 +2128,12 @@ withCardDescriptionLabel:self.playersCard5Description
 
 - (void)configureAnimationsForCardNumber:(NSInteger)number
 {
-    NSLog(@"configureAnimations for card: %d", number);
+    //NSLog(@"configureAnimations for card: %d", number);
     if (player.isThatPlayerTurn) {
-        NSLog(@"animation: this is player turn");
-        NSLog(@"isThisPlayer: %d, isThisComputer: %d", player.isThatPlayerTurn, computer.isThatComputerTurn);
-        NSLog(@"%@, %d", [[[player cards] objectAtIndex:number] cardName], [[[player cards] objectAtIndex:number] cardCost]);
-        NSLog(@"%d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d",
+        //NSLog(@"animation: this is player turn");
+        //NSLog(@"isThisPlayer: %d, isThisComputer: %d", player.isThatPlayerTurn, computer.isThatComputerTurn);
+        //NSLog(@"%@, %d", [[[player cards] objectAtIndex:number] cardName], [[[player cards] objectAtIndex:number] cardCost]);
+        /*NSLog(@"%d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d",
               [[[player cards] objectAtIndex:number] quarriesSelf],
               [[[player cards] objectAtIndex:number] quarriesEnemy],
               [[[player cards] objectAtIndex:number] magicsSelf],
@@ -2103,7 +2149,7 @@ withCardDescriptionLabel:self.playersCard5Description
               [[[player cards] objectAtIndex:number] towerSelf],
               [[[player cards] objectAtIndex:number] towerEnemy],
               [[[player cards] objectAtIndex:number] wallSelf],
-              [[[player cards] objectAtIndex:number] wallEnemy]);
+              [[[player cards] objectAtIndex:number] wallEnemy]);*/
         
         if ([[player.cards objectAtIndex:number] quarriesSelf] > 0){
             [self calculatePositionOfAnimationForLabel:self.playerQuarries isAnimationPositive:YES isThisForTowerOrWall:NO isThisForGeneralResources:YES];
@@ -2204,10 +2250,10 @@ withCardDescriptionLabel:self.playersCard5Description
         
         ////////////////////////////////////////////////////
     } else if (computer.isThatComputerTurn) {
-        NSLog(@"animation: this is computer turn");
-        NSLog(@"isThisPlayer: %d, isThisComputer: %d", player.isThatPlayerTurn, computer.isThatComputerTurn);
-        NSLog(@"%@, %d", [[[computer cards] objectAtIndex:number] cardName], [[[computer cards] objectAtIndex:number] cardCost]);
-        NSLog(@"%d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d",
+        //NSLog(@"animation: this is computer turn");
+        //NSLog(@"isThisPlayer: %d, isThisComputer: %d", player.isThatPlayerTurn, computer.isThatComputerTurn);
+        //NSLog(@"%@, %d", [[[computer cards] objectAtIndex:number] cardName], [[[computer cards] objectAtIndex:number] cardCost]);
+        /*NSLog(@"%d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d",
               [[[computer cards] objectAtIndex:number] quarriesSelf],
               [[[computer cards] objectAtIndex:number] quarriesEnemy],
               [[[computer cards] objectAtIndex:number] magicsSelf],
@@ -2223,7 +2269,7 @@ withCardDescriptionLabel:self.playersCard5Description
               [[[computer cards] objectAtIndex:number] towerSelf],
               [[[computer cards] objectAtIndex:number] towerEnemy],
               [[[computer cards] objectAtIndex:number] wallSelf],
-              [[[computer cards] objectAtIndex:number] wallEnemy]);
+              [[[computer cards] objectAtIndex:number] wallEnemy]);*/
             
         if ([[computer.cards objectAtIndex:number] quarriesSelf] > 0){
             [self calculatePositionOfAnimationForLabel:self.computerQuarries isAnimationPositive:YES isThisForTowerOrWall:NO isThisForGeneralResources:YES];
@@ -2438,13 +2484,15 @@ withCardDescriptionLabel:self.playersCard5Description
 
 - (void)savePlayerAndComputerModels
 {
-    [self deleteOldFile];
-    NSMutableData *playerData = [[NSMutableData alloc] init];
-    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:playerData];
-    [archiver encodeObject:player forKey:@"PlayerModel"];
-    [archiver encodeObject:computer forKey:@"ComputerModel"];
-    [archiver finishEncoding];
-    [playerData writeToFile:[self dataFilePath] atomically:YES];
+    if (player != nil && computer != nil) {
+        //[self deleteOldFile];
+        NSMutableData *playerData = [[NSMutableData alloc] init];
+        NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:playerData];
+        [archiver encodeObject:player forKey:@"PlayerModel"];
+        [archiver encodeObject:computer forKey:@"ComputerModel"];
+        [archiver finishEncoding];
+        [playerData writeToFile:[self dataFilePath] atomically:NO];
+    }
 }
 
 - (void)loadPlayerAndComputer
@@ -2524,7 +2572,7 @@ withCardDescriptionLabel:self.playersCard5Description
     } else {
         gamesPlayed = [[temp objectForKey:@"GamesPlayed"] integerValue];
         gamesWined = [[temp objectForKey:@"GamesWined"] integerValue];
-        NSLog(@"gamesPlayed: %d, gamesWined: %d", gamesPlayed, gamesWined);
+        //NSLog(@"gamesPlayed: %d, gamesWined: %d", gamesPlayed, gamesWined);
     }
 }
 

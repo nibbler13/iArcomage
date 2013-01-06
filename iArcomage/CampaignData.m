@@ -12,7 +12,7 @@
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
-    NSLog(@"CampaignData initWithCoder");
+    //NSLog(@"CampaignData initWithCoder");
     if ((self = [super init])) {
         self.tavernName = [aDecoder decodeObjectForKey:@"tavernName"];
         self.initialTower = [aDecoder decodeIntegerForKey:@"initialTower"];
@@ -33,7 +33,7 @@
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-    NSLog(@"CampaignData EncodeWithCoder");
+    //NSLog(@"CampaignData EncodeWithCoder");
     [aCoder encodeObject:self.tavernName forKey:@"tavernName"];
     [aCoder encodeInteger:self.initialTower forKey:@"initialTower"];
     [aCoder encodeInteger:self.initialWall forKey:@"initialWall"];

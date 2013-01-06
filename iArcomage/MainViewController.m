@@ -12,16 +12,18 @@
 
 @interface MainViewController ()
 
-@property (strong, nonatomic) IBOutlet UISwitch *SoundSwitcher;
+@property (weak, nonatomic) IBOutlet UIButton *quickButton;
 @property (weak, nonatomic) IBOutlet UIView *incompletedGameView;
+@property (strong, nonatomic) IBOutlet UISwitch *SoundSwitcher;
 
 - (IBAction)quickGameButton:(id)sender;
-- (IBAction)yesButton:(id)sender;
-- (IBAction)noButton:(id)sender;
 
 @end
 
 @implementation MainViewController
+{
+    UIPopoverController *popoverController;
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -31,51 +33,27 @@
     }
 }
 
-//ButtonFunction
+#pragma mark - Button Functions
 - (IBAction)quickGameButton:(id)sender {
-    NSLog(@"quickGameButton");
     NSString *path = [self dataFilePath];
     if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
         NSLog(@"file exist");
-        self.incompletedGameView.hidden = NO;
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
+        IncompletedGameViewController *incompletedController = [storyboard instantiateViewControllerWithIdentifier:@"IncompletedGameStoryboard"];
+        incompletedController.delegate = (id)self;
+        
+        popoverController = [[UIPopoverController alloc] initWithContentViewController:incompletedController];
+        popoverController.delegate = (id)self;
+        [popoverController presentPopoverFromRect:self.quickButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        
     } else {
         NSLog(@"file dont exist");
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
-        NSLog(@"storyboard: %@", storyboard);
-        StartViewController *startController = [storyboard instantiateViewControllerWithIdentifier:@"startViewControllerStoryboard"];
-        NSLog(@"controller: %@", startController);
-        self.incompletedGameView.hidden = YES;
-        startController.needToLoadGame = NO;
-        startController.soundsOn = self.SoundSwitcher.on;
-        [self presentViewController:startController animated:YES completion:nil];
+        [self loadGameWithLoadSave:NO];
     }
 }
 
-- (IBAction)yesButton:(id)sender {
-    NSLog(@"yes");
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
-    NSLog(@"storyboard: %@", storyboard);
-    StartViewController *startController = [storyboard instantiateViewControllerWithIdentifier:@"startViewControllerStoryboard"];
-    NSLog(@"controller: %@", startController);
-    self.incompletedGameView.hidden = YES;
-    startController.needToLoadGame = YES;
-    startController.soundsOn = self.SoundSwitcher.on;
-    [self presentViewController:startController animated:YES completion:nil];
-}
-
-- (IBAction)noButton:(id)sender {
-    NSLog(@"no");
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
-    NSLog(@"storyboard: %@", storyboard);
-    StartViewController *startController = [storyboard instantiateViewControllerWithIdentifier:@"startViewControllerStoryboard"];
-    NSLog(@"controller: %@", startController);
-    self.incompletedGameView.hidden = YES;
-    startController.needToLoadGame = NO;
-    startController.soundsOn = self.SoundSwitcher.on;
-    [self presentViewController:startController animated:YES completion:nil];
-}
-
-//Check saved data
+#pragma mark - Saved Files
 
 - (NSString*)documentsDirectory
 {
@@ -88,5 +66,24 @@
 {
     return [[self documentsDirectory] stringByAppendingPathComponent:@"quickGameSave.plist"];
 }
+
+#pragma mark - Loading level
+
+- (void)needToLoadSavedGame:(BOOL)needToLoad
+{
+    NSLog(@"button: %d", needToLoad);
+    [popoverController dismissPopoverAnimated:YES];
+    [self loadGameWithLoadSave:needToLoad];
+}
+
+- (void)loadGameWithLoadSave:(BOOL)load
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
+    StartViewController *startController = [storyboard instantiateViewControllerWithIdentifier:@"startViewControllerStoryboard"];
+    startController.needToLoadGame = load;
+    startController.soundsOn = self.SoundSwitcher.on;
+    [self presentViewController:startController animated:YES completion:nil];
+}
+
 
 @end

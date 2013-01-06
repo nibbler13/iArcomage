@@ -21,16 +21,16 @@ static PlayerModel *player;
 
 - (void)dealloc
 {
-    NSLog(@"player dealloc");
+    //NSLog(@"player dealloc");
 }
 
 #pragma mark -Initialization
 
 + (PlayerModel*)getPlayer
 {
-    NSLog(@"get player");
+    //NSLog(@"get player");
     if (player == nil) {
-        NSLog(@"player Alloc");
+        //NSLog(@"player Alloc");
         player = [[PlayerModel alloc] init];
     }
     return player;
@@ -38,7 +38,7 @@ static PlayerModel *player;
 
 + (void)destroyPlayer
 {
-    NSLog(@"destroy Player");
+    //NSLog(@"destroy Player");
     if (player != nil) {
         player = nil;
     }
@@ -46,7 +46,7 @@ static PlayerModel *player;
 
 - (id)init
 {
-    NSLog(@"init Player");
+    //NSLog(@"init Player");
     if ([super init] != nil) {
         self.quarries = 1;
         self.magics = 1;
@@ -125,9 +125,9 @@ static PlayerModel *player;
 - (void)getANewCard
 {
     
-    NSLog(@"player.playedCard %d", self.playedCard);
-    NSLog(@"playerCards %@", self.cards);
-    NSLog(@"playerCardScope %@", cardsScope);
+    //NSLog(@"player.playedCard %d", self.playedCard);
+    //NSLog(@"playerCards %@", self.cards);
+    //NSLog(@"playerCardScope %@", cardsScope);
     [self.cards replaceObjectAtIndex:self.playedCard withObject:cardsScope.getRandomCard];
 }
 

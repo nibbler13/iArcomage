@@ -65,10 +65,17 @@
     NSArray *tavernButtons;
     NSInteger selectedTavern;
     UIPopoverController *popoverController;
+    BOOL needToShowVictoryAnimation;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    NSLog(@"campaign view will apear");
 }
 
 - (void)viewDidLoad
 {
+    NSLog(@"campaign view did load");
     selectedTavern = -1;
     taverns = [[NSMutableArray alloc] init];
     if ([[NSFileManager defaultManager] fileExistsAtPath:[self dataFilePath]]) {
@@ -131,72 +138,36 @@
                 UIButton *tempButton = tavernButtons[i+1];
                 tempButton.hidden = NO;
             }
-        
-        UIImageView *tempImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Completed"]];
-        UIButton *tempButton = tavernButtons[i];
-        tempImage.center = tempButton.center;
-        [self.view insertSubview:tempImage belowSubview:self.selectedTavernView];
-    
+            
+            if (i == selectedTavern && needToShowVictoryAnimation) {
+                NSLog(@"need to show animation");
+            }
+            
+            UIImageView *tempImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"completed"]];
+            UIButton *tempButton = tavernButtons[i];
+            tempImage.center = tempButton.center;
+            //tempImage.alpha = 0.3;
+            //[[tavernButtons objectAtIndex:i] imageView].alpha = 0.6;
+            [self.view insertSubview:tempImage belowSubview:self.tavernButton0];
         }
     }
 }
 
-- (IBAction)tavernButton0Pressed:(id)sender {
-    [self configureTavernViewForNextNumber:0];
-}
+- (IBAction)tavernButton0Pressed: (id)sender { [self configureTavernViewForNextNumber:0];  }
+- (IBAction)tavernButton1Pressed: (id)sender { [self configureTavernViewForNextNumber:1];  }
+- (IBAction)tavernButton2Pressed: (id)sender { [self configureTavernViewForNextNumber:2];  }
+- (IBAction)tavernButton3Pressed: (id)sender { [self configureTavernViewForNextNumber:3];  }
+- (IBAction)tavernButton4Pressed: (id)sender { [self configureTavernViewForNextNumber:4];  }
+- (IBAction)tavernButton5Pressed: (id)sender { [self configureTavernViewForNextNumber:5];  }
+- (IBAction)tavernButton6Pressed: (id)sender { [self configureTavernViewForNextNumber:6];  }
+- (IBAction)tavernButton7Pressed: (id)sender { [self configureTavernViewForNextNumber:7];  }
+- (IBAction)tavernButton8Pressed: (id)sender { [self configureTavernViewForNextNumber:8];  }
+- (IBAction)tavernButton9Pressed: (id)sender { [self configureTavernViewForNextNumber:9];  }
+- (IBAction)tavernButton10Pressed:(id)sender { [self configureTavernViewForNextNumber:10]; }
+- (IBAction)tavernButton11Pressed:(id)sender { [self configureTavernViewForNextNumber:11]; }
+- (IBAction)tavernButton12Pressed:(id)sender { [self configureTavernViewForNextNumber:12]; }
 
-- (IBAction)tavernButton1Pressed:(id)sender {
-    [self configureTavernViewForNextNumber:1];
-}
-
-- (IBAction)tavernButton2Pressed:(id)sender {
-    [self configureTavernViewForNextNumber:2];
-}
-
-- (IBAction)tavernButton3Pressed:(id)sender {
-    [self configureTavernViewForNextNumber:3];
-}
-
-- (IBAction)tavernButton4Pressed:(id)sender {
-    [self configureTavernViewForNextNumber:4];
-}
-
-- (IBAction)tavernButton5Pressed:(id)sender {
-    [self configureTavernViewForNextNumber:5];
-}
-
-- (IBAction)tavernButton6Pressed:(id)sender {
-    [self configureTavernViewForNextNumber:6];
-}
-
-- (IBAction)tavernButton7Pressed:(id)sender {
-    [self configureTavernViewForNextNumber:7];
-}
-
-- (IBAction)tavernButton8Pressed:(id)sender {
-    [self configureTavernViewForNextNumber:8];
-}
-
-- (IBAction)tavernButton9Pressed:(id)sender {
-    [self configureTavernViewForNextNumber:9];
-}
-
-- (IBAction)tavernButton10Pressed:(id)sender {
-    [self configureTavernViewForNextNumber:10];
-}
-
-- (IBAction)tavernButton11Pressed:(id)sender {
-    [self configureTavernViewForNextNumber:11];
-}
-
-- (IBAction)tavernButton12Pressed:(id)sender {
-    [self configureTavernViewForNextNumber:12];
-}
-
-- (IBAction)backButtonPressed:(id)sender
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
+- (IBAction)backButtonPressed:(id)sender { [self dismissViewControllerAnimated:YES completion:nil]; }
 
 - (IBAction)tavernCloseButtonPressed:(id)sender
 {
@@ -209,6 +180,7 @@
                          self.selectedTavernView.hidden = YES;
                          [self setAllTavernButonsEnableStatusTo:YES];
                          self.shadowView.hidden = YES;
+                         [self checkWhichTavernAvailableToPlay];
                      }];
 }
 
@@ -218,16 +190,14 @@
     NSString *path = [self savedCampaignGameFilePath];
     if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
         NSLog(@"file exist");
+        
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
-        NSLog(@"storyboard: %@", storyboard);
         IncompletedGameViewController *incompletedController = [storyboard instantiateViewControllerWithIdentifier:@"IncompletedGameStoryboard"];
         incompletedController.delegate = (id)self;
-        NSLog(@"incompletedController: %@", incompletedController);
         
         popoverController = [[UIPopoverController alloc] initWithContentViewController:incompletedController];
         popoverController.delegate = (id)self;
-        [popoverController presentPopoverFromRect:CGRectMake(self.startButton.frame.origin.x - 50, self.startButton.frame.origin.y + self.selectedTavernView.frame.origin.y, incompletedController.view.frame.size.width, incompletedController.view.frame.size.height) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-        
+        [popoverController presentPopoverFromRect:self.startButton.frame inView:self.selectedTavernView permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
         
     } else {
         NSLog(@"file dont exist");
@@ -315,19 +285,21 @@
     }
 }
 
+#pragma mark - StartViewContollerDelegate Methods
+
 - (void)levelCompletedWithVictory:(BOOL)victory
 {
     if (victory) {
-        [taverns[selectedTavern] changeIsAchievedValueTo:YES];
-        [self checkWhichTavernAvailableToPlay];
-        [self saveCampaignStatus];
+        if (![[taverns objectAtIndex:selectedTavern] isAchieved]) {
+            [taverns[selectedTavern] changeIsAchievedValueTo:YES];
+            needToShowVictoryAnimation = YES;
+            [self checkWhichTavernAvailableToPlay];
+            [self saveCampaignStatus];
+        }
     }
 }
 
-- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
-{
-    NSLog(@"popover was dismissed");
-}
+#pragma mark - Loading level
 
 - (void)needToLoadSavedGame:(BOOL)needToLoad
 {
@@ -339,9 +311,7 @@
 - (void)loadGameWithLoadSave:(BOOL)load
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
-    NSLog(@"storyboard: %@", storyboard);
     StartViewController *startController = [storyboard instantiateViewControllerWithIdentifier:@"startViewControllerStoryboard"];
-    NSLog(@"controller: %@", startController);
     
     startController.needToLoadGame = load;
     startController.soundsOn = self.soundsOn;
@@ -351,8 +321,10 @@
     startController.isThisCampaignPlaying = YES;
     
     if ((selectedTavern != -1)) {
+        
         startController.initialTowerValue = [[taverns objectAtIndex:selectedTavern] initialTower];
         startController.initialWallValue = [[taverns objectAtIndex:selectedTavern] initialWall];
+        
         startController.towerCampaignAim = [[taverns objectAtIndex:selectedTavern] finalTower];
         startController.resourcesCampaignAim = [[taverns objectAtIndex:selectedTavern] finalResources];
         
