@@ -211,6 +211,14 @@
 		741FF8A6169B6922001B40F3 /* TowerWidth4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 741FF89E169B6922001B40F3 /* TowerWidth4@2x.png */; };
 		741FF8A7169B6922001B40F3 /* WallWidth4.png in Resources */ = {isa = PBXBuildFile; fileRef = 741FF89F169B6922001B40F3 /* WallWidth4.png */; };
 		741FF8A8169B6922001B40F3 /* WallWidth4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 741FF8A0169B6922001B40F3 /* WallWidth4@2x.png */; };
+		741FF8B2169B6CB1001B40F3 /* TowerHeaderComputer5.png in Resources */ = {isa = PBXBuildFile; fileRef = 741FF8AA169B6CB1001B40F3 /* TowerHeaderComputer5.png */; };
+		741FF8B3169B6CB1001B40F3 /* TowerHeaderComputer5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 741FF8AB169B6CB1001B40F3 /* TowerHeaderComputer5@2x.png */; };
+		741FF8B4169B6CB1001B40F3 /* TowerHeaderPlayer5.png in Resources */ = {isa = PBXBuildFile; fileRef = 741FF8AC169B6CB1001B40F3 /* TowerHeaderPlayer5.png */; };
+		741FF8B5169B6CB1001B40F3 /* TowerHeaderPlayer5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 741FF8AD169B6CB1001B40F3 /* TowerHeaderPlayer5@2x.png */; };
+		741FF8B6169B6CB1001B40F3 /* TowerWidth5.png in Resources */ = {isa = PBXBuildFile; fileRef = 741FF8AE169B6CB1001B40F3 /* TowerWidth5.png */; };
+		741FF8B7169B6CB1001B40F3 /* TowerWidth5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 741FF8AF169B6CB1001B40F3 /* TowerWidth5@2x.png */; };
+		741FF8B8169B6CB1001B40F3 /* WallWidth5.png in Resources */ = {isa = PBXBuildFile; fileRef = 741FF8B0169B6CB1001B40F3 /* WallWidth5.png */; };
+		741FF8B9169B6CB1001B40F3 /* WallWidth5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 741FF8B1169B6CB1001B40F3 /* WallWidth5@2x.png */; };
 		742D2ACD167FA16F0023E024 /* Fire01.png in Resources */ = {isa = PBXBuildFile; fileRef = 742D2AA5167FA16E0023E024 /* Fire01.png */; };
 		742D2ACE167FA16F0023E024 /* Fire01@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 742D2AA6167FA16E0023E024 /* Fire01@2x.png */; };
 		742D2ACF167FA16F0023E024 /* Fire02.png in Resources */ = {isa = PBXBuildFile; fileRef = 742D2AA7167FA16F0023E024 /* Fire02.png */; };
@@ -714,6 +722,14 @@
 		741FF89E169B6922001B40F3 /* TowerWidth4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TowerWidth4@2x.png"; sourceTree = "<group>"; };
 		741FF89F169B6922001B40F3 /* WallWidth4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WallWidth4.png; sourceTree = "<group>"; };
 		741FF8A0169B6922001B40F3 /* WallWidth4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WallWidth4@2x.png"; sourceTree = "<group>"; };
+		741FF8AA169B6CB1001B40F3 /* TowerHeaderComputer5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TowerHeaderComputer5.png; sourceTree = "<group>"; };
+		741FF8AB169B6CB1001B40F3 /* TowerHeaderComputer5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TowerHeaderComputer5@2x.png"; sourceTree = "<group>"; };
+		741FF8AC169B6CB1001B40F3 /* TowerHeaderPlayer5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TowerHeaderPlayer5.png; sourceTree = "<group>"; };
+		741FF8AD169B6CB1001B40F3 /* TowerHeaderPlayer5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TowerHeaderPlayer5@2x.png"; sourceTree = "<group>"; };
+		741FF8AE169B6CB1001B40F3 /* TowerWidth5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TowerWidth5.png; sourceTree = "<group>"; };
+		741FF8AF169B6CB1001B40F3 /* TowerWidth5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TowerWidth5@2x.png"; sourceTree = "<group>"; };
+		741FF8B0169B6CB1001B40F3 /* WallWidth5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WallWidth5.png; sourceTree = "<group>"; };
+		741FF8B1169B6CB1001B40F3 /* WallWidth5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WallWidth5@2x.png"; sourceTree = "<group>"; };
 		742D2AA5167FA16E0023E024 /* Fire01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Fire01.png; sourceTree = "<group>"; };
 		742D2AA6167FA16E0023E024 /* Fire01@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Fire01@2x.png"; sourceTree = "<group>"; };
 		742D2AA7167FA16F0023E024 /* Fire02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Fire02.png; sourceTree = "<group>"; };
@@ -1055,6 +1071,7 @@
 		741FF8711699E0D2001B40F3 /* TowersAndWalls */ = {
 			isa = PBXGroup;
 			children = (
+				741FF8A9169B6C9E001B40F3 /* set5 */,
 				741FF898169B690F001B40F3 /* set4 */,
 				741FF887169B6136001B40F3 /* Set3 */,
 				741FF886169B6129001B40F3 /* Set2 */,
@@ -1105,6 +1122,21 @@
 				741FF8A0169B6922001B40F3 /* WallWidth4@2x.png */,
 			);
 			name = set4;
+			sourceTree = "<group>";
+		};
+		741FF8A9169B6C9E001B40F3 /* set5 */ = {
+			isa = PBXGroup;
+			children = (
+				741FF8AA169B6CB1001B40F3 /* TowerHeaderComputer5.png */,
+				741FF8AB169B6CB1001B40F3 /* TowerHeaderComputer5@2x.png */,
+				741FF8AC169B6CB1001B40F3 /* TowerHeaderPlayer5.png */,
+				741FF8AD169B6CB1001B40F3 /* TowerHeaderPlayer5@2x.png */,
+				741FF8AE169B6CB1001B40F3 /* TowerWidth5.png */,
+				741FF8AF169B6CB1001B40F3 /* TowerWidth5@2x.png */,
+				741FF8B0169B6CB1001B40F3 /* WallWidth5.png */,
+				741FF8B1169B6CB1001B40F3 /* WallWidth5@2x.png */,
+			);
+			name = set5;
 			sourceTree = "<group>";
 		};
 		742D2AA4167FA1550023E024 /* AnimationFire */ = {
@@ -2241,6 +2273,14 @@
 				741FF8A6169B6922001B40F3 /* TowerWidth4@2x.png in Resources */,
 				741FF8A7169B6922001B40F3 /* WallWidth4.png in Resources */,
 				741FF8A8169B6922001B40F3 /* WallWidth4@2x.png in Resources */,
+				741FF8B2169B6CB1001B40F3 /* TowerHeaderComputer5.png in Resources */,
+				741FF8B3169B6CB1001B40F3 /* TowerHeaderComputer5@2x.png in Resources */,
+				741FF8B4169B6CB1001B40F3 /* TowerHeaderPlayer5.png in Resources */,
+				741FF8B5169B6CB1001B40F3 /* TowerHeaderPlayer5@2x.png in Resources */,
+				741FF8B6169B6CB1001B40F3 /* TowerWidth5.png in Resources */,
+				741FF8B7169B6CB1001B40F3 /* TowerWidth5@2x.png in Resources */,
+				741FF8B8169B6CB1001B40F3 /* WallWidth5.png in Resources */,
+				741FF8B9169B6CB1001B40F3 /* WallWidth5@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
