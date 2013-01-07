@@ -60,9 +60,9 @@ static PlayerModel *player;
         self.shouldDiscardACard = NO;
         self.shouldPlayAgain = NO;
         self.cards = [[NSMutableArray alloc] initWithCapacity:6];
-        self.soundsOn = YES;
+        //self.soundsOn = YES;
         cardsScope = [CardsScope getCardsScope];
-        cardsScope.soundsOn = self.soundsOn;
+        //cardsScope.soundsOn = self.soundsOn;
         self.cards = [NSMutableArray arrayWithObjects:cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, nil];
         computer = [ComputerModel getComputer];
     }
@@ -129,51 +129,6 @@ static PlayerModel *player;
     //NSLog(@"playerCards %@", self.cards);
     //NSLog(@"playerCardScope %@", cardsScope);
     [self.cards replaceObjectAtIndex:self.playedCard withObject:cardsScope.getRandomCard];
-}
-
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    NSLog(@"player initWithCoder");
-    if ((self = [super init])) {
-        self.quarries = [aDecoder decodeIntegerForKey:@"playerQuarries"];
-        self.magics = [aDecoder decodeIntegerForKey:@"playerMagics"];
-        self.dungeons = [aDecoder decodeIntegerForKey:@"playerDungeons"];
-        self.bricks = [aDecoder decodeIntegerForKey:@"playerBricks"];
-        self.gems = [aDecoder decodeIntegerForKey:@"playerGems"];
-        self.recruits = [aDecoder decodeIntegerForKey:@"playerRecruits"];
-        self.wall = [aDecoder decodeIntegerForKey:@"playerWall"];
-        self.tower = [aDecoder decodeIntegerForKey:@"playerTower"];
-        self.cards = [aDecoder decodeObjectForKey:@"playerCards"];
-        self.playedCard = [aDecoder decodeIntegerForKey:@"playerPlayedCard"];
-        self.shouldPlayAgain = [aDecoder decodeBoolForKey:@"playerShouldPlayAgain"];
-        self.shouldDiscardACard = [aDecoder decodeBoolForKey:@"playerShouldDiscardACard"];
-        self.isThatPlayerTurn = [aDecoder decodeBoolForKey:@"playerIsThatPlayerTurn"];
-        self.soundsOn = [aDecoder decodeBoolForKey:@"playerSoundsOn"];
-        self.isCardHasBeenDiscarded = [aDecoder decodeBoolForKey:@"playerIsCardHasBeenDiscarded"];
-        cardsScope = [CardsScope getCardsScope];
-        
-    }
-    return self;
-}
-
-- (void)encodeWithCoder:(NSCoder *)aCoder
-{
-    NSLog(@"player EncodeWithCoder");
-    [aCoder encodeInteger:self.quarries forKey:@"playerQuarries"];
-    [aCoder encodeInteger:self.magics forKey:@"playerMagics"];
-    [aCoder encodeInteger:self.dungeons forKey:@"playerDungeons"];
-    [aCoder encodeInteger:self.bricks forKey:@"playerBricks"];
-    [aCoder encodeInteger:self.gems forKey:@"playerGems"];
-    [aCoder encodeInteger:self.recruits forKey:@"playerRecruits"];
-    [aCoder encodeInteger:self.wall forKey:@"playerWall"];
-    [aCoder encodeInteger:self.tower forKey:@"playerTower"];
-    [aCoder encodeObject:self.cards forKey:@"playerCards"];
-    [aCoder encodeInteger:self.playedCard forKey:@"playerPlayedCard"];
-    [aCoder encodeBool:self.shouldPlayAgain forKey:@"playerShouldPlayAgain"];
-    [aCoder encodeBool:self.shouldDiscardACard forKey:@"playerShouldDiscardACard"];
-    [aCoder encodeBool:self.isThatPlayerTurn forKey:@"playerIsThatPlayerTurn"];
-    [aCoder encodeBool:self.soundsOn forKey:@"playerSoundsOn"];
-    [aCoder encodeBool:self.isCardHasBeenDiscarded forKey:@"playerIsCardHasBeenDiscarded"];
 }
 
 

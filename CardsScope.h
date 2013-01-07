@@ -15,6 +15,7 @@
 @property (nonatomic) BOOL soundsOn;
 
 - (Card*)getRandomCard;
+- (Card*)getCardAtNumber:(NSInteger)number;
 
 - (void)playDealSoundEffectForEvent:(NSString*)event;
 

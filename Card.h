@@ -10,7 +10,7 @@
 #import "PlayerModel.h"
 #import "ComputerModel.h"
 
-@interface Card : NSObject <NSCoding>
+@interface Card : NSObject
 
 @property (nonatomic) NSString *cardColor;
 @property (nonatomic) NSString *cardName;
@@ -34,6 +34,7 @@
 @property (nonatomic) NSInteger towerEnemy;
 @property (nonatomic) BOOL additionalTerms;
 @property (nonatomic) NSInteger cardWeight;
+@property (nonatomic) NSInteger cardNumber;
 
 - (void)processCard;
 - (void)increaseCardWeightOn:(NSInteger)weight;

@@ -14,7 +14,7 @@
 
 @end
 
-@interface PlayerModel : NSObject <NSCoding>
+@interface PlayerModel : NSObject
 
 @property (nonatomic, strong) id <PlayerModelDelegate> delegate;
 @property (nonatomic) NSInteger quarries;
@@ -30,7 +30,7 @@
 @property (nonatomic) BOOL shouldPlayAgain;
 @property (nonatomic) BOOL shouldDiscardACard;
 @property (nonatomic) BOOL isThatPlayerTurn;
-@property (nonatomic) BOOL soundsOn;
+//@property (nonatomic) BOOL soundsOn;
 @property (nonatomic) BOOL isCardHasBeenDiscarded;
 
 - (void)cardSelected:(NSInteger)number;

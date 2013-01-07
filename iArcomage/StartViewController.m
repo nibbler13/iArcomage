@@ -139,7 +139,7 @@
 {
     PlayerModel *player;
     ComputerModel *computer;
-    //BOOL gameOver;
+    BOOL gameOver;
     CardsScope *cardsScope;
     CGPoint firstTouchPoint;
     
@@ -173,6 +173,10 @@
     BOOL isPlayedCard1Present;
     BOOL isPlayedCard2Present;
     
+    BOOL isPlayedCard0WasDiscarded;
+    BOOL isPlayedCard1WasDiscarded;
+    BOOL isPlayedCard2WasDiscarded;
+    
     BOOL animationCompleted;
     
     BOOL operationComplete;
@@ -204,9 +208,7 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    if (!animationCompleted) {
-        return;
-    }
+    if (!animationCompleted) { return; }
     
     if (!isAnythingCardSelected) {
         int count = 0;
@@ -225,26 +227,25 @@
             isAnythingCardSelected = YES;
             [self dispatchFirstTouchAtPoint:[touch locationInView:self.view]];
             count++;
-            } else {
-                return;
-            }
+                
+            } else { return; }
         }
     }
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    if (!animationCompleted) {
-        return;
-    }
+    if (!animationCompleted) { return; }
     
     int count = 0;
     for (UITouch *touch in touches) {
         count++;
+        
         if (abs(lastTouch.x - [touch locationInView:self.view].x) > 100 |
             abs(lastTouch.y - [touch locationInView:self.view].y) > 100) {
             return;
         }
+        
         lastTouch = [touch locationInView:self.view];
         [self dispatchTouchEventToPosition:[touch locationInView:self.view]];
     }
@@ -252,16 +253,12 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    if (!animationCompleted) {
-        return;
-    }
+    if (!animationCompleted) { return; }
     
     
     for (UITouch *touch in touches) {
         if (abs(lastTouch.x - [touch locationInView:self.view].x) > 100 |
-            abs(lastTouch.y - [touch locationInView:self.view].y) > 100) {
-            return;
-        }
+            abs(lastTouch.y - [touch locationInView:self.view].y) > 100) { return; }
         
         lastTouch = [touch locationInView:self.view];
         [self dispatchTouchEndToPosition:[touch locationInView:self.view]];
@@ -270,15 +267,12 @@
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    if (!animationCompleted) {
-        return;
-    }
+    if (!animationCompleted) { return; }
     
     for (UITouch *touch in touches) {
         if (abs(lastTouch.x - [touch locationInView:self.view].x) > 100 |
-            abs(lastTouch.y - [touch locationInView:self.view].y) > 100) {
-            return;
-        }
+            abs(lastTouch.y - [touch locationInView:self.view].y) > 100) { return; }
+        
         lastTouch = [touch locationInView:self.view];
         [self dispatchTouchEndToPosition:[touch locationInView:self.view]];
     }
@@ -311,11 +305,12 @@
 
 - (void)animateFirstTouchForCardView:(UIView*)cardView forCardImage:(UIImageView*)image withCardNumber:(NSInteger)number
 {
-    if ([self isCardAvailableToPlay:number] && !player.shouldDiscardACard) {
+    if ([self isCardAvailableToPlay:[[player cards] objectAtIndex:number]] && !player.shouldDiscardACard) {
         cardSelectionView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CardSelection"]];
     } else {
         cardSelectionView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CardSelectionRed"]];
     }
+    
     cardSelectionView.center = image.center;
     cardSelectionView.alpha = 0.0;
     [cardView addSubview:cardSelectionView];
@@ -324,99 +319,74 @@
                         options:(UIViewAnimationCurveEaseOut)
                      animations:^{
                          cardSelectionView.alpha = 1.0;
-                     }completion:^(BOOL finished){
-                     }];
+                     }completion:nil];
 }
 
 //==================Move algorithm=====================
 - (void)dispatchTouchEventToPosition:(CGPoint)position
 {
     if (CGRectContainsPoint(defaultRectCard0View, firstTouchPoint)) {
-        if (![self isCardAvailableToPlay:0] || player.shouldDiscardACard) {
-            if (firstTouchPoint.y > position.y) {
-                return;
-            }
+        if (![self isCardAvailableToPlay:[[player cards] objectAtIndex:0]] || player.shouldDiscardACard) {
+            if (firstTouchPoint.y > position.y) { return; }
         }
         
         if ([[[player.cards objectAtIndex:0] cardName] isEqualToString:@"Lodestone"]) {
-            if (firstTouchPoint.y < position.y) {
-                return;
-            }
+            if (firstTouchPoint.y < position.y) { return; }
         }
         
         [self calculateNewPosition:position forTheView:self.card0View withDefaultPosition:defaultPositionCard0View withCardNumber:0];
         
     } else if (CGRectContainsPoint(defaultRectCard1View, firstTouchPoint)) {
-        if (![self isCardAvailableToPlay:1] || player.shouldDiscardACard) {
-            if (firstTouchPoint.y > position.y) {
-                return;
-            }
+        if (![self isCardAvailableToPlay:[[player cards] objectAtIndex:1]] || player.shouldDiscardACard) {
+            if (firstTouchPoint.y > position.y) { return; }
         }
         
         if ([[[player.cards objectAtIndex:1] cardName] isEqualToString:@"Lodestone"]) {
-            if (firstTouchPoint.y < position.y) {
-                return;
-            }
+            if (firstTouchPoint.y < position.y) { return; }
         }
         
         [self calculateNewPosition:position forTheView:self.card1View withDefaultPosition:defaultPositionCard1View withCardNumber:1];
         
     } else if (CGRectContainsPoint(defaultRectCard2View, firstTouchPoint)) {
-        if (![self isCardAvailableToPlay:2] || player.shouldDiscardACard) {
-            if (firstTouchPoint.y > position.y) {
-                return;
-            }
+        if (![self isCardAvailableToPlay:[[player cards] objectAtIndex:2]] || player.shouldDiscardACard) {
+            if (firstTouchPoint.y > position.y) { return; }
         }
         
         if ([[[player.cards objectAtIndex:2] cardName] isEqualToString:@"Lodestone"]) {
-            if (firstTouchPoint.y < position.y) {
-                return;
-            }
+            if (firstTouchPoint.y < position.y) { return; }
         }
         
         [self calculateNewPosition:position forTheView:self.card2View withDefaultPosition:defaultPositionCard2View withCardNumber:2];
         
     } else if (CGRectContainsPoint(defaultRectCard3View, firstTouchPoint)) {
-        if (![self isCardAvailableToPlay:3] || player.shouldDiscardACard) {
-            if (firstTouchPoint.y > position.y) {
-                return;
-            }
+        if (![self isCardAvailableToPlay:[[player cards] objectAtIndex:3]] || player.shouldDiscardACard) {
+            if (firstTouchPoint.y > position.y) { return; }
         }
         
         if ([[[player.cards objectAtIndex:3] cardName] isEqualToString:@"Lodestone"]) {
-            if (firstTouchPoint.y < position.y) {
-                return;
-            }
+            if (firstTouchPoint.y < position.y) { return; }
         }
         
         [self calculateNewPosition:position forTheView:self.card3View withDefaultPosition:defaultPositionCard3View withCardNumber:3];
         
     } else if (CGRectContainsPoint(defaultRectCard4View, firstTouchPoint)) {
-        if (![self isCardAvailableToPlay:4] || player.shouldDiscardACard) {
-            if (firstTouchPoint.y > position.y) {
-                return;
-            }
+        if (![self isCardAvailableToPlay:[[player cards] objectAtIndex:4]] || player.shouldDiscardACard) {
+            if (firstTouchPoint.y > position.y) { return; }
         }
         
         if ([[[player.cards objectAtIndex:4] cardName] isEqualToString:@"Lodestone"]) {
-            if (firstTouchPoint.y < position.y) {
-                return;
-            }
+            if (firstTouchPoint.y < position.y) { return; }
         }
         
         [self calculateNewPosition:position forTheView:self.card4View withDefaultPosition:defaultPositionCard4View withCardNumber:4];
         
     } else if (CGRectContainsPoint(defaultRectCard5View, firstTouchPoint)) {
-        if (![self isCardAvailableToPlay:5] || player.shouldDiscardACard) {
-            if (firstTouchPoint.y > position.y) {
-                return;
-            }
+        if (![self isCardAvailableToPlay:[[player cards] objectAtIndex:5]] || player.shouldDiscardACard) {
+            if (firstTouchPoint.y > position.y) { return; }
         }
         
         if ([[[player.cards objectAtIndex:5] cardName] isEqualToString:@"Lodestone"]) {
-            if (firstTouchPoint.y < position.y) {
-                return;
-            }
+            if (firstTouchPoint.y < position.y) { return; }
         }
         
         [self calculateNewPosition:position forTheView:self.card5View withDefaultPosition:defaultPositionCard5View withCardNumber:5];
@@ -429,14 +399,11 @@
     if (firstTouchPoint.y < position.y) {
         cardSelectionView.image = [UIImage imageNamed:@"CardSelectionRed"];
     } else {
-        if ([self isCardAvailableToPlay:number]) {
-            cardSelectionView.image = [UIImage imageNamed:@"CardSelection"];
-        }
+        if ([self isCardAvailableToPlay:[[player cards] objectAtIndex:number]]) { cardSelectionView.image = [UIImage imageNamed:@"CardSelection"]; }
     }
     
-    if ((firstTouchPoint.y - position.y) > 91) {////////////////////////////////////91
-        return;
-    }
+    if ((firstTouchPoint.y - position.y) > 91) { return; }
+    
     [theView setCenter:CGPointMake(defaultPosition.x, defaultPosition.y - (firstTouchPoint.y - position.y))];
 }
 
@@ -465,7 +432,7 @@
 
 - (void)calculateEndPosition:(CGPoint)position toView:(UIView*)view withDefaultPosition:(CGPoint*)defaultPosition withDefaultRect:(CGRect*)defaultRect forCardNumber:(NSUInteger)number
 {
-    if (![self isCardAvailableToPlay:number] || player.shouldDiscardACard) {
+    if (![self isCardAvailableToPlay:[[player cards] objectAtIndex:number]] || player.shouldDiscardACard) {
         
             if (firstTouchPoint.y > position.y) {
                 
@@ -508,8 +475,8 @@
         }
     }
     
-    if (firstTouchPoint.y - 40 > position.y) {/////////////////////////////80
-        if (![self isCardAvailableToPlay:number]) {
+    if (firstTouchPoint.y - 40 > position.y) {
+        if (![self isCardAvailableToPlay:[[player cards] objectAtIndex:number]]) {
             [self releaseCardSelectionForView:view withDefaultPosition:defaultPosition withDefaultRect:defaultRect];
             return;
         }
@@ -597,8 +564,6 @@
                              
                              [player cardSelected:number];
                              
-                             [self savePlayerAndComputerModels];
-                             
                              [self needToUpdateLabels];
                              [self updateTowersAndWalls];
                              
@@ -610,12 +575,8 @@
                              
                              double howLongShouldBeAnimation;
                              
-                             if (doNotClearStack) {
-                                 howLongShouldBeAnimation = 0.0;
-                             } else {
-                                 howLongShouldBeAnimation = 0.5;
-                             }
-                             
+                             if (doNotClearStack) { howLongShouldBeAnimation = 0.0; }
+                             else { howLongShouldBeAnimation = 0.5; }
                              
                              [UIView animateWithDuration:howLongShouldBeAnimation
                                                    delay:0.0
@@ -636,6 +597,9 @@
                                                       isPlayedCard0Present = NO;
                                                       isPlayedCard1Present = NO;
                                                       isPlayedCard2Present = NO;
+                                                      isPlayedCard0WasDiscarded = NO;
+                                                      isPlayedCard1WasDiscarded = NO;
+                                                      isPlayedCard2WasDiscarded = NO;
                                                       self.playedCard0View.hidden = YES;
                                                       self.playedCard1View.hidden = YES;
                                                       self.playedCard2View.hidden = YES;
@@ -658,19 +622,13 @@
                                                                       options:UIViewAnimationCurveLinear
                                                                    animations:^{
                                                   
-                                                                       [self configurePlayedCardsForPlayerCardNumber:number withView:view];
+                                                                       [self configurePlayedCardsForCardNumber:number withView:view isThatForPlayer:YES];
                                                   
                                                 }completion:^(BOOL finished){
                                                   
-                                                  if (isPlayedCard0Present) {
-                                                      self.playedCard0View.hidden = NO;
-                                                  }
-                                                  if (isPlayedCard1Present) {
-                                                      self.playedCard1View.hidden = NO;
-                                                  }
-                                                  if (isPlayedCard2Present) {
-                                                      self.playedCard2View.hidden = NO;
-                                                  }
+                                                  if (isPlayedCard0Present) { self.playedCard0View.hidden = NO; }
+                                                  if (isPlayedCard1Present) { self.playedCard1View.hidden = NO; }
+                                                  if (isPlayedCard2Present) { self.playedCard2View.hidden = NO; }
                                                   
                                                   
                                                   
@@ -723,32 +681,33 @@
                                                                            [self updateCardPositions];
                                                                            
                                                                        }completion:^(BOOL finished){
+                                                                           
                                                                            isAnythingCardSelected = NO;
+                                                                           
                                                                            animationCompleted = YES;
+                                                                           
                                                                            player.shouldPlayAgain = NO;
                                                                        }];
                                                   }
                                                   if (!player.shouldPlayAgain) {
                                                       
-                                                  player.isThatPlayerTurn = NO;
+                                                      player.isThatPlayerTurn = NO;
                                                       
-                                                  doNotClearStack = NO;
+                                                      doNotClearStack = NO;
                                                       
-                                                      
-                                                  [self animateComputerTurn];
-                                                      
+                                                      [self animateComputerTurn];
                                                   }
                                     }];
                          }];
             }];
         
-    } else if (firstTouchPoint.y + 40 < position.y) {/////////////////////////////80
+    } else if (firstTouchPoint.y + 40 < position.y) {
         
         //=======CARD WAS BEEN DISCARDED===========
         
         firstTouchPoint = CGPointMake(0, 0);
         
-            [cardsScope playDealSoundEffectForEvent:@"WillTakeACard"];
+        [cardsScope playDealSoundEffectForEvent:@"WillTakeACard"];
         
         [UIView animateWithDuration:0.5
                               delay:0.0
@@ -769,23 +728,20 @@
                              if (number != 4) { [self calculateBeforePlayOffsetForPlayerCard:4 withView:self.card4View]; }
                              if (number != 5) { [self calculateBeforePlayOffsetForPlayerCard:5 withView:self.card5View]; }
                              
+                             [self needToCheckThatTheVictoryConditionsIsAchieved];
+                             
                          }completion:^(BOOL finished){
                              
                              player.isThatPlayerTurn = YES;
                              
                              [player cardDiscarded:number];
                              
-                             [self savePlayerAndComputerModels];
-                             
                              [self needToUpdateLabels];
                              
                              double howLongShouldBeAnimation;
                              
-                             if (doNotClearStack) {
-                                 howLongShouldBeAnimation = 0.0;
-                             } else {
-                                 howLongShouldBeAnimation = 0.5;
-                             }
+                             if (doNotClearStack) { howLongShouldBeAnimation = 0.0; }
+                             else { howLongShouldBeAnimation = 0.5; }
                              
                              [UIView animateWithDuration:howLongShouldBeAnimation
                                                    delay:0.0
@@ -806,6 +762,9 @@
                                                       isPlayedCard0Present = NO;
                                                       isPlayedCard1Present = NO;
                                                       isPlayedCard2Present = NO;
+                                                      isPlayedCard0WasDiscarded = NO;
+                                                      isPlayedCard1WasDiscarded = NO;
+                                                      isPlayedCard2WasDiscarded = NO;
                                                       self.playedCard0View.hidden = YES;
                                                       self.playedCard1View.hidden = YES;
                                                       self.playedCard2View.hidden = YES;
@@ -828,34 +787,20 @@
                                                                       options:UIViewAnimationCurveLinear
                                                                    animations:^{
                                                                     
-                                                                       [self configurePlayedCardsForPlayerCardNumber:number withView:view];
+                                                                       [self configurePlayedCardsForCardNumber:number withView:view isThatForPlayer:YES];
                                                                        
-                                                                       if (number == 0) {
-                                                                           self.card0NotAvailable.hidden = YES;
-                                                                       } else if (number == 1) {
-                                                                           self.card1NotAvailable.hidden = YES;
-                                                                       } else if (number == 2) {
-                                                                           self.card2NotAvailable.hidden = YES;
-                                                                       } else if (number == 3) {
-                                                                           self.card3NotAvailable.hidden = YES;
-                                                                       } else if (number == 4) {
-                                                                           self.card4NotAvailable.hidden = YES;
-                                                                       } else if (number == 5) {
-                                                                           self.card5NotAvailable.hidden = YES;
-                                                                       }
-                                                                       
+                                                                       if (number == 0)      { self.card0NotAvailable.hidden = YES; }
+                                                                       else if (number == 1) { self.card1NotAvailable.hidden = YES; }
+                                                                       else if (number == 2) { self.card2NotAvailable.hidden = YES; }
+                                                                       else if (number == 3) { self.card3NotAvailable.hidden = YES; }
+                                                                       else if (number == 4) { self.card4NotAvailable.hidden = YES; }
+                                                                       else if (number == 5) { self.card5NotAvailable.hidden = YES; }
                                                   
                                                                    }completion:^(BOOL finished){
                                                   
-                                                  if (isPlayedCard0Present) {
-                                                      self.playedCard0View.hidden = NO;
-                                                  }
-                                                  if (isPlayedCard1Present) {
-                                                      self.playedCard1View.hidden = NO;
-                                                  }
-                                                  if (isPlayedCard2Present) {
-                                                      self.playedCard2View.hidden = NO;
-                                                  }
+                                                  if (isPlayedCard0Present) { self.playedCard0View.hidden = NO; }
+                                                  if (isPlayedCard1Present) { self.playedCard1View.hidden = NO; }
+                                                  if (isPlayedCard2Present) { self.playedCard2View.hidden = NO; }
                                                   
                                                   [self releaseCardSelectionForView:view withDefaultPosition:defaultPosition withDefaultRect:defaultRect];
                                                   
@@ -917,8 +862,7 @@
                                                   
                                                   ///////////////////////////////////////////////////////
                                                   
-                                                  doNotClearStack = NO;
-                                                                       
+                                                  doNotClearStack = NO;     
                                                                        
                                                   player.isThatPlayerTurn = NO;
                                                                        
@@ -960,7 +904,6 @@
                          cardSelectionView.alpha = 0.0;
                      }completion:^(BOOL finished){
                          
-                         
                          [cardSelectionView removeFromSuperview];
                          cardSelectionView = nil;
                          
@@ -984,11 +927,9 @@
 
 - (void)animateComputerTurn
 {
-    
+    if (gameOver) { return; }
     
     [computer computerTurn];
-    
-    [self savePlayerAndComputerModels];
     
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1046,27 +987,21 @@
                          self.computerCard5.center = CGPointMake(xInitialPositionForCardView, yInitialPositionForCardView);
                          xInitialPositionForCardView += 169;
                          
-                         [self configureComputerCard:computer.playedCard
+                         [self configureCard:[[computer cards] objectAtIndex:computer.playedCard]
                                    withCardNameLabel:self.playersCard0Name
                             withCardDescriptionLabel:self.playersCard0Description
                                    withCardCostLabel:self.playersCard0Cost
                                       withBackground:self.card0Background
                                 withNotAvailableView:self.card0NotAvailable
-                          withCardImage:self.card0Image];
+                                       withCardImage:self.card0Image
+                                     isThisForPlayer:NO];
                          
-                         if (computer.playedCard == 0) {
-                             self.card0View.center = CGPointMake(self.computerCard0.center.x, self.computerCard0.center.y);
-                         } else if (computer.playedCard == 1) {
-                             self.card0View.center = CGPointMake(self.computerCard1.center.x, self.computerCard1.center.y);
-                         } else if (computer.playedCard == 2) {
-                             self.card0View.center = CGPointMake(self.computerCard2.center.x, self.computerCard2.center.y);
-                         } else if (computer.playedCard == 3) {
-                             self.card0View.center = CGPointMake(self.computerCard3.center.x, self.computerCard3.center.y);
-                         } else if (computer.playedCard == 4) {
-                             self.card0View.center = CGPointMake(self.computerCard4.center.x, self.computerCard4.center.y);
-                         } else if (computer.playedCard == 5) {
-                             self.card0View.center = CGPointMake(self.computerCard5.center.x, self.computerCard5.center.y);
-                         }
+                         if (computer.playedCard == 0)      { self.card0View.center = CGPointMake(self.computerCard0.center.x, self.computerCard0.center.y); }
+                         else if (computer.playedCard == 1) { self.card0View.center = CGPointMake(self.computerCard1.center.x, self.computerCard1.center.y); }
+                         else if (computer.playedCard == 2) { self.card0View.center = CGPointMake(self.computerCard2.center.x, self.computerCard2.center.y); }
+                         else if (computer.playedCard == 3) { self.card0View.center = CGPointMake(self.computerCard3.center.x, self.computerCard3.center.y); }
+                         else if (computer.playedCard == 4) { self.card0View.center = CGPointMake(self.computerCard4.center.x, self.computerCard4.center.y); }
+                         else if (computer.playedCard == 5) { self.card0View.center = CGPointMake(self.computerCard5.center.x, self.computerCard5.center.y); }
                          
                      }completion:^(BOOL finished){
                          
@@ -1158,11 +1093,8 @@
                               
                               double howLongShouldBeAnimation;
                               
-                              if (doNotClearStack) {
-                                  howLongShouldBeAnimation = 0.0;
-                              } else {
-                                  howLongShouldBeAnimation = 0.5;
-                              }
+                              if (doNotClearStack) { howLongShouldBeAnimation = 0.0; }
+                              else { howLongShouldBeAnimation = 0.5; }
                               
                               [UIView animateWithDuration:howLongShouldBeAnimation
                                                     delay:0.0
@@ -1182,6 +1114,9 @@
                                                        isPlayedCard0Present = NO;
                                                        isPlayedCard1Present = NO;
                                                        isPlayedCard2Present = NO;
+                                                       isPlayedCard0WasDiscarded = NO;
+                                                       isPlayedCard1WasDiscarded = NO;
+                                                       isPlayedCard2WasDiscarded = NO;
                                                        self.playedCard0View.hidden = YES;
                                                        self.playedCard1View.hidden = YES;
                                                        self.playedCard2View.hidden = YES;
@@ -1198,9 +1133,6 @@
                                                        tempView = (UIImageView*)[self.view viewWithTag:1003];
                                                        [tempView removeFromSuperview];
                                                    }
-                              
-                                                   
-                                                   
                                                    
                               [UIView animateWithDuration:0.5
                                                     delay:0.2
@@ -1209,39 +1141,18 @@
                                                    
                                                    self.card0NotAvailable.hidden = YES;
                                                    
-                                                   if (computer.playedCard == 0) {
-                                                       [self configurePlayedCardsForComputerCardNumber:0];
-                                                   }
-                                                   if (computer.playedCard == 1) {
-                                                       [self configurePlayedCardsForComputerCardNumber:1];
-                                                   }
-                                                   if (computer.playedCard == 2) {
-                                                       [self configurePlayedCardsForComputerCardNumber:2];
-                                                   }
-                                                   if (computer.playedCard == 3) {
-                                                       [self configurePlayedCardsForComputerCardNumber:3];
-                                                   }
-                                                   if (computer.playedCard == 4) {
-                                                       [self configurePlayedCardsForComputerCardNumber:4];
-                                                   }
-                                                   if (computer.playedCard == 5) {
-                                                       [self configurePlayedCardsForComputerCardNumber:5];
-                                                   }
-                                                   
+                                                   if (computer.playedCard == 0) { [self configurePlayedCardsForCardNumber:0 withView:self.card0View isThatForPlayer:NO]; }
+                                                   if (computer.playedCard == 1) { [self configurePlayedCardsForCardNumber:1 withView:self.card0View isThatForPlayer:NO]; }
+                                                   if (computer.playedCard == 2) { [self configurePlayedCardsForCardNumber:2 withView:self.card0View isThatForPlayer:NO]; }
+                                                   if (computer.playedCard == 3) { [self configurePlayedCardsForCardNumber:3 withView:self.card0View isThatForPlayer:NO]; }
+                                                   if (computer.playedCard == 4) { [self configurePlayedCardsForCardNumber:4 withView:self.card0View isThatForPlayer:NO]; }
+                                                   if (computer.playedCard == 5) { [self configurePlayedCardsForCardNumber:5 withView:self.card0View isThatForPlayer:NO]; }
                                                    
                                                }completion:^(BOOL finished){
                                                    
-                                                   if (isPlayedCard0Present) {
-                                                       self.playedCard0View.hidden = NO;
-                                                   }
-                                                   if (isPlayedCard1Present) {
-                                                       self.playedCard1View.hidden = NO;
-                                                   }
-                                                   if (isPlayedCard2Present) {
-                                                       self.playedCard2View.hidden = NO;
-                                                   }
-                                                   
-                                                   //NSLog(@"computer.shouldDiscard: %d, computer.shouldPlayAgain: %d", computer.shouldDiscardACard, computer.shouldPlayAgain);
+                                                   if (isPlayedCard0Present) { self.playedCard0View.hidden = NO; }
+                                                   if (isPlayedCard1Present) { self.playedCard1View.hidden = NO; }
+                                                   if (isPlayedCard2Present) {  self.playedCard2View.hidden = NO; }
                                                    
                                                    ///////////////////////////////////////////////////////////////////////////////////////////////////
                                                    //Проверяем нужно ли компьютеру сыграть еще раз
@@ -1254,7 +1165,6 @@
                                                        [self animateComputerTurn];
                                                        return;
                                                    }
-                                                   
                                                    
                                                    if (computer.shouldPlayAgain) {
                                                        doNotClearStack = YES;
@@ -1270,10 +1180,9 @@
                                                    ////////////////////////////////////////////////////////////////////////////////////////////////
                                                    //Ход компьютера закончился, начинается ход игрока, нужно очистить стол и привести его в порядок
                                                    
-                                                   
                                                    if (!computer.shouldPlayAgain) {
                                                        
-                                                       [self updateAllCards];
+                                                   [self updateAllCards];
                                                    
                                                    xInitialPositionForCardView = 118;
                                                    cardsOffset = 196;
@@ -1303,7 +1212,6 @@
                                                                         [self updateAllCards];
                                                                         
                                                                         [cardsScope playDealSoundEffectForEvent:@"WillTakeACard"];
-                                                                        
                                                                         
                                                                         self.card0View.center = CGPointMake(xInitialPositionForCardView, yInitialPositionForCardView);
                                                                         xInitialPositionForCardView += cardsOffset;
@@ -1337,6 +1245,8 @@
                                                                         
                                                                         doNotClearStack = NO;
                                                                         
+                                                                        [self savePlayerAndComputerModels];
+                                                                        
                                                                         
                                                                     }];}
                                                         }];
@@ -1351,9 +1261,7 @@
     if (player.playedCard != number) {
         cardView.center = CGPointMake(xInitialPositionForCardView, yInitialPositionForCardView);
         xInitialPositionForCardView += cardsOffset;
-    } else {
-        cardView.center = CGPointMake(234, 110);
-    }
+    } else { cardView.center = CGPointMake(234, 110); }
 }
 
 - (void)calculateBeforePlayOffsetForComputerCard:(NSInteger)number withView:(UIImageView*)cardView
@@ -1361,9 +1269,7 @@
     if (computerLastPlayedCard != number) {
         cardView.center = CGPointMake(xInitialPositionForCardView, yInitialPositionForCardView);
         xInitialPositionForCardView += cardsOffset;
-    } else {
-        cardView.center = CGPointMake(234, 110);
-    }
+    } else { cardView.center = CGPointMake(234, 110); }
 }
 
 - (void)calculateOffsetForPlayedComputerCard:(NSInteger)number withView:(UIImageView*)cardView
@@ -1380,29 +1286,34 @@
             self.card0View.center = CGPointMake(512, 400);
         }
     }
-
 }
 
-- (void)configurePlayedCardsForComputerCardNumber:(NSInteger)number
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)configurePlayedCardsForCardNumber:(NSInteger)number withView:(UIView*)cardView isThatForPlayer:(BOOL)isForPlayer
 {
+    Card *tempCard;
+    if (isForPlayer) { tempCard = [[player cards] objectAtIndex:number]; }
+    else { tempCard = [[computer cards] objectAtIndex:number]; }
     
-    //NSLog(@"ComputerPlayedCards state: isPlayedCard0Present: %d, isPlayedCard1Present: %d, isPlayedCard2Present: %d", isPlayedCard0Present, isPlayedCard1Present, isPlayedCard2Present);
+    BOOL isCardBeenDiscarded = NO;
+    if (isForPlayer) { if (player.isCardHasBeenDiscarded) { isCardBeenDiscarded = YES; } }
+    else { if (computer.isCardBeenDiscarded) { isCardBeenDiscarded = YES; } }
     
     if (!isPlayedCard0Present) {
         
-        //NSLog(@"PlayedCard0 not present");
+        [self configureCard:tempCard
+          withCardNameLabel:self.playedCard0Name
+   withCardDescriptionLabel:self.playedCard0Desription
+          withCardCostLabel:self.playedCard0Cost
+             withBackground:self.playedCard0Background
+       withNotAvailableView:nil
+              withCardImage:self.playedCard0Image
+            isThisForPlayer:isForPlayer];
         
-        [self configureComputerCard:number
-                  withCardNameLabel:self.playedCard0Name
-           withCardDescriptionLabel:self.playedCard0Desription
-                  withCardCostLabel:self.playedCard0Cost
-                     withBackground:self.playedCard0Background
-                           withNotAvailableView:nil
-         withCardImage:self.playedCard0Image];
+        cardView.center = CGPointMake(400, 110);
         
-        self.card0View.center = CGPointMake(400, 110);
-        
-        if (computer.isCardBeenDiscarded && number == computer.playedCard) {
+        if (isCardBeenDiscarded) {
+            isPlayedCard0WasDiscarded = YES;
             UIImageView *discardLabel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"discard_label"]];
             discardLabel.center = CGPointMake(self.playedCard0View.bounds.size.width/2, self.playedCard0View.bounds.size.height/2-30);
             discardLabel.tag = 1001;
@@ -1413,19 +1324,19 @@
         
     } else if (!isPlayedCard1Present){
         
-        //NSLog(@"PlayedCard1 not present");
+        [self configureCard:tempCard
+          withCardNameLabel:self.playedCard1Name
+   withCardDescriptionLabel:self.playedCard1Desription
+          withCardCostLabel:self.playedCard1Cost
+             withBackground:self.playedCard1Background
+       withNotAvailableView:nil
+              withCardImage:self.playedCard1Image
+            isThisForPlayer:isForPlayer];
         
-        [self configureComputerCard:number
-                  withCardNameLabel:self.playedCard1Name
-           withCardDescriptionLabel:self.playedCard1Desription
-                  withCardCostLabel:self.playedCard1Cost
-                     withBackground:self.playedCard1Background
-                           withNotAvailableView:nil
-         withCardImage:self.playedCard1Image];
+        cardView.center = CGPointMake(566, 110);
         
-        self.card0View.center = CGPointMake(566, 110);
-        
-        if (computer.isCardBeenDiscarded && number == computer.playedCard) {
+        if (isCardBeenDiscarded) {
+            isPlayedCard1WasDiscarded = YES;
             UIImageView *discardLabel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"discard_label"]];
             discardLabel.center = CGPointMake(self.playedCard1View.bounds.size.width/2, self.playedCard1View.bounds.size.height/2-30);
             discardLabel.tag = 1002;
@@ -1436,19 +1347,19 @@
         
     } else if (!isPlayedCard2Present) {
         
-        //NSLog(@"PlayedCard2 not present");
+        [self configureCard:tempCard
+          withCardNameLabel:self.playedCard2Name
+   withCardDescriptionLabel:self.playedCard2Desription
+          withCardCostLabel:self.playedCard2Cost
+             withBackground:self.playedCard2Background
+       withNotAvailableView:nil
+              withCardImage:self.playedCard2Image
+            isThisForPlayer:isForPlayer];
         
-        [self configureComputerCard:number
-                  withCardNameLabel:self.playedCard2Name
-           withCardDescriptionLabel:self.playedCard2Desription
-                  withCardCostLabel:self.playedCard2Cost
-                     withBackground:self.playedCard2Background
-                           withNotAvailableView:nil
-         withCardImage:self.playedCard2Image];
+        cardView.center = CGPointMake(732, 110);
         
-        self.card0View.center = CGPointMake(732, 110);
-        
-        if (computer.isCardBeenDiscarded && number == computer.playedCard) {
+        if (isCardBeenDiscarded) {
+            isPlayedCard2WasDiscarded = YES;
             UIImageView *discardLabel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"discard_label"]];
             discardLabel.center = CGPointMake(self.playedCard2View.bounds.size.width/2, self.playedCard2View.bounds.size.height/2-30);
             discardLabel.tag = 1003;
@@ -1458,7 +1369,6 @@
         isPlayedCard2Present = YES;
         
     } else {
-        //NSLog(@"All PlayedCards are present and I'm should move stack left");
         [UIView animateWithDuration:0.5
                               delay:0
                             options:UIViewAnimationCurveLinear
@@ -1471,154 +1381,63 @@
                              
                          }completion:^(BOOL finished){
                              
+                             self.playedCard0Background.image = self.playedCard1Background.image;
+                             self.playedCard0Cost.text = self.playedCard1Cost.text;
+                             self.playedCard0Name.text = self.playedCard1Name.text;
+                             self.playedCard0Desription.text = self.playedCard1Desription.text;
+                             
+                             if (isPlayedCard1WasDiscarded) {
+                                 UIImageView *tempView = (UIImageView*)[self.view viewWithTag:1001];
+                                 [tempView removeFromSuperview];
+                                 tempView = (UIImageView*)[self.view viewWithTag:1002];
+                                 [tempView removeFromSuperview];
+                                 UIImageView *discardLabel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"discard_label"]];
+                                 discardLabel.center = CGPointMake(self.playedCard0View.bounds.size.width/2, self.playedCard0View.bounds.size.height/2-30);
+                                 discardLabel.tag = 1001;
+                                 [self.playedCard0View addSubview:discardLabel];
+                                 isPlayedCard1WasDiscarded = NO;
+                                 isPlayedCard0WasDiscarded = YES;
+                             }
+                             
+                             self.playedCard1Background.image = self.playedCard2Background.image;
+                             self.playedCard1Cost.text = self.playedCard2Cost.text;
+                             self.playedCard1Name.text = self.playedCard2Name.text;
+                             self.playedCard1Desription.text = self.playedCard2Desription.text;
+                             
+                             if (isPlayedCard2WasDiscarded) {
+                                 UIImageView *tempView = (UIImageView*)[self.view viewWithTag:1002];
+                                 [tempView removeFromSuperview];
+                                 tempView = (UIImageView*)[self.view viewWithTag:1003];
+                                 [tempView removeFromSuperview];
+                                 UIImageView *discardLabel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"discard_label"]];
+                                 discardLabel.center = CGPointMake(self.playedCard1View.bounds.size.width/2, self.playedCard1View.bounds.size.height/2-30);
+                                 discardLabel.tag = 1002;
+                                 [self.playedCard1View addSubview:discardLabel];
+                                 isPlayedCard2WasDiscarded = NO;
+                                 isPlayedCard1WasDiscarded = YES;
+                             }
+                             
+                             [self configureCard:tempCard
+                               withCardNameLabel:self.playedCard2Name
+                        withCardDescriptionLabel:self.playedCard2Desription
+                               withCardCostLabel:self.playedCard2Cost
+                                  withBackground:self.playedCard2Background
+                            withNotAvailableView:nil
+                                   withCardImage:self.playedCard2Image
+                                 isThisForPlayer:isForPlayer];
+                             
+                             if (isCardBeenDiscarded) {
+                                 UIImageView *discardLabel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"discard_label"]];
+                                 discardLabel.center = CGPointMake(self.playedCard2View.bounds.size.width/2, self.playedCard2View.bounds.size.height/2-30);
+                                 discardLabel.tag = 1003;
+                                 [self.playedCard2View addSubview:discardLabel];
+                             }
+                             
                              self.playedCard0View.alpha = 1.0;
                              self.playedCard0View.center = CGPointMake(400, 110);
                              self.playedCard1View.center = CGPointMake(566, 110);
                              self.playedCard2View.center = CGPointMake(732, 110);
-                             
-                             self.playedCard0Background.image = self.playedCard1Background.image;
-                             self.playedCard0Cost.text = self.playedCard1Cost.text;
-                             self.playedCard0Name.text = self.playedCard1Name.text;
-                             self.playedCard0Desription.text = self.playedCard1Desription.text;
-                             
-                             self.playedCard1Background.image = self.playedCard2Background.image;
-                             self.playedCard1Cost.text = self.playedCard2Cost.text;
-                             self.playedCard1Name.text = self.playedCard2Name.text;
-                             self.playedCard1Desription.text = self.playedCard2Desription.text;
-                             
-                             [self configureComputerCard:number
-                                       withCardNameLabel:self.playedCard2Name
-                                withCardDescriptionLabel:self.playedCard2Desription
-                                       withCardCostLabel:self.playedCard2Cost
-                                          withBackground:self.playedCard2Background
-                                                          withNotAvailableView:nil
-                              withCardImage:self.playedCard2Image];
-                             
-                             if (computer.isCardBeenDiscarded && number == computer.playedCard) {
-                                 UIImageView *discardLabel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"discard_label"]];
-                                 discardLabel.center = CGPointMake(self.playedCard2View.bounds.size.width/2, self.playedCard2View.bounds.size.height/2-30);
-                                 discardLabel.tag = 1003;
-                                 [self.playedCard2View addSubview:discardLabel];
-                             }
                          }];
-        
-        self.card0View.center = CGPointMake(732, 110);
-    }
-
-}
-
-- (void)configurePlayedCardsForPlayerCardNumber:(NSInteger)number withView:(UIView*)cardView
-{
-    
-    //NSLog(@"PlayersPlayedCards state: isPlayedCard0Present: %d, isPlayedCard1Present: %d, isPlayedCard2Present: %d", isPlayedCard0Present, isPlayedCard1Present, isPlayedCard2Present);
-    
-    if (!isPlayedCard0Present) {
-        
-        [self configureCard:number
-                  withCardNameLabel:self.playedCard0Name
-           withCardDescriptionLabel:self.playedCard0Desription
-                  withCardCostLabel:self.playedCard0Cost
-                     withBackground:self.playedCard0Background
-                       withNotAvailableView:nil
-         withCardImage:self.playedCard0Image];
-        
-        cardView.center = CGPointMake(400, 110);
-        
-        isPlayedCard0Present = YES;
-        
-        if (player.isCardHasBeenDiscarded) {
-            UIImageView *discardLabel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"discard_label"]];
-            discardLabel.center = CGPointMake(self.playedCard0View.bounds.size.width/2, self.playedCard0View.bounds.size.height/2-30);
-            discardLabel.tag = 1001;
-            [self.playedCard0View addSubview:discardLabel];
-        }
-        
-    } else if (!isPlayedCard1Present){
-        
-        [self configureCard:number
-                  withCardNameLabel:self.playedCard1Name
-           withCardDescriptionLabel:self.playedCard1Desription
-                  withCardCostLabel:self.playedCard1Cost
-                    withBackground:self.playedCard1Background
-                      withNotAvailableView:nil
-         withCardImage:self.playedCard1Image];
-        
-        cardView.center = CGPointMake(566, 110);
-        
-        isPlayedCard1Present = YES;
-        
-        if (player.isCardHasBeenDiscarded) {
-            UIImageView *discardLabel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"discard_label"]];
-            discardLabel.center = CGPointMake(self.playedCard1View.bounds.size.width/2, self.playedCard1View.bounds.size.height/2-30);
-            discardLabel.tag = 1002;
-            [self.playedCard1View addSubview:discardLabel];
-        }
-        
-    } else if (!isPlayedCard2Present) {
-        
-        [self configureCard:number
-                  withCardNameLabel:self.playedCard2Name
-           withCardDescriptionLabel:self.playedCard2Desription
-                  withCardCostLabel:self.playedCard2Cost
-                     withBackground:self.playedCard2Background
-                       withNotAvailableView:nil
-         withCardImage:self.playedCard2Image];
-        
-        cardView.center = CGPointMake(732, 110);
-        
-        isPlayedCard2Present = YES;
-        
-        if (player.isCardHasBeenDiscarded) {
-            UIImageView *discardLabel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"discard_label"]];
-            discardLabel.center = CGPointMake(self.playedCard2View.bounds.size.width/2, self.playedCard2View.bounds.size.height/2-30);
-            discardLabel.tag = 1003;
-            [self.playedCard2View addSubview:discardLabel];
-        }
-        
-    } else {
-        [UIView animateWithDuration:0.5
-                              delay:0.5
-                            options:UIViewAnimationCurveLinear
-                         animations:^{
-                             self.playedCard0View.center = CGPointMake(234, 110);
-                             self.playedCard0View.alpha = 0.0;
-                             self.playedCard1View.center = CGPointMake(400, 110);
-                             self.playedCard2View.center = CGPointMake(566, 110);
-                             
-                             
-                         }completion:^(BOOL finished){
-                             
-                            self.playedCard0View.alpha = 1.0;
-                            self.playedCard0View.center = CGPointMake(400, 110);
-                            self.playedCard1View.center = CGPointMake(566, 110);
-                            self.playedCard2View.center = CGPointMake(732, 110);
-                             
-                             self.playedCard0Background.image = self.playedCard1Background.image;
-                             self.playedCard0Cost.text = self.playedCard1Cost.text;
-                             self.playedCard0Name.text = self.playedCard1Name.text;
-                             self.playedCard0Desription.text = self.playedCard1Desription.text;
-                             
-                             self.playedCard1Background.image = self.playedCard2Background.image;
-                             self.playedCard1Cost.text = self.playedCard2Cost.text;
-                             self.playedCard1Name.text = self.playedCard2Name.text;
-                             self.playedCard1Desription.text = self.playedCard2Desription.text;
-                             
-                            [self configureCard:number
-                                       withCardNameLabel:self.playedCard2Name
-                                withCardDescriptionLabel:self.playedCard2Desription
-                                       withCardCostLabel:self.playedCard2Cost
-                                          withBackground:self.playedCard2Background
-                                            withNotAvailableView:nil
-                             withCardImage:self.playedCard2Image];
-                             
-                             if (player.isCardHasBeenDiscarded) {
-                                 UIImageView *discardLabel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"discard_label"]];
-                                 discardLabel.center = CGPointMake(self.playedCard2View.bounds.size.width/2, self.playedCard2View.bounds.size.height/2-30);
-                                 discardLabel.tag = 1003;
-                                 [self.playedCard2View addSubview:discardLabel];
-                             }
-                         }];
-        
         cardView.center = CGPointMake(732, 110);
     }
 }
@@ -1643,13 +1462,13 @@
     self.computerCard5.hidden = invisible;
 }
 
-
-
 - (void)needToUpdateLabels
 {
     [self updatePlayerLabels];
     [self updateComputerLabels];
 }
+
+#pragma mark - Victory conditions checker
 
 - (void)needToCheckThatTheVictoryConditionsIsAchievedByComputer
 {
@@ -1660,19 +1479,13 @@
         
         [self saveScore];
         
-        if (self.isThisCampaignPlaying) {
-            [self.delegate levelCompletedWithVictory:NO];
-        }
+        if (self.isThisCampaignPlaying) { [self.delegate levelCompletedWithVictory:NO]; }
         
-        //gameOver = YES;
+        gameOver = YES;
         
         [alertView show];
     }
 }
-
-
-#pragma mark - Player's delegate methods
-
 
 - (void)needToCheckThatTheVictoryConditionsIsAchieved
 {
@@ -1684,11 +1497,9 @@
         
         [self saveScore];
         
-        if (self.isThisCampaignPlaying) {
-            [self.delegate levelCompletedWithVictory:YES];
-        }
+        if (self.isThisCampaignPlaying) { [self.delegate levelCompletedWithVictory:YES]; }
         
-        //gameOver = YES;
+        gameOver = YES;
         
         [alertView show];
     }
@@ -1704,7 +1515,6 @@
     NSLog(@"Data file paths is %@", [self dataFilePath]);
     
     self.view.multipleTouchEnabled = NO;
-    //gameOver = YES;
     
     animationCompleted = YES;
     
@@ -1724,7 +1534,6 @@
 
 #pragma mark - Buttons method
 - (IBAction)backButtonPressed:(id)sender {
-    [self savePlayerAndComputerModels];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -1733,9 +1542,7 @@
     self.backgroundPicture.image = [UIImage imageNamed:backgroundPictures[backgroundsCounter]];
     self.backgroundLabel.text = backgroundPictures[backgroundsCounter];
     backgroundsCounter++;
-    if (backgroundsCounter > [backgroundPictures count] - 1) {
-        backgroundsCounter = 0;
-    }
+    if (backgroundsCounter > [backgroundPictures count] - 1) { backgroundsCounter = 0; }
 }
 
 - (IBAction)makePlayerWinButton:(id)sender {
@@ -1746,29 +1553,25 @@
 
 - (void)game
 {
-    //NSLog(@"player: %@, computer: %@, cardscope: %@", player, computer, cardsScope);
-    //if (gameOver) {
-        player = [PlayerModel getPlayer];
-        player.delegate = self;
-        player.soundsOn = self.soundsOn;
-        computer = [ComputerModel getComputer];
-        computer.delegate = self;
+    player = [PlayerModel getPlayer];
+    player.delegate = self;
+    //player.soundsOn = self.soundsOn;
+    computer = [ComputerModel getComputer];
+    computer.delegate = self;
+    cardsScope = [CardsScope getCardsScope];
+    cardsScope.soundsOn = self.soundsOn;
     
-    if (self.needToLoadGame) {
-        [self loadPlayerAndComputer];
-    }
+    if (self.needToLoadGame) { [self loadPlayerAndComputer]; }
     
-        //Campaign game initialization
         if (self.isThisCampaignPlaying) {
-            //NSLog(@"===----campaign game init");
             
             if (!self.needToLoadGame) {
-                //NSLog(@"===----loading initial data");
                 player.tower = self.initialTowerValue;
                 player.wall = self.initialWallValue;
                 computer.tower = self.initialTowerValue;
                 computer.wall = self.initialWallValue;
             }
+            
             towerAim = self.towerCampaignAim;
             wallAim = self.towerCampaignAim * 2;
             
@@ -1787,19 +1590,14 @@
             wallAim = 100.0;
             self.resourcesCampaignAim = 200;
         }
-        
-        //NSLog(@"%@", [NSString stringWithFormat:@"%@", self.backgroundPicture.image]);
-        
+    
         [self updatePlayerLabels];
         [self updateComputerLabels];
         [self updateAllCards];
         [self updateCardPositions];
     
-        //loading score to nsinteger
         [self loadScore];
     
-        cardsScope = [CardsScope getCardsScope];
-        cardsScope.soundsOn = self.soundsOn;
         doNotClearStack = NO;
         computerLastPlayedCard = -1;
         yInitialPositionForCardView = 645.0;
@@ -1952,154 +1750,120 @@
 
 - (void)updateCard0
 {
-    [self configureCard:0
+    [self configureCard:[[player cards] objectAtIndex:0]
        withCardNameLabel:self.playersCard0Name
 withCardDescriptionLabel:self.playersCard0Description
        withCardCostLabel:self.playersCard0Cost
           withBackground:self.card0Background
-            withNotAvailableView:self.card0NotAvailable
-     withCardImage:self.card0Image];
-
+    withNotAvailableView:self.card0NotAvailable
+           withCardImage:self.card0Image
+         isThisForPlayer:YES];
 }
 
 - (void)updateCard1
 {
-    [self configureCard:1
+    [self configureCard:[[player cards] objectAtIndex:1]
        withCardNameLabel:self.playersCard1Name
 withCardDescriptionLabel:self.playersCard1Description
        withCardCostLabel:self.playersCard1Cost
-         withBackground:self.card1Background
-           withNotAvailableView:self.card1NotAvailable
-     withCardImage:self.card1Image];
-
+          withBackground:self.card1Background
+    withNotAvailableView:self.card1NotAvailable
+           withCardImage:self.card1Image
+         isThisForPlayer:YES];
 }
 
 - (void)updateCard2
 {
-    [self configureCard:2
+    [self configureCard:[[player cards] objectAtIndex:2]
        withCardNameLabel:self.playersCard2Name
 withCardDescriptionLabel:self.playersCard2Description
        withCardCostLabel:self.playersCard2Cost
-         withBackground:self.card2Background
-           withNotAvailableView:self.card2NotAvailable
-     withCardImage:self.card2Image];
-
+          withBackground:self.card2Background
+    withNotAvailableView:self.card2NotAvailable
+           withCardImage:self.card2Image
+         isThisForPlayer:YES];
 }
 
 - (void)updateCard3
 {
-    [self configureCard:3
+    [self configureCard:[[player cards] objectAtIndex:3]
        withCardNameLabel:self.playersCard3Name
 withCardDescriptionLabel:self.playersCard3Description
        withCardCostLabel:self.playersCard3Cost
-         withBackground:self.card3Background
-           withNotAvailableView:self.card3NotAvailable
-     withCardImage:self.card3Image];
+          withBackground:self.card3Background
+    withNotAvailableView:self.card3NotAvailable
+           withCardImage:self.card3Image
+         isThisForPlayer:YES];
 }
 
 - (void)updateCard4
 {
-    [self configureCard:4
+    [self configureCard:[[player cards] objectAtIndex:4]
        withCardNameLabel:self.playersCard4Name
 withCardDescriptionLabel:self.playersCard4Description
        withCardCostLabel:self.playersCard4Cost
-         withBackground:self.card4Background
-           withNotAvailableView:self.card4NotAvailable
-     withCardImage:self.card4Image];
+          withBackground:self.card4Background
+    withNotAvailableView:self.card4NotAvailable
+           withCardImage:self.card4Image
+         isThisForPlayer:YES];
 }
 
 - (void)updateCard5
 {
-    [self configureCard:5
+    [self configureCard:[[player cards] objectAtIndex:5]
        withCardNameLabel:self.playersCard5Name
 withCardDescriptionLabel:self.playersCard5Description
        withCardCostLabel:self.playersCard5Cost
-         withBackground:self.card5Background
-           withNotAvailableView:self.card5NotAvailable
-     withCardImage:self.card5Image];
+          withBackground:self.card5Background
+    withNotAvailableView:self.card5NotAvailable
+           withCardImage:self.card5Image
+         isThisForPlayer:YES];
 }
 
-- (BOOL)isCardAvailableToPlay:(NSInteger)cardNumber
+- (BOOL)isCardAvailableToPlay:(Card*)card
 {
-    NSInteger cardCost = [[player.cards objectAtIndex:cardNumber] cardCost];
+    NSInteger cardCost = [card cardCost];
     NSInteger playerResource;
     
-    if ([[[player.cards objectAtIndex:cardNumber] cardColor] isEqualToString:@"Grey"]) {
-        playerResource = [player bricks];
-    } else if ([[[player.cards objectAtIndex:cardNumber] cardColor] isEqualToString:@"Blue"]) {
-        playerResource = [player gems];
-    } else {
-        playerResource = [player recruits];
-    }
+    if ([[card cardColor] isEqualToString:@"Grey"]) { playerResource = [player bricks]; }
+    else if ([[card cardColor] isEqualToString:@"Blue"]) { playerResource = [player gems]; }
+    else { playerResource = [player recruits]; }
     
-    if (cardCost <= playerResource) {
-        return YES;
-    }
+    if (cardCost <= playerResource) { return YES; }
     
     return NO;
 }
 
-- (void)configureCard:(NSInteger)cardNumber
+- (void)configureCard:(Card*)card
     withCardNameLabel:(UILabel*)cardName
     withCardDescriptionLabel:(UILabel*)cardDescription
     withCardCostLabel:(UILabel*)cardCost
     withBackground:(UIImageView*)background
     withNotAvailableView:(UIImageView*)view
     withCardImage:(UIImageView*)cardImage
+    isThisForPlayer:(BOOL)isForPlayer
 {
-    if ([[[[player cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Grey"]) {
-        background.image = [UIImage imageNamed:@"CardBlank_Red"];
-    }
-    if ([[[[player cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Blue"]) {
-        background.image = [UIImage imageNamed:@"CardBlank_Blue"];
-    }
-    if ([[[[player cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Green"]) {
-        background.image = [UIImage imageNamed:@"CardBlank_Green"];
-    }
+    if ([[card cardColor] isEqualToString:@"Grey"])  { background.image = [UIImage imageNamed:@"CardBlank_Red"]; }
+    if ([[card cardColor] isEqualToString:@"Blue"])  { background.image = [UIImage imageNamed:@"CardBlank_Blue"]; }
+    if ([[card cardColor] isEqualToString:@"Green"]) { background.image = [UIImage imageNamed:@"CardBlank_Green"]; }
     
-    cardImage.image = [UIImage imageNamed:[[[player cards] objectAtIndex:cardNumber] cardName]];
-    cardName.text = [[[player cards] objectAtIndex:cardNumber] cardName];
-    cardDescription.text = [[[player cards] objectAtIndex:cardNumber] cardDescription];
-    cardCost.text = [NSString stringWithFormat:@"%d",[[[player cards] objectAtIndex:cardNumber] cardCost]];
+    cardImage.image = [UIImage imageNamed:[card cardName]];
+    cardName.text = [card cardName];
+    cardDescription.text = [card cardDescription];
+    cardCost.text = [NSString stringWithFormat:@"%d",[card cardCost]];
     
-    if (![self isCardAvailableToPlay:cardNumber]) {
-        view.hidden = NO;
+    if (isForPlayer) {
+        if (![self isCardAvailableToPlay:card]) {
+            view.hidden = NO;
+        } else {
+            view.hidden = YES;
+        }
     } else {
-        view.hidden = YES;
-    }
-    
-
-}
-
-- (void)configureComputerCard:(NSInteger)cardNumber
-            withCardNameLabel:(UILabel*)cardName
-     withCardDescriptionLabel:(UILabel*)cardDescription
-            withCardCostLabel:(UILabel*)cardCost
-               withBackground:(UIImageView*)background
-         withNotAvailableView:(UIImageView*)view
-                withCardImage:(UIImageView*)cardImage
-{
-    if ([[[[computer cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Grey"]) {
-        background.image = [UIImage imageNamed:@"CardBlank_Red"];
-    }
-    if ([[[[computer cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Blue"]) {
-        background.image = [UIImage imageNamed:@"CardBlank_Blue"];
-    }
-    if ([[[[computer cards] objectAtIndex:cardNumber] cardColor] isEqualToString:@"Green"]) {
-        background.image = [UIImage imageNamed:@"CardBlank_Green"];
-    }
-    
-    
-    cardImage.image = [UIImage imageNamed:[[[computer cards] objectAtIndex:cardNumber] cardName]];
-    cardName.text = [[[computer cards] objectAtIndex:cardNumber] cardName];
-    cardDescription.text = [[[computer cards] objectAtIndex:cardNumber] cardDescription];
-    cardCost.text = [NSString stringWithFormat:@"%d",[[[computer cards] objectAtIndex:cardNumber] cardCost]];
-    
-    ////////////////////////////////////////////////////////////////////////
-    if (computer.isCardBeenDiscarded && cardNumber == computer.playedCard) {
-        view.hidden = NO;
-    } else {
-        view.hidden = YES;
+        if (computer.isCardBeenDiscarded) {
+            view.hidden = NO;
+        } else {
+            view.hidden = YES;
+        }
     }
 }
 
@@ -2128,28 +1892,7 @@ withCardDescriptionLabel:self.playersCard5Description
 
 - (void)configureAnimationsForCardNumber:(NSInteger)number
 {
-    //NSLog(@"configureAnimations for card: %d", number);
     if (player.isThatPlayerTurn) {
-        //NSLog(@"animation: this is player turn");
-        //NSLog(@"isThisPlayer: %d, isThisComputer: %d", player.isThatPlayerTurn, computer.isThatComputerTurn);
-        //NSLog(@"%@, %d", [[[player cards] objectAtIndex:number] cardName], [[[player cards] objectAtIndex:number] cardCost]);
-        /*NSLog(@"%d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d",
-              [[[player cards] objectAtIndex:number] quarriesSelf],
-              [[[player cards] objectAtIndex:number] quarriesEnemy],
-              [[[player cards] objectAtIndex:number] magicsSelf],
-              [[[player cards] objectAtIndex:number] magicsEnemy],
-              [[[player cards] objectAtIndex:number] dungeonsSelf],
-              [[[player cards] objectAtIndex:number] dungeonsEnemy],
-              [[[player cards] objectAtIndex:number] bricksSelf],
-              [[[player cards] objectAtIndex:number] bricksEnemy],
-              [[[player cards] objectAtIndex:number] gemsSelf],
-              [[[player cards] objectAtIndex:number] gemsEnemy],
-              [[[player cards] objectAtIndex:number] recruitsSelf],
-              [[[player cards] objectAtIndex:number] recruitsEnemy],
-              [[[player cards] objectAtIndex:number] towerSelf],
-              [[[player cards] objectAtIndex:number] towerEnemy],
-              [[[player cards] objectAtIndex:number] wallSelf],
-              [[[player cards] objectAtIndex:number] wallEnemy]);*/
         
         if ([[player.cards objectAtIndex:number] quarriesSelf] > 0){
             [self calculatePositionOfAnimationForLabel:self.playerQuarries isAnimationPositive:YES isThisForTowerOrWall:NO isThisForGeneralResources:YES];
@@ -2248,28 +1991,7 @@ withCardDescriptionLabel:self.playersCard5Description
             [self calculatePositionOfAnimationForLabel:self.computerWall isAnimationPositive:NO isThisForTowerOrWall:YES isThisForGeneralResources:NO];
         }
         
-        ////////////////////////////////////////////////////
     } else if (computer.isThatComputerTurn) {
-        //NSLog(@"animation: this is computer turn");
-        //NSLog(@"isThisPlayer: %d, isThisComputer: %d", player.isThatPlayerTurn, computer.isThatComputerTurn);
-        //NSLog(@"%@, %d", [[[computer cards] objectAtIndex:number] cardName], [[[computer cards] objectAtIndex:number] cardCost]);
-        /*NSLog(@"%d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d",
-              [[[computer cards] objectAtIndex:number] quarriesSelf],
-              [[[computer cards] objectAtIndex:number] quarriesEnemy],
-              [[[computer cards] objectAtIndex:number] magicsSelf],
-              [[[computer cards] objectAtIndex:number] magicsEnemy],
-              [[[computer cards] objectAtIndex:number] dungeonsSelf],
-              [[[computer cards] objectAtIndex:number] dungeonsEnemy],
-              [[[computer cards] objectAtIndex:number] bricksSelf],
-              [[[computer cards] objectAtIndex:number] bricksEnemy],
-              [[[computer cards] objectAtIndex:number] gemsSelf],
-              [[[computer cards] objectAtIndex:number] gemsEnemy],
-              [[[computer cards] objectAtIndex:number] recruitsSelf],
-              [[[computer cards] objectAtIndex:number] recruitsEnemy],
-              [[[computer cards] objectAtIndex:number] towerSelf],
-              [[[computer cards] objectAtIndex:number] towerEnemy],
-              [[[computer cards] objectAtIndex:number] wallSelf],
-              [[[computer cards] objectAtIndex:number] wallEnemy]);*/
             
         if ([[computer.cards objectAtIndex:number] quarriesSelf] > 0){
             [self calculatePositionOfAnimationForLabel:self.computerQuarries isAnimationPositive:YES isThisForTowerOrWall:NO isThisForGeneralResources:YES];
@@ -2484,65 +2206,161 @@ withCardDescriptionLabel:self.playersCard5Description
 
 - (void)savePlayerAndComputerModels
 {
-    if (player != nil && computer != nil) {
-        //[self deleteOldFile];
-        NSMutableData *playerData = [[NSMutableData alloc] init];
-        NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:playerData];
-        [archiver encodeObject:player forKey:@"PlayerModel"];
-        [archiver encodeObject:computer forKey:@"ComputerModel"];
-        [archiver finishEncoding];
-        [playerData writeToFile:[self dataFilePath] atomically:NO];
+    NSLog(@"==========savingGame=========");
+    NSLog(@"player.cards.count: %d", [[player cards] count]);
+    for (int i = 0; (i < [[player cards] count]); i++) {
+        NSLog(@"card: %d, cardNumber: %d", i, [[[player cards] objectAtIndex:i] cardNumber]);
+    }
+    
+    NSLog(@"computer.cards.count: %d", [[computer cards] count]);
+    for (int i = 0; (i < [[computer cards] count]); i++) {
+        NSLog(@"card: %d, cardNumber: %d", i, [[[computer cards] objectAtIndex:i] cardNumber]);
+    }
+    
+    if (player != nil && computer != nil && ([[player cards] count] == 6) && ([[computer cards] count] == 6 && animationCompleted)) {
+    
+        NSString *error;
+        NSDictionary *plistDict = [NSDictionary dictionaryWithObjects:
+                               [NSArray arrayWithObjects:
+                                [NSNumber numberWithInteger:player.tower],
+                                [NSNumber numberWithInteger:player.wall],
+                                [NSNumber numberWithInteger:player.quarries],
+                                [NSNumber numberWithInteger:player.magics],
+                                [NSNumber numberWithInteger:player.dungeons],
+                                [NSNumber numberWithInteger:player.bricks],
+                                [NSNumber numberWithInteger:player.gems],
+                                [NSNumber numberWithInteger:player.recruits],
+                                [NSNumber numberWithInteger:[[[player cards] objectAtIndex:0] cardNumber]],
+                                [NSNumber numberWithInteger:[[[player cards] objectAtIndex:1] cardNumber]],
+                                [NSNumber numberWithInteger:[[[player cards] objectAtIndex:2] cardNumber]],
+                                [NSNumber numberWithInteger:[[[player cards] objectAtIndex:3] cardNumber]],
+                                [NSNumber numberWithInteger:[[[player cards] objectAtIndex:4] cardNumber]],
+                                [NSNumber numberWithInteger:[[[player cards] objectAtIndex:5] cardNumber]],
+                                [NSNumber numberWithBool:player.shouldPlayAgain],
+                                [NSNumber numberWithBool:player.shouldDiscardACard],
+                                [NSNumber numberWithInteger:computer.tower],
+                                [NSNumber numberWithInteger:computer.wall],
+                                [NSNumber numberWithInteger:computer.quarries],
+                                [NSNumber numberWithInteger:computer.magics],
+                                [NSNumber numberWithInteger:computer.dungeons],
+                                [NSNumber numberWithInteger:computer.bricks],
+                                [NSNumber numberWithInteger:computer.gems],
+                                [NSNumber numberWithInteger:computer.recruits],
+                                [NSNumber numberWithInteger:[[[computer cards] objectAtIndex:0] cardNumber]],
+                                [NSNumber numberWithInteger:[[[computer cards] objectAtIndex:1] cardNumber]],
+                                [NSNumber numberWithInteger:[[[computer cards] objectAtIndex:2] cardNumber]],
+                                [NSNumber numberWithInteger:[[[computer cards] objectAtIndex:3] cardNumber]],
+                                [NSNumber numberWithInteger:[[[computer cards] objectAtIndex:4] cardNumber]],
+                                [NSNumber numberWithInteger:[[[computer cards] objectAtIndex:5] cardNumber]],
+                                [NSNumber numberWithBool:computer.shouldPlayAgain],
+                                [NSNumber numberWithBool:computer.shouldDiscardACard],
+                                nil]
+                               
+                               forKeys:
+                               [NSArray arrayWithObjects:
+                                @"playerTower",
+                                @"playerWall",
+                                @"playerQuarries",
+                                @"playerMagics",
+                                @"playerDungeons",
+                                @"playerBricks",
+                                @"playerGems",
+                                @"playerRecruits",
+                                @"playerCard0",
+                                @"playerCard1",
+                                @"playerCard2",
+                                @"playerCard3",
+                                @"playerCard4",
+                                @"playerCard5",
+                                @"playerShouldPlayAgain",
+                                @"playerShouldDiscardACard",
+                                @"computerTower",
+                                @"computerWall",
+                                @"computerQuarries",
+                                @"computerMagics",
+                                @"computerDungeons",
+                                @"computerBricks",
+                                @"computerGems",
+                                @"computerRecruits",
+                                @"computerCard0",
+                                @"computerCard1",
+                                @"computerCard2",
+                                @"computerCard3",
+                                @"computerCard4",
+                                @"computerCard5",
+                                @"computerShouldPlayAgain",
+                                @"computerShouldDiscardACard",
+                                nil]];
+    
+        NSData *plistData = [NSPropertyListSerialization dataFromPropertyList:plistDict format:NSPropertyListXMLFormat_v1_0 errorDescription:&error];
+    
+        if (plistData) {
+            [plistData writeToFile:[self dataFilePath] atomically:NO];
+        } else {
+            NSLog(@"%@", error);
+        }
+    
+    } else {
+        NSLog(@"ERROR WHILE SAVING DATA!!!");
     }
 }
 
 - (void)loadPlayerAndComputer
 {
-    NSString *path = [self dataFilePath];
-    if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-        NSData *data = [[NSData alloc] initWithContentsOfFile:path];
-        NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
-        PlayerModel *playerRestored;
-        ComputerModel *computerRestored;
-        playerRestored = [unarchiver decodeObjectForKey:@"PlayerModel"];
-        computerRestored = [unarchiver decodeObjectForKey:@"ComputerModel"];
-        [unarchiver finishDecoding];
+    NSLog(@"==========loadingSavedGame=========");
+    NSString *errorDesc = nil;
+    NSPropertyListFormat format;
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[self dataFilePath]]) {
+        return;
+        NSLog(@"File don't exist");
+    }
+    
+    NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:[self dataFilePath]];
+    NSDictionary *temp = (NSDictionary*)[NSPropertyListSerialization propertyListFromData:plistXML mutabilityOption:NSPropertyListMutableContainersAndLeaves format:&format errorDescription:&errorDesc];
+    
+    if (!temp) {
+        NSLog(@"Error reading plist: %@, format: %d", errorDesc, format);
+    } else {
+        player.tower = [[temp objectForKey:@"playerTower"] integerValue];
+        player.wall = [[temp objectForKey:@"playerWall"] integerValue];
+        player.quarries = [[temp objectForKey:@"playerQuarries"] integerValue];
+        player.magics = [[temp objectForKey:@"playerMagics"] integerValue];
+        player.dungeons = [[temp objectForKey:@"playerDungeons"] integerValue];
+        player.bricks = [[temp objectForKey:@"playerBricks"] integerValue];
+        player.gems = [[temp objectForKey:@"playerGems"] integerValue];
+        player.recruits = [[temp objectForKey:@"playerRecruits"] integerValue];
+        [player.cards replaceObjectAtIndex:0 withObject:[cardsScope getCardAtNumber:[[temp objectForKey:@"playerCard0"] integerValue]]];
+        [player.cards replaceObjectAtIndex:1 withObject:[cardsScope getCardAtNumber:[[temp objectForKey:@"playerCard1"] integerValue]]];
+        [player.cards replaceObjectAtIndex:2 withObject:[cardsScope getCardAtNumber:[[temp objectForKey:@"playerCard2"] integerValue]]];
+        [player.cards replaceObjectAtIndex:3 withObject:[cardsScope getCardAtNumber:[[temp objectForKey:@"playerCard3"] integerValue]]];
+        [player.cards replaceObjectAtIndex:4 withObject:[cardsScope getCardAtNumber:[[temp objectForKey:@"playerCard4"] integerValue]]];
+        [player.cards replaceObjectAtIndex:5 withObject:[cardsScope getCardAtNumber:[[temp objectForKey:@"playerCard5"] integerValue]]];
+        player.shouldPlayAgain = [[temp objectForKey:@"playerShouldPlayAgain"] boolValue];
+        player.shouldDiscardACard = [[temp objectForKey:@"playerShouldDiscardACard"] boolValue];
         
-        player.quarries = playerRestored.quarries;
-        player.magics = playerRestored.magics;
-        player.dungeons = playerRestored.dungeons;
-        player.bricks = playerRestored.bricks;
-        player.gems = playerRestored.gems;
-        player.recruits = playerRestored.recruits;
-        player.wall = playerRestored.wall;
-        player.tower = playerRestored.tower;
-        player.cards = playerRestored.cards;
-        player.playedCard = playerRestored.playedCard;
-        player.shouldPlayAgain = playerRestored.shouldPlayAgain;
-        player.shouldDiscardACard = playerRestored.shouldDiscardACard;
-        player.isThatPlayerTurn = playerRestored.isThatPlayerTurn;
-        player.soundsOn = playerRestored.soundsOn;
-        player.isCardHasBeenDiscarded = playerRestored.isCardHasBeenDiscarded;
-        
-        computer.quarries = computerRestored.quarries;
-        computer.magics = computerRestored.magics;
-        computer.dungeons = computerRestored.dungeons;
-        computer.bricks = computerRestored.bricks;
-        computer.gems = computerRestored.gems;
-        computer.recruits = computerRestored.recruits;
-        computer.wall = computerRestored.wall;
-        computer.tower = computerRestored.tower;
-        computer.cards = computerRestored.cards;
-        computer.playedCard = computerRestored.playedCard;
-        computer.isCardBeenDiscarded = computerRestored.isCardBeenDiscarded;
-        computer.shouldPlayAgain = computerRestored.shouldPlayAgain;
-        computer.shouldDiscardACard = computerRestored.shouldDiscardACard;
-        computer.shouldDrawACard = computerRestored.shouldDrawACard;
-        computer.isThatComputerTurn = computerRestored.isThatComputerTurn;
+        computer.tower = [[temp objectForKey:@"computerTower"] integerValue];
+        computer.wall = [[temp objectForKey:@"computerWall"] integerValue];
+        computer.quarries = [[temp objectForKey:@"computerQuarries"] integerValue];
+        computer.magics = [[temp objectForKey:@"computerMagics"] integerValue];
+        computer.dungeons = [[temp objectForKey:@"computerDungeons"] integerValue];
+        computer.bricks = [[temp objectForKey:@"computerBricks"] integerValue];
+        computer.gems = [[temp objectForKey:@"computerGems"] integerValue];
+        computer.recruits = [[temp objectForKey:@"computerRecruits"] integerValue];
+        [computer.cards replaceObjectAtIndex:0 withObject:[cardsScope getCardAtNumber:[[temp objectForKey:@"computerCard0"] integerValue]]];
+        [computer.cards replaceObjectAtIndex:1 withObject:[cardsScope getCardAtNumber:[[temp objectForKey:@"computerCard1"] integerValue]]];
+        [computer.cards replaceObjectAtIndex:2 withObject:[cardsScope getCardAtNumber:[[temp objectForKey:@"computerCard2"] integerValue]]];
+        [computer.cards replaceObjectAtIndex:3 withObject:[cardsScope getCardAtNumber:[[temp objectForKey:@"computerCard3"] integerValue]]];
+        [computer.cards replaceObjectAtIndex:4 withObject:[cardsScope getCardAtNumber:[[temp objectForKey:@"computerCard4"] integerValue]]];
+        [computer.cards replaceObjectAtIndex:5 withObject:[cardsScope getCardAtNumber:[[temp objectForKey:@"computerCard5"] integerValue]]];
+        computer.shouldPlayAgain = [[temp objectForKey:@"computerShouldPlayAgain"] boolValue];
+        computer.shouldDiscardACard = [[temp objectForKey:@"computerShouldDiscardACard"] boolValue];
     }
 }
 
 - (void)deleteOldFile
 {
+    NSLog(@"==========deletingOldSaveFile=========");
     NSString *path = [self dataFilePath];
     if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
         NSFileManager *filemanager = [NSFileManager defaultManager];
@@ -2552,6 +2370,7 @@ withCardDescriptionLabel:self.playersCard5Description
 
 - (void)loadScore
 {
+    NSLog(@"==========loadingScore=========");
     NSString *errorDesc = nil;
     NSPropertyListFormat format;
     NSString *plistPath;
@@ -2578,6 +2397,7 @@ withCardDescriptionLabel:self.playersCard5Description
 
 - (void)saveScore
 {
+    NSLog(@"==========savingScore=========");
     NSString *error;
     NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *plistPath = [rootPath stringByAppendingPathComponent:@"Score.plist"];

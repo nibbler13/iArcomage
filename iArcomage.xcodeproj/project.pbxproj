@@ -193,6 +193,8 @@
 		741FF87F1699E0E5001B40F3 /* TowerWidth2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 741FF8771699E0E5001B40F3 /* TowerWidth2@2x.png */; };
 		741FF8801699E0E6001B40F3 /* WallWidth2.png in Resources */ = {isa = PBXBuildFile; fileRef = 741FF8781699E0E5001B40F3 /* WallWidth2.png */; };
 		741FF8811699E0E6001B40F3 /* WallWidth2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 741FF8791699E0E5001B40F3 /* WallWidth2@2x.png */; };
+		741FF884169A311B001B40F3 /* TowerButtonDistorted.png in Resources */ = {isa = PBXBuildFile; fileRef = 741FF882169A311B001B40F3 /* TowerButtonDistorted.png */; };
+		741FF885169A311B001B40F3 /* TowerButtonDistorted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 741FF883169A311B001B40F3 /* TowerButtonDistorted@2x.png */; };
 		742D2ACD167FA16F0023E024 /* Fire01.png in Resources */ = {isa = PBXBuildFile; fileRef = 742D2AA5167FA16E0023E024 /* Fire01.png */; };
 		742D2ACE167FA16F0023E024 /* Fire01@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 742D2AA6167FA16E0023E024 /* Fire01@2x.png */; };
 		742D2ACF167FA16F0023E024 /* Fire02.png in Resources */ = {isa = PBXBuildFile; fileRef = 742D2AA7167FA16F0023E024 /* Fire02.png */; };
@@ -678,6 +680,8 @@
 		741FF8771699E0E5001B40F3 /* TowerWidth2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TowerWidth2@2x.png"; sourceTree = "<group>"; };
 		741FF8781699E0E5001B40F3 /* WallWidth2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WallWidth2.png; sourceTree = "<group>"; };
 		741FF8791699E0E5001B40F3 /* WallWidth2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WallWidth2@2x.png"; sourceTree = "<group>"; };
+		741FF882169A311B001B40F3 /* TowerButtonDistorted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TowerButtonDistorted.png; sourceTree = "<group>"; };
+		741FF883169A311B001B40F3 /* TowerButtonDistorted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TowerButtonDistorted@2x.png"; sourceTree = "<group>"; };
 		742D2AA5167FA16E0023E024 /* Fire01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Fire01.png; sourceTree = "<group>"; };
 		742D2AA6167FA16E0023E024 /* Fire01@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Fire01@2x.png"; sourceTree = "<group>"; };
 		742D2AA7167FA16F0023E024 /* Fire02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Fire02.png; sourceTree = "<group>"; };
@@ -1353,6 +1357,8 @@
 				74E0D635167A58B500B6512E /* Completed.png */,
 				74D9B10F1699BEA60001EBC8 /* MapLabels.png */,
 				74D9B1101699BEA70001EBC8 /* MapLabels@2x.png */,
+				741FF882169A311B001B40F3 /* TowerButtonDistorted.png */,
+				741FF883169A311B001B40F3 /* TowerButtonDistorted@2x.png */,
 			);
 			name = CampaignViewController;
 			sourceTree = "<group>";
@@ -2145,6 +2151,8 @@
 				741FF87F1699E0E5001B40F3 /* TowerWidth2@2x.png in Resources */,
 				741FF8801699E0E6001B40F3 /* WallWidth2.png in Resources */,
 				741FF8811699E0E6001B40F3 /* WallWidth2@2x.png in Resources */,
+				741FF884169A311B001B40F3 /* TowerButtonDistorted.png in Resources */,
+				741FF885169A311B001B40F3 /* TowerButtonDistorted@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

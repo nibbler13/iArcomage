@@ -147,8 +147,9 @@
             UIButton *tempButton = tavernButtons[i];
             tempImage.center = tempButton.center;
             //tempImage.alpha = 0.3;
-            //[[tavernButtons objectAtIndex:i] imageView].alpha = 0.6;
-            [self.view insertSubview:tempImage belowSubview:self.tavernButton0];
+            [[tavernButtons objectAtIndex:i] imageView].alpha = 0.8;
+            [[tavernButtons objectAtIndex:i] imageView].image = [UIImage imageNamed:@"TowerButtonDistorted"];
+            //[self.view insertSubview:tempImage belowSubview:self.tavernButton0];
         }
     }
 }

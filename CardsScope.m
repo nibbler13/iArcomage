@@ -58,6 +58,7 @@ static CardsScope *cardsScope;
             NSDictionary *info = [plistArray objectAtIndex:i];
             [self.cards addObject:[self fillCardSlotWithInfo:info]];
         }
+        
         self.soundsOn = YES;
         
         [self loadSoundEffectWithName:@"damage.caf" forSoundID:&soundDamageID];
@@ -112,7 +113,14 @@ static CardsScope *cardsScope;
 - (Card*)getRandomCard
 {
     NSInteger random = (1 + arc4random()%([self.cards count] -1));
+    [[self.cards objectAtIndex:random] setCardNumber:random];
     return [self.cards objectAtIndex:random];
+}
+
+- (Card*)getCardAtNumber:(NSInteger)number
+{
+    [[self.cards objectAtIndex:number] setCardNumber:number];
+    return [self.cards objectAtIndex:number];
 }
 
 #pragma mark -SoundEffects

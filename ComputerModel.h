@@ -15,7 +15,7 @@
 
 @end
 
-@interface ComputerModel : NSObject <NSCoding>
+@interface ComputerModel : NSObject
 
 @property (nonatomic, strong) id <ComputerModelDelegate> delegate;
 @property (nonatomic) NSInteger quarries;
