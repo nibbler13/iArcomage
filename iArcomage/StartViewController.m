@@ -2423,7 +2423,12 @@ withCardDescriptionLabel:self.playersCard5Description
 {
     [super viewWillAppear:animated];
     
-    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"07-TristansLament" ofType:@"mp3"];
+    NSString *soundFilePath;
+    if (self.isThisCampaignPlaying) {
+        soundFilePath = [[NSBundle mainBundle] pathForResource:self.backgroundMusic ofType:@"mp3"];
+    } else {
+        [[NSBundle mainBundle] pathForResource:@"07-TristansLament" ofType:@"mp3"];
+    }
     NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
     avPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
     avPlayer.numberOfLoops = -1;
