@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "StartViewController.h"
 #import "CampaignViewController.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface MainViewController ()
 
@@ -23,6 +24,47 @@
 @implementation MainViewController
 {
     UIPopoverController *popoverController;
+    AVAudioPlayer *avPlayer;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"02-Tourdion" ofType:@"mp3"];
+    NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
+    avPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
+    avPlayer.numberOfLoops = -1;
+    avPlayer.volume = 0.0;
+    
+    [avPlayer play];
+    
+    [self doVolumeUp];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self doVolumeFade];
+    
+    [super viewWillDisappear:animated];
+}
+
+-(void)doVolumeFade
+{
+    if (avPlayer.volume > 0.05) {
+        avPlayer.volume = avPlayer.volume - 0.05;
+        [self performSelector:@selector(doVolumeFade) withObject:nil afterDelay:0.2];
+    } else {
+        [avPlayer stop];
+    }
+}
+
+-(void)doVolumeUp
+{
+    if (avPlayer.volume < 0.4) {
+        avPlayer.volume = avPlayer.volume + 0.05;
+        [self performSelector:@selector(doVolumeUp) withObject:nil afterDelay:0.2];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

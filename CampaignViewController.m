@@ -75,6 +75,8 @@
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
+    
     NSLog(@"campaign view did load");
     selectedTavern = -1;
     taverns = [[NSMutableArray alloc] init];

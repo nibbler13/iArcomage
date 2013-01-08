@@ -9,6 +9,7 @@
 #import "StartViewController.h"
 #import "Card.h"
 #import "CardsScope.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface StartViewController ()
 
@@ -202,6 +203,8 @@
     
     NSInteger gamesPlayed;
     NSInteger gamesWined;
+    
+    AVAudioPlayer *avPlayer;
 }
 
 #pragma mark - TouchDelegationMethods
@@ -1529,7 +1532,10 @@
     player = nil;
     computer = nil;
     cardsScope = nil;
-    [super viewWillDisappear:YES];
+    
+    [self doVolumeFade];
+    
+    [super viewWillDisappear:animated];
 }
 
 #pragma mark - Buttons method
@@ -2410,5 +2416,41 @@ withCardDescriptionLabel:self.playersCard5Description
         NSLog(@"%@", error);
     }
 }
+
+#pragma mark - Sounds
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"07-TristansLament" ofType:@"mp3"];
+    NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
+    avPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
+    avPlayer.numberOfLoops = -1;
+    avPlayer.volume = 0.0;
+    
+    [avPlayer play];
+    
+    [self doVolumeUp];
+}
+
+-(void)doVolumeFade
+{
+    if (avPlayer.volume > 0.05) {
+        avPlayer.volume = avPlayer.volume - 0.05;
+        [self performSelector:@selector(doVolumeFade) withObject:nil afterDelay:0.2];
+    } else {
+        [avPlayer stop];
+    }
+}
+
+-(void)doVolumeUp
+{
+    if (avPlayer.volume < 0.4) {
+        avPlayer.volume = avPlayer.volume + 0.05;
+        [self performSelector:@selector(doVolumeUp) withObject:nil afterDelay:0.2];
+    }
+}
+
 
 @end

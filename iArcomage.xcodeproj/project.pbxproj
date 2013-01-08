@@ -353,6 +353,23 @@
 		744147B41649A0AD00DF07A6 /* ress_up.caf in Resources */ = {isa = PBXBuildFile; fileRef = 744147AA1649A0AD00DF07A6 /* ress_up.caf */; };
 		744147B51649A0AD00DF07A6 /* ress_upa.caf in Resources */ = {isa = PBXBuildFile; fileRef = 744147AB1649A0AD00DF07A6 /* ress_upa.caf */; };
 		744147B61649A0AD00DF07A6 /* towerwall.caf in Resources */ = {isa = PBXBuildFile; fileRef = 744147AC1649A0AD00DF07A6 /* towerwall.caf */; };
+		746A6EE0169C8A2D00799BAC /* 01-CantusPaganus.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 746A6ED0169C8A2D00799BAC /* 01-CantusPaganus.mp3 */; };
+		746A6EE1169C8A2D00799BAC /* 02-Tourdion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 746A6ED1169C8A2D00799BAC /* 02-Tourdion.mp3 */; };
+		746A6EE2169C8A2D00799BAC /* 03-Bordeaux.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 746A6ED2169C8A2D00799BAC /* 03-Bordeaux.mp3 */; };
+		746A6EE3169C8A2D00799BAC /* 04-RencontreAStChartier.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 746A6ED3169C8A2D00799BAC /* 04-RencontreAStChartier.mp3 */; };
+		746A6EE4169C8A2D00799BAC /* 05-MorningSong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 746A6ED4169C8A2D00799BAC /* 05-MorningSong.mp3 */; };
+		746A6EE5169C8A2D00799BAC /* 06-Molendinar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 746A6ED5169C8A2D00799BAC /* 06-Molendinar.mp3 */; };
+		746A6EE6169C8A2D00799BAC /* 07-TristansLament.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 746A6ED6169C8A2D00799BAC /* 07-TristansLament.mp3 */; };
+		746A6EE7169C8A2D00799BAC /* 08-LaRotta.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 746A6ED7169C8A2D00799BAC /* 08-LaRotta.mp3 */; };
+		746A6EE8169C8A2D00799BAC /* 09-NonPuescSofrirQuaLaDolor.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 746A6ED8169C8A2D00799BAC /* 09-NonPuescSofrirQuaLaDolor.mp3 */; };
+		746A6EE9169C8A2D00799BAC /* 10-OufrezMoiLaPorte.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 746A6ED9169C8A2D00799BAC /* 10-OufrezMoiLaPorte.mp3 */; };
+		746A6EEA169C8A2D00799BAC /* 11-ChaconettaTedescha.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 746A6EDA169C8A2D00799BAC /* 11-ChaconettaTedescha.mp3 */; };
+		746A6EEB169C8A2D00799BAC /* 12-ThePrettyHarvestress.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 746A6EDB169C8A2D00799BAC /* 12-ThePrettyHarvestress.mp3 */; };
+		746A6EEC169C8A2D00799BAC /* 13-BayofDouarnenez.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 746A6EDC169C8A2D00799BAC /* 13-BayofDouarnenez.mp3 */; };
+		746A6EED169C8A2D00799BAC /* 14-StellaSplendens.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 746A6EDD169C8A2D00799BAC /* 14-StellaSplendens.mp3 */; };
+		746A6EEE169C8A2D00799BAC /* 15-TirNaN'og.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 746A6EDE169C8A2D00799BAC /* 15-TirNaN'og.mp3 */; };
+		746A6EEF169C8A2D00799BAC /* 16-Bjorgvindans.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 746A6EDF169C8A2D00799BAC /* 16-Bjorgvindans.mp3 */; };
+		746A6EF1169C8C6B00799BAC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 746A6EF0169C8C6B00799BAC /* AVFoundation.framework */; };
 		7472EBDD165A5D97002D5EB4 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7472EBDC165A5D97002D5EB4 /* Storyboard.storyboard */; };
 		7472EC30165A6DFF002D5EB4 /* CardSubstrate.png in Resources */ = {isa = PBXBuildFile; fileRef = 7472EC2F165A6DFF002D5EB4 /* CardSubstrate.png */; };
 		7472EC71165A72B2002D5EB4 /* Player_name.png in Resources */ = {isa = PBXBuildFile; fileRef = 7472EC70165A72B2002D5EB4 /* Player_name.png */; };
@@ -415,6 +432,14 @@
 		74D9B1111699BEA70001EBC8 /* MapLabels.png in Resources */ = {isa = PBXBuildFile; fileRef = 74D9B10F1699BEA60001EBC8 /* MapLabels.png */; };
 		74D9B1121699BEA70001EBC8 /* MapLabels@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74D9B1101699BEA70001EBC8 /* MapLabels@2x.png */; };
 		74D9B1161699C5740001EBC8 /* magic_004.gif in Resources */ = {isa = PBXBuildFile; fileRef = 74D9B1151699C5730001EBC8 /* magic_004.gif */; };
+		74DB7D15169C4C23002D73F3 /* TowerHeaderComputer6.png in Resources */ = {isa = PBXBuildFile; fileRef = 74DB7D0D169C4C23002D73F3 /* TowerHeaderComputer6.png */; };
+		74DB7D16169C4C23002D73F3 /* TowerHeaderComputer6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74DB7D0E169C4C23002D73F3 /* TowerHeaderComputer6@2x.png */; };
+		74DB7D17169C4C23002D73F3 /* TowerHeaderPlayer6.png in Resources */ = {isa = PBXBuildFile; fileRef = 74DB7D0F169C4C23002D73F3 /* TowerHeaderPlayer6.png */; };
+		74DB7D18169C4C23002D73F3 /* TowerHeaderPlayer6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74DB7D10169C4C23002D73F3 /* TowerHeaderPlayer6@2x.png */; };
+		74DB7D19169C4C23002D73F3 /* TowerWidth6.png in Resources */ = {isa = PBXBuildFile; fileRef = 74DB7D11169C4C23002D73F3 /* TowerWidth6.png */; };
+		74DB7D1A169C4C23002D73F3 /* TowerWidth6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74DB7D12169C4C23002D73F3 /* TowerWidth6@2x.png */; };
+		74DB7D1B169C4C23002D73F3 /* WallWidth6.png in Resources */ = {isa = PBXBuildFile; fileRef = 74DB7D13169C4C23002D73F3 /* WallWidth6.png */; };
+		74DB7D1C169C4C23002D73F3 /* WallWidth6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74DB7D14169C4C23002D73F3 /* WallWidth6@2x.png */; };
 		74DD458E1666220C0028CA1D /* CardSelection.png in Resources */ = {isa = PBXBuildFile; fileRef = 74DD458C1666220C0028CA1D /* CardSelection.png */; };
 		74DD458F1666220C0028CA1D /* CardSelection@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74DD458D1666220C0028CA1D /* CardSelection@2x.png */; };
 		74DDA6991687869B00B062A5 /* Quarry's Help.png in Resources */ = {isa = PBXBuildFile; fileRef = 74DDA6971687869B00B062A5 /* Quarry's Help.png */; };
@@ -872,6 +897,23 @@
 		744147AA1649A0AD00DF07A6 /* ress_up.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ress_up.caf; path = ../ress_up.caf; sourceTree = "<group>"; };
 		744147AB1649A0AD00DF07A6 /* ress_upa.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ress_upa.caf; path = ../ress_upa.caf; sourceTree = "<group>"; };
 		744147AC1649A0AD00DF07A6 /* towerwall.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = towerwall.caf; path = ../towerwall.caf; sourceTree = "<group>"; };
+		746A6ED0169C8A2D00799BAC /* 01-CantusPaganus.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "01-CantusPaganus.mp3"; sourceTree = "<group>"; };
+		746A6ED1169C8A2D00799BAC /* 02-Tourdion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "02-Tourdion.mp3"; sourceTree = "<group>"; };
+		746A6ED2169C8A2D00799BAC /* 03-Bordeaux.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "03-Bordeaux.mp3"; sourceTree = "<group>"; };
+		746A6ED3169C8A2D00799BAC /* 04-RencontreAStChartier.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "04-RencontreAStChartier.mp3"; sourceTree = "<group>"; };
+		746A6ED4169C8A2D00799BAC /* 05-MorningSong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "05-MorningSong.mp3"; sourceTree = "<group>"; };
+		746A6ED5169C8A2D00799BAC /* 06-Molendinar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "06-Molendinar.mp3"; sourceTree = "<group>"; };
+		746A6ED6169C8A2D00799BAC /* 07-TristansLament.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "07-TristansLament.mp3"; sourceTree = "<group>"; };
+		746A6ED7169C8A2D00799BAC /* 08-LaRotta.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "08-LaRotta.mp3"; sourceTree = "<group>"; };
+		746A6ED8169C8A2D00799BAC /* 09-NonPuescSofrirQuaLaDolor.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "09-NonPuescSofrirQuaLaDolor.mp3"; sourceTree = "<group>"; };
+		746A6ED9169C8A2D00799BAC /* 10-OufrezMoiLaPorte.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "10-OufrezMoiLaPorte.mp3"; sourceTree = "<group>"; };
+		746A6EDA169C8A2D00799BAC /* 11-ChaconettaTedescha.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "11-ChaconettaTedescha.mp3"; sourceTree = "<group>"; };
+		746A6EDB169C8A2D00799BAC /* 12-ThePrettyHarvestress.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "12-ThePrettyHarvestress.mp3"; sourceTree = "<group>"; };
+		746A6EDC169C8A2D00799BAC /* 13-BayofDouarnenez.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "13-BayofDouarnenez.mp3"; sourceTree = "<group>"; };
+		746A6EDD169C8A2D00799BAC /* 14-StellaSplendens.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "14-StellaSplendens.mp3"; sourceTree = "<group>"; };
+		746A6EDE169C8A2D00799BAC /* 15-TirNaN'og.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "15-TirNaN'og.mp3"; sourceTree = "<group>"; };
+		746A6EDF169C8A2D00799BAC /* 16-Bjorgvindans.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "16-Bjorgvindans.mp3"; sourceTree = "<group>"; };
+		746A6EF0169C8C6B00799BAC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		7472EBDC165A5D97002D5EB4 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboard.storyboard; path = ../Storyboard.storyboard; sourceTree = "<group>"; };
 		7472EC2F165A6DFF002D5EB4 /* CardSubstrate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CardSubstrate.png; sourceTree = "<group>"; };
 		7472EC70165A72B2002D5EB4 /* Player_name.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Player_name.png; sourceTree = "<group>"; };
@@ -935,6 +977,14 @@
 		74D9B10F1699BEA60001EBC8 /* MapLabels.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MapLabels.png; sourceTree = "<group>"; };
 		74D9B1101699BEA70001EBC8 /* MapLabels@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MapLabels@2x.png"; sourceTree = "<group>"; };
 		74D9B1151699C5730001EBC8 /* magic_004.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = magic_004.gif; sourceTree = "<group>"; };
+		74DB7D0D169C4C23002D73F3 /* TowerHeaderComputer6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TowerHeaderComputer6.png; sourceTree = "<group>"; };
+		74DB7D0E169C4C23002D73F3 /* TowerHeaderComputer6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TowerHeaderComputer6@2x.png"; sourceTree = "<group>"; };
+		74DB7D0F169C4C23002D73F3 /* TowerHeaderPlayer6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TowerHeaderPlayer6.png; sourceTree = "<group>"; };
+		74DB7D10169C4C23002D73F3 /* TowerHeaderPlayer6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TowerHeaderPlayer6@2x.png"; sourceTree = "<group>"; };
+		74DB7D11169C4C23002D73F3 /* TowerWidth6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TowerWidth6.png; sourceTree = "<group>"; };
+		74DB7D12169C4C23002D73F3 /* TowerWidth6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TowerWidth6@2x.png"; sourceTree = "<group>"; };
+		74DB7D13169C4C23002D73F3 /* WallWidth6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WallWidth6.png; sourceTree = "<group>"; };
+		74DB7D14169C4C23002D73F3 /* WallWidth6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WallWidth6@2x.png"; sourceTree = "<group>"; };
 		74DD458C1666220C0028CA1D /* CardSelection.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CardSelection.png; sourceTree = "<group>"; };
 		74DD458D1666220C0028CA1D /* CardSelection@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CardSelection@2x.png"; sourceTree = "<group>"; };
 		74DDA6971687869B00B062A5 /* Quarry's Help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Quarry's Help.png"; sourceTree = "<group>"; };
@@ -1040,6 +1090,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				746A6EF1169C8C6B00799BAC /* AVFoundation.framework in Frameworks */,
 				744143671649982600DF07A6 /* AudioToolbox.framework in Frameworks */,
 				7484436F1642EA0000AEA2D5 /* QuartzCore.framework in Frameworks */,
 				743E9A70162C76A9005F28A0 /* UIKit.framework in Frameworks */,
@@ -1071,6 +1122,7 @@
 		741FF8711699E0D2001B40F3 /* TowersAndWalls */ = {
 			isa = PBXGroup;
 			children = (
+				74DB7D0C169C4C17002D73F3 /* set6 */,
 				741FF8A9169B6C9E001B40F3 /* set5 */,
 				741FF898169B690F001B40F3 /* set4 */,
 				741FF887169B6136001B40F3 /* Set3 */,
@@ -1340,6 +1392,7 @@
 		743E9A60162C76A9005F28A0 = {
 			isa = PBXGroup;
 			children = (
+				746A6EF0169C8C6B00799BAC /* AVFoundation.framework */,
 				740EA05E1641435A00AFFA55 /* Models */,
 				743E9A75162C76A9005F28A0 /* iArcomage */,
 				743E9A6E162C76A9005F28A0 /* Frameworks */,
@@ -1415,6 +1468,15 @@
 		744147B71649A0E300DF07A6 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				746A6ECF169C898900799BAC /* Music */,
+				746A6ECE169C897600799BAC /* Effects */,
+			);
+			name = Sounds;
+			sourceTree = "<group>";
+		};
+		746A6ECE169C897600799BAC /* Effects */ = {
+			isa = PBXGroup;
+			children = (
 				744147A31649A0AC00DF07A6 /* damage.caf */,
 				744147A41649A0AC00DF07A6 /* deal.caf */,
 				744147A51649A0AC00DF07A6 /* defeat.caf */,
@@ -1426,7 +1488,30 @@
 				744147AB1649A0AD00DF07A6 /* ress_upa.caf */,
 				744147AC1649A0AD00DF07A6 /* towerwall.caf */,
 			);
-			name = Sounds;
+			name = Effects;
+			sourceTree = "<group>";
+		};
+		746A6ECF169C898900799BAC /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				746A6ED0169C8A2D00799BAC /* 01-CantusPaganus.mp3 */,
+				746A6ED1169C8A2D00799BAC /* 02-Tourdion.mp3 */,
+				746A6ED2169C8A2D00799BAC /* 03-Bordeaux.mp3 */,
+				746A6ED3169C8A2D00799BAC /* 04-RencontreAStChartier.mp3 */,
+				746A6ED4169C8A2D00799BAC /* 05-MorningSong.mp3 */,
+				746A6ED5169C8A2D00799BAC /* 06-Molendinar.mp3 */,
+				746A6ED6169C8A2D00799BAC /* 07-TristansLament.mp3 */,
+				746A6ED7169C8A2D00799BAC /* 08-LaRotta.mp3 */,
+				746A6ED8169C8A2D00799BAC /* 09-NonPuescSofrirQuaLaDolor.mp3 */,
+				746A6ED9169C8A2D00799BAC /* 10-OufrezMoiLaPorte.mp3 */,
+				746A6EDA169C8A2D00799BAC /* 11-ChaconettaTedescha.mp3 */,
+				746A6EDB169C8A2D00799BAC /* 12-ThePrettyHarvestress.mp3 */,
+				746A6EDC169C8A2D00799BAC /* 13-BayofDouarnenez.mp3 */,
+				746A6EDD169C8A2D00799BAC /* 14-StellaSplendens.mp3 */,
+				746A6EDE169C8A2D00799BAC /* 15-TirNaN'og.mp3 */,
+				746A6EDF169C8A2D00799BAC /* 16-Bjorgvindans.mp3 */,
+			);
+			name = Music;
 			sourceTree = "<group>";
 		};
 		74728C0C164E5C72009D14EC /* Images */ = {
@@ -1531,6 +1616,21 @@
 				74364A991678792A00C7AA42 /* TowerWidth@2x.png */,
 			);
 			name = StartViewController;
+			sourceTree = "<group>";
+		};
+		74DB7D0C169C4C17002D73F3 /* set6 */ = {
+			isa = PBXGroup;
+			children = (
+				74DB7D0D169C4C23002D73F3 /* TowerHeaderComputer6.png */,
+				74DB7D0E169C4C23002D73F3 /* TowerHeaderComputer6@2x.png */,
+				74DB7D0F169C4C23002D73F3 /* TowerHeaderPlayer6.png */,
+				74DB7D10169C4C23002D73F3 /* TowerHeaderPlayer6@2x.png */,
+				74DB7D11169C4C23002D73F3 /* TowerWidth6.png */,
+				74DB7D12169C4C23002D73F3 /* TowerWidth6@2x.png */,
+				74DB7D13169C4C23002D73F3 /* WallWidth6.png */,
+				74DB7D14169C4C23002D73F3 /* WallWidth6@2x.png */,
+			);
+			name = set6;
 			sourceTree = "<group>";
 		};
 		74FD72AF16824EB3002CF2C5 /* CardImages */ = {
@@ -2281,6 +2381,30 @@
 				741FF8B7169B6CB1001B40F3 /* TowerWidth5@2x.png in Resources */,
 				741FF8B8169B6CB1001B40F3 /* WallWidth5.png in Resources */,
 				741FF8B9169B6CB1001B40F3 /* WallWidth5@2x.png in Resources */,
+				74DB7D15169C4C23002D73F3 /* TowerHeaderComputer6.png in Resources */,
+				74DB7D16169C4C23002D73F3 /* TowerHeaderComputer6@2x.png in Resources */,
+				74DB7D17169C4C23002D73F3 /* TowerHeaderPlayer6.png in Resources */,
+				74DB7D18169C4C23002D73F3 /* TowerHeaderPlayer6@2x.png in Resources */,
+				74DB7D19169C4C23002D73F3 /* TowerWidth6.png in Resources */,
+				74DB7D1A169C4C23002D73F3 /* TowerWidth6@2x.png in Resources */,
+				74DB7D1B169C4C23002D73F3 /* WallWidth6.png in Resources */,
+				74DB7D1C169C4C23002D73F3 /* WallWidth6@2x.png in Resources */,
+				746A6EE0169C8A2D00799BAC /* 01-CantusPaganus.mp3 in Resources */,
+				746A6EE1169C8A2D00799BAC /* 02-Tourdion.mp3 in Resources */,
+				746A6EE2169C8A2D00799BAC /* 03-Bordeaux.mp3 in Resources */,
+				746A6EE3169C8A2D00799BAC /* 04-RencontreAStChartier.mp3 in Resources */,
+				746A6EE4169C8A2D00799BAC /* 05-MorningSong.mp3 in Resources */,
+				746A6EE5169C8A2D00799BAC /* 06-Molendinar.mp3 in Resources */,
+				746A6EE6169C8A2D00799BAC /* 07-TristansLament.mp3 in Resources */,
+				746A6EE7169C8A2D00799BAC /* 08-LaRotta.mp3 in Resources */,
+				746A6EE8169C8A2D00799BAC /* 09-NonPuescSofrirQuaLaDolor.mp3 in Resources */,
+				746A6EE9169C8A2D00799BAC /* 10-OufrezMoiLaPorte.mp3 in Resources */,
+				746A6EEA169C8A2D00799BAC /* 11-ChaconettaTedescha.mp3 in Resources */,
+				746A6EEB169C8A2D00799BAC /* 12-ThePrettyHarvestress.mp3 in Resources */,
+				746A6EEC169C8A2D00799BAC /* 13-BayofDouarnenez.mp3 in Resources */,
+				746A6EED169C8A2D00799BAC /* 14-StellaSplendens.mp3 in Resources */,
+				746A6EEE169C8A2D00799BAC /* 15-TirNaN'og.mp3 in Resources */,
+				746A6EEF169C8A2D00799BAC /* 16-Bjorgvindans.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

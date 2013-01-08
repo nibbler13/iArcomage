@@ -26,6 +26,8 @@
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
+    
     NSString *errorDesc = nil;
     NSPropertyListFormat format;
     NSString *plistPath;
