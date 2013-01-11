@@ -9,6 +9,7 @@
 #import "StartViewController.h"
 #import "Card.h"
 #import "CardsScope.h"
+#import "OptionsViewController.h"
 #import <AVFoundation/AVFoundation.h>
 
 @interface StartViewController ()
@@ -130,9 +131,12 @@
 @property (weak, nonatomic) IBOutlet UIImageView *computerTowerHeadBackground;
 @property (weak, nonatomic) IBOutlet UIImageView *computerWallBackground;
 
+@property (weak, nonatomic) IBOutlet UIButton *soundButton;
+
 - (IBAction)backButtonPressed:(id)sender;
 - (IBAction)changeBackground:(id)sender;
 - (IBAction)makePlayerWinButton:(id)sender;
+- (IBAction)soundButtonPressed:(id)sender;
 
 @end
 
@@ -205,6 +209,8 @@
     NSInteger gamesWined;
     
     AVAudioPlayer *avPlayer;
+    
+    UIPopoverController *popoverController;
 }
 
 #pragma mark - TouchDelegationMethods
@@ -1533,7 +1539,8 @@
     computer = nil;
     cardsScope = nil;
     
-    [self doVolumeFade];
+    [avPlayer stop];
+    //[self doVolumeFade];
     
     [super viewWillDisappear:animated];
 }
@@ -1553,6 +1560,15 @@
 
 - (IBAction)makePlayerWinButton:(id)sender {
     player.tower = 400;
+}
+
+- (IBAction)soundButtonPressed:(id)sender {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
+    OptionsViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"OptionsView"];
+    controller.delegate = self;
+    popoverController = [[UIPopoverController alloc] initWithContentViewController:controller];
+    popoverController.delegate = (id)self;
+    [popoverController presentPopoverFromRect:self.soundButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
 }
 
 #pragma mark - Main game cycle
@@ -2432,14 +2448,16 @@ withCardDescriptionLabel:self.playersCard5Description
     NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
     avPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
     avPlayer.numberOfLoops = -1;
-    avPlayer.volume = 0.0;
+    avPlayer.volume = [[NSUserDefaults standardUserDefaults] floatForKey:@"musicVolume"];
+    
+    [self setSoundButtonImageForValue];
     
     [avPlayer play];
     
-    [self doVolumeUp];
+    //[self doVolumeUp];
 }
 
--(void)doVolumeFade
+/*-(void)doVolumeFade
 {
     if (avPlayer.volume > 0.05) {
         avPlayer.volume = avPlayer.volume - 0.05;
@@ -2455,6 +2473,33 @@ withCardDescriptionLabel:self.playersCard5Description
         avPlayer.volume = avPlayer.volume + 0.05;
         [self performSelector:@selector(doVolumeUp) withObject:nil afterDelay:0.2];
     }
+}*/
+
+- (void)setSoundButtonImageForValue
+{
+    float value = [[NSUserDefaults standardUserDefaults] floatForKey:@"musicVolume"];
+    
+    NSLog(@"floatValue: %f", value);
+    
+    if (value == 0.0) {
+        [self.soundButton setImage:[UIImage imageNamed:@"Sound5"] forState:UIControlStateNormal];
+        NSLog(@"1");
+    } else if (value > 0.0 && value < 0.33) {
+        [self.soundButton setImage:[UIImage imageNamed:@"Sound4"] forState:UIControlStateNormal];
+        NSLog(@"2");
+    } else if (value >= 0.33 && value < 0.66) {
+        [self.soundButton setImage:[UIImage imageNamed:@"Sound3"] forState:UIControlStateNormal];
+        NSLog(@"3");
+    } else if (value >= 0.66) {
+        [self.soundButton setImage:[UIImage imageNamed:@"Sound"] forState:UIControlStateNormal];
+        NSLog(@"4");
+    }
+}
+
+- (void)needToChangeSoundsLevel
+{
+    avPlayer.volume = [[NSUserDefaults standardUserDefaults] floatForKey:@"musicVolume"];
+    [self setSoundButtonImageForValue];
 }
 
 

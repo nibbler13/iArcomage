@@ -8,6 +8,7 @@
 
 #import "PlayerModel.h"
 #import "ComputerModel.h"
+#import "OptionsViewController.h"
 
 @protocol StartViewControllerDelegate <NSObject>
 
@@ -20,7 +21,7 @@
         PlayerModelDelegate,
         ComputerModelDelegate,
         UIAlertViewDelegate,
-        NSCoding
+        OptionsViewControllerDelegate
     >
 
 @property (nonatomic, strong) id <StartViewControllerDelegate> delegate;

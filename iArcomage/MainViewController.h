@@ -6,8 +6,14 @@
 //  Copyright (c) 2012 nibbler13. All rights reserved.
 //
 
+#import "OptionsViewController.h"
 #import "IncompletedGameViewController.h"
 
-@interface MainViewController : UIViewController <UIPopoverControllerDelegate, IncompletedGameDelegate>
+@interface MainViewController : UIViewController
+    <
+    UIPopoverControllerDelegate,
+    IncompletedGameDelegate,
+    OptionsViewControllerDelegate
+    >
 
 @end
