@@ -8,12 +8,14 @@
 
 #import "OptionsViewController.h"
 #import "IncompletedGameViewController.h"
+#import "CampaignViewController.h"
 
 @interface MainViewController : UIViewController
     <
     UIPopoverControllerDelegate,
     IncompletedGameDelegate,
-    OptionsViewControllerDelegate
+    OptionsViewControllerDelegate,
+    CampaignViewControllerDelegate
     >
 
 @end

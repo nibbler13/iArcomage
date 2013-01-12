@@ -26,7 +26,6 @@
 
 @property (nonatomic, strong) id <StartViewControllerDelegate> delegate;
 
-@property (nonatomic) BOOL soundsOn;
 @property (nonatomic) BOOL isThisCampaignPlaying;
 @property (nonatomic) NSString *levelName;
 

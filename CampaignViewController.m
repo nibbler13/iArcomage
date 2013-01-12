@@ -292,6 +292,9 @@
 
 - (void)levelCompletedWithVictory:(BOOL)victory
 {
+    NSLog(@"level completed");
+    [self.delegate gameHasBeenCompleted];
+    
     if (victory) {
         if (![[taverns objectAtIndex:selectedTavern] isAchieved]) {
             [taverns[selectedTavern] changeIsAchievedValueTo:YES];
@@ -317,7 +320,6 @@
     StartViewController *startController = [storyboard instantiateViewControllerWithIdentifier:@"startViewControllerStoryboard"];
     
     startController.needToLoadGame = load;
-    startController.soundsOn = self.soundsOn;
     
     [self tavernCloseButtonPressed:nil];
     
@@ -341,6 +343,8 @@
         startController.backgroundMusic = [[taverns objectAtIndex:selectedTavern] backgroundMusic];
         startController.levelName = [[taverns objectAtIndex:selectedTavern] tavernName];
         startController.delegate = (id)self;
+        
+        [self.delegate gameHasBeenInitiated];
         
         [self presentViewController:startController animated:YES completion:nil];
     }

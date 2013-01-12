@@ -10,8 +10,16 @@
 #import "StartViewController.h"
 #import "IncompletedGameViewController.h"
 
+@protocol CampaignViewControllerDelegate <NSObject>
+
+- (void)gameHasBeenInitiated;
+- (void)gameHasBeenCompleted;
+
+@end
+
 @interface CampaignViewController : UIViewController <StartViewControllerDelegate, IncompletedGameDelegate>
 
+@property (nonatomic, strong) id <CampaignViewControllerDelegate> delegate;
 @property (nonatomic) BOOL soundsOn;
 
 @end

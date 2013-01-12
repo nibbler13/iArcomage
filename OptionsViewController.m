@@ -23,6 +23,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     self.musicVolume.value = [[NSUserDefaults standardUserDefaults] floatForKey:@"musicVolume"];
+    self.soundVolume.value = [[NSUserDefaults standardUserDefaults] floatForKey:@"soundVolume"];
 }
 
 - (IBAction)musicVolumeChanged:(id)sender {
@@ -31,8 +32,15 @@
 }
 
 - (IBAction)soundVolumeChanged:(id)sender {
-    [[NSUserDefaults standardUserDefaults] setFloat:self.soundVolume.value forKey:@"soundValue"];
+    [[NSUserDefaults standardUserDefaults] setFloat:self.soundVolume.value forKey:@"soundVolume"];
     [self.delegate needToChangeSoundsLevel];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [super viewWillDisappear:animated];
 }
 
 @end

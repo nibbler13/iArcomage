@@ -10,7 +10,7 @@
 #import "Card.h"
 #import "CardsScope.h"
 #import "OptionsViewController.h"
-#import <AVFoundation/AVFoundation.h>
+#import "SoundSystem.h"
 
 @interface StartViewController ()
 
@@ -208,9 +208,8 @@
     NSInteger gamesPlayed;
     NSInteger gamesWined;
     
-    AVAudioPlayer *avPlayer;
-    
     UIPopoverController *popoverController;
+    SoundSystem *soundSystem;
 }
 
 #pragma mark - TouchDelegationMethods
@@ -493,7 +492,9 @@
         
         firstTouchPoint = CGPointMake(0, 0);
         
-        [cardsScope playDealSoundEffectForEvent:@"WillTakeACard"];
+        [soundSystem playDealSoundEffectForEvent:@"WillTakeACard"];
+        
+        //[cardsScope playDealSoundEffectForEvent:@"WillTakeACard"];
         
         [UIView animateWithDuration:0.5
                               delay:0.0
@@ -519,7 +520,6 @@
                              
                              [[[player cards] objectAtIndex:number] initPlayerModel:player andComputerModel:computer];
                              
-                             if (self.soundsOn) {
                                  
                                  if ([[player.cards objectAtIndex:number] quarriesSelf] > 0 ||
                                      [[player.cards objectAtIndex:number] magicsSelf] > 0 ||
@@ -527,7 +527,8 @@
                                      [[player.cards objectAtIndex:number] quarriesEnemy] > 0 ||
                                      [[player.cards objectAtIndex:number] magicsEnemy] > 0 ||
                                      [[player.cards objectAtIndex:number] dungeonsEnemy] > 0) {
-                                     [cardsScope playDealSoundEffectForEvent:@"WillIncreaseSelfGeneralResource"];
+                                     [soundSystem playDealSoundEffectForEvent:@"WillIncreaseSelfGeneralResource"];
+                                     //[cardsScope playDealSoundEffectForEvent:@"WillIncreaseSelfGeneralResource"];
                                  }
                                  if ([[player.cards objectAtIndex:number] quarriesSelf] < 0 & player.quarries > 1 ||
                                      [[player.cards objectAtIndex:number] magicsSelf] < 0 & player.magics > 1 ||
@@ -535,7 +536,8 @@
                                      [[player.cards objectAtIndex:number] quarriesEnemy] < 0 & computer.quarries > 1 ||
                                      [[player.cards objectAtIndex:number] magicsEnemy] < 0 & computer.magics > 1 ||
                                      [[player.cards objectAtIndex:number] dungeonsEnemy] < 0 & computer.dungeons > 1) {
-                                     [cardsScope playDealSoundEffectForEvent:@"WillDecreaseSelfGeneralResource"];
+                                     [soundSystem playDealSoundEffectForEvent:@"WillDecreaseSelfGeneralResource"];
+                                     //[cardsScope playDealSoundEffectForEvent:@"WillDecreaseSelfGeneralResource"];
                                  }
                                  if ([[player.cards objectAtIndex:number] bricksSelf] > 0 ||
                                      [[player.cards objectAtIndex:number] gemsSelf] > 0 ||
@@ -543,7 +545,8 @@
                                      [[player.cards objectAtIndex:number] bricksEnemy] > 0 ||
                                      [[player.cards objectAtIndex:number] gemsEnemy] > 0 ||
                                      [[player.cards objectAtIndex:number] recruitsEnemy] > 0) {
-                                     [cardsScope playDealSoundEffectForEvent:@"WillIncreaseSelfCommonResource"];
+                                     [soundSystem playDealSoundEffectForEvent:@"WillIncreaseSelfCommonResource"];
+                                     //[cardsScope playDealSoundEffectForEvent:@"WillIncreaseSelfCommonResource"];
                                  }
                                  if ([[player.cards objectAtIndex:number] bricksSelf] < 0 & player.bricks > 0 ||
                                      [[player.cards objectAtIndex:number] gemsSelf] < 0 & player.gems > 0 ||
@@ -551,21 +554,23 @@
                                      [[player.cards objectAtIndex:number] bricksEnemy] < 0 & computer.bricks > 0 ||
                                      [[player.cards objectAtIndex:number] gemsEnemy] < 0 & computer.gems > 0 ||
                                      [[player.cards objectAtIndex:number] recruitsEnemy] < 0 & computer.recruits > 0) {
-                                     [cardsScope playDealSoundEffectForEvent:@"WillDecreaseSelfCommonResource"];
+                                     [soundSystem playDealSoundEffectForEvent:@"WillDecreaseSelfCommonResource"];
+                                     //[cardsScope playDealSoundEffectForEvent:@"WillDecreaseSelfCommonResource"];
                                  }
                                  if ([[player.cards objectAtIndex:number] towerSelf] > 0 ||
                                      [[player.cards objectAtIndex:number] wallSelf] > 0 ||
                                      [[player.cards objectAtIndex:number] towerEnemy] > 0 ||
                                      [[player.cards objectAtIndex:number] wallEnemy] > 0) {
-                                     [cardsScope playDealSoundEffectForEvent:@"WillIncreaseTowerOrWall"];
+                                     [soundSystem playDealSoundEffectForEvent:@"WillIncreaseTowerOrWall"];
+                                     //[cardsScope playDealSoundEffectForEvent:@"WillIncreaseTowerOrWall"];
                                  }
                                  if ([[player.cards objectAtIndex:number] towerSelf] < 0 ||
                                      [[player.cards objectAtIndex:number] wallSelf] < 0 ||
                                      [[player.cards objectAtIndex:number] towerEnemy] < 0 ||
                                      [[player.cards objectAtIndex:number] wallEnemy] < 0) {
-                                     [cardsScope playDealSoundEffectForEvent:@"WillTakeDamage"];
+                                     [soundSystem playDealSoundEffectForEvent:@"WillTakeDamage"];
+                                     //[cardsScope playDealSoundEffectForEvent:@"WillTakeDamage"];
                                  }
-                             }
                              
                              
                              //NSLog(@"===should present animation for player===");
@@ -662,7 +667,8 @@
                                                       [self needToUpdateLabels];
                                                       [self updateAllCards];
                                                       
-                                                      [cardsScope playDealSoundEffectForEvent:@"WillTakeACard"];
+                                                        [soundSystem playDealSoundEffectForEvent:@"WillTakeACard"];
+                                                      //[cardsScope playDealSoundEffectForEvent:@"WillTakeACard"];
                                                       
                                                       [UIView animateWithDuration:0.5
                                                                             delay:0.0
@@ -716,7 +722,8 @@
         
         firstTouchPoint = CGPointMake(0, 0);
         
-        [cardsScope playDealSoundEffectForEvent:@"WillTakeACard"];
+        [soundSystem playDealSoundEffectForEvent:@"WillTakeACard"];
+        //[cardsScope playDealSoundEffectForEvent:@"WillTakeACard"];
         
         [UIView animateWithDuration:0.5
                               delay:0.0
@@ -835,7 +842,8 @@
                                                       [self needToUpdateLabels];
                                                       [self updateAllCards];
                                                       
-                                                      [cardsScope playDealSoundEffectForEvent:@"WillTakeACard"];
+                                                      [soundSystem playDealSoundEffectForEvent:@"WillTakeACard"];
+                                                      //[cardsScope playDealSoundEffectForEvent:@"WillTakeACard"];
                                                       
                                                       [UIView animateWithDuration:0.5
                                                                             delay:0.0
@@ -966,7 +974,8 @@
     
     [self setComputersCardsInvisible:NO];
     
-    [cardsScope playDealSoundEffectForEvent:@"WillTakeACard"];
+    [soundSystem playDealSoundEffectForEvent:@"WillTakeACard"];
+    //[cardsScope playDealSoundEffectForEvent:@"WillTakeACard"];
     
     //////////////////////////////////////////
     //Разложение всех карт компьютера на столе
@@ -1014,7 +1023,8 @@
                          
                      }completion:^(BOOL finished){
                          
-                         [cardsScope playDealSoundEffectForEvent:@"WillTakeACard"];
+                         [soundSystem playDealSoundEffectForEvent:@"WillTakeACard"];
+                         //[cardsScope playDealSoundEffectForEvent:@"WillTakeACard"];
                          
                          /////////////////////////////////////////////////////////////////////////////////
                          //Перемещение сыгранной компьютером карты на стол или сброшенной в невидимую зону
@@ -1041,7 +1051,6 @@
                               
                               
                               if (!computer.isCardBeenDiscarded) {
-                                  if (self.soundsOn) {
                                   
                                   //NSLog(@"computer card name: %@", [[computer.cards objectAtIndex:computer.playedCard] cardName]);
                                   if ([[computer.cards objectAtIndex:computer.playedCard] quarriesSelf] > 0 ||
@@ -1050,7 +1059,8 @@
                                       [[computer.cards objectAtIndex:computer.playedCard] quarriesEnemy] > 0 ||
                                       [[computer.cards objectAtIndex:computer.playedCard] magicsEnemy] > 0 ||
                                       [[computer.cards objectAtIndex:computer.playedCard] dungeonsEnemy] > 0) {
-                                      [cardsScope playDealSoundEffectForEvent:@"WillIncreaseSelfGeneralResource"];
+                                      [soundSystem playDealSoundEffectForEvent:@"WillIncreaseSelfGeneralResource"];
+                                      //[cardsScope playDealSoundEffectForEvent:@"WillIncreaseSelfGeneralResource"];
                                   }
                                   if ([[computer.cards objectAtIndex:computer.playedCard] quarriesSelf] < 0 & computer.quarries > 1 ||
                                       [[computer.cards objectAtIndex:computer.playedCard] magicsSelf] < 0 & computer.magics > 1 ||
@@ -1058,7 +1068,8 @@
                                       [[computer.cards objectAtIndex:computer.playedCard] quarriesEnemy] < 0 & player.quarries > 1 ||
                                       [[computer.cards objectAtIndex:computer.playedCard] magicsEnemy] < 0 & player.magics > 1 ||
                                       [[computer.cards objectAtIndex:computer.playedCard] dungeonsEnemy] < 0 & player.dungeons > 1) {
-                                      [cardsScope playDealSoundEffectForEvent:@"WillDecreaseSelfGeneralResource"];
+                                      [soundSystem playDealSoundEffectForEvent:@"WillDecreaseSelfGeneralResource"];
+                                      //[cardsScope playDealSoundEffectForEvent:@"WillDecreaseSelfGeneralResource"];
                                   }
                                   if ([[computer.cards objectAtIndex:computer.playedCard] bricksSelf] > 0 ||
                                       [[computer.cards objectAtIndex:computer.playedCard] gemsSelf] > 0 ||
@@ -1066,7 +1077,8 @@
                                       [[computer.cards objectAtIndex:computer.playedCard] bricksEnemy] > 0 ||
                                       [[computer.cards objectAtIndex:computer.playedCard] gemsEnemy] > 0 ||
                                       [[computer.cards objectAtIndex:computer.playedCard] recruitsEnemy] > 0) {
-                                      [cardsScope playDealSoundEffectForEvent:@"WillIncreaseSelfCommonResource"];
+                                      [soundSystem playDealSoundEffectForEvent:@"WillIncreaseSelfCommonResource"];
+                                      //[cardsScope playDealSoundEffectForEvent:@"WillIncreaseSelfCommonResource"];
                                   }
                                   if ([[computer.cards objectAtIndex:computer.playedCard] bricksSelf] < 0 & computer.bricks > 0 ||
                                       [[computer.cards objectAtIndex:computer.playedCard] gemsSelf] < 0 & computer.gems > 0 ||
@@ -1074,20 +1086,22 @@
                                       [[computer.cards objectAtIndex:computer.playedCard] bricksEnemy] < 0 & player.bricks > 0 ||
                                       [[computer.cards objectAtIndex:computer.playedCard] gemsEnemy] < 0 & player.gems > 0 ||
                                       [[computer.cards objectAtIndex:computer.playedCard] recruitsEnemy] < 0 & player.recruits > 0) {
-                                      [cardsScope playDealSoundEffectForEvent:@"WillDecreaseSelfCommonResource"];
+                                      [soundSystem playDealSoundEffectForEvent:@"WillDecreaseSelfCommonResource"];
+                                      //[cardsScope playDealSoundEffectForEvent:@"WillDecreaseSelfCommonResource"];
                                   }
                                   if ([[computer.cards objectAtIndex:computer.playedCard] towerSelf] > 0 ||
                                       [[computer.cards objectAtIndex:computer.playedCard] wallSelf] > 0 ||
                                       [[computer.cards objectAtIndex:computer.playedCard] towerEnemy] > 0 ||
                                       [[computer.cards objectAtIndex:computer.playedCard] wallEnemy] > 0) {
-                                      [cardsScope playDealSoundEffectForEvent:@"WillIncreaseTowerOrWall"];
+                                      [soundSystem playDealSoundEffectForEvent:@"WillIncreaseTowerOrWall"];
+                                      //[cardsScope playDealSoundEffectForEvent:@"WillIncreaseTowerOrWall"];
                                   }
                                   if ([[computer.cards objectAtIndex:computer.playedCard] towerSelf] < 0 ||
                                       [[computer.cards objectAtIndex:computer.playedCard] wallSelf] < 0 ||
                                       [[computer.cards objectAtIndex:computer.playedCard] towerEnemy] < 0 ||
                                       [[computer.cards objectAtIndex:computer.playedCard] wallEnemy] < 0) {
-                                      [cardsScope playDealSoundEffectForEvent:@"WillTakeDamage"];
-                                  }
+                                      [soundSystem playDealSoundEffectForEvent:@"WillTakeDamage"];
+                                      //[cardsScope playDealSoundEffectForEvent:@"WillTakeDamage"];
                                   }
                                   
                                   [self configureAnimationsForCardNumber:computer.playedCard];
@@ -1220,7 +1234,8 @@
                                                                         [self needToUpdateLabels];
                                                                         [self updateAllCards];
                                                                         
-                                                                        [cardsScope playDealSoundEffectForEvent:@"WillTakeACard"];
+                                                                        [soundSystem playDealSoundEffectForEvent:@"WillTakeACard"];
+                                                                        //[cardsScope playDealSoundEffectForEvent:@"WillTakeACard"];
                                                                         
                                                                         self.card0View.center = CGPointMake(xInitialPositionForCardView, yInitialPositionForCardView);
                                                                         xInitialPositionForCardView += cardsOffset;
@@ -1482,7 +1497,8 @@
 - (void)needToCheckThatTheVictoryConditionsIsAchievedByComputer
 {
     if (computer.tower >= towerAim || computer.wall >= wallAim || (computer.bricks >= self.resourcesCampaignAim && computer.gems >= self.resourcesCampaignAim && computer.recruits >= self.resourcesCampaignAim) || player.tower < 1) {
-        [cardsScope playDealSoundEffectForEvent:@"PlayerLose"];
+        [soundSystem playDealSoundEffectForEvent:@"PlayerLose"];
+        //[cardsScope playDealSoundEffectForEvent:@"PlayerLose"];
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"You lose!" message:@"The computer has defeated you like a boss" delegate:self cancelButtonTitle:@"Ohhh god why?" otherButtonTitles: nil];
         gamesPlayed++;
         
@@ -1499,7 +1515,8 @@
 - (void)needToCheckThatTheVictoryConditionsIsAchieved
 {
     if (player.tower >= towerAim || player.wall >= wallAim || (player.bricks >= self.resourcesCampaignAim && player.gems >= self.resourcesCampaignAim && player.recruits >= self.resourcesCampaignAim) || computer.tower < 1) {
-        [cardsScope playDealSoundEffectForEvent:@"PlayerWin"];
+        [soundSystem playDealSoundEffectForEvent:@"PlayerWin"];
+        //[cardsScope playDealSoundEffectForEvent:@"PlayerWin"];
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"You win!" message:@"You win because you have completed the needed conditions" delegate:self cancelButtonTitle:@"Yeah! It's great!" otherButtonTitles: nil];
         gamesPlayed++;
         gamesWined++;
@@ -1539,14 +1556,16 @@
     computer = nil;
     cardsScope = nil;
     
-    [avPlayer stop];
-    //[self doVolumeFade];
+    [soundSystem stopMusic];
     
     [super viewWillDisappear:animated];
 }
 
 #pragma mark - Buttons method
 - (IBAction)backButtonPressed:(id)sender {
+    
+    if (self.isThisCampaignPlaying) { [self.delegate levelCompletedWithVictory:NO]; }
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -1568,7 +1587,7 @@
     controller.delegate = self;
     popoverController = [[UIPopoverController alloc] initWithContentViewController:controller];
     popoverController.delegate = (id)self;
-    [popoverController presentPopoverFromRect:self.soundButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    [popoverController presentPopoverFromRect:self.soundButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
 }
 
 #pragma mark - Main game cycle
@@ -1581,7 +1600,6 @@
     computer = [ComputerModel getComputer];
     computer.delegate = self;
     cardsScope = [CardsScope getCardsScope];
-    cardsScope.soundsOn = self.soundsOn;
     
     if (self.needToLoadGame) { [self loadPlayerAndComputer]; }
     
@@ -2229,14 +2247,14 @@ withCardDescriptionLabel:self.playersCard5Description
 - (void)savePlayerAndComputerModels
 {
     NSLog(@"==========savingGame=========");
-    NSLog(@"player.cards.count: %d", [[player cards] count]);
+    //NSLog(@"player.cards.count: %d", [[player cards] count]);
     for (int i = 0; (i < [[player cards] count]); i++) {
-        NSLog(@"card: %d, cardNumber: %d", i, [[[player cards] objectAtIndex:i] cardNumber]);
+        //NSLog(@"card: %d, cardNumber: %d", i, [[[player cards] objectAtIndex:i] cardNumber]);
     }
     
-    NSLog(@"computer.cards.count: %d", [[computer cards] count]);
+    //NSLog(@"computer.cards.count: %d", [[computer cards] count]);
     for (int i = 0; (i < [[computer cards] count]); i++) {
-        NSLog(@"card: %d, cardNumber: %d", i, [[[computer cards] objectAtIndex:i] cardNumber]);
+        //NSLog(@"card: %d, cardNumber: %d", i, [[[computer cards] objectAtIndex:i] cardNumber]);
     }
     
     if (player != nil && computer != nil && ([[player cards] count] == 6) && ([[computer cards] count] == 6 && animationCompleted)) {
@@ -2439,67 +2457,16 @@ withCardDescriptionLabel:self.playersCard5Description
 {
     [super viewWillAppear:animated];
     
-    NSString *soundFilePath;
     if (self.isThisCampaignPlaying) {
-        soundFilePath = [[NSBundle mainBundle] pathForResource:self.backgroundMusic ofType:@"mp3"];
+        soundSystem = [[SoundSystem alloc] initWithFileName:self.backgroundMusic];
     } else {
-        soundFilePath = [[NSBundle mainBundle] pathForResource:@"07-TristansLament" ofType:@"mp3"];
-    }
-    NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
-    avPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
-    avPlayer.numberOfLoops = -1;
-    avPlayer.volume = [[NSUserDefaults standardUserDefaults] floatForKey:@"musicVolume"];
-    
-    [self setSoundButtonImageForValue];
-    
-    [avPlayer play];
-    
-    //[self doVolumeUp];
-}
-
-/*-(void)doVolumeFade
-{
-    if (avPlayer.volume > 0.05) {
-        avPlayer.volume = avPlayer.volume - 0.05;
-        [self performSelector:@selector(doVolumeFade) withObject:nil afterDelay:0.2];
-    } else {
-        [avPlayer stop];
-    }
-}
-
--(void)doVolumeUp
-{
-    if (avPlayer.volume < 0.4) {
-        avPlayer.volume = avPlayer.volume + 0.05;
-        [self performSelector:@selector(doVolumeUp) withObject:nil afterDelay:0.2];
-    }
-}*/
-
-- (void)setSoundButtonImageForValue
-{
-    float value = [[NSUserDefaults standardUserDefaults] floatForKey:@"musicVolume"];
-    
-    NSLog(@"floatValue: %f", value);
-    
-    if (value == 0.0) {
-        [self.soundButton setImage:[UIImage imageNamed:@"Sound5"] forState:UIControlStateNormal];
-        NSLog(@"1");
-    } else if (value > 0.0 && value < 0.33) {
-        [self.soundButton setImage:[UIImage imageNamed:@"Sound4"] forState:UIControlStateNormal];
-        NSLog(@"2");
-    } else if (value >= 0.33 && value < 0.66) {
-        [self.soundButton setImage:[UIImage imageNamed:@"Sound3"] forState:UIControlStateNormal];
-        NSLog(@"3");
-    } else if (value >= 0.66) {
-        [self.soundButton setImage:[UIImage imageNamed:@"Sound"] forState:UIControlStateNormal];
-        NSLog(@"4");
+        soundSystem = [[SoundSystem alloc] initWithFileName:@"07-TristansLament"];
     }
 }
 
 - (void)needToChangeSoundsLevel
 {
-    avPlayer.volume = [[NSUserDefaults standardUserDefaults] floatForKey:@"musicVolume"];
-    [self setSoundButtonImageForValue];
+    [soundSystem updateSoundVolume];
 }
 
 
