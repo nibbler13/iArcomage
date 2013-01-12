@@ -355,16 +355,6 @@
 		743E9AAA162C86A8005F28A0 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 743E9AA9162C86A8005F28A0 /* InfoViewController.m */; };
 		743E9AAD162C86F2005F28A0 /* ScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 743E9AAC162C86F2005F28A0 /* ScoreViewController.m */; };
 		744143671649982600DF07A6 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 744143661649982600DF07A6 /* AudioToolbox.framework */; };
-		744147AD1649A0AD00DF07A6 /* damage.caf in Resources */ = {isa = PBXBuildFile; fileRef = 744147A31649A0AC00DF07A6 /* damage.caf */; };
-		744147AE1649A0AD00DF07A6 /* deal.caf in Resources */ = {isa = PBXBuildFile; fileRef = 744147A41649A0AC00DF07A6 /* deal.caf */; };
-		744147AF1649A0AD00DF07A6 /* defeat.caf in Resources */ = {isa = PBXBuildFile; fileRef = 744147A51649A0AC00DF07A6 /* defeat.caf */; };
-		744147B01649A0AD00DF07A6 /* evillaugh.caf in Resources */ = {isa = PBXBuildFile; fileRef = 744147A61649A0AC00DF07A6 /* evillaugh.caf */; };
-		744147B11649A0AD00DF07A6 /* multipleeffect.caf in Resources */ = {isa = PBXBuildFile; fileRef = 744147A71649A0AC00DF07A6 /* multipleeffect.caf */; };
-		744147B21649A0AD00DF07A6 /* resb_down.caf in Resources */ = {isa = PBXBuildFile; fileRef = 744147A81649A0AC00DF07A6 /* resb_down.caf */; };
-		744147B31649A0AD00DF07A6 /* resb_downa.caf in Resources */ = {isa = PBXBuildFile; fileRef = 744147A91649A0AC00DF07A6 /* resb_downa.caf */; };
-		744147B41649A0AD00DF07A6 /* ress_up.caf in Resources */ = {isa = PBXBuildFile; fileRef = 744147AA1649A0AD00DF07A6 /* ress_up.caf */; };
-		744147B51649A0AD00DF07A6 /* ress_upa.caf in Resources */ = {isa = PBXBuildFile; fileRef = 744147AB1649A0AD00DF07A6 /* ress_upa.caf */; };
-		744147B61649A0AD00DF07A6 /* towerwall.caf in Resources */ = {isa = PBXBuildFile; fileRef = 744147AC1649A0AD00DF07A6 /* towerwall.caf */; };
 		746A6EE0169C8A2D00799BAC /* 01-CantusPaganus.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 746A6ED0169C8A2D00799BAC /* 01-CantusPaganus.mp3 */; };
 		746A6EE1169C8A2D00799BAC /* 02-Tourdion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 746A6ED1169C8A2D00799BAC /* 02-Tourdion.mp3 */; };
 		746A6EE2169C8A2D00799BAC /* 03-Bordeaux.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 746A6ED2169C8A2D00799BAC /* 03-Bordeaux.mp3 */; };
@@ -911,16 +901,6 @@
 		743E9AAB162C86F2005F28A0 /* ScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreViewController.h; sourceTree = "<group>"; };
 		743E9AAC162C86F2005F28A0 /* ScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreViewController.m; sourceTree = "<group>"; };
 		744143661649982600DF07A6 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		744147A31649A0AC00DF07A6 /* damage.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = damage.caf; path = ../damage.caf; sourceTree = "<group>"; };
-		744147A41649A0AC00DF07A6 /* deal.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = deal.caf; path = ../deal.caf; sourceTree = "<group>"; };
-		744147A51649A0AC00DF07A6 /* defeat.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = defeat.caf; path = ../defeat.caf; sourceTree = "<group>"; };
-		744147A61649A0AC00DF07A6 /* evillaugh.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = evillaugh.caf; path = ../evillaugh.caf; sourceTree = "<group>"; };
-		744147A71649A0AC00DF07A6 /* multipleeffect.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = multipleeffect.caf; path = ../multipleeffect.caf; sourceTree = "<group>"; };
-		744147A81649A0AC00DF07A6 /* resb_down.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = resb_down.caf; path = ../resb_down.caf; sourceTree = "<group>"; };
-		744147A91649A0AC00DF07A6 /* resb_downa.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = resb_downa.caf; path = ../resb_downa.caf; sourceTree = "<group>"; };
-		744147AA1649A0AD00DF07A6 /* ress_up.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ress_up.caf; path = ../ress_up.caf; sourceTree = "<group>"; };
-		744147AB1649A0AD00DF07A6 /* ress_upa.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ress_upa.caf; path = ../ress_upa.caf; sourceTree = "<group>"; };
-		744147AC1649A0AD00DF07A6 /* towerwall.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = towerwall.caf; path = ../towerwall.caf; sourceTree = "<group>"; };
 		746A6ED0169C8A2D00799BAC /* 01-CantusPaganus.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "01-CantusPaganus.mp3"; sourceTree = "<group>"; };
 		746A6ED1169C8A2D00799BAC /* 02-Tourdion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "02-Tourdion.mp3"; sourceTree = "<group>"; };
 		746A6ED2169C8A2D00799BAC /* 03-Bordeaux.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "03-Bordeaux.mp3"; sourceTree = "<group>"; };
@@ -1128,7 +1108,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		740BAEAA16A1D47200B5A8AE /* Effects2 */ = {
+		740BAEAA16A1D47200B5A8AE /* Effects */ = {
 			isa = PBXGroup;
 			children = (
 				740BAEAB16A1D48000B5A8AE /* damage.mp3 */,
@@ -1142,7 +1122,7 @@
 				740BAEB316A1D48000B5A8AE /* ress_upa.mp3 */,
 				740BAEB416A1D48000B5A8AE /* towerwall.mp3 */,
 			);
-			name = Effects2;
+			name = Effects;
 			sourceTree = "<group>";
 		};
 		740EA05E1641435A00AFFA55 /* Models */ = {
@@ -1515,28 +1495,10 @@
 		744147B71649A0E300DF07A6 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				740BAEAA16A1D47200B5A8AE /* Effects2 */,
+				740BAEAA16A1D47200B5A8AE /* Effects */,
 				746A6ECF169C898900799BAC /* Music */,
-				746A6ECE169C897600799BAC /* Effects */,
 			);
 			name = Sounds;
-			sourceTree = "<group>";
-		};
-		746A6ECE169C897600799BAC /* Effects */ = {
-			isa = PBXGroup;
-			children = (
-				744147A31649A0AC00DF07A6 /* damage.caf */,
-				744147A41649A0AC00DF07A6 /* deal.caf */,
-				744147A51649A0AC00DF07A6 /* defeat.caf */,
-				744147A61649A0AC00DF07A6 /* evillaugh.caf */,
-				744147A71649A0AC00DF07A6 /* multipleeffect.caf */,
-				744147A81649A0AC00DF07A6 /* resb_down.caf */,
-				744147A91649A0AC00DF07A6 /* resb_downa.caf */,
-				744147AA1649A0AD00DF07A6 /* ress_up.caf */,
-				744147AB1649A0AD00DF07A6 /* ress_upa.caf */,
-				744147AC1649A0AD00DF07A6 /* towerwall.caf */,
-			);
-			name = Effects;
 			sourceTree = "<group>";
 		};
 		746A6ECF169C898900799BAC /* Music */ = {
@@ -1948,16 +1910,6 @@
 				743E9A84162C76A9005F28A0 /* Default@2x.png in Resources */,
 				743E9A86162C76A9005F28A0 /* Default-568h@2x.png in Resources */,
 				74F7366816425B9800D7A0E6 /* CardsList.plist in Resources */,
-				744147AD1649A0AD00DF07A6 /* damage.caf in Resources */,
-				744147AE1649A0AD00DF07A6 /* deal.caf in Resources */,
-				744147AF1649A0AD00DF07A6 /* defeat.caf in Resources */,
-				744147B01649A0AD00DF07A6 /* evillaugh.caf in Resources */,
-				744147B11649A0AD00DF07A6 /* multipleeffect.caf in Resources */,
-				744147B21649A0AD00DF07A6 /* resb_down.caf in Resources */,
-				744147B31649A0AD00DF07A6 /* resb_downa.caf in Resources */,
-				744147B41649A0AD00DF07A6 /* ress_up.caf in Resources */,
-				744147B51649A0AD00DF07A6 /* ress_upa.caf in Resources */,
-				744147B61649A0AD00DF07A6 /* towerwall.caf in Resources */,
 				7472EBDD165A5D97002D5EB4 /* Storyboard.storyboard in Resources */,
 				7472EC30165A6DFF002D5EB4 /* CardSubstrate.png in Resources */,
 				7472EC71165A72B2002D5EB4 /* Player_name.png in Resources */,
