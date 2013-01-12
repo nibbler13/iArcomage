@@ -12,12 +12,9 @@
 @interface CardsScope : NSObject
 
 @property (nonatomic) NSMutableArray *cards;
-@property (nonatomic) BOOL soundsOn;
 
 - (Card*)getRandomCard;
 - (Card*)getCardAtNumber:(NSInteger)number;
-
-- (void)playDealSoundEffectForEvent:(NSString*)event;
 
 + (CardsScope*)getCardsScope;
 + (void)destroyCardsScope;

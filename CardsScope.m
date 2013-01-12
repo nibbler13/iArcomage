@@ -12,25 +12,12 @@
 static CardsScope *cardsScope;
 
 @implementation CardsScope
-{
-    SystemSoundID soundDamageID;
-    SystemSoundID soundDealID;
-    SystemSoundID soundGeneralResouceIncreaseID;
-    SystemSoundID soundGeneralResourceDecreaseID;
-    SystemSoundID soundCommonResourceIncreaseID;
-    SystemSoundID soundCommonResourceDecreaseID;
-    SystemSoundID soundTowerWallID;
-    SystemSoundID soundDefeatID;
-    SystemSoundID soundEvilLaughID;
-}
 
 #pragma mark -Initialization
 
 + (CardsScope*)getCardsScope
 {
-    //NSLog(@"getCardScope");
     if (cardsScope == nil) {
-        //NSLog(@"cardScope alloc");
         cardsScope = [[CardsScope alloc] init];
     }
     return cardsScope;
@@ -38,7 +25,6 @@ static CardsScope *cardsScope;
 
 + (void)destroyCardsScope
 {
-    //NSLog(@"destroy cardsScope");
     if (cardsScope != nil) {
         cardsScope = nil;
     }
@@ -46,7 +32,6 @@ static CardsScope *cardsScope;
 
 - (id)init
 {
-    //NSLog(@"init CardScope");
     if ([super init] != nil) {
         
         NSString *path = [[NSBundle mainBundle] bundlePath];
@@ -58,26 +43,8 @@ static CardsScope *cardsScope;
             NSDictionary *info = [plistArray objectAtIndex:i];
             [self.cards addObject:[self fillCardSlotWithInfo:info]];
         }
-        
-        self.soundsOn = YES;
-        
-        [self loadSoundEffectWithName:@"damage.caf" forSoundID:&soundDamageID];
-        [self loadSoundEffectWithName:@"deal.caf" forSoundID:&soundDealID];
-        [self loadSoundEffectWithName:@"resb_downa.caf" forSoundID:&soundGeneralResourceDecreaseID];
-        [self loadSoundEffectWithName:@"ress_upa.caf" forSoundID:&soundGeneralResouceIncreaseID];
-        [self loadSoundEffectWithName:@"resb_down.caf" forSoundID:&soundCommonResourceDecreaseID];
-        [self loadSoundEffectWithName:@"ress_up.caf" forSoundID:&soundCommonResourceIncreaseID];
-        [self loadSoundEffectWithName:@"towerwall.caf" forSoundID:&soundTowerWallID];
-        [self loadSoundEffectWithName:@"defeat.caf" forSoundID:&soundDefeatID];
-        [self loadSoundEffectWithName:@"evillaugh.caf" forSoundID:&soundEvilLaughID];
     }
     return self;
-}
-
-- (void)dealloc
-{
-    //NSLog(@"cardScope dealloc");
-    [self unloadSoundEffect];
 }
 
 - (Card*)fillCardSlotWithInfo:(NSDictionary*)info
@@ -121,59 +88,6 @@ static CardsScope *cardsScope;
 {
     [[self.cards objectAtIndex:number] setCardNumber:number];
     return [self.cards objectAtIndex:number];
-}
-
-#pragma mark -SoundEffects
-
-- (void)loadSoundEffectWithName:(NSString*)name forSoundID:(SystemSoundID*)soundID
-{
-    NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:nil];
-    NSURL *fileURL = [NSURL fileURLWithPath:path isDirectory:NO];
-    if (fileURL == nil) {
-        NSLog(@"NSURL is nil for path: %@", path);
-        return;
-    }
-    OSStatus error = AudioServicesCreateSystemSoundID((__bridge CFURLRef)fileURL, soundID);
-    if (error != kAudioServicesNoError) {
-        NSLog(@"Error code %ld loading sound at path: %@", error, path);
-        return;
-    }
-}
-
-- (void)unloadSoundEffect
-{
-    AudioServicesDisposeSystemSoundID(soundDealID);
-    soundDealID = 0;
-}
-
-- (void)playDealSoundEffectForEvent:(NSString *)event
-{
-    if (self.soundsOn) {
-        //NSLog(@"===========sounds on===========");
-        if ([event isEqualToString:@"WillTakeACard"]) {
-            AudioServicesPlaySystemSound(soundDealID);
-        } else if ([event isEqualToString:@"WillTakeDamage"]) {
-            AudioServicesPlaySystemSound(soundDamageID);
-        } else if ([event isEqualToString:@"WillIncreaseTowerOrWall"]) {
-            AudioServicesPlaySystemSound(soundTowerWallID);
-        } else if ([event isEqualToString:@"WillIncreaseSelfGeneralResource"]) {
-            AudioServicesPlaySystemSound(soundGeneralResouceIncreaseID);
-        } else if ([event isEqualToString:@"WillDecreaseSelfGeneralResource"]) {
-            AudioServicesPlaySystemSound(soundGeneralResourceDecreaseID);
-        } else if ([event isEqualToString:@"WillIncreaseSelfCommonResource"]) {
-            AudioServicesPlaySystemSound(soundCommonResourceIncreaseID);
-        } else if ([event isEqualToString:@"WillDecreaseSelfCommonResource"]) {
-            AudioServicesPlaySystemSound(soundCommonResourceDecreaseID);
-        } else if ([event isEqualToString:@"PlayerWin"]) {
-            AudioServicesPlaySystemSound(soundEvilLaughID);
-        } else if ([event isEqualToString:@"PlayerLose"]) {
-            AudioServicesPlaySystemSound(soundDefeatID);
-        } else {
-            NSLog(@"===========  Unknown sound!!!");
-        }
-    } else {
-        //NSLog(@"===========sounds off===========");
-    }
 }
 
 @end
