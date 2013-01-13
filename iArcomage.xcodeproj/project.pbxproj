@@ -173,8 +173,6 @@
 		740A9E54168346F200E4D09B /* Werewolf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 740A9DAA168346F200E4D09B /* Werewolf@2x.png */; };
 		740A9E55168346F200E4D09B /* Work Overtime.png in Resources */ = {isa = PBXBuildFile; fileRef = 740A9DAB168346F200E4D09B /* Work Overtime.png */; };
 		740A9E56168346F200E4D09B /* Work Overtime@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 740A9DAC168346F200E4D09B /* Work Overtime@2x.png */; };
-		740BAEA816A1AD6600B5A8AE /* optionsButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 740BAEA616A1AD6600B5A8AE /* optionsButton@2x.png */; };
-		740BAEA916A1AD6600B5A8AE /* optionsButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 740BAEA716A1AD6600B5A8AE /* optionsButton.png */; };
 		740BAEB516A1D48000B5A8AE /* damage.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 740BAEAB16A1D48000B5A8AE /* damage.mp3 */; };
 		740BAEB616A1D48000B5A8AE /* deal.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 740BAEAC16A1D48000B5A8AE /* deal.mp3 */; };
 		740BAEB716A1D48000B5A8AE /* defeat.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 740BAEAD16A1D48000B5A8AE /* defeat.mp3 */; };
@@ -185,6 +183,22 @@
 		740BAEBC16A1D48000B5A8AE /* ress_up.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 740BAEB216A1D48000B5A8AE /* ress_up.mp3 */; };
 		740BAEBD16A1D48000B5A8AE /* ress_upa.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 740BAEB316A1D48000B5A8AE /* ress_upa.mp3 */; };
 		740BAEBE16A1D48000B5A8AE /* towerwall.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 740BAEB416A1D48000B5A8AE /* towerwall.mp3 */; };
+		740BAEC116A2CB5900B5A8AE /* ButtonOption.png in Resources */ = {isa = PBXBuildFile; fileRef = 740BAEBF16A2CB5900B5A8AE /* ButtonOption.png */; };
+		740BAEC216A2CB5900B5A8AE /* ButtonOption@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 740BAEC016A2CB5900B5A8AE /* ButtonOption@2x.png */; };
+		740BAEC916A2DA7000B5A8AE /* ButtonBack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 740BAEC716A2DA7000B5A8AE /* ButtonBack@2x.png */; };
+		740BAECA16A2DA7000B5A8AE /* ButtonBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 740BAEC816A2DA7000B5A8AE /* ButtonBack.png */; };
+		740BAECD16A2DD0800B5A8AE /* ButtonTower.png in Resources */ = {isa = PBXBuildFile; fileRef = 740BAECB16A2DD0800B5A8AE /* ButtonTower.png */; };
+		740BAECE16A2DD0800B5A8AE /* ButtonTower@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 740BAECC16A2DD0800B5A8AE /* ButtonTower@2x.png */; };
+		740BAED116A2F03B00B5A8AE /* VictoryConditionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 740BAED016A2F03B00B5A8AE /* VictoryConditionsViewController.m */; };
+		740BAED416A2F5F100B5A8AE /* ButtonBack2.png in Resources */ = {isa = PBXBuildFile; fileRef = 740BAED216A2F5F100B5A8AE /* ButtonBack2.png */; };
+		740BAED516A2F5F100B5A8AE /* ButtonBack2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 740BAED316A2F5F100B5A8AE /* ButtonBack2@2x.png */; };
+		740BAEDA16A2F72D00B5A8AE /* ButtonTower2.png in Resources */ = {isa = PBXBuildFile; fileRef = 740BAED616A2F72D00B5A8AE /* ButtonTower2.png */; };
+		740BAEDB16A2F72D00B5A8AE /* ButtonOption2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 740BAED716A2F72D00B5A8AE /* ButtonOption2@2x.png */; };
+		740BAEDC16A2F72D00B5A8AE /* ButtonOption2.png in Resources */ = {isa = PBXBuildFile; fileRef = 740BAED816A2F72D00B5A8AE /* ButtonOption2.png */; };
+		740BAEDD16A2F72D00B5A8AE /* ButtonTower2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 740BAED916A2F72D00B5A8AE /* ButtonTower2@2x.png */; };
+		740BAEE016A306A100B5A8AE /* TavernInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 740BAEDF16A306A100B5A8AE /* TavernInfoViewController.m */; };
+		740BAEE316A30C2900B5A8AE /* Button2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 740BAEE116A30C2900B5A8AE /* Button2@2x.png */; };
+		740BAEE416A30C2900B5A8AE /* Button2.png in Resources */ = {isa = PBXBuildFile; fileRef = 740BAEE216A30C2900B5A8AE /* Button2.png */; };
 		740D2EC21671E1A30097F952 /* WallWidth@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 740D2EC11671E1A30097F952 /* WallWidth@2x.png */; };
 		740D2ED11674DAB80097F952 /* TowerHeader3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 740D2ECD1674DAB70097F952 /* TowerHeader3@2x.png */; };
 		740D2ED21674DAB80097F952 /* TowerHeader3.png in Resources */ = {isa = PBXBuildFile; fileRef = 740D2ECE1674DAB70097F952 /* TowerHeader3.png */; };
@@ -707,8 +721,6 @@
 		740A9DAA168346F200E4D09B /* Werewolf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Werewolf@2x.png"; sourceTree = "<group>"; };
 		740A9DAB168346F200E4D09B /* Work Overtime.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Work Overtime.png"; sourceTree = "<group>"; };
 		740A9DAC168346F200E4D09B /* Work Overtime@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Work Overtime@2x.png"; sourceTree = "<group>"; };
-		740BAEA616A1AD6600B5A8AE /* optionsButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "optionsButton@2x.png"; sourceTree = "<group>"; };
-		740BAEA716A1AD6600B5A8AE /* optionsButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = optionsButton.png; sourceTree = "<group>"; };
 		740BAEAB16A1D48000B5A8AE /* damage.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = damage.mp3; sourceTree = "<group>"; };
 		740BAEAC16A1D48000B5A8AE /* deal.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = deal.mp3; sourceTree = "<group>"; };
 		740BAEAD16A1D48000B5A8AE /* defeat.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = defeat.mp3; sourceTree = "<group>"; };
@@ -719,6 +731,24 @@
 		740BAEB216A1D48000B5A8AE /* ress_up.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ress_up.mp3; sourceTree = "<group>"; };
 		740BAEB316A1D48000B5A8AE /* ress_upa.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ress_upa.mp3; sourceTree = "<group>"; };
 		740BAEB416A1D48000B5A8AE /* towerwall.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = towerwall.mp3; sourceTree = "<group>"; };
+		740BAEBF16A2CB5900B5A8AE /* ButtonOption.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonOption.png; sourceTree = "<group>"; };
+		740BAEC016A2CB5900B5A8AE /* ButtonOption@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ButtonOption@2x.png"; sourceTree = "<group>"; };
+		740BAEC716A2DA7000B5A8AE /* ButtonBack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ButtonBack@2x.png"; sourceTree = "<group>"; };
+		740BAEC816A2DA7000B5A8AE /* ButtonBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonBack.png; sourceTree = "<group>"; };
+		740BAECB16A2DD0800B5A8AE /* ButtonTower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonTower.png; sourceTree = "<group>"; };
+		740BAECC16A2DD0800B5A8AE /* ButtonTower@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ButtonTower@2x.png"; sourceTree = "<group>"; };
+		740BAECF16A2F03B00B5A8AE /* VictoryConditionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VictoryConditionsViewController.h; sourceTree = "<group>"; };
+		740BAED016A2F03B00B5A8AE /* VictoryConditionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VictoryConditionsViewController.m; sourceTree = "<group>"; };
+		740BAED216A2F5F100B5A8AE /* ButtonBack2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonBack2.png; sourceTree = "<group>"; };
+		740BAED316A2F5F100B5A8AE /* ButtonBack2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ButtonBack2@2x.png"; sourceTree = "<group>"; };
+		740BAED616A2F72D00B5A8AE /* ButtonTower2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonTower2.png; sourceTree = "<group>"; };
+		740BAED716A2F72D00B5A8AE /* ButtonOption2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ButtonOption2@2x.png"; sourceTree = "<group>"; };
+		740BAED816A2F72D00B5A8AE /* ButtonOption2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonOption2.png; sourceTree = "<group>"; };
+		740BAED916A2F72D00B5A8AE /* ButtonTower2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ButtonTower2@2x.png"; sourceTree = "<group>"; };
+		740BAEDE16A306A100B5A8AE /* TavernInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TavernInfoViewController.h; sourceTree = "<group>"; };
+		740BAEDF16A306A100B5A8AE /* TavernInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TavernInfoViewController.m; sourceTree = "<group>"; };
+		740BAEE116A30C2900B5A8AE /* Button2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button2@2x.png"; sourceTree = "<group>"; };
+		740BAEE216A30C2900B5A8AE /* Button2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button2.png; sourceTree = "<group>"; };
 		740D2EC11671E1A30097F952 /* WallWidth@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WallWidth@2x.png"; sourceTree = "<group>"; };
 		740D2ECD1674DAB70097F952 /* TowerHeader3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TowerHeader3@2x.png"; sourceTree = "<group>"; };
 		740D2ECE1674DAB70097F952 /* TowerHeader3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TowerHeader3.png; sourceTree = "<group>"; };
@@ -1448,6 +1478,10 @@
 		743E9A75162C76A9005F28A0 /* iArcomage */ = {
 			isa = PBXGroup;
 			children = (
+				740BAEDE16A306A100B5A8AE /* TavernInfoViewController.h */,
+				740BAEDF16A306A100B5A8AE /* TavernInfoViewController.m */,
+				740BAECF16A2F03B00B5A8AE /* VictoryConditionsViewController.h */,
+				740BAED016A2F03B00B5A8AE /* VictoryConditionsViewController.m */,
 				74DF1E6E16A01C10009CBFE0 /* OptionsViewController.h */,
 				74DF1E6F16A01C10009CBFE0 /* OptionsViewController.m */,
 				74C1E82016972B5000D911E7 /* IncompletedGameViewController.h */,
@@ -1565,10 +1599,16 @@
 		74C69574167BAE650083763D /* MainViewController */ = {
 			isa = PBXGroup;
 			children = (
+				74C4C42F1685EAF8004D6DBA /* NibblerLogo@2x.png */,
+				74C4C4301685EAF8004D6DBA /* NibblerLogo.png */,
+				740BAEBF16A2CB5900B5A8AE /* ButtonOption.png */,
+				740BAEC016A2CB5900B5A8AE /* ButtonOption@2x.png */,
+				740BAEC716A2DA7000B5A8AE /* ButtonBack@2x.png */,
+				740BAEC816A2DA7000B5A8AE /* ButtonBack.png */,
 				74C1E8271698E38E00D911E7 /* button@2x.png */,
 				74C1E8281698E38E00D911E7 /* button.png */,
-				740BAEA616A1AD6600B5A8AE /* optionsButton@2x.png */,
-				740BAEA716A1AD6600B5A8AE /* optionsButton.png */,
+				740BAEE116A30C2900B5A8AE /* Button2@2x.png */,
+				740BAEE216A30C2900B5A8AE /* Button2.png */,
 			);
 			name = MainViewController;
 			sourceTree = "<group>";
@@ -1589,8 +1629,14 @@
 				74FD72AF16824EB3002CF2C5 /* CardImages */,
 				742D2B5A167FB68E0023E024 /* AnimationFirework */,
 				742D2AA4167FA1550023E024 /* AnimationFire */,
-				74C4C42F1685EAF8004D6DBA /* NibblerLogo@2x.png */,
-				74C4C4301685EAF8004D6DBA /* NibblerLogo.png */,
+				740BAECB16A2DD0800B5A8AE /* ButtonTower.png */,
+				740BAECC16A2DD0800B5A8AE /* ButtonTower@2x.png */,
+				740BAED216A2F5F100B5A8AE /* ButtonBack2.png */,
+				740BAED316A2F5F100B5A8AE /* ButtonBack2@2x.png */,
+				740BAED616A2F72D00B5A8AE /* ButtonTower2.png */,
+				740BAED716A2F72D00B5A8AE /* ButtonOption2@2x.png */,
+				740BAED816A2F72D00B5A8AE /* ButtonOption2.png */,
+				740BAED916A2F72D00B5A8AE /* ButtonTower2@2x.png */,
 				74F5A3DA166E618E004B872A /* NotAvailable.png */,
 				74F5A3DB166E618E004B872A /* NotAvailable@2x.png */,
 				74DD458C1666220C0028CA1D /* CardSelection.png */,
@@ -2403,8 +2449,6 @@
 				746A6EED169C8A2D00799BAC /* 14-StellaSplendens.mp3 in Resources */,
 				746A6EEE169C8A2D00799BAC /* 15-TirNaN'og.mp3 in Resources */,
 				746A6EEF169C8A2D00799BAC /* 16-Bjorgvindans.mp3 in Resources */,
-				740BAEA816A1AD6600B5A8AE /* optionsButton@2x.png in Resources */,
-				740BAEA916A1AD6600B5A8AE /* optionsButton.png in Resources */,
 				740BAEB516A1D48000B5A8AE /* damage.mp3 in Resources */,
 				740BAEB616A1D48000B5A8AE /* deal.mp3 in Resources */,
 				740BAEB716A1D48000B5A8AE /* defeat.mp3 in Resources */,
@@ -2415,6 +2459,20 @@
 				740BAEBC16A1D48000B5A8AE /* ress_up.mp3 in Resources */,
 				740BAEBD16A1D48000B5A8AE /* ress_upa.mp3 in Resources */,
 				740BAEBE16A1D48000B5A8AE /* towerwall.mp3 in Resources */,
+				740BAEC116A2CB5900B5A8AE /* ButtonOption.png in Resources */,
+				740BAEC216A2CB5900B5A8AE /* ButtonOption@2x.png in Resources */,
+				740BAEC916A2DA7000B5A8AE /* ButtonBack@2x.png in Resources */,
+				740BAECA16A2DA7000B5A8AE /* ButtonBack.png in Resources */,
+				740BAECD16A2DD0800B5A8AE /* ButtonTower.png in Resources */,
+				740BAECE16A2DD0800B5A8AE /* ButtonTower@2x.png in Resources */,
+				740BAED416A2F5F100B5A8AE /* ButtonBack2.png in Resources */,
+				740BAED516A2F5F100B5A8AE /* ButtonBack2@2x.png in Resources */,
+				740BAEDA16A2F72D00B5A8AE /* ButtonTower2.png in Resources */,
+				740BAEDB16A2F72D00B5A8AE /* ButtonOption2@2x.png in Resources */,
+				740BAEDC16A2F72D00B5A8AE /* ButtonOption2.png in Resources */,
+				740BAEDD16A2F72D00B5A8AE /* ButtonTower2@2x.png in Resources */,
+				740BAEE316A30C2900B5A8AE /* Button2@2x.png in Resources */,
+				740BAEE416A30C2900B5A8AE /* Button2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2440,6 +2498,8 @@
 				74C1E82216972B5000D911E7 /* IncompletedGameViewController.m in Sources */,
 				74DF1E7016A01C10009CBFE0 /* OptionsViewController.m in Sources */,
 				74D0AFDF16A1839800179E9A /* SoundSystem.m in Sources */,
+				740BAED116A2F03B00B5A8AE /* VictoryConditionsViewController.m in Sources */,
+				740BAEE016A306A100B5A8AE /* TavernInfoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

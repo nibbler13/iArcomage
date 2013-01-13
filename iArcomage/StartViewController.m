@@ -11,6 +11,7 @@
 #import "CardsScope.h"
 #import "OptionsViewController.h"
 #import "SoundSystem.h"
+#import "VictoryConditionsViewController.h"
 
 @interface StartViewController ()
 
@@ -132,11 +133,13 @@
 @property (weak, nonatomic) IBOutlet UIImageView *computerWallBackground;
 
 @property (weak, nonatomic) IBOutlet UIButton *soundButton;
+@property (weak, nonatomic) IBOutlet UIButton *victoryConditionsButton;
 
 - (IBAction)backButtonPressed:(id)sender;
 - (IBAction)changeBackground:(id)sender;
 - (IBAction)makePlayerWinButton:(id)sender;
 - (IBAction)soundButtonPressed:(id)sender;
+- (IBAction)victoryConditionsButtonPressed:(id)sender;
 
 @end
 
@@ -710,6 +713,7 @@
                                                       
                                                       doNotClearStack = NO;
                                                       
+                                                      [computer nextTurnIncreaseResource];
                                                       [self animateComputerTurn];
                                                   }
                                     }];
@@ -885,6 +889,7 @@
                                                                        
                                                   [self needToUpdateLabels];
                                                                        
+                                                  [computer nextTurnIncreaseResource];
                                                   [self animateComputerTurn];
                                               }];
                                     }];
@@ -946,7 +951,11 @@
 {
     if (gameOver) { return; }
     
+    NSLog(@"start animate computer turn");
+    
     [computer computerTurn];
+    
+    NSLog(@"CP:%d CICBD:%d CSDAC:%d CSPA:%d", computer.playedCard, computer.isCardBeenDiscarded, computer.shouldDiscardACard, computer.shouldPlayAgain);
     
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1024,7 +1033,6 @@
                      }completion:^(BOOL finished){
                          
                          [soundSystem playDealSoundEffectForEvent:@"WillTakeACard"];
-                         //[cardsScope playDealSoundEffectForEvent:@"WillTakeACard"];
                          
                          /////////////////////////////////////////////////////////////////////////////////
                          //Перемещение сыгранной компьютером карты на стол или сброшенной в невидимую зону
@@ -1049,10 +1057,9 @@
                               //Передвижение сыгранной или сброшенной компьютером карты в стэк
                               
                               
-                              
+                              NSLog(@"checking is card been discarded to play animations: %d", computer.isCardBeenDiscarded);
                               if (!computer.isCardBeenDiscarded) {
                                   
-                                  //NSLog(@"computer card name: %@", [[computer.cards objectAtIndex:computer.playedCard] cardName]);
                                   if ([[computer.cards objectAtIndex:computer.playedCard] quarriesSelf] > 0 ||
                                       [[computer.cards objectAtIndex:computer.playedCard] magicsSelf] > 0 ||
                                       [[computer.cards objectAtIndex:computer.playedCard] dungeonsSelf] > 0 ||
@@ -1060,7 +1067,6 @@
                                       [[computer.cards objectAtIndex:computer.playedCard] magicsEnemy] > 0 ||
                                       [[computer.cards objectAtIndex:computer.playedCard] dungeonsEnemy] > 0) {
                                       [soundSystem playDealSoundEffectForEvent:@"WillIncreaseSelfGeneralResource"];
-                                      //[cardsScope playDealSoundEffectForEvent:@"WillIncreaseSelfGeneralResource"];
                                   }
                                   if ([[computer.cards objectAtIndex:computer.playedCard] quarriesSelf] < 0 & computer.quarries > 1 ||
                                       [[computer.cards objectAtIndex:computer.playedCard] magicsSelf] < 0 & computer.magics > 1 ||
@@ -1069,7 +1075,6 @@
                                       [[computer.cards objectAtIndex:computer.playedCard] magicsEnemy] < 0 & player.magics > 1 ||
                                       [[computer.cards objectAtIndex:computer.playedCard] dungeonsEnemy] < 0 & player.dungeons > 1) {
                                       [soundSystem playDealSoundEffectForEvent:@"WillDecreaseSelfGeneralResource"];
-                                      //[cardsScope playDealSoundEffectForEvent:@"WillDecreaseSelfGeneralResource"];
                                   }
                                   if ([[computer.cards objectAtIndex:computer.playedCard] bricksSelf] > 0 ||
                                       [[computer.cards objectAtIndex:computer.playedCard] gemsSelf] > 0 ||
@@ -1078,7 +1083,6 @@
                                       [[computer.cards objectAtIndex:computer.playedCard] gemsEnemy] > 0 ||
                                       [[computer.cards objectAtIndex:computer.playedCard] recruitsEnemy] > 0) {
                                       [soundSystem playDealSoundEffectForEvent:@"WillIncreaseSelfCommonResource"];
-                                      //[cardsScope playDealSoundEffectForEvent:@"WillIncreaseSelfCommonResource"];
                                   }
                                   if ([[computer.cards objectAtIndex:computer.playedCard] bricksSelf] < 0 & computer.bricks > 0 ||
                                       [[computer.cards objectAtIndex:computer.playedCard] gemsSelf] < 0 & computer.gems > 0 ||
@@ -1087,21 +1091,18 @@
                                       [[computer.cards objectAtIndex:computer.playedCard] gemsEnemy] < 0 & player.gems > 0 ||
                                       [[computer.cards objectAtIndex:computer.playedCard] recruitsEnemy] < 0 & player.recruits > 0) {
                                       [soundSystem playDealSoundEffectForEvent:@"WillDecreaseSelfCommonResource"];
-                                      //[cardsScope playDealSoundEffectForEvent:@"WillDecreaseSelfCommonResource"];
                                   }
                                   if ([[computer.cards objectAtIndex:computer.playedCard] towerSelf] > 0 ||
                                       [[computer.cards objectAtIndex:computer.playedCard] wallSelf] > 0 ||
                                       [[computer.cards objectAtIndex:computer.playedCard] towerEnemy] > 0 ||
                                       [[computer.cards objectAtIndex:computer.playedCard] wallEnemy] > 0) {
                                       [soundSystem playDealSoundEffectForEvent:@"WillIncreaseTowerOrWall"];
-                                      //[cardsScope playDealSoundEffectForEvent:@"WillIncreaseTowerOrWall"];
                                   }
                                   if ([[computer.cards objectAtIndex:computer.playedCard] towerSelf] < 0 ||
                                       [[computer.cards objectAtIndex:computer.playedCard] wallSelf] < 0 ||
                                       [[computer.cards objectAtIndex:computer.playedCard] towerEnemy] < 0 ||
                                       [[computer.cards objectAtIndex:computer.playedCard] wallEnemy] < 0) {
                                       [soundSystem playDealSoundEffectForEvent:@"WillTakeDamage"];
-                                      //[cardsScope playDealSoundEffectForEvent:@"WillTakeDamage"];
                                   }
                                   
                                   [self configureAnimationsForCardNumber:computer.playedCard];
@@ -1175,7 +1176,11 @@
                                                    
                                                    if (isPlayedCard0Present) { self.playedCard0View.hidden = NO; }
                                                    if (isPlayedCard1Present) { self.playedCard1View.hidden = NO; }
-                                                   if (isPlayedCard2Present) {  self.playedCard2View.hidden = NO; }
+                                                   if (isPlayedCard2Present) { self.playedCard2View.hidden = NO; }
+                                                   
+                                                   NSLog(@"computer.should discard: %d", computer.shouldDiscardACard);
+                                                   NSLog(@"computer.should play again: %d", computer.shouldPlayAgain);
+                                                   NSLog(@"computer.should draw card: %d", computer.shouldDrawACard);
                                                    
                                                    ///////////////////////////////////////////////////////////////////////////////////////////////////
                                                    //Проверяем нужно ли компьютеру сыграть еще раз
@@ -1184,19 +1189,22 @@
                                                        
                                                        computerLastPlayedCard = computer.playedCard;
                                                        
-                                                       [computer computerTurn];
+                                                       //[computer computerTurn];
                                                        [self animateComputerTurn];
+                                                       
                                                        return;
                                                    }
                                                    
                                                    if (computer.shouldPlayAgain) {
+                                                    
                                                        doNotClearStack = YES;
                                                        computer.shouldPlayAgain = NO;
                                                        
                                                        computerLastPlayedCard = computer.playedCard;
                                                        
-                                                       [computer computerTurn];
+                                                       //[computer computerTurn];
                                                        [self animateComputerTurn];
+                                                       
                                                        return;
                                                    }
                                                    
@@ -1235,7 +1243,6 @@
                                                                         [self updateAllCards];
                                                                         
                                                                         [soundSystem playDealSoundEffectForEvent:@"WillTakeACard"];
-                                                                        //[cardsScope playDealSoundEffectForEvent:@"WillTakeACard"];
                                                                         
                                                                         self.card0View.center = CGPointMake(xInitialPositionForCardView, yInitialPositionForCardView);
                                                                         xInitialPositionForCardView += cardsOffset;
@@ -1298,6 +1305,7 @@
 
 - (void)calculateOffsetForPlayedComputerCard:(NSInteger)number withView:(UIImageView*)cardView
 {
+    NSLog(@"=================computer.isCardBeenDiscarded: %d", computer.isCardBeenDiscarded);
     if (computer.playedCard != number) {
         cardView.center = CGPointMake(xInitialPositionForCardView, yInitialPositionForCardView);
         xInitialPositionForCardView += cardsOffset;
@@ -1590,13 +1598,24 @@
     [popoverController presentPopoverFromRect:self.soundButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
 }
 
+- (IBAction)victoryConditionsButtonPressed:(id)sender {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
+    
+    VictoryConditionsViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"VictoryConditions"];
+    controller.tower = towerAim;
+    controller.resources = self.resourcesCampaignAim;
+    
+    popoverController = [[UIPopoverController alloc] initWithContentViewController:controller];
+    
+    [popoverController presentPopoverFromRect:self.victoryConditionsButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+}
+
 #pragma mark - Main game cycle
 
 - (void)game
 {
     player = [PlayerModel getPlayer];
     player.delegate = self;
-    //player.soundsOn = self.soundsOn;
     computer = [ComputerModel getComputer];
     computer.delegate = self;
     cardsScope = [CardsScope getCardsScope];

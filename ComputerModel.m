@@ -83,6 +83,9 @@ static ComputerModel *computer;
 
 - (void)computerTurn
 {
+    
+    NSLog(@"computerModel - CP:%d CICBD:%d CSDAC:%d CSPA:%d", computer.playedCard, computer.isCardBeenDiscarded, computer.shouldDiscardACard, computer.shouldPlayAgain);
+    
     self.isThatComputerTurn = YES;
     player.isThatPlayerTurn = NO;
     
@@ -92,12 +95,17 @@ static ComputerModel *computer;
     
     //NSLog(@"ComputerTurn");
     
-    [self nextTurnIncreaseResource];
+    //[self nextTurnIncreaseResource];
     [self getANewCard];
     
     //NSLog(@"Computer have next resource: %d %d %d", self.bricks, self.gems, self.recruits);
     [self analyzeCardsWeight];
     [self printCardsInHand];
+    
+    if (self.shouldDiscardACard) {
+        [self discardACard];
+        return;
+    }
     
     if ([self checkAvailableCards]) {
         //NSLog(@"There are some available cards");
@@ -202,6 +210,7 @@ static ComputerModel *computer;
 
 - (void)playSomeCard
 {
+    NSLog(@"computer play some card");
     self.isCardBeenDiscarded = NO;
     
     for (int i = 0; i < [[self cards] count]; i++) {
@@ -228,7 +237,9 @@ static ComputerModel *computer;
 
 - (void)discardACard
 {
-    self.isCardBeenDiscarded = YES;
+    
+    NSLog(@"--------computer discard");
+    //self.isCardBeenDiscarded = YES;
     
     if (self.shouldDiscardACard) {
         self.shouldDiscardACard = NO;

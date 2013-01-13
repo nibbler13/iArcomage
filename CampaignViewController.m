@@ -11,8 +11,6 @@
 
 @interface CampaignViewController ()
 
-@property (weak, nonatomic) IBOutlet UIButton *startButton;
-
 @property (weak, nonatomic) IBOutlet UIButton *tavernButton0;
 @property (weak, nonatomic) IBOutlet UIButton *tavernButton1;
 @property (weak, nonatomic) IBOutlet UIButton *tavernButton2;
@@ -43,20 +41,6 @@
 
 - (IBAction)backButtonPressed:(id)sender;
 
-@property (weak, nonatomic) IBOutlet UILabel *tavernNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *initialTowerLabel;
-@property (weak, nonatomic) IBOutlet UILabel *initialWallLabel;
-@property (weak, nonatomic) IBOutlet UILabel *finalTowerLabel;
-@property (weak, nonatomic) IBOutlet UILabel *finalResourcesLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *tavernImageView;
-
-- (IBAction)tavernCloseButtonPressed:(id)sender;
-- (IBAction)tavernStartButtonPressed:(id)sender;
-
-@property (weak, nonatomic) IBOutlet UIImageView *shadowView;
-
-@property (weak, nonatomic) IBOutlet UIView *selectedTavernView;
-
 @end
 
 @implementation CampaignViewController
@@ -65,19 +49,14 @@
     NSArray *tavernButtons;
     NSInteger selectedTavern;
     UIPopoverController *popoverController;
+    UIPopoverController *popoverControllerInfo;
     BOOL needToShowVictoryAnimation;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    NSLog(@"campaign view will apear");
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    NSLog(@"campaign view did load");
     selectedTavern = -1;
     taverns = [[NSMutableArray alloc] init];
     if ([[NSFileManager defaultManager] fileExistsAtPath:[self dataFilePath]]) {
@@ -148,10 +127,10 @@
             UIImageView *tempImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"completed"]];
             UIButton *tempButton = tavernButtons[i];
             tempImage.center = tempButton.center;
-            //tempImage.alpha = 0.3;
+            
             [[tavernButtons objectAtIndex:i] imageView].alpha = 0.8;
             [[tavernButtons objectAtIndex:i] imageView].image = [UIImage imageNamed:@"TowerButtonDistorted"];
-            //[self.view insertSubview:tempImage belowSubview:self.tavernButton0];
+            
         }
     }
 }
@@ -172,24 +151,33 @@
 
 - (IBAction)backButtonPressed:(id)sender { [self dismissViewControllerAnimated:YES completion:nil]; }
 
-- (IBAction)tavernCloseButtonPressed:(id)sender
+- (void)configureTavernViewForNextNumber:(NSInteger)number
 {
-    [UIView animateWithDuration:0.7
-                          delay:0.0
-                        options:UIViewAnimationCurveEaseIn
-                     animations:^{
-                         self.selectedTavernView.center = CGPointMake(512, 1000);
-                     }completion:^(BOOL finished){
-                         self.selectedTavernView.hidden = YES;
-                         [self setAllTavernButonsEnableStatusTo:YES];
-                         self.shadowView.hidden = YES;
-                         [self checkWhichTavernAvailableToPlay];
-                     }];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
+    
+    TavernInfoViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"TavernInfo"];
+    
+    controller.towerInitialLabel.text = [NSString stringWithFormat:@"%d", [[taverns objectAtIndex:number] initialTower]];
+    controller.wallInitialLabel.text = [NSString stringWithFormat:@"%d", [[taverns objectAtIndex:number] initialWall]];
+    controller.towerFinalLabel.text = [NSString stringWithFormat:@"%d", [[taverns objectAtIndex:number] finalTower]];
+    controller.resourcesFinalLabel.text = [NSString stringWithFormat:@"%d", [[taverns objectAtIndex:number] finalResources]];
+    controller.tavernNameLabel.text = [[taverns objectAtIndex:number] tavernName];
+    controller.tavernImageView.image = [UIImage imageNamed:[[taverns objectAtIndex:number] imageForTavern]];
+    controller.delegate = self;
+    
+    UIButton *tempButton = [tavernButtons objectAtIndex:number];
+    
+    popoverControllerInfo = [[UIPopoverController alloc] initWithContentViewController:controller];
+    
+    [popoverControllerInfo presentPopoverFromRect:tempButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    
+    selectedTavern = number;
 }
 
-- (IBAction)tavernStartButtonPressed:(id)sender
+- (void)startButtonHasBeenPressed
 {
-    NSLog(@"tavernStartButtonPressed");
+    [popoverControllerInfo dismissPopoverAnimated:YES];
+    
     NSString *path = [self savedCampaignGameFilePath];
     if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
         NSLog(@"file exist");
@@ -200,54 +188,15 @@
         
         popoverController = [[UIPopoverController alloc] initWithContentViewController:incompletedController];
         popoverController.delegate = (id)self;
-        [popoverController presentPopoverFromRect:self.startButton.frame inView:self.selectedTavernView permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
         
+        UIButton *tempButton = [tavernButtons objectAtIndex:selectedTavern];
+        
+        [popoverController presentPopoverFromRect:tempButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     } else {
         NSLog(@"file dont exist");
         [self loadGameWithLoadSave:NO];
     }
-}
 
-- (void)setAllTavernButonsEnableStatusTo:(BOOL)status
-{
-    self.tavernButton0.enabled = status;
-    self.tavernButton1.enabled = status;
-    self.tavernButton2.enabled = status;
-    self.tavernButton3.enabled = status;
-    self.tavernButton4.enabled = status;
-    self.tavernButton5.enabled = status;
-    self.tavernButton6.enabled = status;
-    self.tavernButton7.enabled = status;
-    self.tavernButton8.enabled = status;
-    self.tavernButton9.enabled = status;
-    self.tavernButton10.enabled = status;
-    self.tavernButton11.enabled = status;
-    self.tavernButton12.enabled = status;
-}
-
-- (void)configureTavernViewForNextNumber:(NSInteger)number
-{
-    [self setAllTavernButonsEnableStatusTo:NO];
-    self.shadowView.hidden = NO;
-    
-    self.initialTowerLabel.text = [NSString stringWithFormat:@"%d", [[taverns objectAtIndex:number] initialTower]];
-    self.initialWallLabel.text = [NSString stringWithFormat:@"%d", [[taverns objectAtIndex:number] initialWall]];
-    self.finalTowerLabel.text = [NSString stringWithFormat:@"%d", [[taverns objectAtIndex:number] finalTower]];
-    self.finalResourcesLabel.text = [NSString stringWithFormat:@"%d", [[taverns objectAtIndex:number] finalResources]];
-    self.tavernNameLabel.text = [[taverns objectAtIndex:number] tavernName];
-    self.tavernImageView.image = [UIImage imageNamed:[[taverns objectAtIndex:number] imageForTavern]];
-    
-    self.selectedTavernView.center = CGPointMake(512, 1000);
-    [UIView animateWithDuration:0.7
-                          delay:0.0
-                        options:UIViewAnimationTransitionCurlUp
-                     animations:^{
-                         self.selectedTavernView.hidden = NO;
-                         self.selectedTavernView.center = CGPointMake(512, 384);
-                         selectedTavern = number;
-                     }completion:^(BOOL finished){
-                         
-                     }];
 }
 
 - (NSString*)documentsDirectory
@@ -320,8 +269,6 @@
     StartViewController *startController = [storyboard instantiateViewControllerWithIdentifier:@"startViewControllerStoryboard"];
     
     startController.needToLoadGame = load;
-    
-    [self tavernCloseButtonPressed:nil];
     
     startController.isThisCampaignPlaying = YES;
     

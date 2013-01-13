@@ -35,6 +35,7 @@
 @property (nonatomic) BOOL isThatComputerTurn;
 
 - (void)computerTurn;
+- (void)nextTurnIncreaseResource;
 
 + (ComputerModel*)getComputer;
 

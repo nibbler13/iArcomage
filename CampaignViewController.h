@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "StartViewController.h"
 #import "IncompletedGameViewController.h"
+#import "TavernInfoViewController.h"
 
 @protocol CampaignViewControllerDelegate <NSObject>
 
@@ -17,7 +18,12 @@
 
 @end
 
-@interface CampaignViewController : UIViewController <StartViewControllerDelegate, IncompletedGameDelegate>
+@interface CampaignViewController : UIViewController
+    <
+        StartViewControllerDelegate,
+        IncompletedGameDelegate,
+        TavernInfoViewControllerDelegate
+    >
 
 @property (nonatomic, strong) id <CampaignViewControllerDelegate> delegate;
 @property (nonatomic) BOOL soundsOn;

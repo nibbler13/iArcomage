@@ -4,6 +4,231 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
+        <!--Victory Conditions View Controller-->
+        <scene sceneID="e8b-Bi-Dy5">
+            <objects>
+                <viewController storyboardIdentifier="VictoryConditions" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rpg-Xg-esy" customClass="VictoryConditionsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xP1-th-noI">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="200"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Level_Background.jpg" id="qby-Ee-UF4">
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="200"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Victory conditions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="d8O-uQ-W31">
+                                <rect key="frame" x="122" y="20" width="156" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="18"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Your tower must be at 100 or higher" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Vng-7T-262">
+                                <rect key="frame" x="20" y="78" width="280" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="16"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Each of your resources must be at 300 or higher" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zcP-bb-IZH">
+                                <rect key="frame" x="20" y="104" width="370" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="16"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Or you can destroy the enemy tower" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AOa-Fq-q0s">
+                                <rect key="frame" x="20" y="158" width="294" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="15"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="400" height="200"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="resourcesAimLabel" destination="zcP-bb-IZH" id="f7s-ja-APU"/>
+                        <outlet property="towerAimLabel" destination="Vng-7T-262" id="ASH-wl-BAu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z5p-7b-xfW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="108" y="-373"/>
+        </scene>
+        <!--Tavern Info View Controller-->
+        <scene sceneID="i5M-kc-wtR">
+            <objects>
+                <viewController storyboardIdentifier="TavernInfo" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RlL-XT-pvR" customClass="TavernInfoViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ax4-Jc-Xyg">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="310"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Level_Background.jpg" id="61y-gP-Vgb">
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="310"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tavern Long Test Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YKY-Fg-nGy">
+                                <rect key="frame" x="84" y="7" width="232" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="TavernPreview.jpg" id="xzI-bo-eLD">
+                                <rect key="frame" x="39" y="45" width="150" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Starting conditions:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GIv-JD-6m3">
+                                <rect key="frame" x="200" y="45" width="175" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tower:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CeB-HP-sox">
+                                <rect key="frame" x="200" y="74" width="60" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Wall:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yq1-22-fu6">
+                                <rect key="frame" x="200" y="97" width="52" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Victory conditions:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dqy-NH-7ql">
+                                <rect key="frame" x="200" y="137" width="170" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tower:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="N4N-1v-Hrp">
+                                <rect key="frame" x="200" y="166" width="60" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Or destroy enemy tower" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="npK-Sm-cuc">
+                                <rect key="frame" x="200" y="224" width="180" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Resources:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9oI-Yx-V8N">
+                                <rect key="frame" x="200" y="190" width="90" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="aCp-Z8-JJW">
+                                <rect key="frame" x="131" y="253" width="138" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <size key="titleShadowOffset" width="0.0" height="1"/>
+                                <state key="normal" title="Start battle" backgroundImage="Button2.png">
+                                    <color key="titleColor" red="1" green="0.89072916666666668" blue="0.65598958333333335" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startButtonPressed:" destination="RlL-XT-pvR" eventType="touchUpInside" id="Ccg-Ke-O1o"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="20" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6ew-6G-qNq">
+                                <rect key="frame" x="260" y="74" width="42" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="20" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="D4k-nQ-Kk4">
+                                <rect key="frame" x="253" y="97" width="44" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ihI-Kb-3UA">
+                                <rect key="frame" x="260" y="166" width="49" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="300" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5ly-Q7-RnU">
+                                <rect key="frame" x="290" y="190" width="46" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="resourcesFinalLabel" destination="5ly-Q7-RnU" id="dlV-kF-gBe"/>
+                        <outlet property="tavernImageView" destination="xzI-bo-eLD" id="hj0-o6-S0l"/>
+                        <outlet property="tavernNameLabel" destination="YKY-Fg-nGy" id="VJu-w8-Lh0"/>
+                        <outlet property="towerFinalLabel" destination="ihI-Kb-3UA" id="hca-La-eCT"/>
+                        <outlet property="towerInitialLabel" destination="6ew-6G-qNq" id="D25-lb-uTQ"/>
+                        <outlet property="wallInitialLabel" destination="D4k-nQ-Kk4" id="C6p-3s-QGf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="49S-1O-qNE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-524" y="-722"/>
+        </scene>
         <!--Options View Controller-->
         <scene sceneID="zLq-Id-l9Z">
             <objects>
@@ -19,41 +244,50 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" id="fn8-fY-MBH">
                                 <rect key="frame" x="135" y="108" width="147" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="minimumTrackTintColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="soundVolumeChanged:" destination="fN8-WD-VMn" eventType="valueChanged" id="eqk-sa-3M5"/>
                                 </connections>
                             </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" id="B36-fv-N1b">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="B36-fv-N1b">
                                 <rect key="frame" x="135" y="64" width="147" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="minimumTrackTintColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="musicVolumeChanged:" destination="fN8-WD-VMn" eventType="valueChanged" id="BWw-NP-n5Q"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Sound Volume:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="s1Y-R4-Y5P">
-                                <rect key="frame" x="12" y="108" width="123" height="21"/>
+                                <rect key="frame" x="12" y="110" width="123" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="16"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="1" height="1"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Music Volume:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IHE-Dp-QKa">
-                                <rect key="frame" x="12" y="64" width="117" height="21"/>
+                                <rect key="frame" x="12" y="66" width="118" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="16"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="1" height="1"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="2R2-ZS-L71">
                                 <rect key="frame" x="203" y="20" width="79" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="onTintColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                             </switch>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hard diffuculty mode:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1po-QQ-5J5">
-                                <rect key="frame" x="12" y="20" width="161" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hard difficulty mode:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1po-QQ-5J5">
+                                <rect key="frame" x="12" y="25" width="168" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="16"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="1" height="1"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -72,27 +306,27 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oD6-iE-LWa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-232" y="-318"/>
+            <point key="canvasLocation" x="-208" y="-323"/>
         </scene>
         <!--Incompleted Game View Controller-->
         <scene sceneID="u8f-Vq-wRw">
             <objects>
                 <viewController storyboardIdentifier="IncompletedGameStoryboard" useStoryboardIdentifierAsRestorationIdentifier="YES" id="flG-q5-apD" customClass="IncompletedGameViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SUb-m2-sLr">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Level_Background.jpg" id="5u4-gK-WCQ">
-                                <rect key="frame" x="0.0" y="0.0" width="422" height="200"/>
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DUa-bp-Jd5">
-                                <rect key="frame" x="258" y="137" width="122" height="44"/>
+                                <rect key="frame" x="201" y="101" width="70" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <size key="titleShadowOffset" width="0.0" height="1"/>
-                                <state key="normal" title="Yes, continue" backgroundImage="button.png">
-                                    <color key="titleColor" red="0.80497456440000004" green="0.84047809829999998" blue="0.39411637100000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Yes" backgroundImage="Button2.png">
+                                    <color key="titleColor" red="1" green="0.89072916670000002" blue="0.65598958330000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <state key="highlighted">
@@ -103,12 +337,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ceJ-Fw-4Wd">
-                                <rect key="frame" x="20" y="137" width="175" height="44"/>
+                                <rect key="frame" x="38" y="101" width="70" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <size key="titleShadowOffset" width="0.0" height="1"/>
-                                <state key="normal" title="No, start a new game" backgroundImage="button.png">
-                                    <color key="titleColor" red="0.80497456440000004" green="0.84047809829999998" blue="0.39411637100000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="No" backgroundImage="Button2.png">
+                                    <color key="titleColor" red="1" green="0.89072916670000002" blue="0.65598958330000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <state key="highlighted">
@@ -119,23 +353,26 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="You have an incompleted game" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a18-ML-ATr">
-                                <rect key="frame" x="80" y="20" width="245" height="21"/>
+                                <rect key="frame" x="17" y="14" width="266" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="18"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="1" height="1"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Do you want to resume the old game?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cEA-rW-ujF">
-                                <rect key="frame" x="56" y="74" width="294" height="21"/>
+                                <rect key="frame" x="11" y="58" width="302" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="16"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="1" height="1"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="300" height="150"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -144,7 +381,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jMy-71-BEV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="108" y="-368"/>
+            <point key="canvasLocation" x="-524" y="-323"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="f8x-qM-aWU">
@@ -239,7 +476,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <size key="titleShadowOffset" width="1" height="1"/>
-                                <state key="normal" image="optionsButton.png">
+                                <state key="normal" image="ButtonOption.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -280,11 +517,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="TgA-KT-rBB">
-                                <rect key="frame" x="934" y="705" width="70" height="44"/>
+                                <rect key="frame" x="954" y="698" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <size key="titleShadowOffset" width="0.0" height="1"/>
-                                <state key="normal" title="Back" backgroundImage="button.png">
+                                <state key="normal" image="ButtonBack.png">
                                     <color key="titleColor" red="0.80497456440000004" green="0.84047809829999998" blue="0.39411637100000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -515,145 +752,6 @@
                                     <action selector="tavernButton12Pressed:" destination="9g8-ad-WWr" eventType="touchUpInside" id="Xzv-YL-59e"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="MapLabels.png" id="e3K-Le-w4A">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="683"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="Shadow.png" id="GS1-Bq-nTU">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="683"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <view hidden="YES" contentMode="scaleToFill" id="dy1-ds-5I4">
-                                <rect key="frame" x="256" y="171" width="512" height="341"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Level_Background.jpg" id="aja-l3-NN7">
-                                        <rect key="frame" x="0.0" y="0.0" width="512" height="341"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tavern Long Test Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kQZ-wT-9XG">
-                                        <rect key="frame" x="141" y="17" width="230" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="TavernPreview.jpg" id="pMH-00-v2s">
-                                        <rect key="frame" x="20" y="49" width="150" height="272"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Starting conditions:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QqT-Ya-yqY">
-                                        <rect key="frame" x="181" y="55" width="167" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tower:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3iC-57-7pw">
-                                        <rect key="frame" x="181" y="84" width="52" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Wall:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gz3-oa-7U8">
-                                        <rect key="frame" x="181" y="113" width="38" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Victory conditions:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1KC-50-lpe">
-                                        <rect key="frame" x="181" y="170" width="167" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tower:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZLN-on-l4w">
-                                        <rect key="frame" x="181" y="199" width="52" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Or destroy enemy tower" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sGY-Nk-ud7">
-                                        <rect key="frame" x="181" y="257" width="161" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Resources:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="l0k-qh-cqS">
-                                        <rect key="frame" x="181" y="228" width="86" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dal-uS-r4r">
-                                        <rect key="frame" x="248" y="286" width="167" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <size key="titleShadowOffset" width="0.0" height="1"/>
-                                        <state key="normal" title="Start battle" backgroundImage="button.png">
-                                            <color key="titleColor" red="0.80497456440000004" green="0.84047809829999998" blue="0.39411637100000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="tavernStartButtonPressed:" destination="9g8-ad-WWr" eventType="touchUpInside" id="r8N-pI-RYM"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="HWu-c5-IJX">
-                                        <rect key="frame" x="448" y="9" width="55" height="41"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <size key="titleShadowOffset" width="0.0" height="1"/>
-                                        <state key="normal" title="Close" backgroundImage="button.png">
-                                            <color key="titleColor" red="0.80497456440000004" green="0.84047809829999998" blue="0.39411637100000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="tavernCloseButtonPressed:" destination="9g8-ad-WWr" eventType="touchUpInside" id="tVy-Qy-Ldt"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="20" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Fa3-5s-QGS">
-                                        <rect key="frame" x="241" y="84" width="19" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="20" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HbI-Bz-5cl">
-                                        <rect key="frame" x="227" y="113" width="19" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NQw-hZ-B6A">
-                                        <rect key="frame" x="241" y="199" width="29" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="300" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oJn-v5-l0e">
-                                        <rect key="frame" x="275" y="228" width="29" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -664,13 +762,6 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="finalResourcesLabel" destination="oJn-v5-l0e" id="5M7-tQ-Djp"/>
-                        <outlet property="finalTowerLabel" destination="NQw-hZ-B6A" id="QAS-92-tbQ"/>
-                        <outlet property="initialTowerLabel" destination="Fa3-5s-QGS" id="RG5-lY-DPj"/>
-                        <outlet property="initialWallLabel" destination="HbI-Bz-5cl" id="njS-Ez-8CN"/>
-                        <outlet property="selectedTavernView" destination="dy1-ds-5I4" id="Uku-8t-NPm"/>
-                        <outlet property="shadowView" destination="GS1-Bq-nTU" id="Eek-g3-Oia"/>
-                        <outlet property="startButton" destination="dal-uS-r4r" id="nLk-FW-TmV"/>
                         <outlet property="tavernButton0" destination="MIM-e1-2hv" id="4Bi-yu-Esw"/>
                         <outlet property="tavernButton1" destination="qvI-Y3-uw7" id="iEs-0l-SXa"/>
                         <outlet property="tavernButton10" destination="h3r-VP-ENr" id="kvH-lF-8Zv"/>
@@ -684,8 +775,6 @@
                         <outlet property="tavernButton7" destination="b7N-Zt-cDd" id="41r-fh-DE9"/>
                         <outlet property="tavernButton8" destination="lTR-S4-EVI" id="qsB-Ma-rab"/>
                         <outlet property="tavernButton9" destination="3MU-qr-KJR" id="AyZ-yz-WrX"/>
-                        <outlet property="tavernImageView" destination="pMH-00-v2s" id="JOl-BI-22z"/>
-                        <outlet property="tavernNameLabel" destination="kQZ-wT-9XG" id="ftU-bb-req"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TwW-pd-5VT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -705,11 +794,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6Nw-Rm-CCO">
-                                <rect key="frame" x="934" y="705" width="70" height="44"/>
+                                <rect key="frame" x="954" y="698" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                 <size key="titleShadowOffset" width="0.0" height="1"/>
-                                <state key="normal" title="Back" backgroundImage="button.png">
+                                <state key="normal" image="ButtonBack.png">
                                     <color key="titleColor" red="0.80497456440000004" green="0.84047809829999998" blue="0.39411637100000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -752,22 +841,6 @@
                                 <color key="shadowColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="0.0" height="2"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="060-c4-5SU">
-                                <rect key="frame" x="470" y="705" width="85" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <size key="titleShadowOffset" width="0.0" height="1"/>
-                                <state key="normal" title="Increase" backgroundImage="button.png">
-                                    <color key="titleColor" red="0.80497456440000004" green="0.84047809829999998" blue="0.39411637100000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="increaseButtonPressed:" destination="ZgL-cO-tIO" eventType="touchUpInside" id="mIy-GL-GBs"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -983,12 +1056,74 @@
                                 <color key="shadowColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
+                            <button opaque="NO" alpha="0.40000000000000013" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ci2-Jb-bc4" userLabel="ChangeBackgroundButton">
+                                <rect key="frame" x="846" y="59" width="36" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeBackground:" destination="UWm-Sj-5Ic" eventType="touchUpInside" id="nzd-Tk-2b3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vtL-09-xSm" userLabel="Add400ToTowerButton">
+                                <rect key="frame" x="846" y="19" width="36" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="makePlayerWinButton:" destination="UWm-Sj-5Ic" eventType="touchUpInside" id="yvo-Nz-hhW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ke2-s2-SKU" userLabel="OptionsButton">
+                                <rect key="frame" x="6" y="473" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="ButtonOption2.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="soundButtonPressed:" destination="UWm-Sj-5Ic" eventType="touchUpInside" id="YXh-IL-YpK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3uR-eP-2m9" userLabel="VictoryConditionsButton">
+                                <rect key="frame" x="6" y="415" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="ButtonTower2.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="victoryConditionsButtonPressed:" destination="UWm-Sj-5Ic" eventType="touchUpInside" id="8i9-qg-zar"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fIW-8Y-lOO" userLabel="QuitButton">
-                                <rect key="frame" x="943" y="444" width="70" height="44"/>
+                                <rect key="frame" x="966" y="415" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                 <size key="titleShadowOffset" width="0.0" height="1"/>
-                                <state key="normal" title="Back" backgroundImage="button.png">
+                                <state key="normal" image="ButtonBack2.png">
                                     <color key="titleColor" red="0.80497456440000004" green="0.84047809829999998" blue="0.39411637100000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -1511,53 +1646,6 @@
                                 <color key="shadowColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
-                            <button opaque="NO" alpha="0.40000000000000013" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ci2-Jb-bc4">
-                                <rect key="frame" x="93" y="484" width="36" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="changeBackground:" destination="UWm-Sj-5Ic" eventType="touchUpInside" id="nzd-Tk-2b3"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vtL-09-xSm">
-                                <rect key="frame" x="93" y="417" width="36" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="makePlayerWinButton:" destination="UWm-Sj-5Ic" eventType="touchUpInside" id="yvo-Nz-hhW"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ke2-s2-SKU">
-                                <rect key="frame" x="8" y="444" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" image="optionsButton.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="soundButtonPressed:" destination="UWm-Sj-5Ic" eventType="touchUpInside" id="YXh-IL-YpK"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -1662,6 +1750,7 @@
                         <outlet property="playersCard5Description" destination="Gx5-8J-1QK" id="LL9-b1-0oE"/>
                         <outlet property="playersCard5Name" destination="V8q-d8-3Si" id="Yky-oa-fAY"/>
                         <outlet property="soundButton" destination="ke2-s2-SKU" id="l3e-bm-OM4"/>
+                        <outlet property="victoryConditionsButton" destination="3uR-eP-2m9" id="9rz-jH-T7g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="snV-GF-JLM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1721,12 +1810,12 @@ DQ
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lEQ-g3-YCB">
-                                <rect key="frame" x="934" y="705" width="70" height="44"/>
+                                <rect key="frame" x="954" y="698" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                 <size key="titleShadowOffset" width="0.0" height="1"/>
-                                <state key="normal" title="Back" backgroundImage="button.png">
+                                <state key="normal" image="ButtonBack.png">
                                     <color key="titleColor" red="0.80497456440000004" green="0.84047809829999998" blue="0.39411637100000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -1754,6 +1843,12 @@ DQ
     <resources>
         <image name="Amethyst.png" width="143" height="85"/>
         <image name="Background2.png" width="1024" height="768"/>
+        <image name="Button2.png" width="140" height="53"/>
+        <image name="ButtonBack.png" width="50" height="50"/>
+        <image name="ButtonBack2.png" width="50" height="50"/>
+        <image name="ButtonOption.png" width="50" height="50"/>
+        <image name="ButtonOption2.png" width="50" height="50"/>
+        <image name="ButtonTower2.png" width="50" height="50"/>
         <image name="CardBack.png" width="156" height="208"/>
         <image name="CardBlank_Blue.png" width="156" height="208"/>
         <image name="CardBlank_Blue@2x.png" width="312" height="416"/>
@@ -1763,12 +1858,10 @@ DQ
         <image name="Level_Background.jpg" width="512" height="341"/>
         <image name="MainBackground.png" width="1024" height="768"/>
         <image name="Map.jpg" width="1024" height="683"/>
-        <image name="MapLabels.png" width="1024" height="683"/>
         <image name="NotAvailable.png" width="156" height="208"/>
         <image name="Papirus.png" width="984" height="768"/>
         <image name="Player_name.png" width="128" height="40"/>
         <image name="ResourceHolder.png" width="130" height="359"/>
-        <image name="Shadow.png" width="1024" height="683"/>
         <image name="TavernPreview.jpg" width="150" height="272"/>
         <image name="TowerButton.png" width="40" height="73"/>
         <image name="TowerButtonSelected.png" width="40" height="73"/>
@@ -1779,198 +1872,7 @@ DQ
         <image name="WallHolder.png" width="70" height="40"/>
         <image name="WallWidth.png" width="38" height="316"/>
         <image name="button.png" width="138" height="50"/>
-        <image name="optionsButton.png" width="50" height="50"/>
     </resources>
-    <classes>
-        <class className="CampaignViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CampaignViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButtonPressed:"/>
-                <relationship kind="action" name="tavernButton0Pressed:"/>
-                <relationship kind="action" name="tavernButton10Pressed:"/>
-                <relationship kind="action" name="tavernButton11Pressed:"/>
-                <relationship kind="action" name="tavernButton12Pressed:"/>
-                <relationship kind="action" name="tavernButton1Pressed:"/>
-                <relationship kind="action" name="tavernButton2Pressed:"/>
-                <relationship kind="action" name="tavernButton3Pressed:"/>
-                <relationship kind="action" name="tavernButton4Pressed:"/>
-                <relationship kind="action" name="tavernButton5Pressed:"/>
-                <relationship kind="action" name="tavernButton6Pressed:"/>
-                <relationship kind="action" name="tavernButton7Pressed:"/>
-                <relationship kind="action" name="tavernButton8Pressed:"/>
-                <relationship kind="action" name="tavernButton9Pressed:"/>
-                <relationship kind="action" name="tavernCloseButtonPressed:"/>
-                <relationship kind="action" name="tavernStartButtonPressed:"/>
-                <relationship kind="outlet" name="finalResourcesLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="finalTowerLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="initialTowerLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="initialWallLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="selectedTavernView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="shadowView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton0" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton1" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton10" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton11" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton12" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton2" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton3" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton4" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton5" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton6" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton7" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton8" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton9" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="tavernNameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="IncompletedGameViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/IncompletedGameViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="noButton:"/>
-                <relationship kind="action" name="yesButton:"/>
-            </relationships>
-        </class>
-        <class className="InfoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButtonPressed:"/>
-            </relationships>
-        </class>
-        <class className="MainViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="quickGameButton:"/>
-                <relationship kind="action" name="soundsButtonPressed:"/>
-                <relationship kind="outlet" name="incompletedGameView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="quickButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="soundButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="OptionsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OptionsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="musicVolumeChanged:"/>
-                <relationship kind="action" name="soundVolumeChanged:"/>
-                <relationship kind="outlet" name="musicVolume" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="soundVolume" candidateClass="UISlider"/>
-            </relationships>
-        </class>
-        <class className="ScoreViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ScoreViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButtonPressed:"/>
-                <relationship kind="action" name="increaseButtonPressed:"/>
-                <relationship kind="outlet" name="gamesPlayedLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="gamesWinedLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="StartViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StartViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButtonPressed:"/>
-                <relationship kind="action" name="changeBackground:"/>
-                <relationship kind="action" name="makePlayerWinButton:"/>
-                <relationship kind="action" name="soundButtonPressed:"/>
-                <relationship kind="outlet" name="backgroundLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="backgroundPicture" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card0Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card0Image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card0NotAvailable" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card0View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="card1Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card1Image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card1NotAvailable" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card1View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="card2Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card2Image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card2NotAvailable" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card2View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="card3Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card3Image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card3NotAvailable" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card3View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="card4Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card4Image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card4NotAvailable" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card4View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="card5Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card5Image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card5NotAvailable" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card5View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="computerBricks" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerCard0" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerCard1" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerCard2" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerCard3" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerCard4" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerCard5" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerDungeons" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerGems" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerMagics" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerQuarries" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerRecruits" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerTower" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerTowerBodyBackground" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerTowerHeadBackground" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerTowerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="computerWall" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerWallBackground" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerWallView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="playedCard0Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playedCard0Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard0Desription" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard0Image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playedCard0Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard0View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="playedCard1Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playedCard1Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard1Desription" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard1Image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playedCard1Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard1View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="playedCard2Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playedCard2Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard2Desription" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard2Image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playedCard2Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard2View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="playerBricks" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerDungeons" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerGems" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerMagics" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerQuarries" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerRecruits" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerTower" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerTowerBodyBackground" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playerTowerHeadBackground" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playerTowerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="playerWall" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerWallBackground" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playerWallView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="playersCard0Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard0Description" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard0Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard1Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard1Description" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard1Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard2Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard2Description" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard2Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard3Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard3Description" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard3Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard4Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard4Description" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard4Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard5Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard5Description" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard5Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="soundButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
