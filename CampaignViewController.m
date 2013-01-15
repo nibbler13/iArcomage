@@ -157,6 +157,10 @@
     
     TavernInfoViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"TavernInfo"];
     
+    UIButton *tempButton = [tavernButtons objectAtIndex:number];
+    
+    popoverControllerInfo = [[UIPopoverController alloc] initWithContentViewController:controller];
+    
     controller.towerInitialLabel.text = [NSString stringWithFormat:@"%d", [[taverns objectAtIndex:number] initialTower]];
     controller.wallInitialLabel.text = [NSString stringWithFormat:@"%d", [[taverns objectAtIndex:number] initialWall]];
     controller.towerFinalLabel.text = [NSString stringWithFormat:@"%d", [[taverns objectAtIndex:number] finalTower]];
@@ -164,10 +168,6 @@
     controller.tavernNameLabel.text = [[taverns objectAtIndex:number] tavernName];
     controller.tavernImageView.image = [UIImage imageNamed:[[taverns objectAtIndex:number] imageForTavern]];
     controller.delegate = self;
-    
-    UIButton *tempButton = [tavernButtons objectAtIndex:number];
-    
-    popoverControllerInfo = [[UIPopoverController alloc] initWithContentViewController:controller];
     
     [popoverControllerInfo presentPopoverFromRect:tempButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     

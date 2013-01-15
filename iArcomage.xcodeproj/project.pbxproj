@@ -1447,7 +1447,6 @@
 		743E9A60162C76A9005F28A0 = {
 			isa = PBXGroup;
 			children = (
-				746A6EF0169C8C6B00799BAC /* AVFoundation.framework */,
 				740EA05E1641435A00AFFA55 /* Models */,
 				743E9A75162C76A9005F28A0 /* iArcomage */,
 				743E9A6E162C76A9005F28A0 /* Frameworks */,
@@ -1466,6 +1465,7 @@
 		743E9A6E162C76A9005F28A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				746A6EF0169C8C6B00799BAC /* AVFoundation.framework */,
 				744143661649982600DF07A6 /* AudioToolbox.framework */,
 				7484436E1642EA0000AEA2D5 /* QuartzCore.framework */,
 				743E9A6F162C76A9005F28A0 /* UIKit.framework */,
