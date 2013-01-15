@@ -21,6 +21,7 @@
 
 - (id)init
 {
+    //NSLog(@"card init");
     if ([super init] != nil) {
         playerWall = 0;
         computerWall = 0;
@@ -28,14 +29,21 @@
     return self;
 }
 
+- (void)dealloc
+{
+    //NSLog(@"card Dealloc");
+}
+
 #pragma mark -GamePlay
 
 - (void)initPlayerModel:(PlayerModel*)player andComputerModel:(ComputerModel*)computer
 {
     if (playerModel == nil) {
+        //NSLog(@"card - init player");
         playerModel = player;
     }
     if (computerModel == nil) {
+        //NSLog(@"card - init computer");
         computerModel = computer;
     }
 }
@@ -44,6 +52,10 @@
 {
     playerWall = playerModel.wall;
     computerWall = computerModel.wall;
+    //NSLog(@"------------------------------------");
+    //NSLog(@"isThisPlayer: %d, isThisComputer: %d", playerModel.isThatPlayerTurn, computerModel.isThatComputerTurn);
+    //NSLog(@"%@, %d", self.cardName, self.cardCost);
+    //NSLog(@"%d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d", self.quarriesSelf, self.quarriesEnemy, self.magicsSelf, self.magicsEnemy, self.dungeonsSelf, self.dungeonsEnemy, self.bricksSelf, self.bricksEnemy, self.gemsSelf, self.gemsEnemy, self.recruitsSelf, self.recruitsEnemy, self.towerSelf, self.towerEnemy, self.wallSelf, self.wallEnemy);
     
     if (playerModel.isThatPlayerTurn & computerModel.isThatComputerTurn){
         NSLog(@"=============Both isThatTurn are positive=============");

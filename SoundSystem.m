@@ -18,6 +18,9 @@
 
 - (void)playDealSoundEffectForEvent:(NSString*)event
 {
+    //NSLog(@"===========parameter: %@", event);
+    //NSLog(@"event: %@", (NSString*)[soundsEffectName objectForKey:event]);
+    
     NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:(NSString*)[soundsEffectName objectForKey:event] ofType:@"mp3"];
     NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
     AVAudioPlayer *avPlayerTemp = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
@@ -29,12 +32,18 @@
     avPlayerTemp.volume = [[NSUserDefaults standardUserDefaults] floatForKey:@"soundVolume"];
     avPlayerTemp.delegate = self;
     [avPlayerTemp play];
+    
+    //NSLog(@"%d", [soundsArray count]);
 }
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
 {
+    //NSLog(@"audioPlayerDidFinishingPlaying %d", [soundsArray count]);
+    
     for (int i = 0; i < [soundsArray count]; i++) {
+        //NSLog(@"i: %d", i);
         if ([player isEqual:[soundsArray objectAtIndex:i]]) {
+            //NSLog(@"equal founded");
             [soundsArray removeObjectAtIndex:i];
         }
     }

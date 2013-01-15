@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *gamesWinedLabel;
 
 - (IBAction)backButtonPressed:(id)sender;
+- (IBAction)increaseButtonPressed:(id)sender;
 
 @end
 
@@ -43,13 +44,19 @@
     
     gamesPlayed = [[temp objectForKey:@"GamesPlayed"] integerValue];
     gamesWined = [[temp objectForKey:@"GamesWined"] integerValue];
-    
+    NSLog(@"gamesPlayed: %d, gamesWined: %d", gamesPlayed, gamesWined);
     [self updateLabels];
 }
 
 - (IBAction)backButtonPressed:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)increaseButtonPressed:(id)sender {
+    gamesPlayed++;
+    gamesWined++;
+    [self updateLabels];
 }
 
 - (void)updateLabels

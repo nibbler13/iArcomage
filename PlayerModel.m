@@ -19,11 +19,18 @@ static PlayerModel *player;
     CardsScope *cardsScope;
 }
 
+- (void)dealloc
+{
+    //NSLog(@"player dealloc");
+}
+
 #pragma mark -Initialization
 
 + (PlayerModel*)getPlayer
 {
+    //NSLog(@"get player");
     if (player == nil) {
+        //NSLog(@"player Alloc");
         player = [[PlayerModel alloc] init];
     }
     return player;
@@ -31,13 +38,16 @@ static PlayerModel *player;
 
 + (void)destroyPlayer
 {
+    //NSLog(@"destroy Player");
     if (player != nil) {
         player = nil;
     }
 }
 
 - (id)init
-{    if ([super init] != nil) {
+{
+    //NSLog(@"init Player");
+    if ([super init] != nil) {
         self.quarries = 1;
         self.magics = 1;
         self.dungeons = 1;
@@ -50,7 +60,9 @@ static PlayerModel *player;
         self.shouldDiscardACard = NO;
         self.shouldPlayAgain = NO;
         self.cards = [[NSMutableArray alloc] initWithCapacity:6];
+        //self.soundsOn = YES;
         cardsScope = [CardsScope getCardsScope];
+        //cardsScope.soundsOn = self.soundsOn;
         self.cards = [NSMutableArray arrayWithObjects:cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, nil];
         computer = [ComputerModel getComputer];
     }
@@ -112,6 +124,10 @@ static PlayerModel *player;
 
 - (void)getANewCard
 {
+    
+    //NSLog(@"player.playedCard %d", self.playedCard);
+    //NSLog(@"playerCards %@", self.cards);
+    //NSLog(@"playerCardScope %@", cardsScope);
     [self.cards replaceObjectAtIndex:self.playedCard withObject:cardsScope.getRandomCard];
 }
 
