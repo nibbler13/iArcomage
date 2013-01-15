@@ -497,8 +497,6 @@
         
         [soundSystem playDealSoundEffectForEvent:@"WillTakeACard"];
         
-        //[cardsScope playDealSoundEffectForEvent:@"WillTakeACard"];
-        
         [UIView animateWithDuration:0.5
                               delay:0.0
                             options:UIViewAnimationCurveLinear
@@ -531,7 +529,6 @@
                                      [[player.cards objectAtIndex:number] magicsEnemy] > 0 ||
                                      [[player.cards objectAtIndex:number] dungeonsEnemy] > 0) {
                                      [soundSystem playDealSoundEffectForEvent:@"WillIncreaseSelfGeneralResource"];
-                                     //[cardsScope playDealSoundEffectForEvent:@"WillIncreaseSelfGeneralResource"];
                                  }
                                  if ([[player.cards objectAtIndex:number] quarriesSelf] < 0 & player.quarries > 1 ||
                                      [[player.cards objectAtIndex:number] magicsSelf] < 0 & player.magics > 1 ||
@@ -540,7 +537,6 @@
                                      [[player.cards objectAtIndex:number] magicsEnemy] < 0 & computer.magics > 1 ||
                                      [[player.cards objectAtIndex:number] dungeonsEnemy] < 0 & computer.dungeons > 1) {
                                      [soundSystem playDealSoundEffectForEvent:@"WillDecreaseSelfGeneralResource"];
-                                     //[cardsScope playDealSoundEffectForEvent:@"WillDecreaseSelfGeneralResource"];
                                  }
                                  if ([[player.cards objectAtIndex:number] bricksSelf] > 0 ||
                                      [[player.cards objectAtIndex:number] gemsSelf] > 0 ||
@@ -549,7 +545,6 @@
                                      [[player.cards objectAtIndex:number] gemsEnemy] > 0 ||
                                      [[player.cards objectAtIndex:number] recruitsEnemy] > 0) {
                                      [soundSystem playDealSoundEffectForEvent:@"WillIncreaseSelfCommonResource"];
-                                     //[cardsScope playDealSoundEffectForEvent:@"WillIncreaseSelfCommonResource"];
                                  }
                                  if ([[player.cards objectAtIndex:number] bricksSelf] < 0 & player.bricks > 0 ||
                                      [[player.cards objectAtIndex:number] gemsSelf] < 0 & player.gems > 0 ||
@@ -558,25 +553,20 @@
                                      [[player.cards objectAtIndex:number] gemsEnemy] < 0 & computer.gems > 0 ||
                                      [[player.cards objectAtIndex:number] recruitsEnemy] < 0 & computer.recruits > 0) {
                                      [soundSystem playDealSoundEffectForEvent:@"WillDecreaseSelfCommonResource"];
-                                     //[cardsScope playDealSoundEffectForEvent:@"WillDecreaseSelfCommonResource"];
                                  }
                                  if ([[player.cards objectAtIndex:number] towerSelf] > 0 ||
                                      [[player.cards objectAtIndex:number] wallSelf] > 0 ||
                                      [[player.cards objectAtIndex:number] towerEnemy] > 0 ||
                                      [[player.cards objectAtIndex:number] wallEnemy] > 0) {
                                      [soundSystem playDealSoundEffectForEvent:@"WillIncreaseTowerOrWall"];
-                                     //[cardsScope playDealSoundEffectForEvent:@"WillIncreaseTowerOrWall"];
                                  }
                                  if ([[player.cards objectAtIndex:number] towerSelf] < 0 ||
                                      [[player.cards objectAtIndex:number] wallSelf] < 0 ||
                                      [[player.cards objectAtIndex:number] towerEnemy] < 0 ||
                                      [[player.cards objectAtIndex:number] wallEnemy] < 0) {
                                      [soundSystem playDealSoundEffectForEvent:@"WillTakeDamage"];
-                                     //[cardsScope playDealSoundEffectForEvent:@"WillTakeDamage"];
                                  }
                              
-                             
-                             //NSLog(@"===should present animation for player===");
                              [self configureAnimationsForCardNumber:number];
                              
                              [player cardSelected:number];
@@ -585,10 +575,6 @@
                              [self updateTowersAndWalls];
                              
                              [self releaseCardSelectionForView:view withDefaultPosition:defaultPosition withDefaultRect:defaultRect];
-                             
-                             ///////////////////////
-                             //AddingAnimationHere//
-                             ///////////////////////
                              
                              double howLongShouldBeAnimation;
                              
@@ -647,8 +633,6 @@
                                                   if (isPlayedCard1Present) { self.playedCard1View.hidden = NO; }
                                                   if (isPlayedCard2Present) { self.playedCard2View.hidden = NO; }
                                                   
-                                                  
-                                                  
                                                     if (player.shouldPlayAgain || player.shouldDiscardACard) {
                                                       doNotClearStack = YES;
                                                       
@@ -671,7 +655,6 @@
                                                       [self updateAllCards];
                                                       
                                                         [soundSystem playDealSoundEffectForEvent:@"WillTakeACard"];
-                                                      //[cardsScope playDealSoundEffectForEvent:@"WillTakeACard"];
                                                       
                                                       [UIView animateWithDuration:0.5
                                                                             delay:0.0
@@ -727,7 +710,6 @@
         firstTouchPoint = CGPointMake(0, 0);
         
         [soundSystem playDealSoundEffectForEvent:@"WillTakeACard"];
-        //[cardsScope playDealSoundEffectForEvent:@"WillTakeACard"];
         
         [UIView animateWithDuration:0.5
                               delay:0.0
@@ -847,7 +829,6 @@
                                                       [self updateAllCards];
                                                       
                                                       [soundSystem playDealSoundEffectForEvent:@"WillTakeACard"];
-                                                      //[cardsScope playDealSoundEffectForEvent:@"WillTakeACard"];
                                                       
                                                       [UIView animateWithDuration:0.5
                                                                             delay:0.0
@@ -951,12 +932,7 @@
 {
     if (gameOver) { return; }
     
-    NSLog(@"start animate computer turn");
-    
     [computer computerTurn];
-    
-    NSLog(@"CP:%d CICBD:%d CSDAC:%d CSPA:%d", computer.playedCard, computer.isCardBeenDiscarded, computer.shouldDiscardACard, computer.shouldPlayAgain);
-    
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     [self setPlayersCardsInvisible:YES];
@@ -984,7 +960,6 @@
     [self setComputersCardsInvisible:NO];
     
     [soundSystem playDealSoundEffectForEvent:@"WillTakeACard"];
-    //[cardsScope playDealSoundEffectForEvent:@"WillTakeACard"];
     
     //////////////////////////////////////////
     //Разложение всех карт компьютера на столе
@@ -1056,8 +1031,6 @@
                               ////////////////////////////////////////////////////////////////
                               //Передвижение сыгранной или сброшенной компьютером карты в стэк
                               
-                              
-                              NSLog(@"checking is card been discarded to play animations: %d", computer.isCardBeenDiscarded);
                               if (!computer.isCardBeenDiscarded) {
                                   
                                   if ([[computer.cards objectAtIndex:computer.playedCard] quarriesSelf] > 0 ||
@@ -1178,10 +1151,6 @@
                                                    if (isPlayedCard1Present) { self.playedCard1View.hidden = NO; }
                                                    if (isPlayedCard2Present) { self.playedCard2View.hidden = NO; }
                                                    
-                                                   NSLog(@"computer.should discard: %d", computer.shouldDiscardACard);
-                                                   NSLog(@"computer.should play again: %d", computer.shouldPlayAgain);
-                                                   NSLog(@"computer.should draw card: %d", computer.shouldDrawACard);
-                                                   
                                                    ///////////////////////////////////////////////////////////////////////////////////////////////////
                                                    //Проверяем нужно ли компьютеру сыграть еще раз
                                                    if (computer.shouldDiscardACard) {
@@ -1189,7 +1158,6 @@
                                                        
                                                        computerLastPlayedCard = computer.playedCard;
                                                        
-                                                       //[computer computerTurn];
                                                        [self animateComputerTurn];
                                                        
                                                        return;
@@ -1202,7 +1170,6 @@
                                                        
                                                        computerLastPlayedCard = computer.playedCard;
                                                        
-                                                       //[computer computerTurn];
                                                        [self animateComputerTurn];
                                                        
                                                        return;
@@ -1305,7 +1272,6 @@
 
 - (void)calculateOffsetForPlayedComputerCard:(NSInteger)number withView:(UIImageView*)cardView
 {
-    NSLog(@"=================computer.isCardBeenDiscarded: %d", computer.isCardBeenDiscarded);
     if (computer.playedCard != number) {
         cardView.center = CGPointMake(xInitialPositionForCardView, yInitialPositionForCardView);
         xInitialPositionForCardView += cardsOffset;
@@ -1506,7 +1472,7 @@
 {
     if (computer.tower >= towerAim || computer.wall >= wallAim || (computer.bricks >= self.resourcesCampaignAim && computer.gems >= self.resourcesCampaignAim && computer.recruits >= self.resourcesCampaignAim) || player.tower < 1) {
         [soundSystem playDealSoundEffectForEvent:@"PlayerLose"];
-        //[cardsScope playDealSoundEffectForEvent:@"PlayerLose"];
+        
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"You lose!" message:@"The computer has defeated you like a boss" delegate:self cancelButtonTitle:@"Ohhh god why?" otherButtonTitles: nil];
         gamesPlayed++;
         
@@ -1524,7 +1490,7 @@
 {
     if (player.tower >= towerAim || player.wall >= wallAim || (player.bricks >= self.resourcesCampaignAim && player.gems >= self.resourcesCampaignAim && player.recruits >= self.resourcesCampaignAim) || computer.tower < 1) {
         [soundSystem playDealSoundEffectForEvent:@"PlayerWin"];
-        //[cardsScope playDealSoundEffectForEvent:@"PlayerWin"];
+        
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"You win!" message:@"You win because you have completed the needed conditions" delegate:self cancelButtonTitle:@"Yeah! It's great!" otherButtonTitles: nil];
         gamesPlayed++;
         gamesWined++;
@@ -2265,17 +2231,6 @@ withCardDescriptionLabel:self.playersCard5Description
 
 - (void)savePlayerAndComputerModels
 {
-    NSLog(@"==========savingGame=========");
-    //NSLog(@"player.cards.count: %d", [[player cards] count]);
-    for (int i = 0; (i < [[player cards] count]); i++) {
-        //NSLog(@"card: %d, cardNumber: %d", i, [[[player cards] objectAtIndex:i] cardNumber]);
-    }
-    
-    //NSLog(@"computer.cards.count: %d", [[computer cards] count]);
-    for (int i = 0; (i < [[computer cards] count]); i++) {
-        //NSLog(@"card: %d, cardNumber: %d", i, [[[computer cards] objectAtIndex:i] cardNumber]);
-    }
-    
     if (player != nil && computer != nil && ([[player cards] count] == 6) && ([[computer cards] count] == 6 && animationCompleted)) {
     
         NSString *error;
@@ -2366,13 +2321,11 @@ withCardDescriptionLabel:self.playersCard5Description
 
 - (void)loadPlayerAndComputer
 {
-    NSLog(@"==========loadingSavedGame=========");
     NSString *errorDesc = nil;
     NSPropertyListFormat format;
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:[self dataFilePath]]) {
         return;
-        NSLog(@"File don't exist");
     }
     
     NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:[self dataFilePath]];
@@ -2419,7 +2372,6 @@ withCardDescriptionLabel:self.playersCard5Description
 
 - (void)deleteOldFile
 {
-    NSLog(@"==========deletingOldSaveFile=========");
     NSString *path = [self dataFilePath];
     if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
         NSFileManager *filemanager = [NSFileManager defaultManager];
@@ -2429,7 +2381,6 @@ withCardDescriptionLabel:self.playersCard5Description
 
 - (void)loadScore
 {
-    NSLog(@"==========loadingScore=========");
     NSString *errorDesc = nil;
     NSPropertyListFormat format;
     NSString *plistPath;
@@ -2450,13 +2401,11 @@ withCardDescriptionLabel:self.playersCard5Description
     } else {
         gamesPlayed = [[temp objectForKey:@"GamesPlayed"] integerValue];
         gamesWined = [[temp objectForKey:@"GamesWined"] integerValue];
-        //NSLog(@"gamesPlayed: %d, gamesWined: %d", gamesPlayed, gamesWined);
     }
 }
 
 - (void)saveScore
 {
-    NSLog(@"==========savingScore=========");
     NSString *error;
     NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *plistPath = [rootPath stringByAppendingPathComponent:@"Score.plist"];

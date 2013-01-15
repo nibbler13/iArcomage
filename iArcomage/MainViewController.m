@@ -33,12 +33,7 @@
     
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    NSLog(@"%d", [[NSUserDefaults standardUserDefaults] boolForKey:@"isThisNotTheFirstTime"]);
-    NSLog(@"%f", [[NSUserDefaults standardUserDefaults] floatForKey:@"musicVolume"]);
-    NSLog(@"%f", [[NSUserDefaults standardUserDefaults] floatForKey:@"soundVolume"]);
-    
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"isThisNotTheFirstTime"]) {
-        NSLog(@"init first value of sounds");
         [[NSUserDefaults standardUserDefaults] setFloat:1.0 forKey:@"musicVolume"];
         [[NSUserDefaults standardUserDefaults] setFloat:1.0 forKey:@"soundVolume"];
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"isThisNotTheFirstTime"];
@@ -87,7 +82,6 @@
     
     NSString *path = [self dataFilePath];
     if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-        NSLog(@"file exist");
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
         IncompletedGameViewController *incompletedController = [storyboard instantiateViewControllerWithIdentifier:@"IncompletedGameStoryboard"];
@@ -98,7 +92,6 @@
         [popoverController presentPopoverFromRect:self.quickButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
         
     } else {
-        NSLog(@"file dont exist");
         [self loadGameWithLoadSave:NO];
     }
 }
@@ -121,8 +114,6 @@
 
 - (void)needToLoadSavedGame:(BOOL)needToLoad
 {
-    NSLog(@"button: %d", needToLoad);
-    
     [popoverController dismissPopoverAnimated:YES];
     
     [self loadGameWithLoadSave:needToLoad];
@@ -150,7 +141,6 @@
 
 - (void)gameHasBeenCompleted
 {
-    //NSLog(@"gamehasveen");
     soundSystem = [[SoundSystem alloc] initWithFileName:@"02-Tourdion"];
 }
 

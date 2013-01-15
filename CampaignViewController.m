@@ -112,7 +112,6 @@
 
 - (void)checkWhichTavernAvailableToPlay
 {
-    NSLog(@"CheckWhichTavernAvailable");
     for (int i = 0; i < [taverns count]; i++) {
         if ([[taverns objectAtIndex:i] isAchieved]) {
             if (i != [taverns count] - 1) {
@@ -180,7 +179,6 @@
     
     NSString *path = [self savedCampaignGameFilePath];
     if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-        NSLog(@"file exist");
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
         IncompletedGameViewController *incompletedController = [storyboard instantiateViewControllerWithIdentifier:@"IncompletedGameStoryboard"];
@@ -193,7 +191,6 @@
         
         [popoverController presentPopoverFromRect:tempButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     } else {
-        NSLog(@"file dont exist");
         [self loadGameWithLoadSave:NO];
     }
 
@@ -213,7 +210,6 @@
 
 - (NSString*)savedCampaignGameFilePath
 {
-    NSLog(@"selectedTavern: %d", selectedTavern);
     return [[self documentsDirectory] stringByAppendingPathComponent:[NSString stringWithFormat:@"campaignSave-%@.plist", [[taverns objectAtIndex:selectedTavern] tavernName]]];
 }
 
@@ -241,7 +237,6 @@
 
 - (void)levelCompletedWithVictory:(BOOL)victory
 {
-    NSLog(@"level completed");
     [self.delegate gameHasBeenCompleted];
     
     if (victory) {
@@ -258,7 +253,6 @@
 
 - (void)needToLoadSavedGame:(BOOL)needToLoad
 {
-    NSLog(@"button: %d", needToLoad);
     [popoverController dismissPopoverAnimated:YES];
     [self loadGameWithLoadSave:needToLoad];
 }

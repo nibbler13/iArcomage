@@ -44,7 +44,6 @@
     
     gamesPlayed = [[temp objectForKey:@"GamesPlayed"] integerValue];
     gamesWined = [[temp objectForKey:@"GamesWined"] integerValue];
-    NSLog(@"gamesPlayed: %d, gamesWined: %d", gamesPlayed, gamesWined);
     [self updateLabels];
 }
 
