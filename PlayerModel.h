@@ -30,7 +30,6 @@
 @property (nonatomic) BOOL shouldPlayAgain;
 @property (nonatomic) BOOL shouldDiscardACard;
 @property (nonatomic) BOOL isThatPlayerTurn;
-//@property (nonatomic) BOOL soundsOn;
 @property (nonatomic) BOOL isCardHasBeenDiscarded;
 
 - (void)cardSelected:(NSInteger)number;
