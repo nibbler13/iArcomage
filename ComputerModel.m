@@ -20,18 +20,11 @@ static ComputerModel *computer;
     PlayerModel *player;
 }
 
-- (void)dealloc
-{
-    //NSLog(@"computer dealloc");
-}
-
 #pragma mark -Initialization
 
 + (ComputerModel*)getComputer
 {
-    //NSLog(@"get computer");
     if (computer == nil) {
-        //NSLog(@"computer alloc");
         computer = [[ComputerModel alloc] init];
     }
     return computer;
@@ -39,7 +32,6 @@ static ComputerModel *computer;
 
 + (void)destroyComputer
 {
-    //NSLog(@"destroy computer");
     if (computer != nil) {
         computer = nil;
     }
@@ -47,7 +39,6 @@ static ComputerModel *computer;
 
 - (id)init
 {
-    //NSLog(@"init computer");
     if ([super init] != nil) {
         self.quarries = 1;
         self.magics = 1;
@@ -65,7 +56,6 @@ static ComputerModel *computer;
         cardsScope = [CardsScope getCardsScope];
         self.playedCard = -1;
         self.cards = [NSMutableArray arrayWithObjects:cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, cardsScope.getRandomCard, nil];
-        //NSLog(@"done with init computer");
     }
     return self;
 }
@@ -74,7 +64,6 @@ static ComputerModel *computer;
 
 - (void)nextTurnIncreaseResource
 {
-    //NSLog(@"=============next increase===========");
     self.bricks += self.quarries;
     self.gems += self.magics;
     self.recruits += self.dungeons;
@@ -83,9 +72,6 @@ static ComputerModel *computer;
 
 - (void)computerTurn
 {
-    
-    NSLog(@"computerModel - CP:%d CICBD:%d CSDAC:%d CSPA:%d", computer.playedCard, computer.isCardBeenDiscarded, computer.shouldDiscardACard, computer.shouldPlayAgain);
-    
     self.isThatComputerTurn = YES;
     player.isThatPlayerTurn = NO;
     
@@ -93,12 +79,8 @@ static ComputerModel *computer;
         player = [PlayerModel getPlayer];
     }
     
-    //NSLog(@"ComputerTurn");
-    
-    //[self nextTurnIncreaseResource];
     [self getANewCard];
     
-    //NSLog(@"Computer have next resource: %d %d %d", self.bricks, self.gems, self.recruits);
     [self analyzeCardsWeight];
     [self printCardsInHand];
     
@@ -108,15 +90,12 @@ static ComputerModel *computer;
     }
     
     if ([self checkAvailableCards]) {
-        //NSLog(@"There are some available cards");
         [self printAvailableCards];
         [self playSomeCard];
     
     } else {
-        //NSLog(@"No available cards to play");
         [self discardACard];
     }
-    //NSLog(@"END OF COMPUTER TURN");
 }
 
 - (BOOL)checkAvailableCards
@@ -137,7 +116,6 @@ static ComputerModel *computer;
         }
         
         if (cardCost <= computerResource) {
-            //NSLog(@"--- Found another one available card");
             [cardsAvailableToPlay addObject:[NSNumber numberWithInt:i]];
         } else if (computerResource - cardCost < -10) {
             [[self.cards objectAtIndex:i] increaseCardWeightOn:maxIdle];
@@ -169,9 +147,9 @@ static ComputerModel *computer;
 
 - (void)printAvailableCards
 {
-    for (int i = 0; i < [cardsAvailableToPlay count]; i++) {
-        //NSLog(@"--- Available to play: %@", [cardsAvailableToPlay objectAtIndex:i]);
-    }
+    /*for (int i = 0; i < [cardsAvailableToPlay count]; i++) {
+        NSLog(@"--- Available to play: %@", [cardsAvailableToPlay objectAtIndex:i]);
+    }*/
 }
 
 - (void)payForTheCard:(NSInteger)number
@@ -190,7 +168,6 @@ static ComputerModel *computer;
 
 - (void)processCard:(NSInteger)number
 {
-    //NSLog(@"=== I will play the next card:");
     [self printCardInfoAtNumber:number];
     [self payForTheCard:number];
     self.playedCard = number;
@@ -198,19 +175,13 @@ static ComputerModel *computer;
 
 - (void)getANewCard
 {
-    //NSLog(@"Computer: I will get a new card");
-    //NSLog(@"Computer: playedCard: %d", self.playedCard);
     if (self.playedCard != -1) {
-        //NSLog(@"computer.playedCard %d", self.playedCard);
-        //NSLog(@"computerCards %@", self.cards);
-        //NSLog(@"computerCardScope %@", cardsScope);
         [self.cards replaceObjectAtIndex:self.playedCard withObject:cardsScope.getRandomCard];
     }
 }
 
 - (void)playSomeCard
 {
-    NSLog(@"computer play some card");
     self.isCardBeenDiscarded = NO;
     
     for (int i = 0; i < [[self cards] count]; i++) {
@@ -223,7 +194,7 @@ static ComputerModel *computer;
             maximumWeight = [[self.cards objectAtIndex:[[cardsAvailableToPlay objectAtIndex:i] integerValue]] cardWeight];
         }
     }
-    //NSLog(@"MaximumWeight: %d", maximumWeight);
+    
     NSMutableArray *cardsWithMaximumWeight = [[NSMutableArray alloc] init];
     for (int i = 0; i < [cardsAvailableToPlay count]; i ++) {
         if ([[self.cards objectAtIndex:[[cardsAvailableToPlay objectAtIndex:i] integerValue]] cardWeight] == maximumWeight) {
@@ -237,10 +208,6 @@ static ComputerModel *computer;
 
 - (void)discardACard
 {
-    
-    NSLog(@"--------computer discard");
-    //self.isCardBeenDiscarded = YES;
-    
     if (self.shouldDiscardACard) {
         self.shouldDiscardACard = NO;
     }
@@ -251,7 +218,7 @@ static ComputerModel *computer;
             minimumValue = [[self.cards objectAtIndex:i] cardWeight];
         }
     }
-    //NSLog(@"MinimumWeight: %d", minimumValue);
+    
     NSMutableArray *cardsWithMinimumWeight = [[NSMutableArray alloc] init];
     for (int i = 0; i < [self.cards count]; i ++) {
         if ([[self.cards objectAtIndex:i] cardWeight] == minimumValue) {
