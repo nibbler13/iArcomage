@@ -121,8 +121,9 @@
 @property (weak, nonatomic) IBOutlet UIView *computerWallView;
 
 @property (weak, nonatomic) IBOutlet UILabel *backgroundLabel;
+@property (weak, nonatomic) IBOutlet UILabel *towersSetLabel;
 
-@property (weak, nonatomic) IBOutlet UIImageView *backgroundPicture;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundPictureView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *playerTowerBodyBackground;
 @property (weak, nonatomic) IBOutlet UIImageView *playerTowerHeadBackground;
@@ -140,6 +141,7 @@
 - (IBAction)makePlayerWinButton:(id)sender;
 - (IBAction)soundButtonPressed:(id)sender;
 - (IBAction)victoryConditionsButtonPressed:(id)sender;
+- (IBAction)changeSkinButtonPressed:(id)sender;
 
 @end
 
@@ -206,6 +208,7 @@
     CGFloat playerTowerBodyOriginX;
     
     NSInteger backgroundsCounter;
+    NSInteger skinCounter;
     NSArray *backgroundPictures;
     
     NSInteger gamesPlayed;
@@ -1536,8 +1539,8 @@
 }
 
 #pragma mark - Buttons method
-- (IBAction)backButtonPressed:(id)sender {
-    
+- (IBAction)backButtonPressed:(id)sender
+{
     if (self.isThisCampaignPlaying) { [self.delegate levelCompletedWithVictory:NO]; }
     
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -1545,17 +1548,19 @@
 
 - (IBAction)changeBackground:(id)sender
 {
-    self.backgroundPicture.image = [UIImage imageNamed:backgroundPictures[backgroundsCounter]];
+    self.backgroundPictureView.image = [UIImage imageNamed:[backgroundPictures objectAtIndex:backgroundsCounter]];
     self.backgroundLabel.text = backgroundPictures[backgroundsCounter];
     backgroundsCounter++;
     if (backgroundsCounter > [backgroundPictures count] - 1) { backgroundsCounter = 0; }
 }
 
-- (IBAction)makePlayerWinButton:(id)sender {
+- (IBAction)makePlayerWinButton:(id)sender
+{
     player.tower = 400;
 }
 
-- (IBAction)soundButtonPressed:(id)sender {
+- (IBAction)soundButtonPressed:(id)sender
+{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
     OptionsViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"OptionsView"];
     controller.delegate = self;
@@ -1564,7 +1569,8 @@
     [popoverController presentPopoverFromRect:self.soundButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
 }
 
-- (IBAction)victoryConditionsButtonPressed:(id)sender {
+- (IBAction)victoryConditionsButtonPressed:(id)sender
+{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
     
     VictoryConditionsViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"VictoryConditions"];
@@ -1574,6 +1580,23 @@
     popoverController = [[UIPopoverController alloc] initWithContentViewController:controller];
     
     [popoverController presentPopoverFromRect:self.victoryConditionsButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+}
+
+- (IBAction)changeSkinButtonPressed:(id)sender
+{
+    self.towersSetLabel.text = [NSString stringWithFormat:@"%d", skinCounter];
+    
+    self.playerTowerBodyBackground.image = [UIImage imageNamed:[NSString stringWithFormat:@"TowerBody%d.png", skinCounter]];
+    self.playerTowerHeadBackground.image = [UIImage imageNamed:[NSString stringWithFormat:@"PlayersTowerHead%d.png", skinCounter]];
+    self.playerWallBackground.image = [UIImage imageNamed:[NSString stringWithFormat:@"WallBody%d.png", skinCounter]];
+    
+    self.computerTowerBodyBackground.image = [UIImage imageNamed:[NSString stringWithFormat:@"TowerBody%d.png", skinCounter]];
+    self.computerTowerHeadBackground.image = [UIImage imageNamed:[NSString stringWithFormat:@"ComputersTowerHead%d.png", skinCounter]];
+    self.computerWallBackground.image = [UIImage imageNamed:[NSString stringWithFormat:@"WallBody%d.png", skinCounter]];
+    
+    skinCounter++;
+    
+    if (skinCounter > 20) { skinCounter = 0; }
 }
 
 #pragma mark - Main game cycle
@@ -1588,109 +1611,103 @@
     
     if (self.needToLoadGame) { [self loadPlayerAndComputer]; }
     
-        if (self.isThisCampaignPlaying) {
+    if (self.isThisCampaignPlaying) {
             
-            if (!self.needToLoadGame) {
-                player.tower = self.initialTowerValue;
-                player.wall = self.initialWallValue;
-                computer.tower = self.initialTowerValue;
-                computer.wall = self.initialWallValue;
-            }
-            
-            towerAim = self.towerCampaignAim;
-            wallAim = self.towerCampaignAim * 2;
-            
-            self.backgroundPicture.image = [UIImage imageNamed:self.backgroundImage];
-            
-            self.playerTowerBodyBackground.image = [UIImage imageNamed:self.towerImage];
-            self.playerTowerHeadBackground.image = [UIImage imageNamed:self.playerTowerHeadImage];
-            self.playerWallBackground.image = [UIImage imageNamed:self.wallImage];
-            
-            self.computerTowerBodyBackground.image = [UIImage imageNamed:self.towerImage];
-            self.computerTowerHeadBackground.image = [UIImage imageNamed:self.computerTowerHeadImage];
-            self.computerWallBackground.image = [UIImage imageNamed:self.wallImage];
-            
-        } else {
-            towerAim = 100.0;
-            wallAim = 100.0;
-            self.resourcesCampaignAim = 200;
+        if (!self.needToLoadGame) {
+            player.tower = self.initialTowerValue;
+            player.wall = self.initialWallValue;
+            computer.tower = self.initialTowerValue;
+            computer.wall = self.initialWallValue;
         }
+            
+        towerAim = self.towerCampaignAim;
+        wallAim = self.towerCampaignAim * 2;
+            
+        self.backgroundPictureView.image = [UIImage imageNamed:self.backgroundImage];
+            
+        self.playerTowerBodyBackground.image = [UIImage imageNamed:self.towerImage];
+        self.playerTowerHeadBackground.image = [UIImage imageNamed:self.playerTowerHeadImage];
+        self.playerWallBackground.image = [UIImage imageNamed:self.wallImage];
+            
+        self.computerTowerBodyBackground.image = [UIImage imageNamed:self.towerImage];
+        self.computerTowerHeadBackground.image = [UIImage imageNamed:self.computerTowerHeadImage];
+        self.computerWallBackground.image = [UIImage imageNamed:self.wallImage];
+            
+    } else {
+        towerAim = 100.0;
+        wallAim = 100.0;
+        self.resourcesCampaignAim = 200;
+    }
     
-        [self updatePlayerLabels];
-        [self updateComputerLabels];
-        [self updateAllCards];
-        [self updateCardPositions];
+    [self updatePlayerLabels];
+    [self updateComputerLabels];
+    [self updateAllCards];
+    [self updateCardPositions];
     
-        [self loadScore];
+    [self loadScore];
     
-        doNotClearStack = NO;
-        computerLastPlayedCard = -1;
-        yInitialPositionForCardView = 645.0;
+    doNotClearStack = NO;
+    computerLastPlayedCard = -1;
+    yInitialPositionForCardView = 645.0;
         
-        if (player.tower == 0 ||
-            player.wall == 0 ||
-            computer.tower == 0 ||
-            computer.wall == 0 ||
-            towerAim == 0 ||
-            wallAim == 0) {
-            NSLog(@"THERE IS AN ERROR WITH INITIALIZATION BASIC PARAMETERS");
-        }
+    if (player.tower == 0 ||
+        player.wall == 0 ||
+        computer.tower == 0 ||
+        computer.wall == 0 ||
+        towerAim == 0 ||
+        wallAim == 0) {
+        NSLog(@"THERE IS AN ERROR WITH INITIALIZATION BASIC PARAMETERS");
+    }
         
-        self.playerTowerView.autoresizesSubviews = NO;
-        self.playerTowerView.clipsToBounds = YES;
+    self.playerTowerView.autoresizesSubviews = NO;
+    self.playerTowerView.clipsToBounds = YES;
         
-        self.playerWallView.autoresizesSubviews = NO;
-        self.playerWallView.clipsToBounds = YES;
+    self.playerWallView.autoresizesSubviews = NO;
+    self.playerWallView.clipsToBounds = YES;
         
-        self.computerTowerView.autoresizesSubviews = NO;
-        self.computerTowerView.clipsToBounds = YES;
+    self.computerTowerView.autoresizesSubviews = NO;
+    self.computerTowerView.clipsToBounds = YES;
         
-        self.computerWallView.autoresizesSubviews = NO;
-        self.computerWallView.clipsToBounds = YES;
+    self.computerWallView.autoresizesSubviews = NO;
+    self.computerWallView.clipsToBounds = YES;
         
-        [self updateTowersAndWalls];
+    [self updateTowersAndWalls];
         
-        backgroundsCounter = 0;
-        backgroundPictures = @[@"Background",
-                                        @"Background2",
-                                        @"Background3",
-                                        @"Background4.jpg",
-                                        @"Background5",
-                                        @"Background9",
-                                        @"Background10",
-                                        @"Background11",
-                                        @"Background12",
-                                        @"Background13",
-                                        @"Background14",
-                                        @"Background15",
-                                        @"Background16",
-                                        @"Background17",
-                                        @"Background18",
-                                        @"Background19",
-                                        @"Background20.jpg",
-                                        @"Background21.jpg",
-                                        @"Background22.jpg",
-                                        @"Background23.jpg",
-                                        @"Background24.jpg",
-                                        @"Background25.jpg",
-                                        @"Background26.jpg",
-                                        @"Background30.jpg",
-                                        @"Background31.jpg",
-                                        @"Background33.jpg",
-                                        @"Background34.jpg",
-                                        @"Background36.jpg",
-                                        @"Background37.jpg",
-                                        @"Background38.jpg",
-                                        @"Background39.jpg",
-                                        @"Background40.jpg",
-                                        @"Background41.jpg",
-                                        @"Background42.jpg",
-                                        @"Background43.jpg",
-                                        @"Background44.jpg",
-                                        @"Background45.jpg",
-                                        @"Background46.jpg",
-                                        @"Background48.jpg",
-                                        @"Background49.jpg"];
+    backgroundsCounter = 0;
+    skinCounter = 0;
+    backgroundPictures =       @[@"Background00.jpg",
+                               @"Background01.jpg",
+                               @"Background02.jpg",
+                               @"Background03.jpg",
+                               @"Background04.jpg",
+                               @"Background05.jpg",
+                               @"Background06.jpg",
+                               @"Background07.jpg",
+                               @"Background08.jpg",
+                               @"Background09.jpg",
+                               @"Background10.jpg",
+                               @"Background11.jpg",
+                               @"Background12.jpg",
+                               @"Background13.jpg",
+                               @"Background14.jpg",
+                               @"Background15.jpg",
+                               @"Background16.jpg",
+                               @"Background17.jpg",
+                               @"Background18.jpg",
+                               @"Background19.jpg",
+                               @"Background20.jpg",
+                               @"Background21.jpg",
+                               @"Background22.jpg",
+                               @"Background23.jpg",
+                               @"Background24.jpg",
+                               @"Background25.jpg",
+                               @"Background26.jpg",
+                               @"Background27.jpg",
+                               @"Background28.jpg",
+                               @"Background29.jpg",
+                               @"Background30.jpg",
+                               @"Background31.jpg",
+                               @"Background32.jpg"];
 }
 
 #pragma mark - UpdatingLabels

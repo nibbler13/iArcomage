@@ -866,7 +866,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Background2.png" id="4Zk-3i-d2k">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Background00.jpg" id="4Zk-3i-d2k">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
@@ -1056,10 +1056,10 @@
                                 <color key="shadowColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
-                            <button opaque="NO" alpha="0.40000000000000013" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ci2-Jb-bc4" userLabel="ChangeBackgroundButton">
-                                <rect key="frame" x="846" y="59" width="36" height="32"/>
+                            <button opaque="NO" alpha="0.60000000000000009" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ci2-Jb-bc4" userLabel="ChangeBackgroundButton">
+                                <rect key="frame" x="924" y="484" width="36" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1072,8 +1072,24 @@
                                     <action selector="changeBackground:" destination="UWm-Sj-5Ic" eventType="touchUpInside" id="nzd-Tk-2b3"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ywe-zt-an9" userLabel="ChangeBackgroundButton">
+                                <rect key="frame" x="976" y="484" width="36" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeSkinButtonPressed:" destination="UWm-Sj-5Ic" eventType="touchUpInside" id="fr5-c5-qea"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vtL-09-xSm" userLabel="Add400ToTowerButton">
-                                <rect key="frame" x="846" y="19" width="36" height="32"/>
+                                <rect key="frame" x="873" y="484" width="36" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -1259,11 +1275,11 @@
                                 <rect key="frame" x="142" y="18" width="112" height="476"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="center" image="TowerHeader2.png" id="Zfp-FC-mXq" userLabel="ImageView - PlayerTowerHeader">
-                                        <rect key="frame" x="1" y="1" width="110" height="152"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" image="PlayersTowerHead0.png" id="Zfp-FC-mXq" userLabel="ImageView - PlayerTowerHeader">
+                                        <rect key="frame" x="0.0" y="0.0" width="110" height="152"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="TowerWidth.png" id="AQE-J2-9jC" userLabel="Image View - PlayerTowerWidth">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="TowerBody0.png" id="AQE-J2-9jC" userLabel="Image View - PlayerTowerWidth">
                                         <rect key="frame" x="20" y="152" width="73" height="324"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     </imageView>
@@ -1274,7 +1290,7 @@
                                 <rect key="frame" x="282" y="176" width="38" height="318"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="WallWidth.png" id="iDg-Ed-R27" userLabel="Image View - PlayerWallWidth">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="WallBody0.png" id="iDg-Ed-R27" userLabel="Image View - PlayerWallWidth">
                                         <rect key="frame" x="0.0" y="0.0" width="38" height="318"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -1285,12 +1301,12 @@
                                 <rect key="frame" x="768" y="18" width="112" height="476"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="TowerWidth.png" id="MqP-kt-PN7" userLabel="Image View - ComputerTowerWidth">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="TowerBody0.png" id="MqP-kt-PN7" userLabel="Image View - ComputerTowerWidth">
                                         <rect key="frame" x="19" y="152" width="73" height="324"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="center" image="TowerHeader3.png" id="PyX-4K-7Ym" userLabel="Image View - ComputerTowerHeader">
-                                        <rect key="frame" x="1" y="0.0" width="110" height="152"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" image="ComputersTowerHead0.png" id="PyX-4K-7Ym" userLabel="Image View - ComputerTowerHeader">
+                                        <rect key="frame" x="0.0" y="0.0" width="110" height="152"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
@@ -1300,7 +1316,7 @@
                                 <rect key="frame" x="710" y="176" width="38" height="318"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="WallWidth.png" id="ZuO-3A-ayf" userLabel="Image View - ComputerWallWidth">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="WallBody0.png" id="ZuO-3A-ayf" userLabel="Image View - ComputerWallWidth">
                                         <rect key="frame" x="0.0" y="0.0" width="38" height="318"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -1646,6 +1662,15 @@
                                 <color key="shadowColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="20" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="edw-7c-lRj">
+                                <rect key="frame" x="770" y="3" width="20" height="13"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="0.0" height="1"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -1656,7 +1681,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="backgroundLabel" destination="NH3-WY-rRb" id="rHF-DE-fpU"/>
-                        <outlet property="backgroundPicture" destination="4Zk-3i-d2k" id="AGS-QN-ZP1"/>
+                        <outlet property="backgroundPictureView" destination="4Zk-3i-d2k" id="SJg-iZ-H3x"/>
                         <outlet property="card0Background" destination="VFS-YF-Jlq" id="dOl-t9-ZHL"/>
                         <outlet property="card0Image" destination="dBj-uQ-mS3" id="bZN-y2-jim"/>
                         <outlet property="card0NotAvailable" destination="5TW-BT-wgk" id="rhL-jB-gjx"/>
@@ -1750,6 +1775,7 @@
                         <outlet property="playersCard5Description" destination="Gx5-8J-1QK" id="LL9-b1-0oE"/>
                         <outlet property="playersCard5Name" destination="V8q-d8-3Si" id="Yky-oa-fAY"/>
                         <outlet property="soundButton" destination="ke2-s2-SKU" id="l3e-bm-OM4"/>
+                        <outlet property="towersSetLabel" destination="edw-7c-lRj" id="ZvG-fu-O8f"/>
                         <outlet property="victoryConditionsButton" destination="3uR-eP-2m9" id="9rz-jH-T7g"/>
                     </connections>
                 </viewController>
@@ -1842,7 +1868,7 @@ DQ
     </scenes>
     <resources>
         <image name="Amethyst.png" width="143" height="85"/>
-        <image name="Background2.png" width="1024" height="768"/>
+        <image name="Background00.jpg" width="1024" height="768"/>
         <image name="Button2.png" width="140" height="53"/>
         <image name="ButtonBack.png" width="50" height="50"/>
         <image name="ButtonBack2.png" width="50" height="50"/>
@@ -1855,22 +1881,22 @@ DQ
         <image name="CardBlank_Green.png" width="156" height="208"/>
         <image name="CardBlank_Red.png" width="156" height="208"/>
         <image name="CardSubstrate.png" width="1024" height="270"/>
+        <image name="ComputersTowerHead0.png" width="110" height="152"/>
         <image name="Level_Background.jpg" width="512" height="341"/>
         <image name="MainBackground.png" width="1024" height="768"/>
         <image name="Map.jpg" width="1024" height="683"/>
         <image name="NotAvailable.png" width="156" height="208"/>
         <image name="Papirus.png" width="984" height="768"/>
         <image name="Player_name.png" width="128" height="40"/>
+        <image name="PlayersTowerHead0.png" width="110" height="152"/>
         <image name="ResourceHolder.png" width="130" height="359"/>
         <image name="TavernPreview.jpg" width="150" height="272"/>
+        <image name="TowerBody0.png" width="73" height="350"/>
         <image name="TowerButton.png" width="40" height="73"/>
         <image name="TowerButtonSelected.png" width="40" height="73"/>
-        <image name="TowerHeader2.png" width="110" height="152"/>
-        <image name="TowerHeader3.png" width="110" height="152"/>
         <image name="TowerHolder.png" width="82" height="40"/>
-        <image name="TowerWidth.png" width="73" height="324"/>
+        <image name="WallBody0.png" width="38" height="316"/>
         <image name="WallHolder.png" width="70" height="40"/>
-        <image name="WallWidth.png" width="38" height="316"/>
         <image name="button.png" width="138" height="50"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
