@@ -14,15 +14,15 @@
 		<key>finalResources</key>
 		<integer>100</integer>
 		<key>backgroundPicture</key>
-		<string>Background01.png</string>
+		<string>Background01.jpg</string>
 		<key>towerBackground</key>
-		<string>TowerBody0.png</string>
+		<string>TowerBody1.png</string>
 		<key>towerHeadPlayerBackground</key>
-		<string>PlayersTowerHead0.png</string>
+		<string>PlayersTowerHead1.png</string>
 		<key>towerHeadComputerBackground</key>
-		<string>ComputersTowerHead0.png</string>
+		<string>ComputersTowerHead1.png</string>
 		<key>wallBackground</key>
-		<string>WallBody0.png</string>
+		<string>WallBody1.png</string>
 		<key>backgroundMusic</key>
 		<string>01-CantusPaganus</string>
 		<key>imageForTavern</key>
@@ -42,15 +42,15 @@
 		<key>finalResources</key>
 		<integer>150</integer>
 		<key>backgroundPicture</key>
-		<string>Background02.png</string>
+		<string>Background02.jpg</string>
 		<key>towerBackground</key>
-		<string>TowerBody1.png</string>
+		<string>TowerBody2.png</string>
 		<key>towerHeadPlayerBackground</key>
-		<string>PlayersTowerHead1.png</string>
+		<string>PlayersTowerHead2.png</string>
 		<key>towerHeadComputerBackground</key>
-		<string>ComputersTowerHead1.png</string>
+		<string>ComputersTowerHead2.png</string>
 		<key>wallBackground</key>
-		<string>WallBody1.png</string>
+		<string>WallBody2.png</string>
 		<key>backgroundMusic</key>
 		<string>03-Bordeaux</string>
 		<key>imageForTavern</key>
@@ -70,15 +70,15 @@
 		<key>finalResources</key>
 		<integer>150</integer>
 		<key>backgroundPicture</key>
-		<string>Background03.png</string>
+		<string>Background03.jpg</string>
 		<key>towerBackground</key>
-		<string>TowerBody2.png</string>
+		<string>TowerBody3.png</string>
 		<key>towerHeadPlayerBackground</key>
-		<string>PlayersTowerHead2.png</string>
+		<string>PlayersTowerHead3.png</string>
 		<key>towerHeadComputerBackground</key>
-		<string>ComputersTowerHead2.png</string>
+		<string>ComputersTowerHead3.png</string>
 		<key>wallBackground</key>
-		<string>WallBody2.png</string>
+		<string>WallBody3.png</string>
 		<key>backgroundMusic</key>
 		<string>04-RencontreAStChartier</string>
 		<key>imageForTavern</key>
@@ -100,13 +100,13 @@
 		<key>backgroundPicture</key>
 		<string>Background04.jpg</string>
 		<key>towerBackground</key>
-		<string>TowerBody3.png</string>
+		<string>TowerBody4.png</string>
 		<key>towerHeadPlayerBackground</key>
-		<string>PlayersTowerHead3.png</string>
+		<string>PlayersTowerHead4.png</string>
 		<key>towerHeadComputerBackground</key>
-		<string>ComputersTowerHead3.png</string>
+		<string>ComputersTowerHead4.png</string>
 		<key>wallBackground</key>
-		<string>WallBody3.png</string>
+		<string>WallBody4.png</string>
 		<key>backgroundMusic</key>
 		<string>05-MorningSong</string>
 		<key>imageForTavern</key>
@@ -126,15 +126,15 @@
 		<key>finalResources</key>
 		<integer>200</integer>
 		<key>backgroundPicture</key>
-		<string>Background05.png</string>
+		<string>Background05.jpg</string>
 		<key>towerBackground</key>
-		<string>TowerBody4.png</string>
+		<string>TowerBody5.png</string>
 		<key>towerHeadPlayerBackground</key>
-		<string>PlayersTowerHead4.png</string>
+		<string>PlayersTowerHead5.png</string>
 		<key>towerHeadComputerBackground</key>
-		<string>ComputersTowerHead4.png</string>
+		<string>ComputersTowerHead5.png</string>
 		<key>wallBackground</key>
-		<string>WallBody4.png</string>
+		<string>WallBody5.png</string>
 		<key>backgroundMusic</key>
 		<string>06-Molendinar</string>
 		<key>imageForTavern</key>
@@ -154,15 +154,15 @@
 		<key>finalResources</key>
 		<integer>300</integer>
 		<key>backgroundPicture</key>
-		<string>Background06.png</string>
+		<string>Background06.jpg</string>
 		<key>towerBackground</key>
-		<string>TowerBody5.png</string>
+		<string>TowerBody6.png</string>
 		<key>towerHeadPlayerBackground</key>
-		<string>PlayersTowerHead5.png</string>
+		<string>PlayersTowerHead6.png</string>
 		<key>towerHeadComputerBackground</key>
-		<string>ComputersTowerHead5.png</string>
+		<string>ComputersTowerHead6.png</string>
 		<key>wallBackground</key>
-		<string>WallBody5.png</string>
+		<string>WallBody6.png</string>
 		<key>backgroundMusic</key>
 		<string>08-LaRotta</string>
 		<key>imageForTavern</key>
@@ -182,15 +182,15 @@
 		<key>finalResources</key>
 		<integer>300</integer>
 		<key>backgroundPicture</key>
-		<string>Background07.png</string>
+		<string>Background07.jpg</string>
 		<key>towerBackground</key>
-		<string>TowerBody6.png</string>
+		<string>TowerBody7.png</string>
 		<key>towerHeadPlayerBackground</key>
-		<string>PlayersTowerHead6.png</string>
+		<string>PlayersTowerHead7.png</string>
 		<key>towerHeadComputerBackground</key>
-		<string>ComputersTowerHead6.png</string>
+		<string>ComputersTowerHead7.png</string>
 		<key>wallBackground</key>
-		<string>WallBody6.png</string>
+		<string>WallBody7.png</string>
 		<key>backgroundMusic</key>
 		<string>09-NonPuescSofrirQuaLaDolor</string>
 		<key>imageForTavern</key>
@@ -210,15 +210,15 @@
 		<key>finalResources</key>
 		<integer>300</integer>
 		<key>backgroundPicture</key>
-		<string>Background08.png</string>
+		<string>Background08.jpg</string>
 		<key>towerBackground</key>
-		<string>TowerBody7.png</string>
+		<string>TowerBody8.png</string>
 		<key>towerHeadPlayerBackground</key>
-		<string>PlayersTowerHead7.png</string>
+		<string>PlayersTowerHead8.png</string>
 		<key>towerHeadComputerBackground</key>
-		<string>ComputersTowerHead7.png</string>
+		<string>ComputersTowerHead8.png</string>
 		<key>wallBackground</key>
-		<string>WallBody7.png</string>
+		<string>WallBody8.png</string>
 		<key>backgroundMusic</key>
 		<string>10-OufrezMoiLaPorte</string>
 		<key>imageForTavern</key>
@@ -238,15 +238,15 @@
 		<key>finalResources</key>
 		<integer>300</integer>
 		<key>backgroundPicture</key>
-		<string>Background09.png</string>
+		<string>Background09.jpg</string>
 		<key>towerBackground</key>
-		<string>TowerBody8.png</string>
+		<string>TowerBody9.png</string>
 		<key>towerHeadPlayerBackground</key>
-		<string>PlayersTowerHead8.png</string>
+		<string>PlayersTowerHead9.png</string>
 		<key>towerHeadComputerBackground</key>
-		<string>ComputersTowerHead8.png</string>
+		<string>ComputersTowerHead9.png</string>
 		<key>wallBackground</key>
-		<string>WallBody8.png</string>
+		<string>WallBody9.png</string>
 		<key>backgroundMusic</key>
 		<string>11-ChaconettaTedescha</string>
 		<key>imageForTavern</key>
@@ -266,15 +266,15 @@
 		<key>finalResources</key>
 		<integer>350</integer>
 		<key>backgroundPicture</key>
-		<string>Background10.png</string>
+		<string>Background10.jpg</string>
 		<key>towerBackground</key>
-		<string>TowerBody9.png</string>
+		<string>TowerBody10.png</string>
 		<key>towerHeadPlayerBackground</key>
-		<string>PlayersTowerHead9.png</string>
+		<string>PlayersTowerHead10.png</string>
 		<key>towerHeadComputerBackground</key>
-		<string>ComputersTowerHead9.png</string>
+		<string>ComputersTowerHead10.png</string>
 		<key>wallBackground</key>
-		<string>WallBody9.png</string>
+		<string>WallBody10.png</string>
 		<key>backgroundMusic</key>
 		<string>12-ThePrettyHarvestress</string>
 		<key>imageForTavern</key>
@@ -294,15 +294,15 @@
 		<key>finalResources</key>
 		<integer>350</integer>
 		<key>backgroundPicture</key>
-		<string>Background11.png</string>
+		<string>Background11.jpg</string>
 		<key>towerBackground</key>
-		<string>TowerBody10.png</string>
+		<string>TowerBody11.png</string>
 		<key>towerHeadPlayerBackground</key>
-		<string>PlayersTowerHead10.png</string>
+		<string>PlayersTowerHead11.png</string>
 		<key>towerHeadComputerBackground</key>
-		<string>ComputersTowerHead10.png</string>
+		<string>ComputersTowerHead11.png</string>
 		<key>wallBackground</key>
-		<string>WallBody10.png</string>
+		<string>WallBody11.png</string>
 		<key>backgroundMusic</key>
 		<string>13-BayofDouarnenez</string>
 		<key>imageForTavern</key>
@@ -322,15 +322,15 @@
 		<key>finalResources</key>
 		<integer>400</integer>
 		<key>backgroundPicture</key>
-		<string>Background12.png</string>
+		<string>Background12.jpg</string>
 		<key>towerBackground</key>
-		<string>TowerBody11.png</string>
+		<string>TowerBody12.png</string>
 		<key>towerHeadPlayerBackground</key>
-		<string>PlayersTowerHead11.png</string>
+		<string>PlayersTowerHead12.png</string>
 		<key>towerHeadComputerBackground</key>
-		<string>ComputersTowerHead11.png</string>
+		<string>ComputersTowerHead12.png</string>
 		<key>wallBackground</key>
-		<string>WallBody11.png</string>
+		<string>WallBody12.png</string>
 		<key>backgroundMusic</key>
 		<string>14-StellaSplendens</string>
 		<key>imageForTavern</key>
@@ -350,13 +350,13 @@
 		<key>finalResources</key>
 		<integer>500</integer>
 		<key>backgroundPicture</key>
-		<string>Background13.png</string>
+		<string>Background13.jpg</string>
 		<key>towerBackground</key>
-		<string>TowerBody12.png</string>
+		<string>TowerBody13.png</string>
 		<key>towerHeadPlayerBackground</key>
-		<string>PlayersTowerHead12.png</string>
+		<string>PlayersTowerHead13.png</string>
 		<key>towerHeadComputerBackground</key>
-		<string>ComputersTowerHead12.png</string>
+		<string>ComputersTowerHead13.png</string>
 		<key>wallBackground</key>
 		<string>WallBody12.png</string>
 		<key>backgroundMusic</key>

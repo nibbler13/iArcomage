@@ -1187,7 +1187,7 @@
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Amethyst.png" id="rGn-rJ-6KD">
-                                        <rect key="frame" x="7" y="32" width="143" height="85"/>
+                                        <rect key="frame" x="7" y="32" width="142" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
@@ -1226,7 +1226,7 @@
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Amethyst.png" id="iU0-7N-loe">
-                                        <rect key="frame" x="7" y="32" width="143" height="85"/>
+                                        <rect key="frame" x="7" y="32" width="142" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
@@ -1265,7 +1265,7 @@
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Amethyst.png" id="jZh-f6-p5a">
-                                        <rect key="frame" x="7" y="32" width="143" height="85"/>
+                                        <rect key="frame" x="7" y="32" width="142" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
@@ -1428,7 +1428,7 @@
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Amethyst.png" id="dBj-uQ-mS3">
-                                        <rect key="frame" x="7" y="32" width="143" height="85"/>
+                                        <rect key="frame" x="7" y="32" width="142" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="NotAvailable.png" id="5TW-BT-wgk">
@@ -1471,7 +1471,7 @@
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Amethyst.png" id="NiN-r7-mh1">
-                                        <rect key="frame" x="7" y="32" width="143" height="85"/>
+                                        <rect key="frame" x="7" y="32" width="142" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="NotAvailable.png" id="p5u-bI-uwm">
@@ -1514,7 +1514,7 @@
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Amethyst.png" id="gh4-IB-Sze">
-                                        <rect key="frame" x="7" y="32" width="143" height="85"/>
+                                        <rect key="frame" x="7" y="32" width="142" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="NotAvailable.png" id="Vcz-i7-d2f">
@@ -1557,7 +1557,7 @@
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Amethyst.png" id="90Z-c0-eLP">
-                                        <rect key="frame" x="7" y="32" width="143" height="85"/>
+                                        <rect key="frame" x="7" y="32" width="142" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="NotAvailable.png" id="WBn-qW-qgf">
@@ -1600,7 +1600,7 @@
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Amethyst.png" id="b3q-0M-KTf">
-                                        <rect key="frame" x="7" y="32" width="143" height="85"/>
+                                        <rect key="frame" x="7" y="32" width="142" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="NotAvailable.png" id="yOC-cz-2gC">
@@ -1643,7 +1643,7 @@
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Amethyst.png" id="dge-DJ-irD">
-                                        <rect key="frame" x="7" y="32" width="143" height="85"/>
+                                        <rect key="frame" x="7" y="32" width="142" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="NotAvailable.png" id="VGc-mn-l73">
@@ -1867,7 +1867,7 @@ DQ
         </scene>
     </scenes>
     <resources>
-        <image name="Amethyst.png" width="143" height="85"/>
+        <image name="Amethyst.png" width="142" height="85"/>
         <image name="Background00.jpg" width="1024" height="768"/>
         <image name="Button2.png" width="140" height="53"/>
         <image name="ButtonBack.png" width="50" height="50"/>
@@ -1899,6 +1899,208 @@ DQ
         <image name="WallHolder.png" width="70" height="40"/>
         <image name="button.png" width="138" height="50"/>
     </resources>
+    <classes>
+        <class className="CampaignViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CampaignViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backButtonPressed:"/>
+                <relationship kind="action" name="tavernButton0Pressed:"/>
+                <relationship kind="action" name="tavernButton10Pressed:"/>
+                <relationship kind="action" name="tavernButton11Pressed:"/>
+                <relationship kind="action" name="tavernButton12Pressed:"/>
+                <relationship kind="action" name="tavernButton1Pressed:"/>
+                <relationship kind="action" name="tavernButton2Pressed:"/>
+                <relationship kind="action" name="tavernButton3Pressed:"/>
+                <relationship kind="action" name="tavernButton4Pressed:"/>
+                <relationship kind="action" name="tavernButton5Pressed:"/>
+                <relationship kind="action" name="tavernButton6Pressed:"/>
+                <relationship kind="action" name="tavernButton7Pressed:"/>
+                <relationship kind="action" name="tavernButton8Pressed:"/>
+                <relationship kind="action" name="tavernButton9Pressed:"/>
+                <relationship kind="outlet" name="tavernButton0" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tavernButton1" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tavernButton10" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tavernButton11" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tavernButton12" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tavernButton2" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tavernButton3" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tavernButton4" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tavernButton5" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tavernButton6" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tavernButton7" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tavernButton8" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tavernButton9" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="IncompletedGameViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/IncompletedGameViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="noButton:"/>
+                <relationship kind="action" name="yesButton:"/>
+            </relationships>
+        </class>
+        <class className="InfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backButtonPressed:"/>
+            </relationships>
+        </class>
+        <class className="MainViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="quickGameButton:"/>
+                <relationship kind="action" name="soundsButtonPressed:"/>
+                <relationship kind="outlet" name="incompletedGameView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="quickButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="soundButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="OptionsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OptionsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="musicVolumeChanged:"/>
+                <relationship kind="action" name="soundVolumeChanged:"/>
+                <relationship kind="outlet" name="musicVolume" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="soundVolume" candidateClass="UISlider"/>
+            </relationships>
+        </class>
+        <class className="ScoreViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ScoreViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backButtonPressed:"/>
+                <relationship kind="action" name="increaseButtonPressed:"/>
+                <relationship kind="outlet" name="gamesPlayedLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="gamesWinedLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="StartViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StartViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backButtonPressed:"/>
+                <relationship kind="action" name="changeBackground:"/>
+                <relationship kind="action" name="changeSkinButtonPressed:"/>
+                <relationship kind="action" name="makePlayerWinButton:"/>
+                <relationship kind="action" name="soundButtonPressed:"/>
+                <relationship kind="action" name="victoryConditionsButtonPressed:"/>
+                <relationship kind="outlet" name="backgroundLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="backgroundPictureView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="card0Background" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="card0Image" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="card0NotAvailable" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="card0View" candidateClass="UIView"/>
+                <relationship kind="outlet" name="card1Background" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="card1Image" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="card1NotAvailable" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="card1View" candidateClass="UIView"/>
+                <relationship kind="outlet" name="card2Background" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="card2Image" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="card2NotAvailable" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="card2View" candidateClass="UIView"/>
+                <relationship kind="outlet" name="card3Background" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="card3Image" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="card3NotAvailable" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="card3View" candidateClass="UIView"/>
+                <relationship kind="outlet" name="card4Background" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="card4Image" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="card4NotAvailable" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="card4View" candidateClass="UIView"/>
+                <relationship kind="outlet" name="card5Background" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="card5Image" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="card5NotAvailable" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="card5View" candidateClass="UIView"/>
+                <relationship kind="outlet" name="computerBricks" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="computerCard0" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="computerCard1" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="computerCard2" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="computerCard3" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="computerCard4" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="computerCard5" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="computerDungeons" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="computerGems" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="computerMagics" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="computerQuarries" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="computerRecruits" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="computerTower" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="computerTowerBodyBackground" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="computerTowerHeadBackground" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="computerTowerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="computerWall" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="computerWallBackground" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="computerWallView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="playedCard0Background" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="playedCard0Cost" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playedCard0Desription" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playedCard0Image" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="playedCard0Name" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playedCard0View" candidateClass="UIView"/>
+                <relationship kind="outlet" name="playedCard1Background" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="playedCard1Cost" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playedCard1Desription" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playedCard1Image" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="playedCard1Name" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playedCard1View" candidateClass="UIView"/>
+                <relationship kind="outlet" name="playedCard2Background" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="playedCard2Cost" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playedCard2Desription" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playedCard2Image" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="playedCard2Name" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playedCard2View" candidateClass="UIView"/>
+                <relationship kind="outlet" name="playerBricks" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playerDungeons" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playerGems" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playerMagics" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playerQuarries" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playerRecruits" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playerTower" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playerTowerBodyBackground" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="playerTowerHeadBackground" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="playerTowerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="playerWall" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playerWallBackground" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="playerWallView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="playersCard0Cost" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard0Description" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard0Name" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard1Cost" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard1Description" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard1Name" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard2Cost" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard2Description" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard2Name" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard3Cost" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard3Description" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard3Name" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard4Cost" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard4Description" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard4Name" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard5Cost" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard5Description" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playersCard5Name" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="soundButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="towersSetLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="victoryConditionsButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="TavernInfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TavernInfoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="startButtonPressed:"/>
+                <relationship kind="outlet" name="resourcesFinalLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tavernImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="tavernNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="towerFinalLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="towerInitialLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="wallInitialLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="VictoryConditionsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VictoryConditionsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="resourcesAimLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="towerAimLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

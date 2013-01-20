@@ -1548,7 +1548,9 @@
 
 - (IBAction)changeBackground:(id)sender
 {
-    self.backgroundPictureView.image = [UIImage imageNamed:[backgroundPictures objectAtIndex:backgroundsCounter]];
+    NSString *path = [[NSBundle mainBundle] pathForResource:[backgroundPictures objectAtIndex:backgroundsCounter] ofType:nil];
+    NSLog(@"texture path: %@", path);
+    self.backgroundPictureView.image = [[UIImage alloc] initWithContentsOfFile:path];
     self.backgroundLabel.text = backgroundPictures[backgroundsCounter];
     backgroundsCounter++;
     if (backgroundsCounter > [backgroundPictures count] - 1) { backgroundsCounter = 0; }
@@ -1675,7 +1677,7 @@
         
     backgroundsCounter = 0;
     skinCounter = 0;
-    backgroundPictures =       @[@"Background00.jpg",
+    backgroundPictures =     @[@"Background00.jpg",
                                @"Background01.jpg",
                                @"Background02.jpg",
                                @"Background03.jpg",
@@ -1695,19 +1697,7 @@
                                @"Background17.jpg",
                                @"Background18.jpg",
                                @"Background19.jpg",
-                               @"Background20.jpg",
-                               @"Background21.jpg",
-                               @"Background22.jpg",
-                               @"Background23.jpg",
-                               @"Background24.jpg",
-                               @"Background25.jpg",
-                               @"Background26.jpg",
-                               @"Background27.jpg",
-                               @"Background28.jpg",
-                               @"Background29.jpg",
-                               @"Background30.jpg",
-                               @"Background31.jpg",
-                               @"Background32.jpg"];
+                               @"Background20.jpg"];
 }
 
 #pragma mark - UpdatingLabels
