@@ -446,16 +446,17 @@
                 } else {
                     return -7;
                 }
-                
-                if (computerModel.isThatComputerTurn) {
-                    if (playerModel.wall > 0) {
-                        return -10;
-                    } else {
-                        return -7;
-                    }
+            }
+            
+            if (computerModel.isThatComputerTurn) {
+                if (playerModel.wall > 0) {
+                    return -10;
+                } else {
+                    return -7;
                 }
             }
         }
+        
         
         if ([self.cardName isEqualToString:@"Unicorn"]) {
             if (playerModel.isThatPlayerTurn) {

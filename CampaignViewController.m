@@ -53,15 +53,55 @@
     BOOL needToShowVictoryAnimation;
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    if (needToShowVictoryAnimation) {
+        [self showDarknessAnimationAtX:[[tavernButtons objectAtIndex:selectedTavern] center].x andY:[[tavernButtons objectAtIndex:selectedTavern] center].y+10];
+        
+        [UIImageView transitionWithView:[tavernButtons objectAtIndex:selectedTavern]
+                               duration:4.5
+                                options:UIViewAnimationOptionTransitionCrossDissolve
+                             animations:^{
+                                 
+                                 [[tavernButtons objectAtIndex:selectedTavern] setImage:[UIImage imageNamed:@"test_button"] forState:UIControlStateNormal];
+                                 [[tavernButtons objectAtIndex:selectedTavern] setImage:[UIImage imageNamed:@"test_button_high"] forState:UIControlStateHighlighted];
+                                 
+                                 if (selectedTavern != [tavernButtons count] - 1) {
+                                     [[tavernButtons objectAtIndex:selectedTavern + 1] setAlpha:0];
+                                     [[tavernButtons objectAtIndex:selectedTavern + 1] setHidden:NO];
+                                 }
+                                 
+                                 [UIImageView animateWithDuration:2.0
+                                                            delay:2.5
+                                                          options:UIViewAnimationOptionCurveEaseOut
+                                                       animations:^{
+                                                           if (selectedTavern != [tavernButtons count] - 1) {
+                                                               [[tavernButtons objectAtIndex:selectedTavern+1] setAlpha:1];
+                                                           }
+                                                           
+                                                       }completion:^(BOOL finished){
+                                                           
+                                                       }];
+
+                                 
+                             }completion:^(BOOL finished){
+                                 [self checkWhichTavernAvailableToPlay];
+                                 [self saveCampaignStatus];
+                             }];
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     selectedTavern = -1;
     taverns = [[NSMutableArray alloc] init];
-    if ([[NSFileManager defaultManager] fileExistsAtPath:[self dataFilePath]]) {
-        [self loadCampaignStatus];
-    } else {
+    //if ([[NSFileManager defaultManager] fileExistsAtPath:[self dataFilePath]]) {
+    //    [self loadCampaignStatus];
+    //} else {
         NSString *path = [[NSBundle mainBundle] bundlePath];
         NSString *finalPath = [path stringByAppendingPathComponent:@"Taverns.plist"];
         NSArray *plistArray = [NSArray arrayWithContentsOfFile:finalPath];
@@ -70,8 +110,8 @@
             NSDictionary *info = plistArray[i];
             [taverns addObject:[self fillCampaignDataWithInfo:info]];
         }
-        [self saveCampaignStatus];
-    }
+    //    [self saveCampaignStatus];
+    //}
     
     tavernButtons = [[NSArray alloc] init];
     tavernButtons = @[self.tavernButton0,
@@ -119,17 +159,12 @@
                 tempButton.hidden = NO;
             }
             
-            if (i == selectedTavern && needToShowVictoryAnimation) {
-                NSLog(@"need to show animation");
-            }
-            
-            UIImageView *tempImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"completed"]];
+            /*UIImageView *tempImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"completed"]];
             UIButton *tempButton = tavernButtons[i];
-            tempImage.center = tempButton.center;
+            tempImage.center = tempButton.center;*/
             
-            [[tavernButtons objectAtIndex:i] imageView].alpha = 0.8;
-            [[tavernButtons objectAtIndex:i] imageView].image = [UIImage imageNamed:@"TowerButtonDistorted"];
-            
+            [[tavernButtons objectAtIndex:i] setImage:[UIImage imageNamed:@"test_button"] forState:UIControlStateNormal];
+            [[tavernButtons objectAtIndex:i] setImage:[UIImage imageNamed:@"test_button_high"] forState:UIControlStateHighlighted];
         }
     }
 }
@@ -240,12 +275,11 @@
     [self.delegate gameHasBeenCompleted];
     
     if (victory) {
-        if (![[taverns objectAtIndex:selectedTavern] isAchieved]) {
+        //if (![[taverns objectAtIndex:selectedTavern] isAchieved]) {
             [taverns[selectedTavern] changeIsAchievedValueTo:YES];
             needToShowVictoryAnimation = YES;
-            [self checkWhichTavernAvailableToPlay];
-            [self saveCampaignStatus];
-        }
+            //[self saveCampaignStatus];
+        //}
     }
 }
 
@@ -289,6 +323,48 @@
         
         [self presentViewController:startController animated:YES completion:nil];
     }
+}
+
+#pragma mark - Animation
+
+- (void)showDarknessAnimationAtX:(NSInteger)x andY:(NSInteger)y
+{
+    UIImageView *darknessImage = [[UIImageView alloc] initWithFrame:CGRectMake(-100, -100, 96, 96)];
+    darknessImage.animationImages = @[[UIImage imageNamed:@"Darkness00.png"],
+                                      [UIImage imageNamed:@"Darkness01.png"],
+                                      [UIImage imageNamed:@"Darkness02.png"],
+                                      [UIImage imageNamed:@"Darkness03.png"],
+                                      [UIImage imageNamed:@"Darkness04.png"],
+                                      [UIImage imageNamed:@"Darkness05.png"],
+                                      [UIImage imageNamed:@"Darkness06.png"],
+                                      [UIImage imageNamed:@"Darkness07.png"],
+                                      [UIImage imageNamed:@"Darkness08.png"],
+                                      [UIImage imageNamed:@"Darkness09.png"],
+                                      [UIImage imageNamed:@"Darkness10.png"],
+                                      [UIImage imageNamed:@"Darkness11.png"],
+                                      [UIImage imageNamed:@"Darkness12.png"],
+                                      [UIImage imageNamed:@"Darkness13.png"],
+                                      [UIImage imageNamed:@"Darkness14.png"],
+                                      [UIImage imageNamed:@"Darkness15.png"],
+                                      [UIImage imageNamed:@"Darkness16.png"],
+                                      [UIImage imageNamed:@"Darkness17.png"],
+                                      [UIImage imageNamed:@"Darkness18.png"],
+                                      [UIImage imageNamed:@"Darkness19.png"],
+                                      [UIImage imageNamed:@"Darkness20.png"],
+                                      [UIImage imageNamed:@"Darkness21.png"],
+                                      [UIImage imageNamed:@"Darkness22.png"],
+                                      [UIImage imageNamed:@"Darkness23.png"],
+                                      [UIImage imageNamed:@"Darkness24.png"],
+                                      [UIImage imageNamed:@"Darkness25.png"],
+                                      [UIImage imageNamed:@"Darkness26.png"],
+                                      [UIImage imageNamed:@"Darkness27.png"],
+                                      [UIImage imageNamed:@"Darkness28.png"],
+                                      [UIImage imageNamed:@"Darkness29.png"]];
+    darknessImage.center = CGPointMake(x, y);
+    darknessImage.animationDuration = 3.0;
+    darknessImage.animationRepeatCount = 1;
+    [darknessImage startAnimating];
+    [self.view addSubview:darknessImage];
 }
 
 @end

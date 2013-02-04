@@ -1698,6 +1698,21 @@
                                @"Background18.jpg",
                                @"Background19.jpg",
                                @"Background20.jpg"];
+    
+    /*UIFont *font = [UIFont fontWithName:@"ManuskriptGothisch" size:60.0f];
+    [self.playerQuarries setFont:font];
+    
+    NSLog(@"font1: %@", font);
+    
+    UIFont *font2 = [UIFont fontWithName:@"DarkCrystalScript" size:50.0f];
+    [self.playerMagics setFont:font2];
+    
+    for (NSString *familyName in [UIFont familyNames]) {
+        NSLog(@"Family %@", familyName);
+        NSLog(@"Names = %@", [UIFont fontNamesForFamilyName:familyName]);
+    }
+    
+    NSLog(@"font2: %@", font2);*/
 }
 
 #pragma mark - UpdatingLabels

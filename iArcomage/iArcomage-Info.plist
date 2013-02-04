@@ -54,6 +54,13 @@
 	<string>0.1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>13879_EUROSTIB.ttf</string>
+		<string>1234567.ttf</string>
+		<string>ManuskriptGothischUNZ1A.ttf</string>
+		<string>DarkCrystal(Script).ttf</string>
+	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>MainStoryboard</string>
 	<key>UIMainStoryboardFile~ipad</key>

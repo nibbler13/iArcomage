@@ -26,6 +26,5 @@
     >
 
 @property (nonatomic, strong) id <CampaignViewControllerDelegate> delegate;
-@property (nonatomic) BOOL soundsOn;
 
 @end

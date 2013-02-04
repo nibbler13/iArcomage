@@ -26,7 +26,7 @@
 		<key>backgroundMusic</key>
 		<string>01-CantusPaganus</string>
 		<key>imageForTavern</key>
-		<string>TavernPreview.jpg</string>
+		<string>TavernPreview00.jpg</string>
 		<key>isAchieved</key>
 		<false/>
 	</dict>
@@ -54,7 +54,7 @@
 		<key>backgroundMusic</key>
 		<string>03-Bordeaux</string>
 		<key>imageForTavern</key>
-		<string>TavernPreview.jpg</string>
+		<string>TavernPreview01.jpg</string>
 		<key>isAchieved</key>
 		<false/>
 	</dict>
@@ -82,7 +82,7 @@
 		<key>backgroundMusic</key>
 		<string>04-RencontreAStChartier</string>
 		<key>imageForTavern</key>
-		<string>TavernPreview.jpg</string>
+		<string>TavernPreview02.jpg</string>
 		<key>isAchieved</key>
 		<false/>
 	</dict>
@@ -110,7 +110,7 @@
 		<key>backgroundMusic</key>
 		<string>05-MorningSong</string>
 		<key>imageForTavern</key>
-		<string>TavernPreview.jpg</string>
+		<string>TavernPreview03.jpg</string>
 		<key>isAchieved</key>
 		<false/>
 	</dict>
@@ -138,7 +138,7 @@
 		<key>backgroundMusic</key>
 		<string>06-Molendinar</string>
 		<key>imageForTavern</key>
-		<string>TavernPreview.jpg</string>
+		<string>TavernPreview04.jpg</string>
 		<key>isAchieved</key>
 		<false/>
 	</dict>
@@ -166,7 +166,7 @@
 		<key>backgroundMusic</key>
 		<string>08-LaRotta</string>
 		<key>imageForTavern</key>
-		<string>TavernPreview.jpg</string>
+		<string>TavernPreview05.jpg</string>
 		<key>isAchieved</key>
 		<false/>
 	</dict>
@@ -194,7 +194,7 @@
 		<key>backgroundMusic</key>
 		<string>09-NonPuescSofrirQuaLaDolor</string>
 		<key>imageForTavern</key>
-		<string>TavernPreview.jpg</string>
+		<string>TavernPreview06.jpg</string>
 		<key>isAchieved</key>
 		<false/>
 	</dict>
@@ -222,7 +222,7 @@
 		<key>backgroundMusic</key>
 		<string>10-OufrezMoiLaPorte</string>
 		<key>imageForTavern</key>
-		<string>TavernPreview.jpg</string>
+		<string>TavernPreview07.jpg</string>
 		<key>isAchieved</key>
 		<false/>
 	</dict>
@@ -250,7 +250,7 @@
 		<key>backgroundMusic</key>
 		<string>11-ChaconettaTedescha</string>
 		<key>imageForTavern</key>
-		<string>TavernPreview.jpg</string>
+		<string>TavernPreview08.jpg</string>
 		<key>isAchieved</key>
 		<false/>
 	</dict>
@@ -278,7 +278,7 @@
 		<key>backgroundMusic</key>
 		<string>12-ThePrettyHarvestress</string>
 		<key>imageForTavern</key>
-		<string>TavernPreview.jpg</string>
+		<string>TavernPreview09.jpg</string>
 		<key>isAchieved</key>
 		<false/>
 	</dict>
@@ -306,7 +306,7 @@
 		<key>backgroundMusic</key>
 		<string>13-BayofDouarnenez</string>
 		<key>imageForTavern</key>
-		<string>TavernPreview.jpg</string>
+		<string>TavernPreview10.jpg</string>
 		<key>isAchieved</key>
 		<false/>
 	</dict>
@@ -334,7 +334,7 @@
 		<key>backgroundMusic</key>
 		<string>14-StellaSplendens</string>
 		<key>imageForTavern</key>
-		<string>TavernPreview.jpg</string>
+		<string>TavernPreview11.jpg</string>
 		<key>isAchieved</key>
 		<false/>
 	</dict>
@@ -362,7 +362,7 @@
 		<key>backgroundMusic</key>
 		<string>15-TirNaN&apos;og</string>
 		<key>imageForTavern</key>
-		<string>TavernPreview.jpg</string>
+		<string>TavernPreview12.jpg</string>
 		<key>isAchieved</key>
 		<false/>
 	</dict>

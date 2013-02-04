@@ -21,4 +21,19 @@
     [self.delegate startButtonHasBeenPressed];
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    /*UIFont *font2 = [UIFont fontWithName:@"DarkCrystalScript" size:30.0f];
+    
+    [self.tavernNameLabel setFont:font2];
+    [self.tavernNameLabel sizeToFit];
+    
+    [self.towerInitialLabel setFont:font2];
+    [self.towerFinalLabel setFont:font2];
+    [self.wallInitialLabel setFont:font2];
+    [self.resourcesFinalLabel setFont:font2];*/
+}
+
 @end
