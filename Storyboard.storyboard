@@ -1,9 +1,254 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3012" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="iij-81-ILD">
     <dependencies>
+        <development version="4600" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
+        <!--Incompleted Game View Controller - Main-->
+        <scene sceneID="8jj-An-Vnt">
+            <objects>
+                <viewController id="vme-aR-CuV" customClass="IncompletedGameViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XLC-WI-4T8">
+                        <rect key="frame" x="0.0" y="0.0" width="340" height="220"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="testLevelBack.jpg" id="mJk-ze-L9W">
+                                <rect key="frame" x="0.0" y="0.0" width="340" height="220"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" id="kOC-cW-Tvz">
+                                <rect key="frame" x="155" y="150" width="147" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="soundVolumeChanged:" destination="fN8-WD-VMn" eventType="valueChanged" id="2ix-Lr-Piv"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="aiF-Bj-rdq">
+                                <rect key="frame" x="155" y="115" width="147" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="musicVolumeChanged:" destination="fN8-WD-VMn" eventType="valueChanged" id="4z8-hW-1Ti"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Sound Volume:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cTv-WM-OZr">
+                                <rect key="frame" x="40" y="147" width="108" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Music Volume:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="B0s-AM-HEA">
+                                <rect key="frame" x="40" y="112" width="102" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <switch opaque="NO" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="82b-kR-Rwc">
+                                <rect key="frame" x="223" y="45" width="79" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="onTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </switch>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" text="Hard difficulty mode:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vZy-m2-9WC">
+                                <rect key="frame" x="40" y="45" width="153" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Main" image="Amethyst.png" id="c81-io-RKY"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="380" height="270"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aQR-0Y-RyW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-940" y="-1152"/>
+        </scene>
+        <!--View Controller - Music-->
+        <scene sceneID="Qfz-BW-KCE">
+            <objects>
+                <viewController id="cqX-DF-rPb" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2sF-SH-nST">
+                        <rect key="frame" x="0.0" y="0.0" width="340" height="220"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="testLevelBack.jpg" id="1hE-49-n0u">
+                                <rect key="frame" x="0.0" y="0.0" width="340" height="220"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="zY9-7e-dyY">
+                                <rect key="frame" x="20" y="20" width="300" height="185"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="trackCell" id="QYf-GW-QBn">
+                                        <rect key="frame" x="0.0" y="22" width="300" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Track 01" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="B1U-Vv-msr">
+                                                    <rect key="frame" x="20" y="11" width="67" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Music" image="Amethyst.png" id="hzM-QW-Q3O"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="380" height="270"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ddk-i8-tMG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-940" y="-442"/>
+        </scene>
+        <!--View Controller - Bacground-->
+        <scene sceneID="cv6-Hu-0mf">
+            <objects>
+                <viewController id="7Gr-We-2ZC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xK9-bZ-1gq">
+                        <rect key="frame" x="0.0" y="0.0" width="340" height="220"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="testLevelBack.jpg" id="LD6-9C-2mE">
+                                <rect key="frame" x="0.0" y="0.0" width="340" height="220"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="P9X-SJ-XvG">
+                                <rect key="frame" x="20" y="20" width="200" height="180"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Background01.jpg" id="lof-Xj-pas">
+                                        <rect key="frame" x="0.0" y="14" width="200" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                </subviews>
+                            </scrollView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="7yU-a4-4ki">
+                                <rect key="frame" x="240" y="20" width="80" height="180"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="texture00.png" id="W1O-8r-CQd">
+                                        <rect key="frame" x="0.0" y="15" width="80" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                </subviews>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Zsm-Vp-L4E">
+                                <rect key="frame" x="91" y="196" width="60" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="buttonArrow.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="q2L-8d-l58">
+                                <rect key="frame" x="90" y="5" width="60" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="buttonArrow2.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Asd-Y1-mYu">
+                                <rect key="frame" x="250" y="5" width="60" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="buttonArrow2.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="v3D-rN-0DO">
+                                <rect key="frame" x="250" y="196" width="60" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="buttonArrow.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Bacground" image="Amethyst.png" id="P4m-JF-YlQ"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="380" height="270"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IDq-eP-46W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-940" y="-806"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="7DW-F4-mIb">
+            <objects>
+                <tabBarController storyboardIdentifier="tabBarController" definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8BE-d4-81d" sceneMemberID="viewController">
+                    <value key="contentSizeForViewInPopover" type="size" width="340" height="270"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="0Ix-2O-kho">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="vme-aR-CuV" kind="relationship" relationship="viewControllers" id="XFq-1o-pFS"/>
+                        <segue destination="7Gr-We-2ZC" kind="relationship" relationship="viewControllers" id="Fnh-Kr-JRi"/>
+                        <segue destination="cqX-DF-rPb" kind="relationship" relationship="viewControllers" id="gPm-EF-cvN"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l6p-8f-3CC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2096" y="-1050"/>
+        </scene>
         <!--Victory Conditions View Controller-->
         <scene sceneID="e8b-Bi-Dy5">
             <objects>
@@ -12,7 +257,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Level_Background2.jpg" id="qby-Ee-UF4">
+                            <imageView userInteractionEnabled="NO" contentMode="center" image="testLevelBack.jpg" id="qby-Ee-UF4">
                                 <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
@@ -26,7 +271,7 @@
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="- Your tower must be at 100 or higher" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Vng-7T-262">
-                                <rect key="frame" x="26" y="40" width="248" height="26"/>
+                                <rect key="frame" x="20" y="40" width="260" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -35,7 +280,7 @@
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="- Each of your resources must be at 300 or higher" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zcP-bb-IZH">
-                                <rect key="frame" x="66" y="64" width="169" height="51"/>
+                                <rect key="frame" x="52" y="64" width="197" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -79,7 +324,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="370" height="250"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Level_Background2.jpg" id="61y-gP-Vgb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="testLevelBack.jpg" id="61y-gP-Vgb">
                                 <rect key="frame" x="0.0" y="0.0" width="370" height="250"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -157,7 +402,7 @@
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="20" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6ew-6G-qNq">
-                                <rect key="frame" x="242" y="53" width="19" height="26"/>
+                                <rect key="frame" x="242" y="53" width="25" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -165,7 +410,7 @@
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="20" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="D4k-nQ-Kk4">
-                                <rect key="frame" x="233" y="73" width="19" height="26"/>
+                                <rect key="frame" x="233" y="73" width="28" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -173,7 +418,7 @@
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ihI-Kb-3UA">
-                                <rect key="frame" x="242" y="123" width="25" height="26"/>
+                                <rect key="frame" x="242" y="123" width="35" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -181,7 +426,7 @@
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="300" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5ly-Q7-RnU">
-                                <rect key="frame" x="270" y="143" width="29" height="26"/>
+                                <rect key="frame" x="270" y="143" width="36" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -234,7 +479,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Level_Background2.jpg" id="Rrw-ro-2yX">
+                            <imageView userInteractionEnabled="NO" contentMode="center" image="testLevelBack.jpg" id="Rrw-ro-2yX">
                                 <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -313,7 +558,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Level_Background2.jpg" id="5u4-gK-WCQ">
+                            <imageView userInteractionEnabled="NO" contentMode="center" image="testLevelBack.jpg" id="5u4-gK-WCQ">
                                 <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -639,7 +884,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6VW-i5-zFy" userLabel="6 Button - Barrow Drowns">
-                                <rect key="frame" x="702" y="343" width="55" height="88"/>
+                                <rect key="frame" x="663" y="334" width="55" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="TavernButton6.png">
@@ -655,7 +900,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="b7N-Zt-cDd" userLabel="7 Button - Celeste">
-                                <rect key="frame" x="809" y="383" width="55" height="88"/>
+                                <rect key="frame" x="804" y="383" width="55" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="TavernButton7.png">
@@ -674,12 +919,12 @@
                                 <rect key="frame" x="654" y="458" width="55" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" image="TavernButton0.png">
+                                <state key="normal" image="TavernButton8.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="selected" image="TowerButtonSelected.png"/>
-                                <state key="highlighted" image="test_button_high2.png">
+                                <state key="highlighted" image="TavernButtonHighlighted8.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -691,12 +936,12 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" image="TavernButton0.png">
+                                <state key="normal" image="TavernButton9.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="selected" image="TowerButtonSelected.png"/>
-                                <state key="highlighted" image="test_button_high2.png">
+                                <state key="highlighted" image="TavernButtonHighlighted9.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -704,15 +949,15 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="h3r-VP-ENr" userLabel="10 Button - Tatalia">
-                                <rect key="frame" x="306" y="427" width="55" height="88"/>
+                                <rect key="frame" x="307" y="427" width="55" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" image="TavernButton0.png">
+                                <state key="normal" image="TavernButton10.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="selected" image="TowerButtonSelected.png"/>
-                                <state key="highlighted" image="test_button_high2.png">
+                                <state key="highlighted" image="TavernButtonHighlighted10.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -720,15 +965,15 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZKo-Z1-5Ui" userLabel="11 Button - Evermorn Isle">
-                                <rect key="frame" x="196" y="321" width="55" height="88"/>
+                                <rect key="frame" x="188" y="347" width="55" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" image="TavernButton0.png">
+                                <state key="normal" image="TavernButton11.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="selected" image="TowerButtonSelected.png"/>
-                                <state key="highlighted" image="test_button_high2.png">
+                                <state key="highlighted" image="TavernButtonHighlighted11.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -739,12 +984,12 @@
                                 <rect key="frame" x="293" y="213" width="55" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" image="TavernButton0.png">
+                                <state key="normal" image="TavernButton12.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="selected" image="TowerButtonSelected.png"/>
-                                <state key="highlighted" image="test_button_high2.png">
+                                <state key="highlighted" image="TavernButtonHighlighted12.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -816,8 +1061,8 @@
                                 <color key="shadowColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="1" height="1"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Games win:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EwW-sl-xAk">
-                                <rect key="frame" x="342" y="380" width="187" height="60"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Games winned:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EwW-sl-xAk">
+                                <rect key="frame" x="342" y="380" width="251" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="38"/>
                                 <nil key="highlightedColor"/>
@@ -1061,7 +1306,7 @@
                                 <color key="shadowColor" white="1" alpha="0.40000000000000002" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="1" height="1"/>
                             </label>
-                            <button opaque="NO" alpha="0.60000000000000009" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ci2-Jb-bc4" userLabel="ChangeBackgroundButton">
+                            <button hidden="YES" opaque="NO" alpha="0.60000000000000009" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ci2-Jb-bc4" userLabel="ChangeBackgroundButton">
                                 <rect key="frame" x="924" y="484" width="36" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1077,7 +1322,7 @@
                                     <action selector="changeBackground:" destination="UWm-Sj-5Ic" eventType="touchUpInside" id="nzd-Tk-2b3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ywe-zt-an9" userLabel="ChangeBackgroundButton">
+                            <button hidden="YES" opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ywe-zt-an9" userLabel="ChangeBackgroundButton">
                                 <rect key="frame" x="976" y="484" width="36" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1093,7 +1338,7 @@
                                     <action selector="changeSkinButtonPressed:" destination="UWm-Sj-5Ic" eventType="touchUpInside" id="fr5-c5-qea"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vtL-09-xSm" userLabel="Add400ToTowerButton">
+                            <button hidden="YES" opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vtL-09-xSm" userLabel="Add400ToTowerButton">
                                 <rect key="frame" x="875" y="484" width="36" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1905,6 +2150,7 @@ DQ
     <resources>
         <image name="Amethyst.png" width="142" height="85"/>
         <image name="Background00.jpg" width="1024" height="768"/>
+        <image name="Background01.jpg" width="1024" height="768"/>
         <image name="Border.png" width="154" height="204"/>
         <image name="Button2.png" width="140" height="53"/>
         <image name="ButtonBack.png" width="50" height="50"/>
@@ -1919,7 +2165,6 @@ DQ
         <image name="CardBlank_Red.png" width="156" height="208"/>
         <image name="CardSubstrate.png" width="1024" height="270"/>
         <image name="ComputersTowerHead0.png" width="110" height="152"/>
-        <image name="Level_Background2.jpg" width="370" height="250"/>
         <image name="MainBackground.png" width="1024" height="768"/>
         <image name="Map.jpg" width="1024" height="683"/>
         <image name="NotAvailable.png" width="156" height="208"/>
@@ -1929,20 +2174,30 @@ DQ
         <image name="ResourceHolder.png" width="130" height="359"/>
         <image name="TavernButton0.png" width="55" height="88"/>
         <image name="TavernButton1.png" width="55" height="88"/>
+        <image name="TavernButton10.png" width="55" height="88"/>
+        <image name="TavernButton11.png" width="55" height="88"/>
+        <image name="TavernButton12.png" width="55" height="88"/>
         <image name="TavernButton2.png" width="55" height="88"/>
         <image name="TavernButton3.png" width="55" height="88"/>
         <image name="TavernButton4.png" width="55" height="88"/>
         <image name="TavernButton5.png" width="55" height="88"/>
         <image name="TavernButton6.png" width="55" height="88"/>
         <image name="TavernButton7.png" width="55" height="88"/>
+        <image name="TavernButton8.png" width="55" height="88"/>
+        <image name="TavernButton9.png" width="55" height="88"/>
         <image name="TavernButtonHighlighted0.png" width="55" height="88"/>
         <image name="TavernButtonHighlighted1.png" width="55" height="88"/>
+        <image name="TavernButtonHighlighted10.png" width="55" height="88"/>
+        <image name="TavernButtonHighlighted11.png" width="55" height="88"/>
+        <image name="TavernButtonHighlighted12.png" width="55" height="88"/>
         <image name="TavernButtonHighlighted2.png" width="55" height="88"/>
         <image name="TavernButtonHighlighted3.png" width="55" height="88"/>
         <image name="TavernButtonHighlighted4.png" width="55" height="88"/>
         <image name="TavernButtonHighlighted5.png" width="55" height="88"/>
         <image name="TavernButtonHighlighted6.png" width="55" height="88"/>
         <image name="TavernButtonHighlighted7.png" width="55" height="88"/>
+        <image name="TavernButtonHighlighted8.png" width="55" height="88"/>
+        <image name="TavernButtonHighlighted9.png" width="55" height="88"/>
         <image name="TavernPreview00.jpg" width="150" height="200"/>
         <image name="TowerBody0.png" width="73" height="350"/>
         <image name="TowerButtonSelected.png" width="40" height="73"/>
@@ -1950,7 +2205,10 @@ DQ
         <image name="WallBody0.png" width="38" height="316"/>
         <image name="WallHolder.png" width="70" height="40"/>
         <image name="button.png" width="138" height="50"/>
-        <image name="test_button_high2.png" width="16" height="16"/>
+        <image name="buttonArrow.png" width="60" height="18"/>
+        <image name="buttonArrow2.png" width="60" height="18"/>
+        <image name="testLevelBack.jpg" width="370" height="250"/>
+        <image name="texture00.png" width="80" height="150"/>
     </resources>
     <classes>
         <class className="CampaignViewController" superclassName="UIViewController">

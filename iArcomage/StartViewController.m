@@ -1564,11 +1564,18 @@
 - (IBAction)soundButtonPressed:(id)sender
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
-    OptionsViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"OptionsView"];
+    /*OptionsViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"OptionsView"];
     controller.delegate = self;
     popoverController = [[UIPopoverController alloc] initWithContentViewController:controller];
     popoverController.delegate = (id)self;
+    [popoverController presentPopoverFromRect:self.soundButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];*/
+    
+    UIViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"tabBarController"];
+    //controller.delegate = self;
+    popoverController = [[UIPopoverController alloc] initWithContentViewController:controller];
+    popoverController.delegate = (id)self;
     [popoverController presentPopoverFromRect:self.soundButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+    
 }
 
 - (IBAction)victoryConditionsButtonPressed:(id)sender

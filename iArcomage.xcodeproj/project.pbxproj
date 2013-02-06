@@ -102,6 +102,12 @@
 		743E9AAA162C86A8005F28A0 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 743E9AA9162C86A8005F28A0 /* InfoViewController.m */; };
 		743E9AAD162C86F2005F28A0 /* ScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 743E9AAC162C86F2005F28A0 /* ScoreViewController.m */; };
 		744143671649982600DF07A6 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 744143661649982600DF07A6 /* AudioToolbox.framework */; };
+		744DB1DA16C272A7001BE5F7 /* buttonArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 744DB1D816C272A7001BE5F7 /* buttonArrow.png */; };
+		744DB1DB16C272A7001BE5F7 /* buttonArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 744DB1D916C272A7001BE5F7 /* buttonArrow@2x.png */; };
+		744DB1DE16C272F7001BE5F7 /* buttonArrow2.png in Resources */ = {isa = PBXBuildFile; fileRef = 744DB1DC16C272F7001BE5F7 /* buttonArrow2.png */; };
+		744DB1DF16C272F7001BE5F7 /* buttonArrow2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 744DB1DD16C272F7001BE5F7 /* buttonArrow2@2x.png */; };
+		744DB1E216C281D8001BE5F7 /* texture00.png in Resources */ = {isa = PBXBuildFile; fileRef = 744DB1E016C281D8001BE5F7 /* texture00.png */; };
+		744DB1E316C281D8001BE5F7 /* texture00@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 744DB1E116C281D8001BE5F7 /* texture00@2x.png */; };
 		74594AE016BE6CB500C0A833 /* Darkness00.png in Resources */ = {isa = PBXBuildFile; fileRef = 74594AA416BE6CB500C0A833 /* Darkness00.png */; };
 		74594AE116BE6CB500C0A833 /* Darkness00@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74594AA516BE6CB500C0A833 /* Darkness00@2x.png */; };
 		74594AE216BE6CB500C0A833 /* Darkness01.png in Resources */ = {isa = PBXBuildFile; fileRef = 74594AA616BE6CB500C0A833 /* Darkness01.png */; };
@@ -200,6 +206,28 @@
 		745D240616C0268700A6DCF7 /* TavernButtonHighlighted7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 745D23E616C0268700A6DCF7 /* TavernButtonHighlighted7@2x.png */; };
 		745D240916C03FDD00A6DCF7 /* Level_Background2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 745D240716C03FDC00A6DCF7 /* Level_Background2.jpg */; };
 		745D240A16C03FDD00A6DCF7 /* Level_Background2@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 745D240816C03FDD00A6DCF7 /* Level_Background2@2x.jpg */; };
+		745D242416C11F1D00A6DCF7 /* TavernButton8.png in Resources */ = {isa = PBXBuildFile; fileRef = 745D240C16C11F1D00A6DCF7 /* TavernButton8.png */; };
+		745D242516C11F1D00A6DCF7 /* TavernButton8@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 745D240D16C11F1D00A6DCF7 /* TavernButton8@2x.png */; };
+		745D242616C11F1D00A6DCF7 /* TavernButtonHighlighted8.png in Resources */ = {isa = PBXBuildFile; fileRef = 745D240E16C11F1D00A6DCF7 /* TavernButtonHighlighted8.png */; };
+		745D242716C11F1D00A6DCF7 /* TavernButtonHighlighted8@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 745D240F16C11F1D00A6DCF7 /* TavernButtonHighlighted8@2x.png */; };
+		745D242816C11F1D00A6DCF7 /* TavernButton9.png in Resources */ = {isa = PBXBuildFile; fileRef = 745D241116C11F1D00A6DCF7 /* TavernButton9.png */; };
+		745D242916C11F1D00A6DCF7 /* TavernButton9@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 745D241216C11F1D00A6DCF7 /* TavernButton9@2x.png */; };
+		745D242A16C11F1D00A6DCF7 /* TavernButtonHighlighted9.png in Resources */ = {isa = PBXBuildFile; fileRef = 745D241316C11F1D00A6DCF7 /* TavernButtonHighlighted9.png */; };
+		745D242B16C11F1D00A6DCF7 /* TavernButtonHighlighted9@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 745D241416C11F1D00A6DCF7 /* TavernButtonHighlighted9@2x.png */; };
+		745D242C16C11F1D00A6DCF7 /* TavernButton10.png in Resources */ = {isa = PBXBuildFile; fileRef = 745D241616C11F1D00A6DCF7 /* TavernButton10.png */; };
+		745D242D16C11F1D00A6DCF7 /* TavernButton10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 745D241716C11F1D00A6DCF7 /* TavernButton10@2x.png */; };
+		745D242E16C11F1D00A6DCF7 /* TavernButtonHighlighted10.png in Resources */ = {isa = PBXBuildFile; fileRef = 745D241816C11F1D00A6DCF7 /* TavernButtonHighlighted10.png */; };
+		745D242F16C11F1D00A6DCF7 /* TavernButtonHighlighted10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 745D241916C11F1D00A6DCF7 /* TavernButtonHighlighted10@2x.png */; };
+		745D243016C11F1D00A6DCF7 /* TavernButton11.png in Resources */ = {isa = PBXBuildFile; fileRef = 745D241B16C11F1D00A6DCF7 /* TavernButton11.png */; };
+		745D243116C11F1D00A6DCF7 /* TavernButton11@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 745D241C16C11F1D00A6DCF7 /* TavernButton11@2x.png */; };
+		745D243216C11F1D00A6DCF7 /* TavernButtonHighlighted11.png in Resources */ = {isa = PBXBuildFile; fileRef = 745D241D16C11F1D00A6DCF7 /* TavernButtonHighlighted11.png */; };
+		745D243316C11F1D00A6DCF7 /* TavernButtonHighlighted11@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 745D241E16C11F1D00A6DCF7 /* TavernButtonHighlighted11@2x.png */; };
+		745D243416C11F1D00A6DCF7 /* TavernButton12.png in Resources */ = {isa = PBXBuildFile; fileRef = 745D242016C11F1D00A6DCF7 /* TavernButton12.png */; };
+		745D243516C11F1D00A6DCF7 /* TavernButton12@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 745D242116C11F1D00A6DCF7 /* TavernButton12@2x.png */; };
+		745D243616C11F1D00A6DCF7 /* TavernButtonHighlighted12.png in Resources */ = {isa = PBXBuildFile; fileRef = 745D242216C11F1D00A6DCF7 /* TavernButtonHighlighted12.png */; };
+		745D243716C11F1D00A6DCF7 /* TavernButtonHighlighted12@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 745D242316C11F1D00A6DCF7 /* TavernButtonHighlighted12@2x.png */; };
+		745D243A16C124DD00A6DCF7 /* testLevelBack.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 745D243816C124DC00A6DCF7 /* testLevelBack.jpg */; };
+		745D243B16C124DD00A6DCF7 /* testLevelBack@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 745D243916C124DC00A6DCF7 /* testLevelBack@2x.jpg */; };
 		746A6EE0169C8A2D00799BAC /* 01-CantusPaganus.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 746A6ED0169C8A2D00799BAC /* 01-CantusPaganus.mp3 */; };
 		746A6EE1169C8A2D00799BAC /* 02-Tourdion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 746A6ED1169C8A2D00799BAC /* 02-Tourdion.mp3 */; };
 		746A6EE2169C8A2D00799BAC /* 03-Bordeaux.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 746A6ED2169C8A2D00799BAC /* 03-Bordeaux.mp3 */; };
@@ -862,6 +890,12 @@
 		743E9AAB162C86F2005F28A0 /* ScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreViewController.h; sourceTree = "<group>"; };
 		743E9AAC162C86F2005F28A0 /* ScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreViewController.m; sourceTree = "<group>"; };
 		744143661649982600DF07A6 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		744DB1D816C272A7001BE5F7 /* buttonArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonArrow.png; sourceTree = "<group>"; };
+		744DB1D916C272A7001BE5F7 /* buttonArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buttonArrow@2x.png"; sourceTree = "<group>"; };
+		744DB1DC16C272F7001BE5F7 /* buttonArrow2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonArrow2.png; sourceTree = "<group>"; };
+		744DB1DD16C272F7001BE5F7 /* buttonArrow2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buttonArrow2@2x.png"; sourceTree = "<group>"; };
+		744DB1E016C281D8001BE5F7 /* texture00.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture00.png; sourceTree = "<group>"; };
+		744DB1E116C281D8001BE5F7 /* texture00@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "texture00@2x.png"; sourceTree = "<group>"; };
 		74594AA416BE6CB500C0A833 /* Darkness00.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Darkness00.png; sourceTree = "<group>"; };
 		74594AA516BE6CB500C0A833 /* Darkness00@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Darkness00@2x.png"; sourceTree = "<group>"; };
 		74594AA616BE6CB500C0A833 /* Darkness01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Darkness01.png; sourceTree = "<group>"; };
@@ -960,6 +994,28 @@
 		745D23E616C0268700A6DCF7 /* TavernButtonHighlighted7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TavernButtonHighlighted7@2x.png"; sourceTree = "<group>"; };
 		745D240716C03FDC00A6DCF7 /* Level_Background2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Level_Background2.jpg; sourceTree = "<group>"; };
 		745D240816C03FDD00A6DCF7 /* Level_Background2@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Level_Background2@2x.jpg"; sourceTree = "<group>"; };
+		745D240C16C11F1D00A6DCF7 /* TavernButton8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TavernButton8.png; sourceTree = "<group>"; };
+		745D240D16C11F1D00A6DCF7 /* TavernButton8@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TavernButton8@2x.png"; sourceTree = "<group>"; };
+		745D240E16C11F1D00A6DCF7 /* TavernButtonHighlighted8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TavernButtonHighlighted8.png; sourceTree = "<group>"; };
+		745D240F16C11F1D00A6DCF7 /* TavernButtonHighlighted8@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TavernButtonHighlighted8@2x.png"; sourceTree = "<group>"; };
+		745D241116C11F1D00A6DCF7 /* TavernButton9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TavernButton9.png; sourceTree = "<group>"; };
+		745D241216C11F1D00A6DCF7 /* TavernButton9@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TavernButton9@2x.png"; sourceTree = "<group>"; };
+		745D241316C11F1D00A6DCF7 /* TavernButtonHighlighted9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TavernButtonHighlighted9.png; sourceTree = "<group>"; };
+		745D241416C11F1D00A6DCF7 /* TavernButtonHighlighted9@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TavernButtonHighlighted9@2x.png"; sourceTree = "<group>"; };
+		745D241616C11F1D00A6DCF7 /* TavernButton10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TavernButton10.png; sourceTree = "<group>"; };
+		745D241716C11F1D00A6DCF7 /* TavernButton10@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TavernButton10@2x.png"; sourceTree = "<group>"; };
+		745D241816C11F1D00A6DCF7 /* TavernButtonHighlighted10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TavernButtonHighlighted10.png; sourceTree = "<group>"; };
+		745D241916C11F1D00A6DCF7 /* TavernButtonHighlighted10@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TavernButtonHighlighted10@2x.png"; sourceTree = "<group>"; };
+		745D241B16C11F1D00A6DCF7 /* TavernButton11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TavernButton11.png; sourceTree = "<group>"; };
+		745D241C16C11F1D00A6DCF7 /* TavernButton11@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TavernButton11@2x.png"; sourceTree = "<group>"; };
+		745D241D16C11F1D00A6DCF7 /* TavernButtonHighlighted11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TavernButtonHighlighted11.png; sourceTree = "<group>"; };
+		745D241E16C11F1D00A6DCF7 /* TavernButtonHighlighted11@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TavernButtonHighlighted11@2x.png"; sourceTree = "<group>"; };
+		745D242016C11F1D00A6DCF7 /* TavernButton12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TavernButton12.png; sourceTree = "<group>"; };
+		745D242116C11F1D00A6DCF7 /* TavernButton12@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TavernButton12@2x.png"; sourceTree = "<group>"; };
+		745D242216C11F1D00A6DCF7 /* TavernButtonHighlighted12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TavernButtonHighlighted12.png; sourceTree = "<group>"; };
+		745D242316C11F1D00A6DCF7 /* TavernButtonHighlighted12@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TavernButtonHighlighted12@2x.png"; sourceTree = "<group>"; };
+		745D243816C124DC00A6DCF7 /* testLevelBack.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = testLevelBack.jpg; sourceTree = "<group>"; };
+		745D243916C124DC00A6DCF7 /* testLevelBack@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "testLevelBack@2x.jpg"; sourceTree = "<group>"; };
 		746A6ED0169C8A2D00799BAC /* 01-CantusPaganus.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "01-CantusPaganus.mp3"; sourceTree = "<group>"; };
 		746A6ED1169C8A2D00799BAC /* 02-Tourdion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "02-Tourdion.mp3"; sourceTree = "<group>"; };
 		746A6ED2169C8A2D00799BAC /* 03-Bordeaux.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "03-Bordeaux.mp3"; sourceTree = "<group>"; };
@@ -1677,6 +1733,12 @@
 		743E9A76162C76A9005F28A0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				744DB1E016C281D8001BE5F7 /* texture00.png */,
+				744DB1E116C281D8001BE5F7 /* texture00@2x.png */,
+				744DB1DC16C272F7001BE5F7 /* buttonArrow2.png */,
+				744DB1DD16C272F7001BE5F7 /* buttonArrow2@2x.png */,
+				744DB1D816C272A7001BE5F7 /* buttonArrow.png */,
+				744DB1D916C272A7001BE5F7 /* buttonArrow@2x.png */,
 				7401781916B94AE0007DD2A0 /* DarkCrystal(Script).ttf */,
 				74054EDB16B27E9400C60DEC /* 13879_EUROSTIB.ttf */,
 				7401781816B943AB007DD2A0 /* ManuskriptGothischUNZ1A.ttf */,
@@ -1789,6 +1851,11 @@
 				745D23D816C0268700A6DCF7 /* set5 */,
 				745D23DD16C0268700A6DCF7 /* set6 */,
 				745D23E216C0268700A6DCF7 /* set7 */,
+				745D240B16C11F1D00A6DCF7 /* set8 */,
+				745D241016C11F1D00A6DCF7 /* set9 */,
+				745D241516C11F1D00A6DCF7 /* set10 */,
+				745D241A16C11F1D00A6DCF7 /* set11 */,
+				745D241F16C11F1D00A6DCF7 /* set12 */,
 			);
 			path = TavernButtons;
 			sourceTree = "<group>";
@@ -1879,6 +1946,66 @@
 				745D23E616C0268700A6DCF7 /* TavernButtonHighlighted7@2x.png */,
 			);
 			path = set7;
+			sourceTree = "<group>";
+		};
+		745D240B16C11F1D00A6DCF7 /* set8 */ = {
+			isa = PBXGroup;
+			children = (
+				745D240C16C11F1D00A6DCF7 /* TavernButton8.png */,
+				745D240D16C11F1D00A6DCF7 /* TavernButton8@2x.png */,
+				745D240E16C11F1D00A6DCF7 /* TavernButtonHighlighted8.png */,
+				745D240F16C11F1D00A6DCF7 /* TavernButtonHighlighted8@2x.png */,
+			);
+			name = set8;
+			path = set7/set8;
+			sourceTree = "<group>";
+		};
+		745D241016C11F1D00A6DCF7 /* set9 */ = {
+			isa = PBXGroup;
+			children = (
+				745D241116C11F1D00A6DCF7 /* TavernButton9.png */,
+				745D241216C11F1D00A6DCF7 /* TavernButton9@2x.png */,
+				745D241316C11F1D00A6DCF7 /* TavernButtonHighlighted9.png */,
+				745D241416C11F1D00A6DCF7 /* TavernButtonHighlighted9@2x.png */,
+			);
+			name = set9;
+			path = set7/set9;
+			sourceTree = "<group>";
+		};
+		745D241516C11F1D00A6DCF7 /* set10 */ = {
+			isa = PBXGroup;
+			children = (
+				745D241616C11F1D00A6DCF7 /* TavernButton10.png */,
+				745D241716C11F1D00A6DCF7 /* TavernButton10@2x.png */,
+				745D241816C11F1D00A6DCF7 /* TavernButtonHighlighted10.png */,
+				745D241916C11F1D00A6DCF7 /* TavernButtonHighlighted10@2x.png */,
+			);
+			name = set10;
+			path = set7/set10;
+			sourceTree = "<group>";
+		};
+		745D241A16C11F1D00A6DCF7 /* set11 */ = {
+			isa = PBXGroup;
+			children = (
+				745D241B16C11F1D00A6DCF7 /* TavernButton11.png */,
+				745D241C16C11F1D00A6DCF7 /* TavernButton11@2x.png */,
+				745D241D16C11F1D00A6DCF7 /* TavernButtonHighlighted11.png */,
+				745D241E16C11F1D00A6DCF7 /* TavernButtonHighlighted11@2x.png */,
+			);
+			name = set11;
+			path = set7/set11;
+			sourceTree = "<group>";
+		};
+		745D241F16C11F1D00A6DCF7 /* set12 */ = {
+			isa = PBXGroup;
+			children = (
+				745D242016C11F1D00A6DCF7 /* TavernButton12.png */,
+				745D242116C11F1D00A6DCF7 /* TavernButton12@2x.png */,
+				745D242216C11F1D00A6DCF7 /* TavernButtonHighlighted12.png */,
+				745D242316C11F1D00A6DCF7 /* TavernButtonHighlighted12@2x.png */,
+			);
+			name = set12;
+			path = set7/set12;
 			sourceTree = "<group>";
 		};
 		746A6ECF169C898900799BAC /* Music */ = {
@@ -2488,6 +2615,8 @@
 				74E0D649167B319800B6512E /* TowerButtonSelected@2x.png */,
 				74E0D645167B29BD00B6512E /* Map.jpg */,
 				74E0D644167B29BD00B6512E /* Map@2x.jpg */,
+				745D243816C124DC00A6DCF7 /* testLevelBack.jpg */,
+				745D243916C124DC00A6DCF7 /* testLevelBack@2x.jpg */,
 			);
 			name = CampaignViewController;
 			sourceTree = "<group>";
@@ -3477,6 +3606,34 @@
 				745D240616C0268700A6DCF7 /* TavernButtonHighlighted7@2x.png in Resources */,
 				745D240916C03FDD00A6DCF7 /* Level_Background2.jpg in Resources */,
 				745D240A16C03FDD00A6DCF7 /* Level_Background2@2x.jpg in Resources */,
+				745D242416C11F1D00A6DCF7 /* TavernButton8.png in Resources */,
+				745D242516C11F1D00A6DCF7 /* TavernButton8@2x.png in Resources */,
+				745D242616C11F1D00A6DCF7 /* TavernButtonHighlighted8.png in Resources */,
+				745D242716C11F1D00A6DCF7 /* TavernButtonHighlighted8@2x.png in Resources */,
+				745D242816C11F1D00A6DCF7 /* TavernButton9.png in Resources */,
+				745D242916C11F1D00A6DCF7 /* TavernButton9@2x.png in Resources */,
+				745D242A16C11F1D00A6DCF7 /* TavernButtonHighlighted9.png in Resources */,
+				745D242B16C11F1D00A6DCF7 /* TavernButtonHighlighted9@2x.png in Resources */,
+				745D242C16C11F1D00A6DCF7 /* TavernButton10.png in Resources */,
+				745D242D16C11F1D00A6DCF7 /* TavernButton10@2x.png in Resources */,
+				745D242E16C11F1D00A6DCF7 /* TavernButtonHighlighted10.png in Resources */,
+				745D242F16C11F1D00A6DCF7 /* TavernButtonHighlighted10@2x.png in Resources */,
+				745D243016C11F1D00A6DCF7 /* TavernButton11.png in Resources */,
+				745D243116C11F1D00A6DCF7 /* TavernButton11@2x.png in Resources */,
+				745D243216C11F1D00A6DCF7 /* TavernButtonHighlighted11.png in Resources */,
+				745D243316C11F1D00A6DCF7 /* TavernButtonHighlighted11@2x.png in Resources */,
+				745D243416C11F1D00A6DCF7 /* TavernButton12.png in Resources */,
+				745D243516C11F1D00A6DCF7 /* TavernButton12@2x.png in Resources */,
+				745D243616C11F1D00A6DCF7 /* TavernButtonHighlighted12.png in Resources */,
+				745D243716C11F1D00A6DCF7 /* TavernButtonHighlighted12@2x.png in Resources */,
+				745D243A16C124DD00A6DCF7 /* testLevelBack.jpg in Resources */,
+				745D243B16C124DD00A6DCF7 /* testLevelBack@2x.jpg in Resources */,
+				744DB1DA16C272A7001BE5F7 /* buttonArrow.png in Resources */,
+				744DB1DB16C272A7001BE5F7 /* buttonArrow@2x.png in Resources */,
+				744DB1DE16C272F7001BE5F7 /* buttonArrow2.png in Resources */,
+				744DB1DF16C272F7001BE5F7 /* buttonArrow2@2x.png in Resources */,
+				744DB1E216C281D8001BE5F7 /* texture00.png in Resources */,
+				744DB1E316C281D8001BE5F7 /* texture00@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
