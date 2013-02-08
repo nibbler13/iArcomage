@@ -9,6 +9,8 @@
 #import "PlayerModel.h"
 #import "ComputerModel.h"
 #import "OptionsViewController.h"
+#import "BackgroundViewController.h"
+#import "MusicViewController.h"
 
 @protocol StartViewControllerDelegate <NSObject>
 
@@ -21,7 +23,9 @@
         PlayerModelDelegate,
         ComputerModelDelegate,
         UIAlertViewDelegate,
-        OptionsViewControllerDelegate
+        OptionsViewControllerDelegate,
+        BackgroundViewControllerDelegate,
+        MusicViewControllerDelegate
     >
 
 @property (nonatomic, strong) id <StartViewControllerDelegate> delegate;

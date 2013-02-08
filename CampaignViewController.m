@@ -99,9 +99,9 @@
     
     selectedTavern = -1;
     taverns = [[NSMutableArray alloc] init];
-    //if ([[NSFileManager defaultManager] fileExistsAtPath:[self dataFilePath]]) {
-    //    [self loadCampaignStatus];
-    //} else {
+    if ([[NSFileManager defaultManager] fileExistsAtPath:[self dataFilePath]]) {
+        [self loadCampaignStatus];
+    } else {
         NSString *path = [[NSBundle mainBundle] bundlePath];
         NSString *finalPath = [path stringByAppendingPathComponent:@"Taverns.plist"];
         NSArray *plistArray = [NSArray arrayWithContentsOfFile:finalPath];
@@ -110,8 +110,8 @@
             NSDictionary *info = plistArray[i];
             [taverns addObject:[self fillCampaignDataWithInfo:info]];
         }
-    //    [self saveCampaignStatus];
-    //}
+        [self saveCampaignStatus];
+    }
     
     tavernButtons = [[NSArray alloc] init];
     tavernButtons = @[self.tavernButton0,
@@ -158,10 +158,6 @@
                 UIButton *tempButton = tavernButtons[i+1];
                 tempButton.hidden = NO;
             }
-            
-            /*UIImageView *tempImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"completed"]];
-            UIButton *tempButton = tavernButtons[i];
-            tempImage.center = tempButton.center;*/
             
             [[tavernButtons objectAtIndex:i] setImage:[UIImage imageNamed:@"test_button"] forState:UIControlStateNormal];
             [[tavernButtons objectAtIndex:i] setImage:[UIImage imageNamed:@"test_button_high"] forState:UIControlStateHighlighted];

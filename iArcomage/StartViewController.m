@@ -12,6 +12,7 @@
 #import "OptionsViewController.h"
 #import "SoundSystem.h"
 #import "VictoryConditionsViewController.h"
+#import "OptionTabBarViewController.h"
 
 @interface StartViewController ()
 
@@ -1564,18 +1565,19 @@
 - (IBAction)soundButtonPressed:(id)sender
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
-    /*OptionsViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"OptionsView"];
-    controller.delegate = self;
-    popoverController = [[UIPopoverController alloc] initWithContentViewController:controller];
-    popoverController.delegate = (id)self;
-    [popoverController presentPopoverFromRect:self.soundButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];*/
-    
-    UIViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"tabBarController"];
-    //controller.delegate = self;
-    popoverController = [[UIPopoverController alloc] initWithContentViewController:controller];
-    popoverController.delegate = (id)self;
-    [popoverController presentPopoverFromRect:self.soundButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
-    
+    if (self.isThisCampaignPlaying) {
+        OptionsViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"OptionsView"];
+        controller.delegate = self;
+        popoverController = [[UIPopoverController alloc] initWithContentViewController:controller];
+        popoverController.delegate = (id)self;
+        [popoverController presentPopoverFromRect:self.soundButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+    } else {
+        OptionTabBarViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"tabBarController"];
+        controller.rootController = self;
+        popoverController = [[UIPopoverController alloc] initWithContentViewController:controller];
+        popoverController.delegate = (id)self;
+        [popoverController presentPopoverFromRect:self.soundButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+    }
 }
 
 - (IBAction)victoryConditionsButtonPressed:(id)sender
@@ -1681,45 +1683,8 @@
     self.computerWallView.clipsToBounds = YES;
         
     [self updateTowersAndWalls];
-        
-    backgroundsCounter = 0;
-    skinCounter = 0;
-    backgroundPictures =     @[@"Background00.jpg",
-                               @"Background01.jpg",
-                               @"Background02.jpg",
-                               @"Background03.jpg",
-                               @"Background04.jpg",
-                               @"Background05.jpg",
-                               @"Background06.jpg",
-                               @"Background07.jpg",
-                               @"Background08.jpg",
-                               @"Background09.jpg",
-                               @"Background10.jpg",
-                               @"Background11.jpg",
-                               @"Background12.jpg",
-                               @"Background13.jpg",
-                               @"Background14.jpg",
-                               @"Background15.jpg",
-                               @"Background16.jpg",
-                               @"Background17.jpg",
-                               @"Background18.jpg",
-                               @"Background19.jpg",
-                               @"Background20.jpg"];
-    
-    /*UIFont *font = [UIFont fontWithName:@"ManuskriptGothisch" size:60.0f];
-    [self.playerQuarries setFont:font];
-    
-    NSLog(@"font1: %@", font);
-    
-    UIFont *font2 = [UIFont fontWithName:@"DarkCrystalScript" size:50.0f];
-    [self.playerMagics setFont:font2];
-    
-    for (NSString *familyName in [UIFont familyNames]) {
-        NSLog(@"Family %@", familyName);
-        NSLog(@"Names = %@", [UIFont fontNamesForFamilyName:familyName]);
-    }
-    
-    NSLog(@"font2: %@", font2);*/
+    [self changeBackgroundImage];
+    [self changeTextureImage];
 }
 
 #pragma mark - UpdatingLabels
@@ -2464,6 +2429,33 @@ withCardDescriptionLabel:self.playersCard5Description
 - (void)needToChangeSoundsLevel
 {
     [soundSystem updateSoundVolume];
+}
+
+#pragma  mark - OptionControllersDelegateMethods
+
+- (void)changeBackgroundImage
+{
+    NSInteger currentBackground = [[NSUserDefaults standardUserDefaults] integerForKey:@"currentBackground"];
+    
+    self.backgroundPictureView.image = [UIImage imageNamed:[NSString stringWithFormat:@"Background%d.jpg", currentBackground]];
+}
+
+- (void)changeTextureImage
+{
+    NSInteger currentTexture = [[NSUserDefaults standardUserDefaults] integerForKey:@"currentTexture"];
+    
+    self.playerTowerBodyBackground.image = [UIImage imageNamed:[NSString stringWithFormat:@"TowerBody%d", currentTexture]];
+    self.playerTowerHeadBackground.image = [UIImage imageNamed:[NSString stringWithFormat:@"PlayersTowerHead%d", currentTexture]];
+    self.playerWallBackground.image = [UIImage imageNamed:[NSString stringWithFormat:@"WallBody%d", currentTexture]];
+    
+    self.computerTowerBodyBackground.image = [UIImage imageNamed:[NSString stringWithFormat:@"TowerBody%d", currentTexture]];
+    self.computerTowerHeadBackground.image = [UIImage imageNamed:[NSString stringWithFormat:@"ComputersTowerHead%d", currentTexture]];
+    self.computerWallBackground.image = [UIImage imageNamed:[NSString stringWithFormat:@"WallBody%d", currentTexture]];
+}
+
+- (void)changeMusicToIndex:(NSInteger)index
+{
+    NSLog(@"changeMusicToIndex");
 }
 
 

@@ -14,7 +14,7 @@
 		<key>finalResources</key>
 		<integer>100</integer>
 		<key>backgroundPicture</key>
-		<string>Background01.jpg</string>
+		<string>Background1.jpg</string>
 		<key>towerBackground</key>
 		<string>TowerBody1.png</string>
 		<key>towerHeadPlayerBackground</key>
@@ -42,7 +42,7 @@
 		<key>finalResources</key>
 		<integer>150</integer>
 		<key>backgroundPicture</key>
-		<string>Background02.jpg</string>
+		<string>Background2.jpg</string>
 		<key>towerBackground</key>
 		<string>TowerBody2.png</string>
 		<key>towerHeadPlayerBackground</key>
@@ -70,7 +70,7 @@
 		<key>finalResources</key>
 		<integer>150</integer>
 		<key>backgroundPicture</key>
-		<string>Background03.jpg</string>
+		<string>Background3.jpg</string>
 		<key>towerBackground</key>
 		<string>TowerBody3.png</string>
 		<key>towerHeadPlayerBackground</key>
@@ -98,7 +98,7 @@
 		<key>finalResources</key>
 		<integer>200</integer>
 		<key>backgroundPicture</key>
-		<string>Background04.jpg</string>
+		<string>Background4.jpg</string>
 		<key>towerBackground</key>
 		<string>TowerBody4.png</string>
 		<key>towerHeadPlayerBackground</key>
@@ -126,7 +126,7 @@
 		<key>finalResources</key>
 		<integer>200</integer>
 		<key>backgroundPicture</key>
-		<string>Background05.jpg</string>
+		<string>Background5.jpg</string>
 		<key>towerBackground</key>
 		<string>TowerBody5.png</string>
 		<key>towerHeadPlayerBackground</key>
@@ -154,7 +154,7 @@
 		<key>finalResources</key>
 		<integer>300</integer>
 		<key>backgroundPicture</key>
-		<string>Background06.jpg</string>
+		<string>Background6.jpg</string>
 		<key>towerBackground</key>
 		<string>TowerBody6.png</string>
 		<key>towerHeadPlayerBackground</key>
@@ -182,7 +182,7 @@
 		<key>finalResources</key>
 		<integer>300</integer>
 		<key>backgroundPicture</key>
-		<string>Background07.jpg</string>
+		<string>Background7.jpg</string>
 		<key>towerBackground</key>
 		<string>TowerBody7.png</string>
 		<key>towerHeadPlayerBackground</key>
@@ -210,7 +210,7 @@
 		<key>finalResources</key>
 		<integer>300</integer>
 		<key>backgroundPicture</key>
-		<string>Background08.jpg</string>
+		<string>Background8.jpg</string>
 		<key>towerBackground</key>
 		<string>TowerBody8.png</string>
 		<key>towerHeadPlayerBackground</key>
@@ -238,7 +238,7 @@
 		<key>finalResources</key>
 		<integer>300</integer>
 		<key>backgroundPicture</key>
-		<string>Background09.jpg</string>
+		<string>Background9.jpg</string>
 		<key>towerBackground</key>
 		<string>TowerBody9.png</string>
 		<key>towerHeadPlayerBackground</key>

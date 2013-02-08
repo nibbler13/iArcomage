@@ -43,4 +43,11 @@
     [super viewWillDisappear:animated];
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    NSLog(@"OptionsView loaded");
+}
+
 @end

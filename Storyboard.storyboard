@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--Incompleted Game View Controller - Main-->
+        <!--Options View Controller - Main-->
         <scene sceneID="8jj-An-Vnt">
             <objects>
-                <viewController id="vme-aR-CuV" customClass="IncompletedGameViewController" sceneMemberID="viewController">
+                <viewController id="vme-aR-CuV" customClass="OptionsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XLC-WI-4T8">
                         <rect key="frame" x="0.0" y="0.0" width="340" height="220"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -18,23 +18,25 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" id="kOC-cW-Tvz">
-                                <rect key="frame" x="155" y="150" width="147" height="23"/>
+                                <rect key="frame" x="155" y="176" width="147" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="soundVolumeChanged:" destination="fN8-WD-VMn" eventType="valueChanged" id="2ix-Lr-Piv"/>
+                                    <action selector="soundVolumeChanged:" destination="vme-aR-CuV" eventType="valueChanged" id="Q2p-Q8-ZOM"/>
                                 </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="aiF-Bj-rdq">
-                                <rect key="frame" x="155" y="115" width="147" height="23"/>
+                                <rect key="frame" x="155" y="141" width="147" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="musicVolumeChanged:" destination="fN8-WD-VMn" eventType="valueChanged" id="4z8-hW-1Ti"/>
+                                    <action selector="musicVolumeChanged:" destination="vme-aR-CuV" eventType="valueChanged" id="xzA-V2-cT1"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Sound Volume:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cTv-WM-OZr">
-                                <rect key="frame" x="40" y="147" width="108" height="27"/>
+                                <rect key="frame" x="40" y="173" width="108" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -43,7 +45,7 @@
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Music Volume:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="B0s-AM-HEA">
-                                <rect key="frame" x="40" y="112" width="102" height="27"/>
+                                <rect key="frame" x="40" y="138" width="102" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -52,12 +54,40 @@
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <switch opaque="NO" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="82b-kR-Rwc">
-                                <rect key="frame" x="223" y="45" width="79" height="27"/>
+                                <rect key="frame" x="223" y="20" width="79" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="onTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </switch>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" text="Hard difficulty mode:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vZy-m2-9WC">
-                                <rect key="frame" x="40" y="45" width="153" height="27"/>
+                                <rect key="frame" x="40" y="20" width="175" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <switch opaque="NO" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="xHT-a6-8cX">
+                                <rect key="frame" x="223" y="55" width="79" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="onTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </switch>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" text="Random background:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="R1K-0m-omk">
+                                <rect key="frame" x="40" y="55" width="175" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <switch opaque="NO" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="kD2-bC-M26">
+                                <rect key="frame" x="223" y="90" width="79" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="onTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </switch>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" text="Random music:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="znO-sV-aAU">
+                                <rect key="frame" x="40" y="90" width="175" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -69,20 +99,24 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Main" image="Amethyst.png" id="c81-io-RKY"/>
+                    <tabBarItem key="tabBarItem" title="Main" image="SettingsIcon.png" id="c81-io-RKY"/>
                     <value key="contentSizeForViewInPopover" type="size" width="380" height="270"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="musicVolume" destination="aiF-Bj-rdq" id="eR8-7z-uMQ"/>
+                        <outlet property="soundVolume" destination="kOC-cW-Tvz" id="ebf-ur-yZv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aQR-0Y-RyW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-940" y="-1152"/>
         </scene>
-        <!--View Controller - Music-->
+        <!--Music View Controller - Music-->
         <scene sceneID="Qfz-BW-KCE">
             <objects>
-                <viewController id="cqX-DF-rPb" sceneMemberID="viewController">
+                <viewController id="cqX-DF-rPb" customClass="MusicViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2sF-SH-nST">
                         <rect key="frame" x="0.0" y="0.0" width="340" height="220"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -121,7 +155,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Music" image="Amethyst.png" id="hzM-QW-Q3O"/>
+                    <tabBarItem key="tabBarItem" title="Music" image="MusicIcon.png" id="hzM-QW-Q3O"/>
                     <value key="contentSizeForViewInPopover" type="size" width="380" height="270"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -130,10 +164,10 @@
             </objects>
             <point key="canvasLocation" x="-940" y="-442"/>
         </scene>
-        <!--View Controller - Bacground-->
+        <!--Background View Controller - Background-->
         <scene sceneID="cv6-Hu-0mf">
             <objects>
-                <viewController id="7Gr-We-2ZC" sceneMemberID="viewController">
+                <viewController id="7Gr-We-2ZC" customClass="BackgroundViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xK9-bZ-1gq">
                         <rect key="frame" x="0.0" y="0.0" width="340" height="220"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -142,25 +176,31 @@
                                 <rect key="frame" x="0.0" y="0.0" width="340" height="220"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="P9X-SJ-XvG">
-                                <rect key="frame" x="20" y="20" width="200" height="180"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="P9X-SJ-XvG">
+                                <rect key="frame" x="20" y="30" width="200" height="160"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Background01.jpg" id="lof-Xj-pas">
-                                        <rect key="frame" x="0.0" y="14" width="200" height="150"/>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="Background0.jpg" id="lof-Xj-pas">
+                                        <rect key="frame" x="0.0" y="5" width="200" height="150"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
                                 </subviews>
+                                <connections>
+                                    <outlet property="delegate" destination="7Gr-We-2ZC" id="MJC-PV-suA"/>
+                                </connections>
                             </scrollView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="7yU-a4-4ki">
-                                <rect key="frame" x="240" y="20" width="80" height="180"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="7yU-a4-4ki">
+                                <rect key="frame" x="240" y="30" width="80" height="160"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="texture00.png" id="W1O-8r-CQd">
-                                        <rect key="frame" x="0.0" y="15" width="80" height="150"/>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="texture00.png" id="W1O-8r-CQd">
+                                        <rect key="frame" x="0.0" y="5" width="80" height="150"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
                                 </subviews>
+                                <connections>
+                                    <outlet property="delegate" destination="7Gr-We-2ZC" id="nln-fi-GmW"/>
+                                </connections>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Zsm-Vp-L4E">
                                 <rect key="frame" x="91" y="196" width="60" height="19"/>
@@ -173,6 +213,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="backgroundDownButtonPressed:" destination="7Gr-We-2ZC" eventType="touchUpInside" id="7xi-yX-zzc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="q2L-8d-l58">
                                 <rect key="frame" x="90" y="5" width="60" height="19"/>
@@ -185,6 +228,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="backgroundUpButtonPressed:" destination="7Gr-We-2ZC" eventType="touchUpInside" id="BQN-2K-KHI"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Asd-Y1-mYu">
                                 <rect key="frame" x="250" y="5" width="60" height="19"/>
@@ -197,6 +243,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="textureUpButtonPressed:" destination="7Gr-We-2ZC" eventType="touchUpInside" id="Cp9-kp-JN3"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="v3D-rN-0DO">
                                 <rect key="frame" x="250" y="196" width="60" height="19"/>
@@ -209,25 +258,36 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="textureDownButtonPressed:" destination="7Gr-We-2ZC" eventType="touchUpInside" id="gYE-Ey-nP2"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Bacground" image="Amethyst.png" id="P4m-JF-YlQ"/>
+                    <tabBarItem key="tabBarItem" title="Background" image="BackgroundIcon.png" id="P4m-JF-YlQ"/>
                     <value key="contentSizeForViewInPopover" type="size" width="380" height="270"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="backgroundDownButton" destination="Zsm-Vp-L4E" id="7xx-x3-yWV"/>
+                        <outlet property="backgroundImageScrollView" destination="P9X-SJ-XvG" id="ECF-Vf-Nce"/>
+                        <outlet property="backgroundUpButton" destination="q2L-8d-l58" id="D4t-vr-O6q"/>
+                        <outlet property="textureDownButton" destination="v3D-rN-0DO" id="tt5-ot-IGk"/>
+                        <outlet property="textureScrollView" destination="7yU-a4-4ki" id="4Nu-Sx-CYj"/>
+                        <outlet property="textureUpButton" destination="Asd-Y1-mYu" id="8md-fB-Thd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IDq-eP-46W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-940" y="-806"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Option Tab Bar View Controller-->
         <scene sceneID="7DW-F4-mIb">
             <objects>
-                <tabBarController storyboardIdentifier="tabBarController" definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8BE-d4-81d" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBarController" definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8BE-d4-81d" customClass="OptionTabBarViewController" sceneMemberID="viewController">
                     <value key="contentSizeForViewInPopover" type="size" width="340" height="270"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -1110,7 +1170,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Background00.jpg" id="4Zk-3i-d2k">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Background0.jpg" id="4Zk-3i-d2k">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
@@ -1306,42 +1366,10 @@
                                 <color key="shadowColor" white="1" alpha="0.40000000000000002" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="1" height="1"/>
                             </label>
-                            <button hidden="YES" opaque="NO" alpha="0.60000000000000009" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ci2-Jb-bc4" userLabel="ChangeBackgroundButton">
-                                <rect key="frame" x="924" y="484" width="36" height="32"/>
+                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vtL-09-xSm" userLabel="Add400ToTowerButton">
+                                <rect key="frame" x="974" y="484" width="36" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="changeBackground:" destination="UWm-Sj-5Ic" eventType="touchUpInside" id="nzd-Tk-2b3"/>
-                                </connections>
-                            </button>
-                            <button hidden="YES" opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ywe-zt-an9" userLabel="ChangeBackgroundButton">
-                                <rect key="frame" x="976" y="484" width="36" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="changeSkinButtonPressed:" destination="UWm-Sj-5Ic" eventType="touchUpInside" id="fr5-c5-qea"/>
-                                </connections>
-                            </button>
-                            <button hidden="YES" opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vtL-09-xSm" userLabel="Add400ToTowerButton">
-                                <rect key="frame" x="875" y="484" width="36" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -2149,8 +2177,8 @@ DQ
     </scenes>
     <resources>
         <image name="Amethyst.png" width="142" height="85"/>
-        <image name="Background00.jpg" width="1024" height="768"/>
-        <image name="Background01.jpg" width="1024" height="768"/>
+        <image name="Background0.jpg" width="1024" height="768"/>
+        <image name="BackgroundIcon.png" width="30" height="30"/>
         <image name="Border.png" width="154" height="204"/>
         <image name="Button2.png" width="140" height="53"/>
         <image name="ButtonBack.png" width="50" height="50"/>
@@ -2167,11 +2195,13 @@ DQ
         <image name="ComputersTowerHead0.png" width="110" height="152"/>
         <image name="MainBackground.png" width="1024" height="768"/>
         <image name="Map.jpg" width="1024" height="683"/>
+        <image name="MusicIcon.png" width="30" height="30"/>
         <image name="NotAvailable.png" width="156" height="208"/>
         <image name="Papirus.png" width="984" height="768"/>
         <image name="Player_name.png" width="130" height="40"/>
         <image name="PlayersTowerHead0.png" width="110" height="152"/>
         <image name="ResourceHolder.png" width="130" height="359"/>
+        <image name="SettingsIcon.png" width="30" height="30"/>
         <image name="TavernButton0.png" width="55" height="88"/>
         <image name="TavernButton1.png" width="55" height="88"/>
         <image name="TavernButton10.png" width="55" height="88"/>
@@ -2210,208 +2240,6 @@ DQ
         <image name="testLevelBack.jpg" width="370" height="250"/>
         <image name="texture00.png" width="80" height="150"/>
     </resources>
-    <classes>
-        <class className="CampaignViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CampaignViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButtonPressed:"/>
-                <relationship kind="action" name="tavernButton0Pressed:"/>
-                <relationship kind="action" name="tavernButton10Pressed:"/>
-                <relationship kind="action" name="tavernButton11Pressed:"/>
-                <relationship kind="action" name="tavernButton12Pressed:"/>
-                <relationship kind="action" name="tavernButton1Pressed:"/>
-                <relationship kind="action" name="tavernButton2Pressed:"/>
-                <relationship kind="action" name="tavernButton3Pressed:"/>
-                <relationship kind="action" name="tavernButton4Pressed:"/>
-                <relationship kind="action" name="tavernButton5Pressed:"/>
-                <relationship kind="action" name="tavernButton6Pressed:"/>
-                <relationship kind="action" name="tavernButton7Pressed:"/>
-                <relationship kind="action" name="tavernButton8Pressed:"/>
-                <relationship kind="action" name="tavernButton9Pressed:"/>
-                <relationship kind="outlet" name="tavernButton0" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton1" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton10" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton11" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton12" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton2" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton3" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton4" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton5" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton6" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton7" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton8" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton9" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="IncompletedGameViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/IncompletedGameViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="noButton:"/>
-                <relationship kind="action" name="yesButton:"/>
-            </relationships>
-        </class>
-        <class className="InfoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButtonPressed:"/>
-            </relationships>
-        </class>
-        <class className="MainViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="quickGameButton:"/>
-                <relationship kind="action" name="soundsButtonPressed:"/>
-                <relationship kind="outlet" name="incompletedGameView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="quickButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="soundButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="OptionsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OptionsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="musicVolumeChanged:"/>
-                <relationship kind="action" name="soundVolumeChanged:"/>
-                <relationship kind="outlet" name="musicVolume" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="soundVolume" candidateClass="UISlider"/>
-            </relationships>
-        </class>
-        <class className="ScoreViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ScoreViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButtonPressed:"/>
-                <relationship kind="action" name="increaseButtonPressed:"/>
-                <relationship kind="outlet" name="gamesPlayedLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="gamesWinedLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="StartViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StartViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButtonPressed:"/>
-                <relationship kind="action" name="changeBackground:"/>
-                <relationship kind="action" name="changeSkinButtonPressed:"/>
-                <relationship kind="action" name="makePlayerWinButton:"/>
-                <relationship kind="action" name="soundButtonPressed:"/>
-                <relationship kind="action" name="victoryConditionsButtonPressed:"/>
-                <relationship kind="outlet" name="backgroundLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="backgroundPictureView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card0Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card0Image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card0NotAvailable" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card0View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="card1Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card1Image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card1NotAvailable" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card1View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="card2Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card2Image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card2NotAvailable" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card2View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="card3Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card3Image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card3NotAvailable" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card3View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="card4Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card4Image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card4NotAvailable" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card4View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="card5Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card5Image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card5NotAvailable" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card5View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="computerBricks" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerCard0" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerCard1" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerCard2" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerCard3" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerCard4" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerCard5" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerDungeons" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerGems" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerMagics" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerQuarries" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerRecruits" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerTower" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerTowerBodyBackground" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerTowerHeadBackground" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerTowerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="computerWall" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerWallBackground" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerWallView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="playedCard0Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playedCard0Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard0Desription" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard0Image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playedCard0Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard0View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="playedCard1Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playedCard1Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard1Desription" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard1Image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playedCard1Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard1View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="playedCard2Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playedCard2Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard2Desription" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard2Image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playedCard2Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard2View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="playerBricks" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerDungeons" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerGems" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerMagics" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerQuarries" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerRecruits" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerTower" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerTowerBodyBackground" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playerTowerHeadBackground" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playerTowerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="playerWall" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerWallBackground" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playerWallView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="playersCard0Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard0Description" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard0Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard1Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard1Description" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard1Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard2Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard2Description" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard2Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard3Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard3Description" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard3Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard4Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard4Description" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard4Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard5Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard5Description" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard5Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="soundButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="towersSetLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="victoryConditionsButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="TavernInfoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TavernInfoViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="startButtonPressed:"/>
-                <relationship kind="outlet" name="resourcesFinalLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="tavernImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="tavernNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="towerFinalLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="towerInitialLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="wallInitialLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="VictoryConditionsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VictoryConditionsViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="resourcesAimLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="towerAimLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
