@@ -1683,8 +1683,11 @@
     self.computerWallView.clipsToBounds = YES;
         
     [self updateTowersAndWalls];
-    [self changeBackgroundImage];
-    [self changeTextureImage];
+    
+    if (!self.isThisCampaignPlaying) {
+        [self changeBackgroundImage];
+        [self changeTextureImage];
+    }
 }
 
 #pragma mark - UpdatingLabels
