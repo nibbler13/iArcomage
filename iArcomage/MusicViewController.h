@@ -14,7 +14,7 @@
 
 @end
 
-@interface MusicViewController : UIViewController
+@interface MusicViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) id <MusicViewControllerDelegate> delegate;
 

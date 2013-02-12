@@ -347,6 +347,9 @@
 		7463ADA216C57EF100D79200 /* texturePreview9@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7463AD7816C57EF100D79200 /* texturePreview9@2x.png */; };
 		7463ADA516C5805B00D79200 /* CheckTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 7463ADA316C5805B00D79200 /* CheckTexture.png */; };
 		7463ADA616C5805B00D79200 /* CheckTexture@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7463ADA416C5805B00D79200 /* CheckTexture@2x.png */; };
+		7463ADA916C6633300D79200 /* CampaignDataMainObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7463ADA816C6633200D79200 /* CampaignDataMainObject.m */; };
+		7463ADAC16C6E2E100D79200 /* checkMusic.png in Resources */ = {isa = PBXBuildFile; fileRef = 7463ADAA16C6E2E100D79200 /* checkMusic.png */; };
+		7463ADAD16C6E2E100D79200 /* checkMusic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7463ADAB16C6E2E100D79200 /* checkMusic@2x.png */; };
 		746A6EE0169C8A2D00799BAC /* 01-CantusPaganus.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 746A6ED0169C8A2D00799BAC /* 01-CantusPaganus.mp3 */; };
 		746A6EE1169C8A2D00799BAC /* 02-Tourdion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 746A6ED1169C8A2D00799BAC /* 02-Tourdion.mp3 */; };
 		746A6EE2169C8A2D00799BAC /* 03-Bordeaux.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 746A6ED2169C8A2D00799BAC /* 03-Bordeaux.mp3 */; };
@@ -1226,6 +1229,10 @@
 		7463AD7816C57EF100D79200 /* texturePreview9@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "texturePreview9@2x.png"; sourceTree = "<group>"; };
 		7463ADA316C5805B00D79200 /* CheckTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CheckTexture.png; sourceTree = "<group>"; };
 		7463ADA416C5805B00D79200 /* CheckTexture@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CheckTexture@2x.png"; sourceTree = "<group>"; };
+		7463ADA716C6633200D79200 /* CampaignDataMainObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CampaignDataMainObject.h; path = iArcomage/CampaignDataMainObject.h; sourceTree = "<group>"; };
+		7463ADA816C6633200D79200 /* CampaignDataMainObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CampaignDataMainObject.m; path = iArcomage/CampaignDataMainObject.m; sourceTree = "<group>"; };
+		7463ADAA16C6E2E100D79200 /* checkMusic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkMusic.png; sourceTree = "<group>"; };
+		7463ADAB16C6E2E100D79200 /* checkMusic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkMusic@2x.png"; sourceTree = "<group>"; };
 		746A6ED0169C8A2D00799BAC /* 01-CantusPaganus.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "01-CantusPaganus.mp3"; sourceTree = "<group>"; };
 		746A6ED1169C8A2D00799BAC /* 02-Tourdion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "02-Tourdion.mp3"; sourceTree = "<group>"; };
 		746A6ED2169C8A2D00799BAC /* 03-Bordeaux.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "03-Bordeaux.mp3"; sourceTree = "<group>"; };
@@ -1826,6 +1833,8 @@
 				74D0AFDE16A1839800179E9A /* SoundSystem.m */,
 				74E0D62F167A243100B6512E /* CampaignData.h */,
 				74E0D630167A243100B6512E /* CampaignData.m */,
+				7463ADA716C6633200D79200 /* CampaignDataMainObject.h */,
+				7463ADA816C6633200D79200 /* CampaignDataMainObject.m */,
 				740EA06B164152D800AFFA55 /* Card.h */,
 				740EA06C164152D800AFFA55 /* Card.m */,
 				740EA06E164152E600AFFA55 /* CardsScope.h */,
@@ -2865,6 +2874,8 @@
 				7463ACC216C39D1300D79200 /* CheckBackground@2x.png */,
 				7463ADA316C5805B00D79200 /* CheckTexture.png */,
 				7463ADA416C5805B00D79200 /* CheckTexture@2x.png */,
+				7463ADAA16C6E2E100D79200 /* checkMusic.png */,
+				7463ADAB16C6E2E100D79200 /* checkMusic@2x.png */,
 				7463ACC316C39D1300D79200 /* GradientBackground.png */,
 				7463ACC416C39D1300D79200 /* GradientBackground@2x.png */,
 				7463ACF916C3E7BC00D79200 /* NotAvailableBackground.png */,
@@ -4001,6 +4012,8 @@
 				7463ADA216C57EF100D79200 /* texturePreview9@2x.png in Resources */,
 				7463ADA516C5805B00D79200 /* CheckTexture.png in Resources */,
 				7463ADA616C5805B00D79200 /* CheckTexture@2x.png in Resources */,
+				7463ADAC16C6E2E100D79200 /* checkMusic.png in Resources */,
+				7463ADAD16C6E2E100D79200 /* checkMusic@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4031,6 +4044,7 @@
 				7463ACBA16C2DFF500D79200 /* OptionTabBarViewController.m in Sources */,
 				7463ACBD16C2E05500D79200 /* BackgroundViewController.m in Sources */,
 				7463ACC016C2E06500D79200 /* MusicViewController.m in Sources */,
+				7463ADA916C6633300D79200 /* CampaignDataMainObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 //
 
 #import "BackgroundViewController.h"
+#import "CampaignDataMainObject.h"
 #import "CampaignData.h"
 
 @interface BackgroundViewController ()
@@ -28,7 +29,7 @@
 
 @implementation BackgroundViewController
 {
-    NSMutableArray *taverns;
+    CampaignDataMainObject *mainObject;
     NSInteger currentBackgroundScrollPage;
     NSInteger currentTextureScrollPage;
     
@@ -56,20 +57,7 @@
     NSInteger currentBackground = [[NSUserDefaults standardUserDefaults] integerForKey:@"currentBackground"];
     NSInteger currentTexture = [[NSUserDefaults standardUserDefaults] integerForKey:@"currentTexture"];
     
-    taverns = [[NSMutableArray alloc] init];
-    
-    if ([[NSFileManager defaultManager] fileExistsAtPath:[self dataFilePath]]) {
-        [self loadCampaignStatus];
-    } else {
-        NSString *path = [[NSBundle mainBundle] bundlePath];
-        NSString *finalPath = [path stringByAppendingPathComponent:@"Taverns.plist"];
-        NSArray *plistArray = [NSArray arrayWithContentsOfFile:finalPath];
-        int x = [plistArray count];
-        for (int i = 0; i < x; i++) {
-            NSDictionary *info = plistArray[i];
-            [taverns addObject:[self fillCampaignDataWithInfo:info]];
-        }
-    }
+    mainObject = [CampaignDataMainObject sharedCampaignDataMainObject];
     
     self.backgroundImageScrollView.contentSize = CGSizeMake(backgroundItemWidth, (backgroundItemHeight+margin*2)*20);
     
@@ -106,13 +94,13 @@
         }
         
         if (i > 0 && i < 14) {
-            if (![[taverns objectAtIndex: i - 1] isAchieved]) {
+            if (![[mainObject.taverns objectAtIndex: i - 1] isAchieved]) {
                 backgroundNotAvailable = NO;
-                tavernName = [[taverns objectAtIndex: i - 1] tavernName];
+                tavernName = [[mainObject.taverns objectAtIndex: i - 1] tavernName];
             }
-        } else if (i > 13 && ![[taverns objectAtIndex:12] isAchieved]) {
+        } else if (i > 13 && ![[mainObject.taverns objectAtIndex:12] isAchieved]) {
             backgroundNotAvailable = NO;
-            tavernName = [[taverns objectAtIndex:12] tavernName];
+            tavernName = [[mainObject.taverns objectAtIndex:12] tavernName];
         }
         
         if (!backgroundNotAvailable) {
@@ -162,9 +150,6 @@
     
     currentBackgroundScrollPage = currentBackground;
     currentTextureScrollPage = currentTexture;
-    NSLog(@"currentTExture: %d, %d", currentTextureScrollPage, currentTexture);
-    [self backgroundScrollPageChanged];
-    [self textureScrollPageChanged];
     
     if (currentBackgroundScrollPage == 0) {
         self.backgroundUpButton.hidden = YES;
@@ -181,10 +166,24 @@
     }
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    NSInteger currentBackground = [[NSUserDefaults standardUserDefaults] integerForKey:@"currentBackground"];
+    NSInteger currentTexture = [[NSUserDefaults standardUserDefaults] integerForKey:@"currentTexture"];
+    
+    currentBackgroundScrollPage = currentBackground;
+    currentTextureScrollPage = currentTexture;
+    
+    [self backgroundScrollPageChanged];
+    [self textureScrollPageChanged];
+}
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     if ([scrollView isEqual:self.backgroundImageScrollView]) {
-        NSLog(@"background scroll");
+        
         CGFloat height = backgroundItemHeight + margin * 2;
         int page = (self.backgroundImageScrollView.contentOffset.y + height/2.0f) / height;
         
@@ -206,7 +205,7 @@
             self.backgroundDownButton.hidden = YES;
         }
     } else {
-        NSLog(@"texture scroll");
+        
         CGFloat height = textureItemHeight + margin * 2;
         int page = (self.textureScrollView.contentOffset.y + height/2.0f) / height;
         
@@ -286,48 +285,6 @@
                      }completion:^(BOOL finished){
                          
                      }];
-}
-
-- (NSString*)documentsDirectory
-{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = paths[0];
-    return documentsDirectory;
-}
-
-- (NSString*)dataFilePath
-{
-    return [[self documentsDirectory] stringByAppendingPathComponent:@"CampaignProgressSave.plist"];
-}
-
-- (void)loadCampaignStatus
-{
-    NSString *path = [self dataFilePath];
-    if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-        NSData *data = [[NSData alloc] initWithContentsOfFile:path];
-        NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
-        taverns = [unarchiver decodeObjectForKey:@"taverns"];
-        [unarchiver finishDecoding];
-    }
-}
-
-- (CampaignData*)fillCampaignDataWithInfo:(NSDictionary*)info
-{
-    CampaignData *data = [[CampaignData alloc] init];
-    data.tavernName = [info objectForKey:@"tavernName"];
-    data.initialTower = [[info objectForKey:@"initialTower"] integerValue];
-    data.initialWall = [[info objectForKey:@"initialWall"] integerValue];
-    data.finalTower = [[info objectForKey:@"finalTower"] integerValue];
-    data.finalResources = [[info objectForKey:@"finalResources"] integerValue];
-    data.backgroundPicture = [info objectForKey:@"backgroundPicture"];
-    data.towerBackground = [info objectForKey:@"towerBackground"];
-    data.towerHeadPlayerBackground = [info objectForKey:@"towerHeadPlayerBackground"];
-    data.towerHeadComputerBackground = [info objectForKey:@"towerHeadComputerBackground"];
-    data.wallBackground = [info objectForKey:@"wallBackground"];
-    data.backgroundMusic = [info objectForKey:@"backgroundMusic"];
-    data.imageForTavern = [info objectForKey:@"imageForTavern"];
-    data.isAchieved = [[info objectForKey:@"isAchieved"] boolValue];
-    return data;
 }
 
 - (IBAction)backgroundUpButtonPressed:(id)sender

@@ -10,6 +10,7 @@
 #import "OptionsViewController.h"
 #import "BackgroundViewController.h"
 #import "MusicViewController.h"
+#import "CampaignDataMainObject.h"
 
 @interface OptionTabBarViewController ()
 
@@ -29,6 +30,13 @@
     
     MusicViewController *controller2 = [self.viewControllers objectAtIndex:2];
     controller2.delegate = self.rootController;
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [CampaignDataMainObject destroyCampaignDataMainObject];
+    
+    [super viewDidDisappear:animated];
 }
 
 @end

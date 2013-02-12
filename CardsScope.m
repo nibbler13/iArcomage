@@ -8,7 +8,6 @@
 
 #import "CardsScope.h"
 
-
 static CardsScope *cardsScope;
 
 @implementation CardsScope

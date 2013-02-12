@@ -2458,7 +2458,7 @@ withCardDescriptionLabel:self.playersCard5Description
 
 - (void)changeMusicToIndex:(NSInteger)index
 {
-    NSLog(@"changeMusicToIndex");
+    NSLog(@"changeMusicToIndex: %d", index);
 }
 
 
