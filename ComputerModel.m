@@ -209,6 +209,10 @@ static ComputerModel *computer;
     }
     NSLog(@"maximumWeight: %d", maximumWeight);
     
+    if (maximumWeight < 1) {
+        [self discardACard];
+    }
+    
     NSMutableArray *cardsWithMaximumWeight = [[NSMutableArray alloc] init];
     for (int i = 0; i < [cardsAvailableToPlay count]; i ++) {
         if ([[self.cards objectAtIndex:[[cardsAvailableToPlay objectAtIndex:i] integerValue]] cardWeight] == maximumWeight) {
@@ -230,6 +234,7 @@ static ComputerModel *computer;
     }
     
     NSInteger minimumValue = 20;
+    
     for (int i = 0; i < [self.cards count]; i++) {
         if (minimumValue > [[self.cards objectAtIndex:i] cardWeight]) {
             minimumValue = [[self.cards objectAtIndex:i] cardWeight];
