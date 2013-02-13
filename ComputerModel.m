@@ -564,6 +564,28 @@ static ComputerModel *computer;
                                                                  isThisForWall:NO]];
         
         NSLog(@"T: %d", currentCard.cardWeight);
+        
+        if (currentCard.additionalTerms) {
+            
+            if ([currentCard.cardName isEqualToString:@"Lucky Cache"]
+                ||  [currentCard.cardName isEqualToString:@"Friendly Terrain"]
+                ||  [currentCard.cardName isEqualToString:@"Tremors"]
+                ||  [currentCard.cardName isEqualToString:@"Secret Room"]
+                ||  [currentCard.cardName isEqualToString:@"Quartz"]
+                ||  [currentCard.cardName isEqualToString:@"Prism"]
+                ||  [currentCard.cardName isEqualToString:@"Faerie"]
+                ||  [currentCard.cardName isEqualToString:@"Elven Scout"]
+                ||  [currentCard.cardName isEqualToString:@"Shadow Faerie"]
+                ||  [currentCard.cardName isEqualToString:@"Smoky Quartz"]
+                ||  [currentCard.cardName isEqualToString:@"Prism"]
+                ||  [currentCard.cardName isEqualToString:@"Elven Scout"]) {
+                
+                [currentCard increaseCardWeightOn:3];
+                
+            }
+        }
+
+        
         [self.cards replaceObjectAtIndex:i withObject:currentCard];
         
     }
@@ -580,18 +602,22 @@ static ComputerModel *computer;
     NSInteger tempLowLimit;
     NSInteger tempMaxLimit;
     
+    NSInteger minimum;
+    
     if (general && !tower && !wall) {
         tempMax = maxWeightForSuperResource;
         tempMiddle = middleWeightForSuperResource;
         tempLow = lowWeightForSuperResource;
         tempLowLimit = 3;
         tempMaxLimit = 6;
+        minimum = 1;
     } else if (!general && !tower && !wall) {
         tempMax = maxWeightForResource;
         tempMiddle = middleWeightForResource;
         tempLow = lowWeightForResource;
         tempLowLimit = 10;
         tempMaxLimit = 20;
+        minimum = 1;
     }
     
     if (tower) {
@@ -600,6 +626,7 @@ static ComputerModel *computer;
         tempLow = lowWeightForTower;
         tempLowLimit = 15;
         tempMaxLimit = 30;
+        minimum = -1;
     }
     
     if (wall) {
@@ -608,44 +635,45 @@ static ComputerModel *computer;
         tempLow = lowWeightForWall;
         tempLowLimit = 10;
         tempMaxLimit = 20;
+        minimum = -1;
     }
     
     if (resource <= tempLowLimit) {
         if (changeSelf > 0) {
             counter += tempMax;
-        } else if (changeSelf < 0 && resource > 1) {
+        } else if (changeSelf < 0 && resource > minimum) {
             counter -= tempMax;
         }
     } else  if (resource > tempLowLimit && resource < tempMaxLimit){
         if (changeSelf > 0) {
             counter += tempMiddle;
-        } else if (changeSelf < 0 && resource > 1) {
+        } else if (changeSelf < 0 && resource > minimum) {
             counter -= tempMiddle;
         }
     } else {
         if (changeSelf > 0) {
             counter += tempLow;
-        } else if (changeSelf < 0 && resource > 1) {
+        } else if (changeSelf < 0 && resource > minimum) {
             counter -= tempLow;
         }
     }
     
-    if (resourceEnemy <= 3) {
+    if (resourceEnemy <= tempLowLimit) {
         if (changeEnemy > 0) {
             counter -= tempMax;
-        } else if (changeEnemy < 0 && ) {
+        } else if (changeEnemy < 0 && resourceEnemy > minimum) {
             counter += tempMax;
         }
-    } else if (resourceEnemy > 3 && resourceEnemy < 6) {
+    } else if (resourceEnemy > tempLowLimit && resourceEnemy < tempMaxLimit) {
         if (changeEnemy > 0) {
             counter -= tempMiddle;
-        } else if (changeEnemy < 0) {
+        } else if (changeEnemy < 0 && resourceEnemy > minimum) {
             counter += tempMiddle;
         }
     } else {
         if (changeEnemy > 0) {
             counter -= tempLow;
-        } else if (changeEnemy < 0) {
+        } else if (changeEnemy < 0 && resourceEnemy > minimum) {
             counter += tempLow;
         }
     }
