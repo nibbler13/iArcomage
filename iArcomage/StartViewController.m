@@ -137,6 +137,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *soundButton;
 @property (weak, nonatomic) IBOutlet UIButton *victoryConditionsButton;
 
+@property (weak, nonatomic) IBOutlet UILabel *computerNameLabel;
+
+
 - (IBAction)backButtonPressed:(id)sender;
 - (IBAction)changeBackground:(id)sender;
 - (IBAction)makePlayerWinButton:(id)sender;
@@ -1688,6 +1691,8 @@
         [self changeBackgroundImage];
         [self changeTextureImage];
     }
+    
+    [self needToChangeHardMode];
 }
 
 #pragma mark - UpdatingLabels
@@ -2459,6 +2464,52 @@ withCardDescriptionLabel:self.playersCard5Description
 - (void)changeMusicToIndex:(NSInteger)index
 {
     NSLog(@"changeMusicToIndex: %d", index);
+}
+
+- (void)needToChangeHardMode
+{
+    for (NSString *familyName in [UIFont familyNames]){
+        for (NSString *fontName in [UIFont fontNamesForFamilyName:familyName]){
+            NSLog(@"%@", fontName);
+        }
+    }
+    
+    NSLog(@"computer name font: %@", self.computerNameLabel.font);
+    
+    UIColor *color;
+    UIFont *font;
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"hardMode"]) {
+        color = [UIColor redColor];
+        self.computerNameLabel.center = CGPointMake(self.computerNameLabel.center.x, 20);
+        
+        UILabel *label = [[UILabel alloc] init];
+        label.text = @"Hard mode";
+        label.backgroundColor = [UIColor clearColor];
+        label.textColor = color;
+        [label setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.0f]];
+        label.tag = 101;
+        label.shadowColor = [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:0.2f];
+        label.shadowOffset = CGSizeMake(1.0f, 1.0f);
+        [label sizeToFit];
+        
+        label.center = CGPointMake(self.computerNameLabel.center.x, self.computerNameLabel.center.y + 12);
+        [self.view addSubview:label];
+        
+        font = [UIFont fontWithName:@"Helvetica-Bold" size:15.0f];
+    } else {
+        [[self.view viewWithTag:101] removeFromSuperview];
+        
+        self.computerNameLabel.center = CGPointMake(self.computerNameLabel.center.x, 26);
+        color = [UIColor colorWithRed:102.0f/255.0f green:255.0f/255.0f blue:204.0f/255.0f alpha:1.0];
+        font = [UIFont fontWithName:@"Helvetica" size:15.0f];
+    }
+    
+    [self.computerNameLabel setFont:font];
+    [self.computerNameLabel sizeToFit];
+    self.computerNameLabel.textColor = color;
+    
+    NSLog(@"startNeedToChangeHardMode");
 }
 
 

@@ -12,6 +12,10 @@
 
 - (void)needToChangeSoundsLevel;
 
+@optional
+
+- (void)needToChangeHardMode;
+
 @end
 
 @interface OptionsViewController : UIViewController

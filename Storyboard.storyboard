@@ -53,12 +53,15 @@
                                 <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
-                            <switch opaque="NO" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="82b-kR-Rwc">
+                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="82b-kR-Rwc">
                                 <rect key="frame" x="223" y="20" width="79" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="onTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="hardModeChanged:" destination="vme-aR-CuV" eventType="valueChanged" id="Mim-qv-Hmt"/>
+                                </connections>
                             </switch>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" text="Hard difficulty mode:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vZy-m2-9WC">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hard difficulty mode:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vZy-m2-9WC">
                                 <rect key="frame" x="40" y="20" width="175" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="16"/>
@@ -105,6 +108,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="hardMode" destination="82b-kR-Rwc" id="cFl-MQ-ueZ"/>
                         <outlet property="musicVolume" destination="aiF-Bj-rdq" id="eR8-7z-uMQ"/>
                         <outlet property="soundVolume" destination="kOC-cW-Tvz" id="ebf-ur-yZv"/>
                     </connections>
@@ -589,12 +593,15 @@
                                 <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
-                            <switch opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="2R2-ZS-L71">
+                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="2R2-ZS-L71">
                                 <rect key="frame" x="203" y="20" width="79" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="onTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="hardModeChanged:" destination="fN8-WD-VMn" eventType="valueChanged" id="ocs-IQ-p6A"/>
+                                </connections>
                             </switch>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" text="Hard difficulty mode:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1po-QQ-5J5">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hard difficulty mode:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1po-QQ-5J5">
                                 <rect key="frame" x="20" y="20" width="153" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="16"/>
@@ -614,6 +621,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="hardMode" destination="2R2-ZS-L71" id="2rN-Dd-T5v"/>
                         <outlet property="musicVolume" destination="B36-fv-N1b" id="Jcq-km-01G"/>
                         <outlet property="soundVolume" destination="fn8-fY-MBH" id="rqU-g0-aD8"/>
                     </connections>
@@ -1312,7 +1320,7 @@
                                 <rect key="frame" x="909" y="16" width="86" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.97254901959999995" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.40000000596046448" green="1" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
@@ -2037,6 +2045,7 @@
                         <outlet property="computerDungeons" destination="OPW-TM-vd0" id="WKq-vO-yJF"/>
                         <outlet property="computerGems" destination="99s-Uc-rzc" id="THV-PR-o90"/>
                         <outlet property="computerMagics" destination="giT-7C-JXP" id="dn6-h5-Xrh"/>
+                        <outlet property="computerNameLabel" destination="miZ-m2-hjI" id="auI-8V-YsD"/>
                         <outlet property="computerQuarries" destination="1lG-ZG-5IR" id="qID-uu-CO2"/>
                         <outlet property="computerRecruits" destination="nnp-1t-eFl" id="XRH-aF-x7l"/>
                         <outlet property="computerTower" destination="rMY-UD-XgE" id="q9I-8k-gbG"/>
@@ -2336,8 +2345,10 @@ DQ
         <class className="OptionsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/OptionsViewController.h"/>
             <relationships>
+                <relationship kind="action" name="hardModeChanged:"/>
                 <relationship kind="action" name="musicVolumeChanged:"/>
                 <relationship kind="action" name="soundVolumeChanged:"/>
+                <relationship kind="outlet" name="hardMode" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="musicVolume" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="soundVolume" candidateClass="UISlider"/>
             </relationships>
@@ -2396,6 +2407,7 @@ DQ
                 <relationship kind="outlet" name="computerDungeons" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="computerGems" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="computerMagics" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="computerNameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="computerQuarries" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="computerRecruits" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="computerTower" candidateClass="UILabel"/>

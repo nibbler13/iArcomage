@@ -16,20 +16,20 @@
 #endif
 
 #define maxWeightForSuperResource 10
-#define middleWeightForSuperResource 6
-#define lowWeightForSuperResource 3
+#define middleWeightForSuperResource 5
+#define lowWeightForSuperResource 2
 
-#define maxWeightForResource 4
-#define middleWeightForResource 3
+#define maxWeightForResource 3
+#define middleWeightForResource 2
 #define lowWeightForResource 1
 
 #define maxWeightForTower 8
-#define middleWeightForTower 4
+#define middleWeightForTower 5
 #define lowWeightForTower 3
 
-#define maxWeightForWall 7
-#define middleWeightForWall 5
-#define lowWeightForWall 3
+#define maxWeightForWall 6
+#define middleWeightForWall 3
+#define lowWeightForWall 2
 
 #define maxIdle -10
 #define middleIdle -5

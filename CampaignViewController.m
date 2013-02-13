@@ -58,6 +58,9 @@
     [super viewDidAppear:animated];
     
     if (needToShowVictoryAnimation) {
+        
+        [self saveCampaignStatus];
+        
         [self showDarknessAnimationAtX:[[tavernButtons objectAtIndex:selectedTavern] center].x andY:[[tavernButtons objectAtIndex:selectedTavern] center].y+10];
         
         [UIImageView transitionWithView:[tavernButtons objectAtIndex:selectedTavern]
@@ -88,7 +91,6 @@
                                  
                              }completion:^(BOOL finished){
                                  [self checkWhichTavernAvailableToPlay];
-                                 [self saveCampaignStatus];
                              }];
     }
 }
