@@ -585,6 +585,22 @@
                              
                              [self releaseCardSelectionForView:view withDefaultPosition:defaultPosition withDefaultRect:defaultRect];
                              
+                             if (player.shouldDiscardACard) {
+                                 UILabel *discardLabel = [[UILabel alloc] init];
+                                 [discardLabel setText:@"DISCARD A CARD"];
+                                 [discardLabel setAlpha:0.6f];
+                                 [discardLabel setShadowColor:[UIColor blackColor]];
+                                 [discardLabel setShadowOffset:CGSizeMake(1.0f, 1.0f)];
+                                 [discardLabel setBackgroundColor:[UIColor clearColor]];
+                                 [discardLabel setTextColor:[self.computerNameLabel textColor]];
+                                 [discardLabel setFont:[self.computerNameLabel font]];
+                                 [discardLabel sizeToFit];
+                                 [discardLabel setCenter:CGPointMake(512, 514)];
+                                 [discardLabel setFrame:CGRectIntegral(discardLabel.frame)];
+                                 discardLabel.tag = 1100;
+                                 [self.view insertSubview:discardLabel aboveSubview:self.backgroundPictureView];
+                             }
+                             
                              double howLongShouldBeAnimation;
                              
                              if (doNotClearStack) { howLongShouldBeAnimation = 0.0; }
@@ -818,6 +834,8 @@
                                                   ///////////////////////////////////////////////////////
                                                   if (player.shouldDiscardACard) {
                                                       player.shouldDiscardACard = NO;
+                                                      
+                                                      [[self.view viewWithTag:1100] removeFromSuperview];
                                                       
                                                       xInitialPositionForCardView = 118;
                                                       cardsOffset = 196;
@@ -1405,6 +1423,8 @@
                                  [self.playedCard0View addSubview:discardLabel];
                                  isPlayedCard1WasDiscarded = NO;
                                  isPlayedCard0WasDiscarded = YES;
+                             } else {
+                                 isPlayedCard0WasDiscarded = NO;
                              }
                              
                              self.playedCard1Background.image = self.playedCard2Background.image;
@@ -1423,6 +1443,8 @@
                                  [self.playedCard1View addSubview:discardLabel];
                                  isPlayedCard2WasDiscarded = NO;
                                  isPlayedCard1WasDiscarded = YES;
+                             } else {
+                                 isPlayedCard1WasDiscarded = NO;
                              }
                              
                              [self configureCard:tempCard
@@ -1439,6 +1461,22 @@
                                  discardLabel.center = CGPointMake(self.playedCard2View.bounds.size.width/2, self.playedCard2View.bounds.size.height/2-30);
                                  discardLabel.tag = 1002;
                                  [self.playedCard2View addSubview:discardLabel];
+                                 isPlayedCard2WasDiscarded = YES;
+                             } else {
+                                 isPlayedCard2WasDiscarded = NO;
+                             }
+                             
+                             if (!isPlayedCard0WasDiscarded) {
+                                 UIImageView *tempView = (UIImageView*)[self.view viewWithTag:1000];
+                                 [tempView removeFromSuperview];
+                             }
+                             if (!isPlayedCard1WasDiscarded) {
+                                 UIImageView *tempView = (UIImageView*)[self.view viewWithTag:1001];
+                                 [tempView removeFromSuperview];
+                             }
+                             if (!isPlayedCard2WasDiscarded) {
+                                 UIImageView *tempView = (UIImageView*)[self.view viewWithTag:1002];
+                                 [tempView removeFromSuperview];
                              }
                              
                              self.playedCard0View.alpha = 1.0;
