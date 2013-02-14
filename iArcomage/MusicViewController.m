@@ -35,6 +35,38 @@
     
     NSIndexPath *scrollIndexPath = [NSIndexPath indexPathForItem:[[NSUserDefaults standardUserDefaults] integerForKey:@"currentMusic"] inSection:0];
     [self.tableView scrollToRowAtIndexPath:scrollIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"randomMusic"]) {
+        
+        if ([self.view viewWithTag:105] == nil) {
+            UIView *newView = [[UIView alloc] initWithFrame:self.view.frame];
+            newView.backgroundColor = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.6f];
+            newView.tag = 105;
+            
+            UILabel *newLabel = [[UILabel alloc] init];
+            [newLabel setFont:[UIFont fontWithName:@"Papyrus" size:18.0f]];
+            [newLabel setText:@"Switch off random music to select manually"];
+            [newLabel sizeToFit];
+            [newLabel setBackgroundColor:[UIColor clearColor]];
+            [newLabel setTextColor:[UIColor whiteColor]];
+            [newLabel setNumberOfLines:2];
+            [newLabel setTextAlignment:NSTextAlignmentCenter];
+            [newLabel setFrame:CGRectMake(self.view.center.x - (newLabel.frame.size.width * 0.60 / 2), (self.view.center.y - newLabel.frame.size.height), newLabel.frame.size.width * 0.60, newLabel.frame.size.height * 2)];
+            [newLabel setFrame:CGRectIntegral(newLabel.frame)];
+            
+            [newView addSubview:newLabel];
+            
+            [self.view addSubview:newView];
+        }
+    } else {
+        [[self.view viewWithTag:105] removeFromSuperview];
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -113,7 +145,7 @@
     [[NSUserDefaults standardUserDefaults] setInteger:indexPath.row forKey:@"currentMusic"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    [self.delegate changeMusicToIndex:indexPath.row];
+    [self.delegate changeMusic];
     
     [self.tableView scrollToNearestSelectedRowAtScrollPosition:UITableViewScrollPositionMiddle animated:YES];
     

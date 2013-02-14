@@ -18,6 +18,7 @@ static ComputerModel *computer;
     CardsScope *cardsScope;
     NSMutableArray *cardsAvailableToPlay;
     PlayerModel *player;
+    BOOL isThisNotFirstRurn;
 }
 
 #pragma mark -Initialization
@@ -63,11 +64,15 @@ static ComputerModel *computer;
 #pragma mark -GamePlay
 
 - (void)nextTurnIncreaseResource
-{   
-    self.bricks += self.quarries;
-    self.gems += self.magics;
-    self.recruits += self.dungeons;
-    [self.delegate needToUpdateLabels];
+{
+    if (isThisNotFirstRurn) {
+        self.bricks += self.quarries;
+        self.gems += self.magics;
+        self.recruits += self.dungeons;
+    } else {
+        isThisNotFirstRurn = YES;
+    }
+    //[self.delegate needToUpdateLabels];
 }
 
 - (void)computerTurn
@@ -131,7 +136,7 @@ static ComputerModel *computer;
         }
     }
     
-    NSLog(@"========cardsAvailableToPlay: %d", [cardsAvailableToPlay count]);
+    //NSLog(@"========cardsAvailableToPlay: %d", [cardsAvailableToPlay count]);
     
     if ([cardsAvailableToPlay count] > 0) {
         if (!self.shouldDiscardACard) {
@@ -177,7 +182,6 @@ static ComputerModel *computer;
 - (void)processCard:(NSInteger)number
 {
     [self printCardInfoAtNumber:number];
-    [self payForTheCard:number];
     self.playedCard = number;
 }
 
@@ -198,16 +202,16 @@ static ComputerModel *computer;
     
     NSInteger maximumWeight = -20;
     
-    NSLog(@"======playSomeCard: availableToPlay: %d", [cardsAvailableToPlay count]);
+    //NSLog(@"======playSomeCard: availableToPlay: %d", [cardsAvailableToPlay count]);
     
     for (int i = 0; i < [cardsAvailableToPlay count]; i++) {
-        NSLog(@"for i: %d", i);
+        //NSLog(@"for i: %d", i);
         if (maximumWeight < [[self.cards objectAtIndex:[[cardsAvailableToPlay objectAtIndex:i] integerValue]] cardWeight]) {
             maximumWeight = [[self.cards objectAtIndex:[[cardsAvailableToPlay objectAtIndex:i] integerValue]] cardWeight];
-            NSLog(@"if maximum: %d", [[self.cards objectAtIndex:[[cardsAvailableToPlay objectAtIndex:i] integerValue]] cardWeight]);
+            //NSLog(@"if maximum: %d", [[self.cards objectAtIndex:[[cardsAvailableToPlay objectAtIndex:i] integerValue]] cardWeight]);
         }
     }
-    NSLog(@"maximumWeight: %d", maximumWeight);
+    //NSLog(@"maximumWeight: %d", maximumWeight);
     
     if (maximumWeight < 1) {
         [self discardACard];
@@ -220,11 +224,12 @@ static ComputerModel *computer;
         }
     }
     
-    NSLog(@"cardsWithMaximumWeight: %d", [cardsWithMaximumWeight count]);
+    //NSLog(@"cardsWithMaximumWeight: %d", [cardsWithMaximumWeight count]);
     
     NSInteger randomValue = arc4random()%[cardsWithMaximumWeight count];
+    self.playedCard = [[cardsWithMaximumWeight objectAtIndex:randomValue] integerValue];
     
-    [self processCard:[[cardsWithMaximumWeight objectAtIndex:randomValue] integerValue]];
+    NSLog(@"self.playedCard: %d", self.playedCard);
 }
 
 - (void)discardACard
@@ -270,7 +275,7 @@ static ComputerModel *computer;
 
  - (void)analyzeCardsWeight
 {
-    NSLog(@"analyzeCommon");
+    //NSLog(@"analyzeCommon");
     for (int i = 0; i < [self.cards count]; i++) {
         [[self.cards objectAtIndex:i] increaseCardWeightOn:(-1 * [[self.cards objectAtIndex:i] cardWeight])];
         
@@ -482,12 +487,12 @@ static ComputerModel *computer;
 
 - (void)analyzeCardsWeightHardLevel
 {
-    NSLog(@"analyzeHard");
+   // NSLog(@"analyzeHard");
     for (int i = 0; i < [self.cards count]; i++) {
         
         Card *currentCard = [self.cards objectAtIndex:i];
         [currentCard setCardWeight:0];
-        NSLog(@"---currentCardW: %d", currentCard.cardWeight);
+        //NSLog(@"---currentCardW: %d", currentCard.cardWeight);
         
         //=========================QUARRYS========================
         [currentCard increaseCardWeightOn:[self calculateWeightForSelfResource:computer.quarries
@@ -498,7 +503,7 @@ static ComputerModel *computer;
                                                                 isThisForTower:NO
                                                                  isThisForWall:NO]];
         
-        NSLog(@"Q: %d", currentCard.cardWeight);
+        //NSLog(@"Q: %d", currentCard.cardWeight);
         //========================MAGICS=================================
         [currentCard increaseCardWeightOn:[self calculateWeightForSelfResource:computer.magics
                                                            andForEnemyResource:player.magics
@@ -508,7 +513,7 @@ static ComputerModel *computer;
                                                                 isThisForTower:NO
                                                                  isThisForWall:NO]];
         
-        NSLog(@"M: %d", currentCard.cardWeight);
+        //NSLog(@"M: %d", currentCard.cardWeight);
         //==========================DUNGEONS==============================
         [currentCard increaseCardWeightOn:[self calculateWeightForSelfResource:computer.dungeons
                                                            andForEnemyResource:player.dungeons
@@ -518,7 +523,7 @@ static ComputerModel *computer;
                                                                 isThisForTower:NO
                                                                  isThisForWall:NO]];
         
-        NSLog(@"D: %d", currentCard.cardWeight);
+        //NSLog(@"D: %d", currentCard.cardWeight);
         //=========================BRICKS========================
         [currentCard increaseCardWeightOn:[self calculateWeightForSelfResource:computer.bricks
                                                            andForEnemyResource:player.bricks
@@ -528,7 +533,7 @@ static ComputerModel *computer;
                                                                 isThisForTower:NO
                                                                  isThisForWall:NO]];
         
-        NSLog(@"B: %d", currentCard.cardWeight);
+        //NSLog(@"B: %d", currentCard.cardWeight);
         //=========================GEMS========================
         [currentCard increaseCardWeightOn:[self calculateWeightForSelfResource:computer.gems
                                                            andForEnemyResource:player.gems
@@ -538,7 +543,7 @@ static ComputerModel *computer;
                                                                 isThisForTower:NO
                                                                  isThisForWall:NO]];
         
-        NSLog(@"G: %d", currentCard.cardWeight);
+        //NSLog(@"G: %d", currentCard.cardWeight);
         //=========================RECRUITS========================
         [currentCard increaseCardWeightOn:[self calculateWeightForSelfResource:computer.recruits
                                                            andForEnemyResource:player.recruits
@@ -548,7 +553,7 @@ static ComputerModel *computer;
                                                                 isThisForTower:NO
                                                                  isThisForWall:NO]];
         
-        NSLog(@"R: %d", currentCard.cardWeight);
+        //NSLog(@"R: %d", currentCard.cardWeight);
         //=========================WALL========================
         [currentCard increaseCardWeightOn:[self calculateWeightForSelfResource:computer.wall
                                                            andForEnemyResource:player.wall
@@ -558,7 +563,7 @@ static ComputerModel *computer;
                                                                 isThisForTower:NO
                                                                  isThisForWall:YES]];
         
-        NSLog(@"W: %d", currentCard.cardWeight);
+        //NSLog(@"W: %d", currentCard.cardWeight);
         //=========================TOWER=======================
         [currentCard increaseCardWeightOn:[self calculateWeightForSelfResource:computer.tower
                                                            andForEnemyResource:player.tower
@@ -568,7 +573,7 @@ static ComputerModel *computer;
                                                                 isThisForTower:YES
                                                                  isThisForWall:NO]];
         
-        NSLog(@"T: %d", currentCard.cardWeight);
+        //NSLog(@"T: %d", currentCard.cardWeight);
         
         if (currentCard.additionalTerms) {
             
@@ -683,7 +688,7 @@ static ComputerModel *computer;
         }
     }
     
-    NSLog(@"counter: %d", counter);
+    //NSLog(@"counter: %d", counter);
     return counter;
 }
 

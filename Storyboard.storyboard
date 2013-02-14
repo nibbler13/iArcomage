@@ -70,12 +70,15 @@
                                 <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
-                            <switch opaque="NO" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="xHT-a6-8cX">
+                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="xHT-a6-8cX">
                                 <rect key="frame" x="223" y="55" width="79" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="onTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="randomBackgroundChanged:" destination="vme-aR-CuV" eventType="valueChanged" id="bFL-ut-d6F"/>
+                                </connections>
                             </switch>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" text="Random background:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="R1K-0m-omk">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Random background:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="R1K-0m-omk">
                                 <rect key="frame" x="40" y="55" width="175" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="16"/>
@@ -84,12 +87,15 @@
                                 <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
-                            <switch opaque="NO" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="kD2-bC-M26">
+                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="kD2-bC-M26">
                                 <rect key="frame" x="223" y="90" width="79" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="onTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="randomMusicChanged:" destination="vme-aR-CuV" eventType="valueChanged" id="AeU-d0-PtN"/>
+                                </connections>
                             </switch>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" text="Random music:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="znO-sV-aAU">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Random music:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="znO-sV-aAU">
                                 <rect key="frame" x="40" y="90" width="175" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="16"/>
@@ -110,6 +116,8 @@
                     <connections>
                         <outlet property="hardMode" destination="82b-kR-Rwc" id="cFl-MQ-ueZ"/>
                         <outlet property="musicVolume" destination="aiF-Bj-rdq" id="eR8-7z-uMQ"/>
+                        <outlet property="randomBackground" destination="xHT-a6-8cX" id="wDx-QZ-tfo"/>
+                        <outlet property="randomMusic" destination="kD2-bC-M26" id="qDQ-03-yvK"/>
                         <outlet property="soundVolume" destination="kOC-cW-Tvz" id="ebf-ur-yZv"/>
                     </connections>
                 </viewController>
@@ -2347,9 +2355,13 @@ DQ
             <relationships>
                 <relationship kind="action" name="hardModeChanged:"/>
                 <relationship kind="action" name="musicVolumeChanged:"/>
+                <relationship kind="action" name="randomBackgroundChanged:"/>
+                <relationship kind="action" name="randomMusicChanged:"/>
                 <relationship kind="action" name="soundVolumeChanged:"/>
                 <relationship kind="outlet" name="hardMode" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="musicVolume" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="randomBackground" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="randomMusic" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="soundVolume" candidateClass="UISlider"/>
             </relationships>
         </class>

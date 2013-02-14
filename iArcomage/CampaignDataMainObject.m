@@ -30,7 +30,7 @@ static CampaignDataMainObject *mainObject;
 
 - (id)init
 {
-    NSLog(@"--- init CampaignDataMainObject");
+    //NSLog(@"--- init CampaignDataMainObject");
     
     if ([super init] != nil) {
         
@@ -97,7 +97,7 @@ static CampaignDataMainObject *mainObject;
 
 - (void)dealloc
 {
-    NSLog(@"--- dealloc CampaignDataMainObject");
+    //NSLog(@"--- dealloc CampaignDataMainObject");
 }
 
 @end

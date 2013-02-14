@@ -36,6 +36,7 @@
 
 - (void)computerTurn;
 - (void)nextTurnIncreaseResource;
+- (void)payForTheCard:(NSInteger)number;
 
 + (ComputerModel*)getComputer;
 

@@ -15,6 +15,8 @@
 @optional
 
 - (void)needToChangeHardMode;
+- (void)needToChangeRandomBackgroundMode;
+- (void)needToChangeRandomMusicMode;
 
 @end
 

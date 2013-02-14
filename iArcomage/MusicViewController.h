@@ -10,7 +10,7 @@
 
 @protocol MusicViewControllerDelegate <NSObject>
 
-- (void)changeMusicToIndex:(NSInteger)index;
+- (void)changeMusic;
 
 @end
 

@@ -13,6 +13,8 @@
 #import "SoundSystem.h"
 #import "VictoryConditionsViewController.h"
 #import "OptionTabBarViewController.h"
+#import "CampaignDataMainObject.h"
+#import "CampaignData.h"
 
 @interface StartViewController ()
 
@@ -1087,9 +1089,10 @@
                                   
                                   [self configureAnimationsForCardNumber:computer.playedCard];
                                   
+                                  [computer payForTheCard:computer.playedCard];
                                   [[computer.cards objectAtIndex:computer.playedCard] processCard];
                                   
-                                  [computer.delegate needToCheckThatTheVictoryConditionsIsAchievedByComputer];
+                                  [self needToCheckThatTheVictoryConditionsIsAchievedByComputer];
                               }
                               
                               [self needToUpdateLabels];
@@ -1321,7 +1324,7 @@
             isPlayedCard0WasDiscarded = YES;
             UIImageView *discardLabel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"discard_label"]];
             discardLabel.center = CGPointMake(self.playedCard0View.bounds.size.width/2, self.playedCard0View.bounds.size.height/2-30);
-            discardLabel.tag = 1001;
+            discardLabel.tag = 1000;
             [self.playedCard0View addSubview:discardLabel];
         }
         
@@ -1344,7 +1347,7 @@
             isPlayedCard1WasDiscarded = YES;
             UIImageView *discardLabel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"discard_label"]];
             discardLabel.center = CGPointMake(self.playedCard1View.bounds.size.width/2, self.playedCard1View.bounds.size.height/2-30);
-            discardLabel.tag = 1002;
+            discardLabel.tag = 1001;
             [self.playedCard1View addSubview:discardLabel];
         }
         
@@ -1367,7 +1370,7 @@
             isPlayedCard2WasDiscarded = YES;
             UIImageView *discardLabel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"discard_label"]];
             discardLabel.center = CGPointMake(self.playedCard2View.bounds.size.width/2, self.playedCard2View.bounds.size.height/2-30);
-            discardLabel.tag = 1003;
+            discardLabel.tag = 1002;
             [self.playedCard2View addSubview:discardLabel];
         }
         
@@ -1392,13 +1395,13 @@
                              self.playedCard0Desription.text = self.playedCard1Desription.text;
                              
                              if (isPlayedCard1WasDiscarded) {
-                                 UIImageView *tempView = (UIImageView*)[self.view viewWithTag:1001];
+                                 UIImageView *tempView = (UIImageView*)[self.view viewWithTag:1000];
                                  [tempView removeFromSuperview];
-                                 tempView = (UIImageView*)[self.view viewWithTag:1002];
+                                 tempView = (UIImageView*)[self.view viewWithTag:1001];
                                  [tempView removeFromSuperview];
                                  UIImageView *discardLabel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"discard_label"]];
                                  discardLabel.center = CGPointMake(self.playedCard0View.bounds.size.width/2, self.playedCard0View.bounds.size.height/2-30);
-                                 discardLabel.tag = 1001;
+                                 discardLabel.tag = 1000;
                                  [self.playedCard0View addSubview:discardLabel];
                                  isPlayedCard1WasDiscarded = NO;
                                  isPlayedCard0WasDiscarded = YES;
@@ -1410,13 +1413,13 @@
                              self.playedCard1Desription.text = self.playedCard2Desription.text;
                              
                              if (isPlayedCard2WasDiscarded) {
-                                 UIImageView *tempView = (UIImageView*)[self.view viewWithTag:1002];
+                                 UIImageView *tempView = (UIImageView*)[self.view viewWithTag:1001];
                                  [tempView removeFromSuperview];
-                                 tempView = (UIImageView*)[self.view viewWithTag:1003];
+                                 tempView = (UIImageView*)[self.view viewWithTag:1002];
                                  [tempView removeFromSuperview];
                                  UIImageView *discardLabel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"discard_label"]];
                                  discardLabel.center = CGPointMake(self.playedCard1View.bounds.size.width/2, self.playedCard1View.bounds.size.height/2-30);
-                                 discardLabel.tag = 1002;
+                                 discardLabel.tag = 1001;
                                  [self.playedCard1View addSubview:discardLabel];
                                  isPlayedCard2WasDiscarded = NO;
                                  isPlayedCard1WasDiscarded = YES;
@@ -1434,7 +1437,7 @@
                              if (isCardBeenDiscarded) {
                                  UIImageView *discardLabel = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"discard_label"]];
                                  discardLabel.center = CGPointMake(self.playedCard2View.bounds.size.width/2, self.playedCard2View.bounds.size.height/2-30);
-                                 discardLabel.tag = 1003;
+                                 discardLabel.tag = 1002;
                                  [self.playedCard2View addSubview:discardLabel];
                              }
                              
@@ -1442,6 +1445,7 @@
                              self.playedCard0View.center = CGPointMake(400, 110);
                              self.playedCard1View.center = CGPointMake(566, 110);
                              self.playedCard2View.center = CGPointMake(732, 110);
+                             self.playedCard2View.hidden = YES;
                          }];
         cardView.center = CGPointMake(732, 110);
     }
@@ -1518,8 +1522,8 @@
 {
     [super viewDidLoad];
     
-    NSLog(@"Documents folder is %@", [self documentsDirectory]);
-    NSLog(@"Data file paths is %@", [self dataFilePath]);
+    //NSLog(@"Documents folder is %@", [self documentsDirectory]);
+    //NSLog(@"Data file paths is %@", [self dataFilePath]);
     
     self.view.multipleTouchEnabled = NO;
     
@@ -1553,7 +1557,7 @@
 - (IBAction)changeBackground:(id)sender
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:[backgroundPictures objectAtIndex:backgroundsCounter] ofType:nil];
-    NSLog(@"texture path: %@", path);
+    //NSLog(@"texture path: %@", path);
     self.backgroundPictureView.image = [[UIImage alloc] initWithContentsOfFile:path];
     self.backgroundLabel.text = backgroundPictures[backgroundsCounter];
     backgroundsCounter++;
@@ -1688,8 +1692,8 @@
     [self updateTowersAndWalls];
     
     if (!self.isThisCampaignPlaying) {
-        [self changeBackgroundImage];
-        [self changeTextureImage];
+        [self needToChangeRandomBackgroundMode];
+        [self needToChangeRandomMusicMode];
     }
     
     [self needToChangeHardMode];
@@ -1878,6 +1882,10 @@ withCardDescriptionLabel:self.playersCard5Description
     cardName.text = [card cardName];
     cardDescription.text = [card cardDescription];
     cardCost.text = [NSString stringWithFormat:@"%d",[card cardCost]];
+    
+    [cardName setFrame:CGRectIntegral(cardName.frame)];
+    [cardDescription setFrame:CGRectIntegral(cardDescription.frame)];
+    [cardCost setFrame:CGRectIntegral(cardCost.frame)];
     
     if (isForPlayer) {
         if (![self isCardAvailableToPlay:card]) {
@@ -2461,55 +2469,99 @@ withCardDescriptionLabel:self.playersCard5Description
     self.computerWallBackground.image = [UIImage imageNamed:[NSString stringWithFormat:@"WallBody%d", currentTexture]];
 }
 
-- (void)changeMusicToIndex:(NSInteger)index
+- (void)changeMusic
 {
-    NSLog(@"changeMusicToIndex: %d", index);
+    NSLog(@"changeMusic");
 }
 
 - (void)needToChangeHardMode
 {
-    for (NSString *familyName in [UIFont familyNames]){
+    /*for (NSString *familyName in [UIFont familyNames]){
         for (NSString *fontName in [UIFont fontNamesForFamilyName:familyName]){
             NSLog(@"%@", fontName);
         }
-    }
-    
-    NSLog(@"computer name font: %@", self.computerNameLabel.font);
-    
-    UIColor *color;
-    UIFont *font;
+    }*/
     
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"hardMode"]) {
-        color = [UIColor redColor];
-        self.computerNameLabel.center = CGPointMake(self.computerNameLabel.center.x, 20);
         
         UILabel *label = [[UILabel alloc] init];
-        label.text = @"Hard mode";
-        label.backgroundColor = [UIColor clearColor];
-        label.textColor = color;
-        [label setFont:[UIFont fontWithName:@"Helvetica-Bold" size:12.0f]];
-        label.tag = 101;
-        label.shadowColor = [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:0.2f];
-        label.shadowOffset = CGSizeMake(1.0f, 1.0f);
+        [label setFont:[UIFont fontWithName:@"Helvetica" size:10.0f]];
+        label.text = @"hard mode";
         [label sizeToFit];
-        
-        label.center = CGPointMake(self.computerNameLabel.center.x, self.computerNameLabel.center.y + 12);
+        label.backgroundColor = [UIColor clearColor];
+        label.textColor = self.computerNameLabel.textColor;
+        label.alpha = 0.8;
+        label.tag = 101;
+        label.shadowColor = [UIColor blackColor];
+        label.shadowOffset = CGSizeMake(1.0f, 1.0f);
+        label.center = CGPointMake(self.computerNameLabel.center.x, self.computerNameLabel.center.y + 10);
+        [label setFrame:CGRectIntegral(label.frame)];
         [self.view addSubview:label];
-        
-        font = [UIFont fontWithName:@"Helvetica-Bold" size:15.0f];
     } else {
         [[self.view viewWithTag:101] removeFromSuperview];
-        
-        self.computerNameLabel.center = CGPointMake(self.computerNameLabel.center.x, 26);
-        color = [UIColor colorWithRed:102.0f/255.0f green:255.0f/255.0f blue:204.0f/255.0f alpha:1.0];
-        font = [UIFont fontWithName:@"Helvetica" size:15.0f];
     }
-    
-    [self.computerNameLabel setFont:font];
-    [self.computerNameLabel sizeToFit];
-    self.computerNameLabel.textColor = color;
-    
-    NSLog(@"startNeedToChangeHardMode");
+}
+
+- (void)needToChangeRandomBackgroundMode
+{
+    NSLog(@"random background");
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"randomBackground"]) {
+        CampaignDataMainObject *mainObject = [CampaignDataMainObject sharedCampaignDataMainObject];
+        NSInteger counter = 0;
+        for (CampaignData *tavern in mainObject.taverns) {
+            if (tavern.isAchieved) {
+                counter += 1;
+            }
+            //NSLog(@"counter: %d", counter);
+        }
+        
+        if (counter == [mainObject.taverns count]) {
+            counter = 19;
+            NSLog(@"all levels completed");
+        }
+        
+        NSInteger randomValue = arc4random()%counter;
+        NSLog(@"random: %d", randomValue);
+        
+        [self.backgroundPictureView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"Background%d.jpg", randomValue]]];
+        
+        [self.playerTowerBodyBackground setImage:[UIImage imageNamed:[NSString stringWithFormat:@"TowerBody%d", randomValue]]];
+        [self.playerTowerHeadBackground setImage:[UIImage imageNamed:[NSString stringWithFormat:@"PlayersTowerHead%d", randomValue]]];
+        [self.playerWallBackground setImage:[UIImage imageNamed:[NSString stringWithFormat:@"WallBody%d", randomValue]]];
+        
+        [self.computerTowerBodyBackground setImage:[UIImage imageNamed:[NSString stringWithFormat:@"TowerBody%d", randomValue]]];
+        [self.computerTowerHeadBackground setImage:[UIImage imageNamed:[NSString stringWithFormat:@"ComputersTowerHead%d", randomValue]]];
+        [self.computerWallBackground setImage:[UIImage imageNamed:[NSString stringWithFormat:@"WallBody%d", randomValue]]];
+        
+    } else {
+        [self changeBackgroundImage];
+        [self changeTextureImage];
+    }
+}
+
+- (void)needToChangeRandomMusicMode
+{
+    NSLog(@"random music");
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"randomMusic"]) {
+        CampaignDataMainObject *mainObject = [CampaignDataMainObject sharedCampaignDataMainObject];
+        NSInteger counter = 0;
+        for (CampaignData *tavern in mainObject.taverns) {
+            if (tavern.isAchieved) {
+                counter += 1;
+            }
+            //NSLog(@"counter: %d", counter);
+        }
+        
+        if (counter == [mainObject.taverns count]) {
+            counter = 19;
+            NSLog(@"all levels completed");
+        }
+        
+        NSInteger randomValue = arc4random()%counter;
+        NSLog(@"random: %d", randomValue);
+    } else {
+        [self changeMusic];
+    }
 }
 
 
