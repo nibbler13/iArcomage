@@ -20,6 +20,7 @@
 {
     CampaignDataMainObject *mainObject;
     NSInteger currentMusic;
+    NSArray *songsName;
 }
 
 - (void)viewDidLoad
@@ -27,6 +28,29 @@
     [super viewDidLoad];
     
     mainObject = [CampaignDataMainObject sharedCampaignDataMainObject];
+    
+    songsName = [NSArray arrayWithObjects:
+                          @"Quick Game theme",
+                          @"Harmondale theme",
+                          @"Tularean Forest theme",
+                          @"Erathia theme",
+                          @"Bracada Desert theme",
+                          @"Devja theme",
+                          @"Stone City theme",
+                          @"Barrow Drowns theme",
+                          @"Celeste theme",
+                          @"The Pit theme",
+                          @"Avlee theme",
+                          @"Tatalia theme",
+                          @"Evermorn Isle theme",
+                          @"Nighon theme",
+                          @"Bonus Track 1",
+                          @"Bonus Track 2",
+                          @"Bonus Track 3",
+                          @"Bonus Track 4",
+                          @"Bonus Track 5",
+                          @"Bonus Track 6",
+                          nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -46,7 +70,7 @@
         
         if ([self.view viewWithTag:105] == nil) {
             UIView *newView = [[UIView alloc] initWithFrame:self.view.frame];
-            newView.backgroundColor = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.6f];
+            newView.backgroundColor = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.8f];
             newView.tag = 105;
             
             UILabel *newLabel = [[UILabel alloc] init];
@@ -89,7 +113,8 @@
     
     if (indexPath.row > 0 && indexPath.row < 14) {
         if ([[mainObject.taverns objectAtIndex:indexPath.row - 1] isAchieved]) {
-            tempString = [NSString stringWithFormat:@"%@", [[mainObject.taverns objectAtIndex:indexPath.row - 1] backgroundMusic]];
+            //tempString = [NSString stringWithFormat:@"%@", [[mainObject.taverns objectAtIndex:indexPath.row - 1] backgroundMusic]];
+            tempString = songsName[indexPath.row];
         } else {
             numberOfLines = 2;
             fontSize = 12.0;
@@ -98,7 +123,8 @@
         }
     } else if (indexPath.row != 0) {
         if ([[mainObject.taverns objectAtIndex:12] isAchieved]) {
-            tempString = [NSString stringWithFormat:@"%@", [[mainObject.taverns objectAtIndex:12] backgroundMusic]];
+            //tempString = [NSString stringWithFormat:@"%@", [[mainObject.taverns objectAtIndex:12] backgroundMusic]];
+            tempString = songsName[indexPath.row];
         } else {
             numberOfLines = 2;
             fontSize = 12.0;
@@ -106,7 +132,8 @@
             color = [UIColor lightTextColor];
         }
     } else {
-        tempString = @"The first song";
+        //tempString = @"The first song";
+        tempString = songsName[indexPath.row];
     }
     
     trackLabel.textColor = color;

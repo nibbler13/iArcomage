@@ -15,6 +15,8 @@
 #import "OptionTabBarViewController.h"
 #import "CampaignDataMainObject.h"
 #import "CampaignData.h"
+#import "CompletedView.h"
+#import "ScoreSystem.h"
 
 @interface StartViewController ()
 
@@ -140,14 +142,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *victoryConditionsButton;
 
 @property (weak, nonatomic) IBOutlet UILabel *computerNameLabel;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
 
 
 - (IBAction)backButtonPressed:(id)sender;
-- (IBAction)changeBackground:(id)sender;
 - (IBAction)makePlayerWinButton:(id)sender;
 - (IBAction)soundButtonPressed:(id)sender;
 - (IBAction)victoryConditionsButtonPressed:(id)sender;
-- (IBAction)changeSkinButtonPressed:(id)sender;
 
 @end
 
@@ -217,11 +218,15 @@
     NSInteger skinCounter;
     NSArray *backgroundPictures;
     
-    NSInteger gamesPlayed;
-    NSInteger gamesWined;
+    ScoreSystem *score;
+    
+    //NSInteger gamesPlayed;
+    //NSInteger gamesWined;
     
     UIPopoverController *popoverController;
     SoundSystem *soundSystem;
+    
+    CampaignDataMainObject *mainObject;
 }
 
 #pragma mark - TouchDelegationMethods
@@ -637,11 +642,11 @@
                                                       self.playedCard0View.center = CGPointMake(400, 110);
                                                       self.playedCard1View.center = CGPointMake(566, 110);
                                                       self.playedCard2View.center = CGPointMake(732, 110);
-                                                      UIImageView *tempView = (UIImageView*)[self.view viewWithTag:1001];
+                                                      UIImageView *tempView = (UIImageView*)[self.view viewWithTag:1000];
+                                                      [tempView removeFromSuperview];
+                                                      tempView = (UIImageView*)[self.view viewWithTag:1001];
                                                       [tempView removeFromSuperview];
                                                       tempView = (UIImageView*)[self.view viewWithTag:1002];
-                                                      [tempView removeFromSuperview];
-                                                      tempView = (UIImageView*)[self.view viewWithTag:1003];
                                                       [tempView removeFromSuperview];
                                                   }
                              
@@ -801,11 +806,11 @@
                                                       self.playedCard0View.center = CGPointMake(400, 110);
                                                       self.playedCard1View.center = CGPointMake(566, 110);
                                                       self.playedCard2View.center = CGPointMake(732, 110);
-                                                      UIImageView *tempView = (UIImageView*)[self.view viewWithTag:1001];
+                                                      UIImageView *tempView = (UIImageView*)[self.view viewWithTag:1000];
+                                                      [tempView removeFromSuperview];
+                                                      tempView = (UIImageView*)[self.view viewWithTag:1001];
                                                       [tempView removeFromSuperview];
                                                       tempView = (UIImageView*)[self.view viewWithTag:1002];
-                                                      [tempView removeFromSuperview];
-                                                      tempView = (UIImageView*)[self.view viewWithTag:1003];
                                                       [tempView removeFromSuperview];
                                                   }
                                                   
@@ -1151,11 +1156,11 @@
                                                        self.playedCard0View.center = CGPointMake(400, 110);
                                                        self.playedCard1View.center = CGPointMake(566, 110);
                                                        self.playedCard2View.center = CGPointMake(732, 110);
-                                                       UIImageView *tempView = (UIImageView*)[self.view viewWithTag:1001];
+                                                       UIImageView *tempView = (UIImageView*)[self.view viewWithTag:1000];
+                                                       [tempView removeFromSuperview];
+                                                       tempView = (UIImageView*)[self.view viewWithTag:1001];
                                                        [tempView removeFromSuperview];
                                                        tempView = (UIImageView*)[self.view viewWithTag:1002];
-                                                       [tempView removeFromSuperview];
-                                                       tempView = (UIImageView*)[self.view viewWithTag:1003];
                                                        [tempView removeFromSuperview];
                                                    }
                                                    
@@ -1519,39 +1524,161 @@
 
 - (void)needToCheckThatTheVictoryConditionsIsAchievedByComputer
 {
-    if (computer.tower >= towerAim || computer.wall >= wallAim || (computer.bricks >= self.resourcesCampaignAim && computer.gems >= self.resourcesCampaignAim && computer.recruits >= self.resourcesCampaignAim) || player.tower < 1) {
-        [soundSystem playDealSoundEffectForEvent:@"PlayerLose"];
-        
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"You lose!" message:@"The computer has defeated you like a boss" delegate:self cancelButtonTitle:@"Ohhh god why?" otherButtonTitles: nil];
-        gamesPlayed++;
-        
-        [self saveScore];
-        
-        if (self.isThisCampaignPlaying) { [self.delegate levelCompletedWithVictory:NO]; }
-        
-        gameOver = YES;
-        
-        [alertView show];
+    NSString *finalLabel;
+    
+    if (computer.tower >= towerAim) {
+        finalLabel = @"Computer have win by tower construction";
     }
+    if (computer.bricks >= self.resourcesCampaignAim || computer.gems >= self.resourcesCampaignAim || computer.recruits >= self.resourcesCampaignAim) {
+        finalLabel = @"Computer have win by resource collection";
+    }
+    if (player.tower < 1) {
+        finalLabel = @"Computer have win by tower destruction";
+    } else {
+        return;
+    }
+    
+    [soundSystem playDealSoundEffectForEvent:@"PlayerLose"];
+    
+    score = [[ScoreSystem alloc] init];
+    score.lossesGames += 1;
+    [score saveScore];
+    
+    if (self.isThisCampaignPlaying) { [self.delegate levelCompletedWithVictory:NO]; }
+    
+    gameOver = YES;
+    
+    [self deleteOldFile];
+    
+    [self drawFinalTitlesWithTitle:finalLabel isThisWin:NO];
 }
 
 - (void)needToCheckThatTheVictoryConditionsIsAchieved
 {
-    if (player.tower >= towerAim || player.wall >= wallAim || (player.bricks >= self.resourcesCampaignAim && player.gems >= self.resourcesCampaignAim && player.recruits >= self.resourcesCampaignAim) || computer.tower < 1) {
-        [soundSystem playDealSoundEffectForEvent:@"PlayerWin"];
-        
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"You win!" message:@"You win because you have completed the needed conditions" delegate:self cancelButtonTitle:@"Yeah! It's great!" otherButtonTitles: nil];
-        gamesPlayed++;
-        gamesWined++;
-        
-        [self saveScore];
-        
-        if (self.isThisCampaignPlaying) { [self.delegate levelCompletedWithVictory:YES]; }
-        
-        gameOver = YES;
-        
-        [alertView show];
+    //NSLog(@"%d %d %d %d", score.winnedByCollection, score.winnedByConstruction, score.winnedByDestruction, score.lossesGames);
+    
+    NSString *finalLabel;
+    
+    if (player.tower >= towerAim) {
+        score.winnedByConstruction += 1;
+        finalLabel = @"by tower construction";
+    } else if (player.bricks >= self.resourcesCampaignAim || player.gems >= self.resourcesCampaignAim || player.recruits >= self.resourcesCampaignAim) {
+        score.winnedByCollection += 1;
+        finalLabel = @"by resource collection";
+    } else if (computer.tower < 1) {
+        score.winnedByDestruction += 1;
+        finalLabel = @"by tower destruction";
+    } else {
+        return;
     }
+    
+    [soundSystem playDealSoundEffectForEvent:@"PlayerWin"];
+    
+    [score saveScore];
+    
+    if (self.isThisCampaignPlaying) { [self.delegate levelCompletedWithVictory:YES]; }
+    
+    gameOver = YES;
+    
+    [self deleteOldFile];
+    
+    [self drawFinalTitlesWithTitle:finalLabel isThisWin:YES];
+
+}
+
+- (void)drawFinalTitlesWithTitle:(NSString*)title isThisWin:(BOOL)win
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 1024.0, 768.0)];
+    view.backgroundColor = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.6f];
+    
+    [self.view addSubview:view];
+    
+    CABasicAnimation *fadeAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    fadeAnimation.fromValue = [NSNumber numberWithFloat:0.0f];
+    fadeAnimation.toValue = [NSNumber numberWithFloat:1.0f];
+    fadeAnimation.duration = 1.0f;
+    [view.layer addAnimation:fadeAnimation forKey:@"fadeAnimation"];
+    
+    NSString *completedViewName;
+    CompletedView *completedView;
+    
+    if (win) {
+        if (self.isThisCampaignPlaying && ![[mainObject.taverns objectAtIndex:self.levelNumber] isAchieved]) {
+                        
+            if (self.levelNumber < 12) {
+                completedViewName = @"CompletedView";
+                completedView = [[[NSBundle mainBundle] loadNibNamed:completedViewName owner:self options:nil] lastObject];
+                
+                NSArray *songsName = [NSArray arrayWithObjects:
+                                      @"Harmondale theme",
+                                      @"Tularean Forest theme",
+                                      @"Erathia theme",
+                                      @"Bracada Desert theme",
+                                      @"Devja theme",
+                                      @"Stone City theme",
+                                      @"Barrow Drowns theme",
+                                      @"Celeste theme",
+                                      @"The Pit theme",
+                                      @"Avlee theme",
+                                      @"Tatalia theme",
+                                      @"Evermorn Isle theme",
+                                      @"Nighon theme",
+                                      @"Bonus Track 1",
+                                      @"Bonus Track 2",
+                                      @"Bonus Track 3",
+                                      @"Bonus Track 4",
+                                      @"Bonus Track 5",
+                                      @"Bonus Track 6",
+                                      nil];
+
+                [completedView.backgroundImageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"BackgroundPreview%d", self.levelNumber+1]]];
+                [completedView.textureImageVIew setImage:[UIImage imageNamed:[NSString stringWithFormat:@"texturePreview%d", self.levelNumber+1]]];
+                [completedView.trackNameLabel setText:songsName[self.levelNumber]];
+            } else {
+                completedViewName = @"CongratulationView";
+                completedView = [[[NSBundle mainBundle] loadNibNamed:completedViewName owner:self options:nil] lastObject];
+            }
+        } else {
+            completedViewName = @"CompletedWithScoreView";
+            
+            completedView = [[[NSBundle mainBundle] loadNibNamed:completedViewName owner:self options:nil] lastObject];
+            completedView.gamesLossLabel.text = [NSString stringWithFormat:@"%d", score.lossesGames];
+            completedView.gamesWinnedLabel.text = [NSString stringWithFormat:@"%d", score.winnedByCollection + score.winnedByConstruction + score.winnedByDestruction];
+            completedView.totalGamePlayedLabel.text = [NSString stringWithFormat:@"%d", score.winnedByCollection + score.winnedByConstruction + score.winnedByDestruction + score.lossesGames];
+        }
+    } else {
+        completedViewName = @"LossView";
+        completedView = [[[NSBundle mainBundle] loadNibNamed:completedViewName owner:self options:nil] lastObject];
+    }
+    
+    completedView.byTowerConstructionLabel.text = title;
+    
+    completedView.delegate = (id)self;
+    
+    completedView.center = view.center;
+    
+    [self.view addSubview:completedView];
+    
+    CAKeyframeAnimation *bounceAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
+    
+    bounceAnimation.duration = 1.5;
+    bounceAnimation.delegate = self;
+    
+    bounceAnimation.values = [NSArray arrayWithObjects:
+                              [NSNumber numberWithFloat:0.5f],
+                              [NSNumber numberWithFloat:1.0f], nil];
+    
+    bounceAnimation.keyTimes = [NSArray arrayWithObjects:
+                                [NSNumber numberWithFloat:0.0f],
+                                [NSNumber numberWithFloat:1.0f], nil];
+    
+    bounceAnimation.timingFunctions = [NSArray arrayWithObjects:
+                                       [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut],
+                                       [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut],
+                                       [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut], nil];
+    
+    [completedView.layer addAnimation:bounceAnimation forKey:@"bounceAnimation"];
+
 }
 
 #pragma mark - Initializations
@@ -1559,9 +1686,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    //NSLog(@"Documents folder is %@", [self documentsDirectory]);
-    //NSLog(@"Data file paths is %@", [self dataFilePath]);
     
     self.view.multipleTouchEnabled = NO;
     
@@ -1581,25 +1705,34 @@
     
     [soundSystem stopMusic];
     
+    [CampaignDataMainObject destroyCampaignDataMainObject];
+    
     [super viewWillDisappear:animated];
 }
 
 #pragma mark - Buttons method
 - (IBAction)backButtonPressed:(id)sender
 {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
+    OptionsViewController *controller = [storyboard instantiateViewControllerWithIdentifier:@"quitViewController"];
+    controller.delegate = self;
+    popoverController = [[UIPopoverController alloc] initWithContentViewController:controller];
+    popoverController.delegate = (id)self;
+    [popoverController presentPopoverFromRect:self.backButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
+}
+
+- (void)noQuitButtonPressed
+{
+    [popoverController dismissPopoverAnimated:YES];
+}
+
+- (void)yesQuitButtonPressed
+{
+    [popoverController dismissPopoverAnimated:YES];
+    
     if (self.isThisCampaignPlaying) { [self.delegate levelCompletedWithVictory:NO]; }
     
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (IBAction)changeBackground:(id)sender
-{
-    NSString *path = [[NSBundle mainBundle] pathForResource:[backgroundPictures objectAtIndex:backgroundsCounter] ofType:nil];
-    //NSLog(@"texture path: %@", path);
-    self.backgroundPictureView.image = [[UIImage alloc] initWithContentsOfFile:path];
-    self.backgroundLabel.text = backgroundPictures[backgroundsCounter];
-    backgroundsCounter++;
-    if (backgroundsCounter > [backgroundPictures count] - 1) { backgroundsCounter = 0; }
 }
 
 - (IBAction)makePlayerWinButton:(id)sender
@@ -1638,32 +1771,19 @@
     [popoverController presentPopoverFromRect:self.victoryConditionsButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
 }
 
-- (IBAction)changeSkinButtonPressed:(id)sender
-{
-    self.towersSetLabel.text = [NSString stringWithFormat:@"%d", skinCounter];
-    
-    self.playerTowerBodyBackground.image = [UIImage imageNamed:[NSString stringWithFormat:@"TowerBody%d.png", skinCounter]];
-    self.playerTowerHeadBackground.image = [UIImage imageNamed:[NSString stringWithFormat:@"PlayersTowerHead%d.png", skinCounter]];
-    self.playerWallBackground.image = [UIImage imageNamed:[NSString stringWithFormat:@"WallBody%d.png", skinCounter]];
-    
-    self.computerTowerBodyBackground.image = [UIImage imageNamed:[NSString stringWithFormat:@"TowerBody%d.png", skinCounter]];
-    self.computerTowerHeadBackground.image = [UIImage imageNamed:[NSString stringWithFormat:@"ComputersTowerHead%d.png", skinCounter]];
-    self.computerWallBackground.image = [UIImage imageNamed:[NSString stringWithFormat:@"WallBody%d.png", skinCounter]];
-    
-    skinCounter++;
-    
-    if (skinCounter > 20) { skinCounter = 0; }
-}
-
 #pragma mark - Main game cycle
 
 - (void)game
 {
+    [self deleteOldFile];
+    
     player = [PlayerModel getPlayer];
     player.delegate = self;
     computer = [ComputerModel getComputer];
     computer.delegate = self;
     cardsScope = [CardsScope getCardsScope];
+    
+    mainObject = [CampaignDataMainObject sharedCampaignDataMainObject];
     
     if (self.needToLoadGame) { [self loadPlayerAndComputer]; }
     
@@ -1700,7 +1820,7 @@
     [self updateAllCards];
     [self updateCardPositions];
     
-    [self loadScore];
+    score = [[ScoreSystem alloc] init];
     
     doNotClearStack = NO;
     computerLastPlayedCard = -1;
@@ -2427,7 +2547,7 @@ withCardDescriptionLabel:self.playersCard5Description
     }
 }
 
-- (void)loadScore
+/*- (void)loadScore
 {
     NSString *errorDesc = nil;
     NSPropertyListFormat format;
@@ -2450,9 +2570,9 @@ withCardDescriptionLabel:self.playersCard5Description
         gamesPlayed = [[temp objectForKey:@"GamesPlayed"] integerValue];
         gamesWined = [[temp objectForKey:@"GamesWined"] integerValue];
     }
-}
+}*/
 
-- (void)saveScore
+/*- (void)saveScore
 {
     NSString *error;
     NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
@@ -2465,7 +2585,7 @@ withCardDescriptionLabel:self.playersCard5Description
     } else {
         NSLog(@"%@", error);
     }
-}
+}*/
 
 #pragma mark - Sounds
 
@@ -2480,12 +2600,12 @@ withCardDescriptionLabel:self.playersCard5Description
     }
 }
 
+#pragma  mark - OptionControllersDelegateMethods
+
 - (void)needToChangeSoundsLevel
 {
     [soundSystem updateSoundVolume];
 }
-
-#pragma  mark - OptionControllersDelegateMethods
 
 - (void)changeBackgroundImage
 {
@@ -2544,7 +2664,6 @@ withCardDescriptionLabel:self.playersCard5Description
 {
     NSLog(@"random background");
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"randomBackground"]) {
-        CampaignDataMainObject *mainObject = [CampaignDataMainObject sharedCampaignDataMainObject];
         NSInteger counter = 0;
         for (CampaignData *tavern in mainObject.taverns) {
             if (tavern.isAchieved) {
@@ -2581,7 +2700,6 @@ withCardDescriptionLabel:self.playersCard5Description
 {
     NSLog(@"random music");
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"randomMusic"]) {
-        CampaignDataMainObject *mainObject = [CampaignDataMainObject sharedCampaignDataMainObject];
         NSInteger counter = 0;
         for (CampaignData *tavern in mainObject.taverns) {
             if (tavern.isAchieved) {
@@ -2602,5 +2720,9 @@ withCardDescriptionLabel:self.playersCard5Description
     }
 }
 
+- (void)closeButtonPressed
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

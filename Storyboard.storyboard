@@ -363,7 +363,7 @@
                                 <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="- Each of your resources must be at 300 or higher" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zcP-bb-IZH">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="- One of your resources must be at 300 or higher" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zcP-bb-IZH">
                                 <rect key="frame" x="43" y="64" width="215" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="15"/>
@@ -399,6 +399,82 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z5p-7b-xfW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="112" y="-323"/>
+        </scene>
+        <!--Quit View Controller-->
+        <scene sceneID="pVI-3b-qVb">
+            <objects>
+                <viewController storyboardIdentifier="quitViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uEC-Pe-MOC" customClass="QuitViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qo9-r6-8ZY">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" image="testLevelBack.jpg" id="p6B-d2-ZL8">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rur-RI-cuB">
+                                <rect key="frame" x="201" y="101" width="70" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="20"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" title="Yes" backgroundImage="Button2.png">
+                                    <color key="titleColor" red="1" green="0.89072916670000002" blue="0.65598958330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="yesButtonPressed:" destination="uEC-Pe-MOC" eventType="touchUpInside" id="m2n-9h-9zx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xKW-ej-d7x">
+                                <rect key="frame" x="38" y="101" width="70" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="20"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" title="No" backgroundImage="Button2.png">
+                                    <color key="titleColor" red="1" green="0.89072916670000002" blue="0.65598958330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="noButtonPressed:" destination="uEC-Pe-MOC" eventType="touchUpInside" id="nh3-PX-BIb"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Quit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5s8-Be-BUf">
+                                <rect key="frame" x="24" y="12" width="253" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="The current game progress saved. Are really want to quit?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7EX-wf-pZL">
+                                <rect key="frame" x="24" y="40" width="253" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pgs-ce-dEU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-524" y="-920"/>
         </scene>
         <!--Tavern Info View Controller-->
         <scene sceneID="i5M-kc-wtR">
@@ -1125,6 +1201,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Papirus.png" id="sga-xN-UGj">
+                                <rect key="frame" x="262" y="189" width="500" height="390"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6Nw-Rm-CCO">
                                 <rect key="frame" x="954" y="698" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1141,34 +1221,98 @@
                                     <action selector="backButtonPressed:" destination="ZgL-cO-tIO" eventType="touchUpInside" id="hnP-3s-14Q"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Games played:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dgY-Rk-FCo">
-                                <rect key="frame" x="342" y="327" width="250" height="60"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Total game played:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dgY-Rk-FCo">
+                                <rect key="frame" x="399" y="273" width="172" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="38"/>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="1" height="1"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Games winned:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EwW-sl-xAk">
-                                <rect key="frame" x="342" y="380" width="251" height="60"/>
+                                <rect key="frame" x="399" y="327" width="133" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="38"/>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="1" height="1"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bZ3-Wz-bw2">
-                                <rect key="frame" x="621" y="327" width="61" height="60"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bZ3-Wz-bw2">
+                                <rect key="frame" x="579" y="273" width="46" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="38"/>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="1" height="1"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="85" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0LA-r2-v7N">
-                                <rect key="frame" x="621" y="380" width="39" height="60"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0LA-r2-v7N">
+                                <rect key="frame" x="540" y="327" width="33" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="38"/>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="20"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="- by tower construction:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="f5y-9e-qbe">
+                                <rect key="frame" x="408" y="354" width="173" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="16"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bf9-p9-8ca">
+                                <rect key="frame" x="590" y="354" width="27" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="16"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="- by tower destruction:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ejo-02-A82">
+                                <rect key="frame" x="408" y="403" width="165" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="16"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="47n-7a-KNd">
+                                <rect key="frame" x="590" y="378" width="27" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="16"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="- by resource collection:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ffb-Ck-4bd">
+                                <rect key="frame" x="408" y="378" width="174" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="16"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hky-nq-kQb">
+                                <rect key="frame" x="590" y="403" width="27" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="16"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Games loss:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mKh-k2-fwf">
+                                <rect key="frame" x="399" y="465" width="107" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="20"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ov5-Vx-G3D">
+                                <rect key="frame" x="514" y="465" width="33" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="1" height="1"/>
@@ -1182,8 +1326,12 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="gamesPlayedLabel" destination="bZ3-Wz-bw2" id="gNQ-43-GKd"/>
-                        <outlet property="gamesWinedLabel" destination="0LA-r2-v7N" id="lzX-nM-tmG"/>
+                        <outlet property="byResourceCollectionLabel" destination="47n-7a-KNd" id="TnK-zc-zwC"/>
+                        <outlet property="byTowerConstructionLabel" destination="bf9-p9-8ca" id="QQ1-gU-cjk"/>
+                        <outlet property="byTowerDestructionLabel" destination="Hky-nq-kQb" id="xrO-uW-uKe"/>
+                        <outlet property="gamesLossLabel" destination="ov5-Vx-G3D" id="eNZ-nY-gjq"/>
+                        <outlet property="gamesWinnedLabel" destination="0LA-r2-v7N" id="mcj-O5-aKv"/>
+                        <outlet property="totalGameLabel" destination="bZ3-Wz-bw2" id="UNB-NK-Kpa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pPt-Wd-bBq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2017,6 +2165,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="backButton" destination="fIW-8Y-lOO" id="9Jb-s9-KeM"/>
                         <outlet property="backgroundLabel" destination="NH3-WY-rRb" id="rHF-DE-fpU"/>
                         <outlet property="backgroundPictureView" destination="4Zk-3i-d2k" id="SJg-iZ-H3x"/>
                         <outlet property="card0Background" destination="VFS-YF-Jlq" id="dOl-t9-ZHL"/>
@@ -2139,13 +2288,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" id="4tP-xL-5Yr">
-                                <rect key="frame" x="181" y="63" width="663" height="638"/>
+                                <rect key="frame" x="181" y="63" width="663" height="626"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Trial of Towers">
                                         <attributes>
                                             <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <font key="NSFont" size="15" name="AvenirNextCondensed-Bold"/>
+                                            <font key="NSFont" size="18" name="AvenirNextCondensed-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
                                     </fragment>
@@ -2160,13 +2309,23 @@ DQ
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <string key="content">	During a time long past, a traveler settled among the people of Shrikar. The traveler’s knowledge, skills and power led them to believe that he was the chosen Emissary of the god Ceth. As time passed, the traveler taught the people of Shrikar how to Weave, or shape the natural energy flows of their planet. The Emissary also taught the basic skills of architecture and of controlling creatures of the land, improving the way life for the people of Shrikar. An age of prosperity and enlightenment began and the people lived better than ever before.
-	As the people of Shrikar continued to advance in their skill and knowledge of Weaving, the Emissary left to continue his journey once more. To honor him and his teachings, the people created the Arcomage Guild; a school dedicated to the knowledge that the Emissary brought to Shrikar. Graduation from this Guild bestowed the title of Arcomage upon the worthy student, one who understood and excelled in the ways of Weaving, of Control and of Building. The Golden Age of Shrikar had reached its pinnacle.
-	One hundred years after the departure of the Emissary, the first Arcomage War struck the people of Shrikar. The Arcomage Crowhain assaulted the citadel of the Arcomage Ralbeard. The surrounding countryside was laid to waste. Years after the war started, Ralbeard completely destroyed the citadel of his enemy. The scars upon the world of Shrikar were slow to heal. Over the next five hundred years the people of Shrikar would experience the wars of Arcomages hundreds of times, as mages strove to increase their power and reputations.
-	You have been challenged, Arcomage! The enemy is at the gates and it is now time to put your skills and tactics to the test. Gather your resources, summon your armies and join the battle!  	The Arcomage game is a single or two player card game in which the players try to build their tower to a certain size, build up all of their resources to a certain quantity or destroy their opponents tower before their opponent can achieve any of these conditions. The Arcomage game can be played by one player versus a computer opponent  	Players take turns playing cards. At the start of each turn the player’s generators produce a quantity of each resource equal to the strength of the generator. The player can then play or discard a card. Cards cost resources to play. Red cards use Bricks produced by Quarries, blue cards use Gems produced by Magic, and green cards use Recruits produced by Dungeons. Each card will have the cost of the needed resource printed on the bottom right corner of the card. If a card is grayed out it cannot be played, as the player does not have the needed amount of the resource for the card. Some cards allow you to play them and then play again. Once a player has played a card, another card is immediately drawn from the deck into the player’s hand.</string>
+                                        <string key="content" base64-UTF8="YES">
+CQ
+</string>
                                         <attributes>
                                             <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <font key="NSFont" size="15" name="AvenirNextCondensed-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">During a time long past, a traveler settled among the people of Shrikar. The traveler’s knowledge, skills and power led them to believe that he was the chosen Emissary of the god Ceth. As time passed, the traveler taught the people of Shrikar how to Weave, or shape the natural energy flows of their planet. The Emissary also taught the basic skills of architecture and of controlling creatures of the land, improving the way life for the people of Shrikar. An age of prosperity and enlightenment began and the people lived better than ever before.
+	As the people of Shrikar continued to advance in their skill and knowledge of Weaving, the Emissary left to continue his journey once more. To honor him and his teachings, the people created the Arcomage Guild; a school dedicated to the knowledge that the Emissary brought to Shrikar. Graduation from this Guild bestowed the title of Arcomage upon the worthy student, one who understood and excelled in the ways of Weaving, of Control and of Building. The Golden Age of Shrikar had reached its pinnacle.
+	One hundred years after the departure of the Emissary, the first Arcomage War struck the people of Shrikar. The Arcomage Crowhain assaulted the citadel of the Arcomage Ralbeard. The surrounding countryside was laid to waste. Years after the war started, Ralbeard completely destroyed the citadel of his enemy. The scars upon the world of Shrikar were slow to heal. Over the next five hundred years the people of Shrikar would experience the wars of Arcomages hundreds of times, as mages strove to increase their power and reputations.
+	You have been challenged, Arcomage! The enemy is at the gates and it is now time to put your skills and tactics to the test. Gather your resources, summon your armies and join the battle!  	The Arcomage game is a card game in which the player try to build his tower to a certain size, build up one of his resources to a certain quantity or destroy his opponents tower before his opponent can achieve any of these conditions. The Arcomage game can be played by one player versus a computer opponent</string>
+                                        <attributes>
+                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <font key="NSFont" size="17" name="AvenirNextCondensed-Regular"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
                                     </fragment>
@@ -2270,239 +2429,6 @@ DQ
         <image name="testLevelBack.jpg" width="370" height="250"/>
         <image name="texture00.png" width="80" height="150"/>
     </resources>
-    <classes>
-        <class className="BackgroundViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BackgroundViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backgroundDownButtonPressed:"/>
-                <relationship kind="action" name="backgroundUpButtonPressed:"/>
-                <relationship kind="action" name="textureDownButtonPressed:"/>
-                <relationship kind="action" name="textureUpButtonPressed:"/>
-                <relationship kind="outlet" name="backgroundDownButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="backgroundImageScrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="backgroundUpButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="textureDownButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="textureScrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="textureUpButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="CampaignViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CampaignViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButtonPressed:"/>
-                <relationship kind="action" name="tavernButton0Pressed:"/>
-                <relationship kind="action" name="tavernButton10Pressed:"/>
-                <relationship kind="action" name="tavernButton11Pressed:"/>
-                <relationship kind="action" name="tavernButton12Pressed:"/>
-                <relationship kind="action" name="tavernButton1Pressed:"/>
-                <relationship kind="action" name="tavernButton2Pressed:"/>
-                <relationship kind="action" name="tavernButton3Pressed:"/>
-                <relationship kind="action" name="tavernButton4Pressed:"/>
-                <relationship kind="action" name="tavernButton5Pressed:"/>
-                <relationship kind="action" name="tavernButton6Pressed:"/>
-                <relationship kind="action" name="tavernButton7Pressed:"/>
-                <relationship kind="action" name="tavernButton8Pressed:"/>
-                <relationship kind="action" name="tavernButton9Pressed:"/>
-                <relationship kind="outlet" name="tavernButton0" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton1" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton10" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton11" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton12" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton2" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton3" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton4" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton5" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton6" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton7" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton8" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tavernButton9" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="IncompletedGameViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/IncompletedGameViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="noButton:"/>
-                <relationship kind="action" name="yesButton:"/>
-            </relationships>
-        </class>
-        <class className="InfoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButtonPressed:"/>
-            </relationships>
-        </class>
-        <class className="MainViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="quickGameButton:"/>
-                <relationship kind="action" name="soundsButtonPressed:"/>
-                <relationship kind="outlet" name="incompletedGameView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="quickButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="soundButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="MusicViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MusicViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="OptionTabBarViewController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OptionTabBarViewController.h"/>
-        </class>
-        <class className="OptionsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OptionsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="hardModeChanged:"/>
-                <relationship kind="action" name="musicVolumeChanged:"/>
-                <relationship kind="action" name="randomBackgroundChanged:"/>
-                <relationship kind="action" name="randomMusicChanged:"/>
-                <relationship kind="action" name="soundVolumeChanged:"/>
-                <relationship kind="outlet" name="hardMode" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="musicVolume" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="randomBackground" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="randomMusic" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="soundVolume" candidateClass="UISlider"/>
-            </relationships>
-        </class>
-        <class className="ScoreViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ScoreViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButtonPressed:"/>
-                <relationship kind="action" name="increaseButtonPressed:"/>
-                <relationship kind="outlet" name="gamesPlayedLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="gamesWinedLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="StartViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StartViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButtonPressed:"/>
-                <relationship kind="action" name="changeBackground:"/>
-                <relationship kind="action" name="changeSkinButtonPressed:"/>
-                <relationship kind="action" name="makePlayerWinButton:"/>
-                <relationship kind="action" name="soundButtonPressed:"/>
-                <relationship kind="action" name="victoryConditionsButtonPressed:"/>
-                <relationship kind="outlet" name="backgroundLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="backgroundPictureView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card0Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card0Image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card0NotAvailable" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card0View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="card1Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card1Image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card1NotAvailable" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card1View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="card2Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card2Image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card2NotAvailable" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card2View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="card3Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card3Image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card3NotAvailable" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card3View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="card4Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card4Image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card4NotAvailable" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card4View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="card5Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card5Image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card5NotAvailable" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="card5View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="computerBricks" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerCard0" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerCard1" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerCard2" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerCard3" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerCard4" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerCard5" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerDungeons" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerGems" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerMagics" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerQuarries" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerRecruits" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerTower" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerTowerBodyBackground" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerTowerHeadBackground" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerTowerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="computerWall" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="computerWallBackground" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="computerWallView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="playedCard0Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playedCard0Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard0Desription" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard0Image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playedCard0Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard0View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="playedCard1Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playedCard1Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard1Desription" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard1Image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playedCard1Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard1View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="playedCard2Background" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playedCard2Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard2Desription" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard2Image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playedCard2Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playedCard2View" candidateClass="UIView"/>
-                <relationship kind="outlet" name="playerBricks" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerDungeons" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerGems" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerMagics" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerQuarries" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerRecruits" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerTower" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerTowerBodyBackground" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playerTowerHeadBackground" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playerTowerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="playerWall" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playerWallBackground" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playerWallView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="playersCard0Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard0Description" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard0Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard1Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard1Description" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard1Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard2Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard2Description" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard2Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard3Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard3Description" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard3Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard4Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard4Description" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard4Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard5Cost" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard5Description" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playersCard5Name" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="soundButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="towersSetLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="victoryConditionsButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="TavernInfoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TavernInfoViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="startButtonPressed:"/>
-                <relationship kind="outlet" name="resourcesFinalLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="tavernImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="tavernNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="towerFinalLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="towerInitialLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="wallInitialLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="VictoryConditionsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VictoryConditionsViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="resourcesAimLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="towerAimLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -80,7 +80,7 @@ static CardsScope *cardsScope;
 {
     NSInteger random = (1 + arc4random()%([self.cards count] -1));
     [[self.cards objectAtIndex:random] setCardNumber:random];
-    return [self.cards objectAtIndex:39];
+    return [self.cards objectAtIndex:random];
 }
 
 - (Card*)getCardAtNumber:(NSInteger)number

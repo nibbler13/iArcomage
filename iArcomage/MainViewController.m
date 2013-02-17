@@ -13,7 +13,6 @@
 @interface MainViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *quickButton;
-@property (weak, nonatomic) IBOutlet UIView *incompletedGameView;
 @property (weak, nonatomic) IBOutlet UIButton *soundButton;
 
 - (IBAction)soundsButtonPressed:(id)sender;
@@ -129,6 +128,7 @@
     
     [soundSystem stopMusic];
     
+    startController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:startController animated:YES completion:nil];
 }
 

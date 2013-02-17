@@ -77,8 +77,8 @@
                                  }
                                  
                                  [UIImageView animateWithDuration:2.0
-                                                            delay:2.5
-                                                          options:UIViewAnimationOptionCurveEaseOut
+                                                            delay:0.0
+                                                          options:UIViewAnimationOptionCurveEaseIn
                                                        animations:^{
                                                            if (selectedTavern != [tavernButtons count] - 1) {
                                                                [[tavernButtons objectAtIndex:selectedTavern+1] setAlpha:1];
@@ -315,10 +315,12 @@
         
         startController.backgroundMusic = [[taverns objectAtIndex:selectedTavern] backgroundMusic];
         startController.levelName = [[taverns objectAtIndex:selectedTavern] tavernName];
+        startController.levelNumber = selectedTavern;
         startController.delegate = (id)self;
         
         [self.delegate gameHasBeenInitiated];
         
+        startController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         [self presentViewController:startController animated:YES completion:nil];
     }
 }

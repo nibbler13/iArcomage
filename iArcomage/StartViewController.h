@@ -11,6 +11,8 @@
 #import "OptionsViewController.h"
 #import "BackgroundViewController.h"
 #import "MusicViewController.h"
+#import "QuitViewController.h"
+#import "CompletedView.h"
 
 @protocol StartViewControllerDelegate <NSObject>
 
@@ -25,13 +27,16 @@
         UIAlertViewDelegate,
         OptionsViewControllerDelegate,
         BackgroundViewControllerDelegate,
-        MusicViewControllerDelegate
+        MusicViewControllerDelegate,
+        quitViewControllerDelegate,
+        CompletedViewDelegate
     >
 
 @property (nonatomic, strong) id <StartViewControllerDelegate> delegate;
 
 @property (nonatomic) BOOL isThisCampaignPlaying;
 @property (nonatomic) NSString *levelName;
+@property (nonatomic) NSInteger levelNumber;
 
 @property (nonatomic) NSInteger initialTowerValue;
 @property (nonatomic) NSInteger initialWallValue;

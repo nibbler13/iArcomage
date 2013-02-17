@@ -7,14 +7,18 @@
 //
 
 #import "ScoreViewController.h"
+#import "ScoreSystem.h"
 
 @interface ScoreViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *gamesPlayedLabel;
-@property (weak, nonatomic) IBOutlet UILabel *gamesWinedLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalGameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *gamesWinnedLabel;
+@property (weak, nonatomic) IBOutlet UILabel *byTowerConstructionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *byResourceCollectionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *byTowerDestructionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *gamesLossLabel;
 
 - (IBAction)backButtonPressed:(id)sender;
-- (IBAction)increaseButtonPressed:(id)sender;
 
 @end
 
@@ -22,60 +26,25 @@
 {
     NSInteger gamesPlayed;
     NSInteger gamesWined;
+    ScoreSystem *score;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    score = [[ScoreSystem alloc] init];
     
-    NSString *errorDesc = nil;
-    NSPropertyListFormat format;
-    NSString *plistPath;
-    NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    plistPath = [rootPath stringByAppendingPathComponent:@"Score.plist"];
-    if (![[NSFileManager defaultManager] fileExistsAtPath:plistPath]) {
-        plistPath = [[NSBundle mainBundle] pathForResource:@"Score" ofType:@"plist"];
-    }
-    NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistPath];
-    NSDictionary *temp = (NSDictionary*)[NSPropertyListSerialization propertyListFromData:plistXML mutabilityOption:NSPropertyListMutableContainersAndLeaves format:&format errorDescription:&errorDesc];
-    if (!temp) {
-        NSLog(@"Error reading plist: %@, format: %d", errorDesc, format);
-    }
-    
-    gamesPlayed = [[temp objectForKey:@"GamesPlayed"] integerValue];
-    gamesWined = [[temp objectForKey:@"GamesWined"] integerValue];
-    [self updateLabels];
+    self.totalGameLabel.text = [NSString stringWithFormat:@"%d", (score.winnedByDestruction + score.winnedByConstruction + score.winnedByCollection + score.lossesGames)];
+    self.gamesWinnedLabel.text = [NSString stringWithFormat:@"%d", (score.winnedByDestruction + score.winnedByConstruction + score.winnedByCollection)];
+    self.byTowerConstructionLabel.text = [NSString stringWithFormat:@"%d", score.winnedByConstruction];
+    self.byResourceCollectionLabel.text = [NSString stringWithFormat:@"%d", score.winnedByCollection];
+    self.byTowerDestructionLabel.text = [NSString stringWithFormat:@"%d", score.winnedByDestruction];
+    self.gamesLossLabel.text = [NSString stringWithFormat:@"%d", score.lossesGames];
 }
 
 - (IBAction)backButtonPressed:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (IBAction)increaseButtonPressed:(id)sender {
-    gamesPlayed++;
-    gamesWined++;
-    [self updateLabels];
-}
-
-- (void)updateLabels
-{
-    self.gamesPlayedLabel.text = [NSString stringWithFormat:@"%d", gamesPlayed];
-    self.gamesWinedLabel.text = [NSString stringWithFormat:@"%d", gamesWined];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    NSString *error;
-    NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString *plistPath = [rootPath stringByAppendingPathComponent:@"Score.plist"];
-    NSDictionary *plistDict = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[NSNumber numberWithInteger:gamesPlayed], [NSNumber numberWithInteger:gamesWined], nil] forKeys:[NSArray arrayWithObjects:@"GamesPlayed", @"GamesWined", nil]];
-    NSData *plistData = [NSPropertyListSerialization dataFromPropertyList:plistDict format:NSPropertyListXMLFormat_v1_0 errorDescription:&error];
-    if (plistData) {
-        [plistData writeToFile:plistPath atomically:YES];
-    } else {
-        NSLog(@"%@", error);
-    }
 }
 
 @end
