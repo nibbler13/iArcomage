@@ -17,5 +17,4 @@
 - (BOOL)isMusicPlaying;
 - (void)playDealSoundEffectForEvent:(NSString *)event;
 
-
 @end

@@ -15,12 +15,14 @@
 @property (weak, nonatomic) IBOutlet UISwitch *hardMode;
 @property (weak, nonatomic) IBOutlet UISwitch *randomBackground;
 @property (weak, nonatomic) IBOutlet UISwitch *randomMusic;
+@property (weak, nonatomic) IBOutlet UISwitch *showHelp;
 
 - (IBAction)musicVolumeChanged:(id)sender;
 - (IBAction)soundVolumeChanged:(id)sender;
 - (IBAction)hardModeChanged:(id)sender;
 - (IBAction)randomBackgroundChanged:(id)sender;
 - (IBAction)randomMusicChanged:(id)sender;
+- (IBAction)showHelpChanged:(id)sender;
 
 @end
 
@@ -33,6 +35,12 @@
     self.hardMode.on = [[NSUserDefaults standardUserDefaults] boolForKey:@"hardMode"];
     self.randomBackground.on = [[NSUserDefaults standardUserDefaults] boolForKey:@"randomBackground"];
     self.randomMusic.on = [[NSUserDefaults standardUserDefaults] boolForKey:@"randomMusic"];
+    self.showHelp.on = ![[NSUserDefaults standardUserDefaults] boolForKey:@"hideHelpTitles"];
+}
+
+- (IBAction)showHelpChanged:(id)sender
+{
+    [[NSUserDefaults standardUserDefaults] setBool:!self.showHelp.on forKey:@"hideHelpTitles"];
 }
 
 - (IBAction)musicVolumeChanged:(id)sender {

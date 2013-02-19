@@ -82,6 +82,11 @@
 
 - (void)playMusic
 {
+    if ([[NSUserDefaults standardUserDefaults] floatForKey:@"musicVolume"] == 0.0) {
+        [self allowBackgroundMusic:YES];
+        return;
+    }
+    
     needToPlay = YES;
     [avPlayer play];
     [self doVolumeUp];
@@ -99,9 +104,11 @@
         if (avPlayer.isPlaying) {
             avPlayer.volume = [[NSUserDefaults standardUserDefaults] floatForKey:@"musicVolume"];
         } else {
+            [self allowBackgroundMusic:NO];
             [self playMusic];
         }
     } else {
+        [self allowBackgroundMusic:YES];
         [self stopMusic];
     }
 }
@@ -114,6 +121,7 @@
             [self performSelector:@selector(doVolumeFade) withObject:nil afterDelay:0.2];
         } else {
             [avPlayer stop];
+            [self allowBackgroundMusic:YES];
         }
     }
 }
@@ -131,6 +139,21 @@
 - (BOOL)isMusicPlaying
 {
     return avPlayer.isPlaying;
+}
+
+- (void)allowBackgroundMusic:(BOOL)allow
+{
+    [[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryPlayback error: nil];
+    UInt32 doSetProperty;
+    
+    if (allow) {
+        doSetProperty = 1;
+    } else {
+        doSetProperty = 0;
+    }
+    
+    AudioSessionSetProperty (kAudioSessionProperty_OverrideCategoryMixWithOthers, sizeof(doSetProperty), &doSetProperty);
+    [[AVAudioSession sharedInstance] setActive: YES error: nil];
 }
 
 @end

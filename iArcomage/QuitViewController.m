@@ -19,13 +19,13 @@
 
 - (IBAction)noButtonPressed:(id)sender
 {
-    NSLog(@"no");
+    //NSLog(@"no");
     [self.delegate noQuitButtonPressed];
 }
 
 - (IBAction)yesButtonPressed:(id)sender
 {
-    NSLog(@"yes");
+    //NSLog(@"yes");
     [self.delegate yesQuitButtonPressed];
 }
 

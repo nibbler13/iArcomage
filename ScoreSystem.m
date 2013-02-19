@@ -13,7 +13,7 @@
 - (id)init
 {
     if (self = [super init]) {
-        NSLog(@"init score");
+        //NSLog(@"init score");
         NSString *errorDesc = nil;
         NSPropertyListFormat format;
         NSString *plistPath;
@@ -46,7 +46,7 @@
 
 - (void)saveScore
 {
-    NSLog(@"save score");
+    //NSLog(@"save score");
     NSString *error;
     NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *plistPath = [rootPath stringByAppendingPathComponent:@"Score.plist"];

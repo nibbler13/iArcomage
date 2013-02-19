@@ -273,11 +273,11 @@
     [self.delegate gameHasBeenCompleted];
     
     if (victory) {
-        //if (![[taverns objectAtIndex:selectedTavern] isAchieved]) {
+        if (![[taverns objectAtIndex:selectedTavern] isAchieved]) {
             [taverns[selectedTavern] changeIsAchievedValueTo:YES];
             needToShowVictoryAnimation = YES;
-            //[self saveCampaignStatus];
-        //}
+            [self saveCampaignStatus];
+        }
     }
 }
 

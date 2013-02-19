@@ -155,13 +155,13 @@ static ComputerModel *computer;
 
 - (void)printCardInfoAtNumber:(NSInteger)number
 {
-    NSLog(@"*** %d - %@, descr: %@, cost: %d, color: %@, weight: %d", number, [[self.cards objectAtIndex:number] cardName], [[self.cards objectAtIndex:number] cardDescription], [[self.cards objectAtIndex:number] cardCost], [[self.cards objectAtIndex:number] cardColor], [[self.cards objectAtIndex:number] cardWeight]);
+    //NSLog(@"*** %d - %@, descr: %@, cost: %d, color: %@, weight: %d", number, [[self.cards objectAtIndex:number] cardName], [[self.cards objectAtIndex:number] cardDescription], [[self.cards objectAtIndex:number] cardCost], [[self.cards objectAtIndex:number] cardColor], [[self.cards objectAtIndex:number] cardWeight]);
 }
 
 - (void)printAvailableCards
 {
     for (int i = 0; i < [cardsAvailableToPlay count]; i++) {
-        NSLog(@"--- Available to play: %@", [cardsAvailableToPlay objectAtIndex:i]);
+        //NSLog(@"--- Available to play: %@", [cardsAvailableToPlay objectAtIndex:i]);
     }
 }
 
@@ -229,7 +229,7 @@ static ComputerModel *computer;
     NSInteger randomValue = arc4random()%[cardsWithMaximumWeight count];
     self.playedCard = [[cardsWithMaximumWeight objectAtIndex:randomValue] integerValue];
     
-    NSLog(@"self.playedCard: %d", self.playedCard);
+    //NSLog(@"self.playedCard: %d", self.playedCard);
 }
 
 - (void)discardACard

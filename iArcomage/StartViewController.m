@@ -17,6 +17,7 @@
 #import "CampaignData.h"
 #import "CompletedView.h"
 #import "ScoreSystem.h"
+#import "HelpTitlesView.h"
 
 @interface StartViewController ()
 
@@ -227,12 +228,16 @@
     SoundSystem *soundSystem;
     
     CampaignDataMainObject *mainObject;
+    
+    BOOL victory;
 }
 
 #pragma mark - TouchDelegationMethods
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    if (gameOver) { return; }
+    
     if (!animationCompleted) { return; }
     
     if (!isAnythingCardSelected) {
@@ -952,11 +957,11 @@
 
 #pragma mark - UIAlertView's delegate methods
 
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+/*- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     [self deleteOldFile];
     [self dismissViewControllerAnimated:YES completion:nil];
-}
+}*/
 
 #pragma mark - Computer's delegate method
 
@@ -1542,13 +1547,14 @@
     
     score = [[ScoreSystem alloc] init];
     score.lossesGames += 1;
-    [score saveScore];
+    //[score saveScore];
     
-    if (self.isThisCampaignPlaying) { [self.delegate levelCompletedWithVictory:NO]; }
+    victory = NO;
+    //if (self.isThisCampaignPlaying) { [self.delegate levelCompletedWithVictory:NO]; }
     
     gameOver = YES;
     
-    [self deleteOldFile];
+    //[self deleteOldFile];
     
     [self drawFinalTitlesWithTitle:finalLabel isThisWin:NO];
 }
@@ -1574,13 +1580,14 @@
     
     [soundSystem playDealSoundEffectForEvent:@"PlayerWin"];
     
-    [score saveScore];
+    //[score saveScore];
     
-    if (self.isThisCampaignPlaying) { [self.delegate levelCompletedWithVictory:YES]; }
+    victory = YES;
+    //if (self.isThisCampaignPlaying) { [self.delegate levelCompletedWithVictory:YES]; }
     
     gameOver = YES;
     
-    [self deleteOldFile];
+    //[self deleteOldFile];
     
     [self drawFinalTitlesWithTitle:finalLabel isThisWin:YES];
 
@@ -1678,12 +1685,13 @@
                                        [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut], nil];
     
     [completedView.layer addAnimation:bounceAnimation forKey:@"bounceAnimation"];
+    [completedView.layer addAnimation:fadeAnimation forKey:@"fadeAnimation"];
 
 }
 
 #pragma mark - Initializations
 
-- (void)viewDidLoad
+/*- (void)viewDidLoad
 {
     [super viewDidLoad];
     
@@ -1692,7 +1700,18 @@
     animationCompleted = YES;
     
     [self game];
-}
+}*/
+
+/*- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.view.multipleTouchEnabled = NO;
+    
+    animationCompleted = YES;
+    
+    [self game];
+}*/
 
 - (void)viewWillDisappear:(BOOL)animated
 {
@@ -1775,8 +1794,6 @@
 
 - (void)game
 {
-    [self deleteOldFile];
-    
     player = [PlayerModel getPlayer];
     player.delegate = self;
     computer = [ComputerModel getComputer];
@@ -1785,7 +1802,11 @@
     
     mainObject = [CampaignDataMainObject sharedCampaignDataMainObject];
     
-    if (self.needToLoadGame) { [self loadPlayerAndComputer]; }
+    if (self.needToLoadGame) {
+        [self loadPlayerAndComputer];
+    } else {
+        [self deleteOldFile];
+    }
     
     if (self.isThisCampaignPlaying) {
             
@@ -1855,6 +1876,14 @@
     }
     
     [self needToChangeHardMode];
+    
+    //NSLog(@"%d", [[NSUserDefaults standardUserDefaults] boolForKey:@"hideHelpTitles"]);
+    
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"hideHelpTitles"]) {
+        HelpTitlesView *helpView = [[[NSBundle mainBundle] loadNibNamed:@"HelpTitlesView" owner:self options:nil] lastObject];
+        helpView.center = self.view.center;
+        [self.view addSubview:helpView];
+    }
 }
 
 #pragma mark - UpdatingLabels
@@ -2399,8 +2428,12 @@ withCardDescriptionLabel:self.playersCard5Description
 
 - (void)savePlayerAndComputerModels
 {
+    //NSLog(@"save player and computer models");
+    
     if (player != nil && computer != nil && ([[player cards] count] == 6) && ([[computer cards] count] == 6 && animationCompleted)) {
     
+        //NSLog(@"saving data");
+        
         NSString *error;
         NSDictionary *plistDict = [NSDictionary dictionaryWithObjects:
                                [NSArray arrayWithObjects:
@@ -2489,10 +2522,13 @@ withCardDescriptionLabel:self.playersCard5Description
 
 - (void)loadPlayerAndComputer
 {
+    //NSLog(@"load Player And Computer");
+    
     NSString *errorDesc = nil;
     NSPropertyListFormat format;
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:[self dataFilePath]]) {
+        NSLog(@"file don't exist");
         return;
     }
     
@@ -2502,6 +2538,8 @@ withCardDescriptionLabel:self.playersCard5Description
     if (!temp) {
         NSLog(@"Error reading plist: %@, format: %d", errorDesc, format);
     } else {
+        //NSLog(@"loading data");
+        
         player.tower = [[temp objectForKey:@"playerTower"] integerValue];
         player.wall = [[temp objectForKey:@"playerWall"] integerValue];
         player.quarries = [[temp objectForKey:@"playerQuarries"] integerValue];
@@ -2598,6 +2636,12 @@ withCardDescriptionLabel:self.playersCard5Description
     } else {
         soundSystem = [[SoundSystem alloc] initWithFileName:@"07-TristansLament"];
     }
+    
+    self.view.multipleTouchEnabled = NO;
+    
+    animationCompleted = YES;
+    
+    [self game];
 }
 
 #pragma  mark - OptionControllersDelegateMethods
@@ -2629,7 +2673,7 @@ withCardDescriptionLabel:self.playersCard5Description
 
 - (void)changeMusic
 {
-    NSLog(@"changeMusic");
+    //NSLog(@"changeMusic");
 }
 
 - (void)needToChangeHardMode
@@ -2662,7 +2706,7 @@ withCardDescriptionLabel:self.playersCard5Description
 
 - (void)needToChangeRandomBackgroundMode
 {
-    NSLog(@"random background");
+    //NSLog(@"random background");
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"randomBackground"]) {
         NSInteger counter = 0;
         for (CampaignData *tavern in mainObject.taverns) {
@@ -2674,11 +2718,11 @@ withCardDescriptionLabel:self.playersCard5Description
         
         if (counter == [mainObject.taverns count]) {
             counter = 19;
-            NSLog(@"all levels completed");
+            //NSLog(@"all levels completed");
         }
-        
-        NSInteger randomValue = arc4random()%counter;
-        NSLog(@"random: %d", randomValue);
+        //NSLog(@"counter: %d", counter);
+        NSInteger randomValue = arc4random() % (counter + 1);
+        //NSLog(@"random: %d", randomValue);
         
         [self.backgroundPictureView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"Background%d.jpg", randomValue]]];
         
@@ -2698,7 +2742,7 @@ withCardDescriptionLabel:self.playersCard5Description
 
 - (void)needToChangeRandomMusicMode
 {
-    NSLog(@"random music");
+    //NSLog(@"random music");
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"randomMusic"]) {
         NSInteger counter = 0;
         for (CampaignData *tavern in mainObject.taverns) {
@@ -2710,11 +2754,11 @@ withCardDescriptionLabel:self.playersCard5Description
         
         if (counter == [mainObject.taverns count]) {
             counter = 19;
-            NSLog(@"all levels completed");
+            //NSLog(@"all levels completed");
         }
         
-        NSInteger randomValue = arc4random()%counter;
-        NSLog(@"random: %d", randomValue);
+        //NSInteger randomValue = arc4random()%counter;
+        //NSLog(@"random: %d", randomValue);
     } else {
         [self changeMusic];
     }
@@ -2722,6 +2766,11 @@ withCardDescriptionLabel:self.playersCard5Description
 
 - (void)closeButtonPressed
 {
+    if (self.isThisCampaignPlaying) { [self.delegate levelCompletedWithVictory:victory]; }
+    
+    [score saveScore];
+    [self deleteOldFile];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

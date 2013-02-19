@@ -115,6 +115,18 @@
 		744DB1E216C281D8001BE5F7 /* texture00.png in Resources */ = {isa = PBXBuildFile; fileRef = 744DB1E016C281D8001BE5F7 /* texture00.png */; };
 		744DB1E316C281D8001BE5F7 /* texture00@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 744DB1E116C281D8001BE5F7 /* texture00@2x.png */; };
 		74587CBD16D10C4C0024B256 /* CongratulationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74587CBC16D10C4C0024B256 /* CongratulationView.xib */; };
+		74587CC416D25BFE0024B256 /* helpTitles.png in Resources */ = {isa = PBXBuildFile; fileRef = 74587CBE16D25BFE0024B256 /* helpTitles.png */; };
+		74587CC516D25BFE0024B256 /* helpTitles@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74587CBF16D25BFE0024B256 /* helpTitles@2x.png */; };
+		74587CC616D25BFE0024B256 /* checkHelpButton2.png in Resources */ = {isa = PBXBuildFile; fileRef = 74587CC016D25BFE0024B256 /* checkHelpButton2.png */; };
+		74587CC716D25BFE0024B256 /* checkHelpButton2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74587CC116D25BFE0024B256 /* checkHelpButton2@2x.png */; };
+		74587CC816D25BFE0024B256 /* checkHelpButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 74587CC216D25BFE0024B256 /* checkHelpButton.png */; };
+		74587CC916D25BFE0024B256 /* checkHelpButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74587CC316D25BFE0024B256 /* checkHelpButton@2x.png */; };
+		74587CCB16D25C640024B256 /* HelpTitlesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74587CCA16D25C640024B256 /* HelpTitlesView.xib */; };
+		74587CCE16D25C800024B256 /* HelpTitlesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 74587CCD16D25C800024B256 /* HelpTitlesView.m */; };
+		74587CDD16D2AB8D0024B256 /* dragDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 74587CD916D2AB8D0024B256 /* dragDown.png */; };
+		74587CDE16D2AB8D0024B256 /* dragDown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74587CDA16D2AB8D0024B256 /* dragDown@2x.png */; };
+		74587CE516D3DC140024B256 /* dragOnArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 74587CE316D3DC140024B256 /* dragOnArrow.png */; };
+		74587CE616D3DC140024B256 /* dragOnArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74587CE416D3DC140024B256 /* dragOnArrow@2x.png */; };
 		74594AE016BE6CB500C0A833 /* Darkness00.png in Resources */ = {isa = PBXBuildFile; fileRef = 74594AA416BE6CB500C0A833 /* Darkness00.png */; };
 		74594AE116BE6CB500C0A833 /* Darkness00@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74594AA516BE6CB500C0A833 /* Darkness00@2x.png */; };
 		74594AE216BE6CB500C0A833 /* Darkness01.png in Resources */ = {isa = PBXBuildFile; fileRef = 74594AA616BE6CB500C0A833 /* Darkness01.png */; };
@@ -1006,6 +1018,19 @@
 		744DB1E016C281D8001BE5F7 /* texture00.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture00.png; sourceTree = "<group>"; };
 		744DB1E116C281D8001BE5F7 /* texture00@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "texture00@2x.png"; sourceTree = "<group>"; };
 		74587CBC16D10C4C0024B256 /* CongratulationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CongratulationView.xib; sourceTree = "<group>"; };
+		74587CBE16D25BFE0024B256 /* helpTitles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helpTitles.png; sourceTree = "<group>"; };
+		74587CBF16D25BFE0024B256 /* helpTitles@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "helpTitles@2x.png"; sourceTree = "<group>"; };
+		74587CC016D25BFE0024B256 /* checkHelpButton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkHelpButton2.png; sourceTree = "<group>"; };
+		74587CC116D25BFE0024B256 /* checkHelpButton2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkHelpButton2@2x.png"; sourceTree = "<group>"; };
+		74587CC216D25BFE0024B256 /* checkHelpButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkHelpButton.png; sourceTree = "<group>"; };
+		74587CC316D25BFE0024B256 /* checkHelpButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkHelpButton@2x.png"; sourceTree = "<group>"; };
+		74587CCA16D25C640024B256 /* HelpTitlesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpTitlesView.xib; sourceTree = "<group>"; };
+		74587CCC16D25C800024B256 /* HelpTitlesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpTitlesView.h; sourceTree = "<group>"; };
+		74587CCD16D25C800024B256 /* HelpTitlesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpTitlesView.m; sourceTree = "<group>"; };
+		74587CD916D2AB8D0024B256 /* dragDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dragDown.png; sourceTree = "<group>"; };
+		74587CDA16D2AB8D0024B256 /* dragDown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dragDown@2x.png"; sourceTree = "<group>"; };
+		74587CE316D3DC140024B256 /* dragOnArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dragOnArrow.png; sourceTree = "<group>"; };
+		74587CE416D3DC140024B256 /* dragOnArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dragOnArrow@2x.png"; sourceTree = "<group>"; };
 		74594AA416BE6CB500C0A833 /* Darkness00.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Darkness00.png; sourceTree = "<group>"; };
 		74594AA516BE6CB500C0A833 /* Darkness00@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Darkness00@2x.png"; sourceTree = "<group>"; };
 		74594AA616BE6CB500C0A833 /* Darkness01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Darkness01.png; sourceTree = "<group>"; };
@@ -1919,6 +1944,9 @@
 		743E9A75162C76A9005F28A0 /* iArcomage */ = {
 			isa = PBXGroup;
 			children = (
+				74587CCA16D25C640024B256 /* HelpTitlesView.xib */,
+				74587CCC16D25C800024B256 /* HelpTitlesView.h */,
+				74587CCD16D25C800024B256 /* HelpTitlesView.m */,
 				74587CBC16D10C4C0024B256 /* CongratulationView.xib */,
 				741B931E16CFA663008B046C /* CompletedView.xib */,
 				741B932316CFD5F5008B046C /* LossView.xib */,
@@ -2981,6 +3009,16 @@
 				74CBEA3816AE7B2000F4E21A /* Backgrounds */,
 				74AFCAE716AC445100F21AEC /* CardsImages */,
 				7476B7A616AAC6DB00A2FD1F /* TowersAndWalls */,
+				74587CD916D2AB8D0024B256 /* dragDown.png */,
+				74587CDA16D2AB8D0024B256 /* dragDown@2x.png */,
+				74587CE316D3DC140024B256 /* dragOnArrow.png */,
+				74587CE416D3DC140024B256 /* dragOnArrow@2x.png */,
+				74587CBE16D25BFE0024B256 /* helpTitles.png */,
+				74587CBF16D25BFE0024B256 /* helpTitles@2x.png */,
+				74587CC016D25BFE0024B256 /* checkHelpButton2.png */,
+				74587CC116D25BFE0024B256 /* checkHelpButton2@2x.png */,
+				74587CC216D25BFE0024B256 /* checkHelpButton.png */,
+				74587CC316D25BFE0024B256 /* checkHelpButton@2x.png */,
 				74364AA116788FCA00C7AA42 /* MainBackground.png */,
 				74364AA016788FCA00C7AA42 /* MainBackground@2x.png */,
 				740BAECB16A2DD0800B5A8AE /* ButtonTower.png */,
@@ -4053,6 +4091,17 @@
 				741B932C16D0C5D2008B046C /* CloseButton.png in Resources */,
 				741B932D16D0C5D2008B046C /* CloseButton@2x.png in Resources */,
 				74587CBD16D10C4C0024B256 /* CongratulationView.xib in Resources */,
+				74587CC416D25BFE0024B256 /* helpTitles.png in Resources */,
+				74587CC516D25BFE0024B256 /* helpTitles@2x.png in Resources */,
+				74587CC616D25BFE0024B256 /* checkHelpButton2.png in Resources */,
+				74587CC716D25BFE0024B256 /* checkHelpButton2@2x.png in Resources */,
+				74587CC816D25BFE0024B256 /* checkHelpButton.png in Resources */,
+				74587CC916D25BFE0024B256 /* checkHelpButton@2x.png in Resources */,
+				74587CCB16D25C640024B256 /* HelpTitlesView.xib in Resources */,
+				74587CDD16D2AB8D0024B256 /* dragDown.png in Resources */,
+				74587CDE16D2AB8D0024B256 /* dragDown@2x.png in Resources */,
+				74587CE516D3DC140024B256 /* dragOnArrow.png in Resources */,
+				74587CE616D3DC140024B256 /* dragOnArrow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4087,6 +4136,7 @@
 				741B930F16CF885F008B046C /* QuitViewController.m in Sources */,
 				741B932216CFD280008B046C /* CompletedView.m in Sources */,
 				741B932916D0BB4D008B046C /* ScoreSystem.m in Sources */,
+				74587CCE16D25C800024B256 /* HelpTitlesView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

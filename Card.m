@@ -273,7 +273,7 @@
             }
             
             if (computerModel.isThatComputerTurn) {
-                if (computerModel.dungeons < computerModel.dungeons) {
+                if (computerModel.dungeons < playerModel.dungeons) {
                     return 1;
                 }
             }
@@ -371,7 +371,9 @@
         if ([self.cardName isEqualToString:@"Shift"]) {
             if (playerModel.isThatPlayerTurn) {
                 return computerWall - playerWall;
-            } else if (computerModel.isThatComputerTurn) {
+            }
+            
+            if (computerModel.isThatComputerTurn) {
                 return playerWall - computerWall;
             }
         }
@@ -403,7 +405,9 @@
         if ([self.cardName isEqualToString:@"Shift"]) {
             if (playerModel.isThatPlayerTurn) {
                 return playerWall - computerWall;
-            } else if (computerModel.isThatComputerTurn) {
+            }
+            
+            if (computerModel.isThatComputerTurn) {
                 return computerWall - playerWall;
             }
         }
