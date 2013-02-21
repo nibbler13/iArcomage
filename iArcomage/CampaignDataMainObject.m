@@ -32,7 +32,7 @@ static CampaignDataMainObject *mainObject;
 {
     //NSLog(@"--- init CampaignDataMainObject");
     
-    if ([super init] != nil) {
+    if (self = [super init]) {
         
         self.taverns = [[NSMutableArray alloc] init];
         

@@ -31,7 +31,7 @@ static CardsScope *cardsScope;
 
 - (id)init
 {
-    if ([super init] != nil) {
+    if (self = [super init]) {
         
         NSString *path = [[NSBundle mainBundle] bundlePath];
         NSString *finalPath = [path stringByAppendingPathComponent:@"CardsList.plist"];

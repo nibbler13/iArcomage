@@ -38,7 +38,7 @@ static PlayerModel *player;
 
 - (id)init
 {
-    if ([super init] != nil) {
+    if (self = [super init]) {
         self.quarries = 1;
         self.magics = 1;
         self.dungeons = 1;
@@ -94,7 +94,7 @@ static PlayerModel *player;
     
     self.isThatPlayerTurn = NO;
     
-    [self.delegate needToCheckThatTheVictoryConditionsIsAchieved];
+    //[self.delegate needToCheckThatTheVictoryConditionsIsAchieved];
     
 }
 

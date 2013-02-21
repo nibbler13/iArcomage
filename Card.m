@@ -21,7 +21,7 @@
 
 - (id)init
 {
-    if ([super init] != nil) {
+    if (self = [super init]) {
         playerWall = 0;
         computerWall = 0;
     }

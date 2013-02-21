@@ -40,7 +40,7 @@ static ComputerModel *computer;
 
 - (id)init
 {
-    if ([super init] != nil) {
+    if (self = [super init]) {
         self.quarries = 1;
         self.magics = 1;
         self.dungeons = 1;
@@ -200,7 +200,7 @@ static ComputerModel *computer;
         [[[self cards] objectAtIndex:i] initPlayerModel:player andComputerModel:self];
     }
     
-    NSInteger maximumWeight = -20;
+    NSInteger maximumWeight = -50;
     
     //NSLog(@"======playSomeCard: availableToPlay: %d", [cardsAvailableToPlay count]);
     
@@ -238,7 +238,7 @@ static ComputerModel *computer;
         self.shouldDiscardACard = NO;
     }
     
-    NSInteger minimumValue = 20;
+    NSInteger minimumValue = 50;
     
     for (int i = 0; i < [self.cards count]; i++) {
         if (minimumValue > [[self.cards objectAtIndex:i] cardWeight]) {

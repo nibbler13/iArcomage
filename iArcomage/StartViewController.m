@@ -590,6 +590,8 @@
                              
                              [player cardSelected:number];
                              
+                             [self needToCheckThatTheVictoryConditionsIsAchieved];
+                             
                              [self needToUpdateLabels];
                              [self updateTowersAndWalls];
                              
@@ -969,6 +971,7 @@
 {
     if (gameOver) { return; }
     
+    [self needToCheckThatTheVictoryConditionsIsAchieved];
     [computer computerTurn];
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1119,12 +1122,12 @@
                                   
                                   [computer payForTheCard:computer.playedCard];
                                   [[computer.cards objectAtIndex:computer.playedCard] processCard];
-                                  
-                                  [self needToCheckThatTheVictoryConditionsIsAchievedByComputer];
                               }
                               
                               [self needToUpdateLabels];
                               [self updateTowersAndWalls];
+                              
+                              [self needToCheckThatTheVictoryConditionsIsAchieved];
                               
                               double howLongShouldBeAnimation;
                               
@@ -1243,6 +1246,8 @@
                                                                         
                                                                         [player getANewCard];
                                                                         [player nextTurnIncreaseResource];
+                                                                        
+                                                                        [self needToCheckThatTheVictoryConditionsIsAchieved];
                                                                         
                                                                         [self needToUpdateLabels];
                                                                         [self updateAllCards];
@@ -1527,69 +1532,49 @@
 
 #pragma mark - Victory conditions checker
 
-- (void)needToCheckThatTheVictoryConditionsIsAchievedByComputer
-{
-    NSString *finalLabel;
-    
-    if (computer.tower >= towerAim) {
-        finalLabel = @"Computer have win by tower construction";
-    }
-    if (computer.bricks >= self.resourcesCampaignAim || computer.gems >= self.resourcesCampaignAim || computer.recruits >= self.resourcesCampaignAim) {
-        finalLabel = @"Computer have win by resource collection";
-    }
-    if (player.tower < 1) {
-        finalLabel = @"Computer have win by tower destruction";
-    } else {
-        return;
-    }
-    
-    [soundSystem playDealSoundEffectForEvent:@"PlayerLose"];
-    
-    score = [[ScoreSystem alloc] init];
-    score.lossesGames += 1;
-    //[score saveScore];
-    
-    victory = NO;
-    //if (self.isThisCampaignPlaying) { [self.delegate levelCompletedWithVictory:NO]; }
-    
-    gameOver = YES;
-    
-    //[self deleteOldFile];
-    
-    [self drawFinalTitlesWithTitle:finalLabel isThisWin:NO];
-}
-
 - (void)needToCheckThatTheVictoryConditionsIsAchieved
 {
-    //NSLog(@"%d %d %d %d", score.winnedByCollection, score.winnedByConstruction, score.winnedByDestruction, score.lossesGames);
+    if (gameOver) {
+        return;
+    }
     
     NSString *finalLabel;
     
     if (player.tower >= towerAim) {
         score.winnedByConstruction += 1;
         finalLabel = @"by tower construction";
+        victory = YES;
     } else if (player.bricks >= self.resourcesCampaignAim || player.gems >= self.resourcesCampaignAim || player.recruits >= self.resourcesCampaignAim) {
         score.winnedByCollection += 1;
         finalLabel = @"by resource collection";
+        victory = YES;
     } else if (computer.tower < 1) {
         score.winnedByDestruction += 1;
         finalLabel = @"by tower destruction";
+        victory = YES;
+    } else if (computer.tower >= towerAim) {
+        finalLabel = @"Computer have win by tower construction";
+        victory = NO;
+    } else if (computer.bricks >= self.resourcesCampaignAim || computer.gems >= self.resourcesCampaignAim || computer.recruits >= self.resourcesCampaignAim) {
+        finalLabel = @"Computer have win by resource collection";
+        victory = NO;
+    } else if (player.tower < 1) {
+        finalLabel = @"Computer have win by tower destruction";
+        victory = NO;
     } else {
         return;
     }
     
-    [soundSystem playDealSoundEffectForEvent:@"PlayerWin"];
-    
-    //[score saveScore];
-    
-    victory = YES;
-    //if (self.isThisCampaignPlaying) { [self.delegate levelCompletedWithVictory:YES]; }
+    if (victory) {
+        [soundSystem playDealSoundEffectForEvent:@"PlayerWin"];
+    } else {
+        score.lossesGames += 1;
+        [soundSystem playDealSoundEffectForEvent:@"PlayerLose"];
+    }
     
     gameOver = YES;
     
-    //[self deleteOldFile];
-    
-    [self drawFinalTitlesWithTitle:finalLabel isThisWin:YES];
+    [self drawFinalTitlesWithTitle:finalLabel isThisWin:victory];
 
 }
 

@@ -10,7 +10,7 @@
 
 @protocol PlayerModelDelegate <NSObject>
 
-- (void)needToCheckThatTheVictoryConditionsIsAchieved;
+//- (void)needToCheckThatTheVictoryConditionsIsAchieved;
 
 @end
 

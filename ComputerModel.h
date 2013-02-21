@@ -11,7 +11,7 @@
 @protocol ComputerModelDelegate <NSObject>
 
 - (void)needToUpdateLabels;
-- (void)needToCheckThatTheVictoryConditionsIsAchievedByComputer;
+//- (void)needToCheckThatTheVictoryConditionsIsAchievedByComputer;
 
 @end
 
