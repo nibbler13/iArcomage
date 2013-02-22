@@ -53,6 +53,58 @@
         NSLog(@"=============Both isThatTurn are negative=============");
     }
     
+    NSLog(@"---------------------");
+    
+    if (self.quarriesSelf != 0) {
+        NSLog(@"quarriesSelf = %d", self.quarriesSelf);
+    }
+    if (self.quarriesEnemy != 0) {
+        NSLog(@"quarriesEnemy = %d", self.quarriesEnemy);
+    }
+    if (self.magicsSelf != 0) {
+        NSLog(@"magicsSelf = %d", self.magicsSelf);
+    }
+    if (self.magicsEnemy != 0) {
+        NSLog(@"magicsEnemy = %d", self.magicsEnemy);
+    }
+    if (self.dungeonsSelf != 0) {
+        NSLog(@"dungeonsSelf = %d", self.dungeonsSelf);
+    }
+    if (self.dungeonsEnemy != 0) {
+        NSLog(@"dungeonsEnemy = %d", self.dungeonsEnemy);
+    }
+    if (self.bricksSelf != 0) {
+        NSLog(@"bricksSelf = %d", self.bricksSelf);
+    }
+    if (self.bricksEnemy != 0) {
+        NSLog(@"bricksEnemy = %d", self.bricksEnemy);
+    }
+    if (self.gemsSelf != 0) {
+        NSLog(@"gemsSelf = %d", self.gemsSelf);
+    }
+    if (self.gemsEnemy != 0) {
+        NSLog(@"gemsEnemy = %d", self.gemsEnemy);
+    }
+    if (self.recruitsSelf != 0) {
+        NSLog(@"recruitsSelf = %d", self.recruitsSelf);
+    }
+    if (self.recruitsEnemy != 0) {
+        NSLog(@"recruitsEnemy = %d", self.recruitsEnemy);
+    }
+    if (self.wallSelf != 0) {
+        NSLog(@"wallSelf = %d", self.wallSelf);
+    }
+    if (self.wallEnemy != 0) {
+        NSLog(@"wallEnemy = %d", self.wallEnemy);
+    }
+    if (self.towerSelf != 0) {
+        NSLog(@"towerSelf = %d", self.towerSelf);
+    }
+    if (self.towerEnemy != 0) {
+        NSLog(@"towerEnemy = %d", self.towerEnemy);
+    }
+    NSLog(@"card cost: %d", self.cardCost);
+    
     if (playerModel.isThatPlayerTurn) {
         
         playerModel.quarries += self.quarriesSelf;
@@ -151,8 +203,10 @@
         ||  [self.cardName isEqualToString:@"Smoky Quartz"]) {
             if (playerModel.isThatPlayerTurn) {
                 playerModel.shouldPlayAgain = YES;
+                NSLog(@"playerModel shouldPlayAgain");
             } else if (computerModel.isThatComputerTurn) {
                 computerModel.shouldPlayAgain = YES;
+                NSLog(@"computerModel shouldPlayAgain");
             }
         }
         
@@ -160,8 +214,10 @@
         ||  [self.cardName isEqualToString:@"Elven Scout"]) {
             if (playerModel.isThatPlayerTurn) {
                 playerModel.shouldDiscardACard = YES;
+                NSLog(@"playerModel shouldDiscardACard");
             } else if (computerModel.isThatComputerTurn) {
                 computerModel.shouldDiscardACard = YES;
+                NSLog(@"computerModel shouldDiscardACard");
             }
         }
     }
@@ -414,12 +470,12 @@
         
         if ([self.cardName isEqualToString:@"Lightning Shard"]) {
             if (playerModel.isThatPlayerTurn) {
-                if (playerModel.tower < computerModel.tower) {
+                if (playerModel.tower < computerModel.wall) {
                     return -8;
                 }
             }
             if (computerModel.isThatComputerTurn) {
-                if (computerModel.tower < playerModel.tower) {
+                if (computerModel.tower < playerModel.wall) {
                     return -8;
                 }
             }
@@ -574,12 +630,12 @@
         
         if ([self.cardName isEqualToString:@"Lightning Shard"]) {
             if (playerModel.isThatPlayerTurn) {
-                if (playerModel.tower > computerModel.tower) {
+                if (playerModel.tower > computerModel.wall) {
                     return -8;
                 }
             }
             if (computerModel.isThatComputerTurn) {
-                if (computerModel.tower > playerModel.tower) {
+                if (computerModel.tower > playerModel.wall) {
                     return -8;
                 }
             }

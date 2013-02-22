@@ -92,7 +92,7 @@ static PlayerModel *player;
     
     [[self.cards objectAtIndex:number] processCard];
     
-    self.isThatPlayerTurn = NO;
+    //self.isThatPlayerTurn = NO;
     
     //[self.delegate needToCheckThatTheVictoryConditionsIsAchieved];
     
