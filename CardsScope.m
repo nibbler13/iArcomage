@@ -51,7 +51,7 @@ static CardsScope *cardsScope;
     Card *card = [[Card alloc] init];
     card.cardName = [info objectForKey:@"cardName"];
     card.cardColor = [info objectForKey:@"cardColor"];
-    card.cardDescription = [info objectForKey:@"cardDescription"];
+    card.cardDescription = [[info objectForKey:@"cardDescription"] stringByReplacingOccurrencesOfString:@"\\n" withString:@"\n"];
     card.cardCost = [[info objectForKey:@"cardCost"] integerValue];
     card.quarriesSelf = [[info objectForKey:@"quarriesSelf"] integerValue];
     card.quarriesEnemy = [[info objectForKey:@"quarriesEnemy"] integerValue];
