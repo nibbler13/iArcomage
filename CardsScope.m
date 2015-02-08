@@ -37,7 +37,7 @@ static CardsScope *cardsScope;
         NSString *finalPath = [path stringByAppendingPathComponent:@"CardsList.plist"];
         NSArray *plistArray  = [NSArray arrayWithContentsOfFile:finalPath];
         self.cards = [[NSMutableArray alloc] initWithCapacity:102];
-        int x = [plistArray count];
+        int x = (int)[plistArray count];
         for (int i = 0; i < x; i++) {
             NSDictionary *info = [plistArray objectAtIndex:i];
             [self.cards addObject:[self fillCardSlotWithInfo:info]];

@@ -56,54 +56,54 @@
     NSLog(@"---------------------");
     
     if (self.quarriesSelf != 0) {
-        NSLog(@"quarriesSelf = %d", self.quarriesSelf);
+        NSLog(@"quarriesSelf = %ld", (long)self.quarriesSelf);
     }
     if (self.quarriesEnemy != 0) {
-        NSLog(@"quarriesEnemy = %d", self.quarriesEnemy);
+        NSLog(@"quarriesEnemy = %ld", (long)self.quarriesEnemy);
     }
     if (self.magicsSelf != 0) {
-        NSLog(@"magicsSelf = %d", self.magicsSelf);
+        NSLog(@"magicsSelf = %ld", (long)self.magicsSelf);
     }
     if (self.magicsEnemy != 0) {
-        NSLog(@"magicsEnemy = %d", self.magicsEnemy);
+        NSLog(@"magicsEnemy = %ld", (long)self.magicsEnemy);
     }
     if (self.dungeonsSelf != 0) {
-        NSLog(@"dungeonsSelf = %d", self.dungeonsSelf);
+        NSLog(@"dungeonsSelf = %ld", (long)self.dungeonsSelf);
     }
     if (self.dungeonsEnemy != 0) {
-        NSLog(@"dungeonsEnemy = %d", self.dungeonsEnemy);
+        NSLog(@"dungeonsEnemy = %ld", (long)self.dungeonsEnemy);
     }
     if (self.bricksSelf != 0) {
-        NSLog(@"bricksSelf = %d", self.bricksSelf);
+        NSLog(@"bricksSelf = %ld", (long)self.bricksSelf);
     }
     if (self.bricksEnemy != 0) {
-        NSLog(@"bricksEnemy = %d", self.bricksEnemy);
+        NSLog(@"bricksEnemy = %ld", (long)self.bricksEnemy);
     }
     if (self.gemsSelf != 0) {
-        NSLog(@"gemsSelf = %d", self.gemsSelf);
+        NSLog(@"gemsSelf = %ld", (long)self.gemsSelf);
     }
     if (self.gemsEnemy != 0) {
-        NSLog(@"gemsEnemy = %d", self.gemsEnemy);
+        NSLog(@"gemsEnemy = %ld", (long)self.gemsEnemy);
     }
     if (self.recruitsSelf != 0) {
-        NSLog(@"recruitsSelf = %d", self.recruitsSelf);
+        NSLog(@"recruitsSelf = %ld", (long)self.recruitsSelf);
     }
     if (self.recruitsEnemy != 0) {
-        NSLog(@"recruitsEnemy = %d", self.recruitsEnemy);
+        NSLog(@"recruitsEnemy = %ld", (long)self.recruitsEnemy);
     }
     if (self.wallSelf != 0) {
-        NSLog(@"wallSelf = %d", self.wallSelf);
+        NSLog(@"wallSelf = %ld", (long)self.wallSelf);
     }
     if (self.wallEnemy != 0) {
-        NSLog(@"wallEnemy = %d", self.wallEnemy);
+        NSLog(@"wallEnemy = %ld", (long)self.wallEnemy);
     }
     if (self.towerSelf != 0) {
-        NSLog(@"towerSelf = %d", self.towerSelf);
+        NSLog(@"towerSelf = %ld", (long)self.towerSelf);
     }
     if (self.towerEnemy != 0) {
-        NSLog(@"towerEnemy = %d", self.towerEnemy);
+        NSLog(@"towerEnemy = %ld", (long)self.towerEnemy);
     }
-    NSLog(@"card cost: %d", self.cardCost);
+    NSLog(@"card cost: %ld", (long)self.cardCost);
     
     if (playerModel.isThatPlayerTurn) {
         

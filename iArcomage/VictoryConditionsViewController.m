@@ -21,8 +21,8 @@
 {
     [super viewDidLoad];
     
-    self.towerAimLabel.text = [NSString stringWithFormat:@"- Your tower must be at %d or higher", self.tower];
-    self.resourcesAimLabel.text = [NSString stringWithFormat:@"- One of your resources must be at %d or higher", self.resources];
+    self.towerAimLabel.text = [NSString stringWithFormat:@"- Your tower must be at %ld or higher", (long)self.tower];
+    self.resourcesAimLabel.text = [NSString stringWithFormat:@"- One of your resources must be at %ld or higher", (long)self.resources];
 }
 
 @end

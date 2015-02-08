@@ -107,7 +107,7 @@
         NSString *path = [[NSBundle mainBundle] bundlePath];
         NSString *finalPath = [path stringByAppendingPathComponent:@"Taverns.plist"];
         NSArray *plistArray = [NSArray arrayWithContentsOfFile:finalPath];
-        int x = [plistArray count];
+        int x = (int)[plistArray count];
         for (int i = 0; i < x; i++) {
             NSDictionary *info = plistArray[i];
             [taverns addObject:[self fillCampaignDataWithInfo:info]];
@@ -193,10 +193,10 @@
     
     popoverControllerInfo = [[UIPopoverController alloc] initWithContentViewController:controller];
     
-    controller.towerInitialLabel.text = [NSString stringWithFormat:@"%d", [[taverns objectAtIndex:number] initialTower]];
-    controller.wallInitialLabel.text = [NSString stringWithFormat:@"%d", [[taverns objectAtIndex:number] initialWall]];
-    controller.towerFinalLabel.text = [NSString stringWithFormat:@"%d", [[taverns objectAtIndex:number] finalTower]];
-    controller.resourcesFinalLabel.text = [NSString stringWithFormat:@"%d", [[taverns objectAtIndex:number] finalResources]];
+    controller.towerInitialLabel.text = [NSString stringWithFormat:@"%ld", (long)[[taverns objectAtIndex:number] initialTower]];
+    controller.wallInitialLabel.text = [NSString stringWithFormat:@"%ld", (long)[[taverns objectAtIndex:number] initialWall]];
+    controller.towerFinalLabel.text = [NSString stringWithFormat:@"%ld", (long)[[taverns objectAtIndex:number] finalTower]];
+    controller.resourcesFinalLabel.text = [NSString stringWithFormat:@"%ld", (long)[[taverns objectAtIndex:number] finalResources]];
     controller.tavernNameLabel.text = [[taverns objectAtIndex:number] tavernName];
     controller.tavernImageView.image = [UIImage imageNamed:[[taverns objectAtIndex:number] imageForTavern]];
     controller.delegate = self;

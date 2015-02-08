@@ -34,12 +34,12 @@
     [super viewDidLoad];
     score = [[ScoreSystem alloc] init];
     
-    self.totalGameLabel.text = [NSString stringWithFormat:@"%d", (score.winnedByDestruction + score.winnedByConstruction + score.winnedByCollection + score.lossesGames)];
-    self.gamesWinnedLabel.text = [NSString stringWithFormat:@"%d", (score.winnedByDestruction + score.winnedByConstruction + score.winnedByCollection)];
-    self.byTowerConstructionLabel.text = [NSString stringWithFormat:@"%d", score.winnedByConstruction];
-    self.byResourceCollectionLabel.text = [NSString stringWithFormat:@"%d", score.winnedByCollection];
-    self.byTowerDestructionLabel.text = [NSString stringWithFormat:@"%d", score.winnedByDestruction];
-    self.gamesLossLabel.text = [NSString stringWithFormat:@"%d", score.lossesGames];
+    self.totalGameLabel.text = [NSString stringWithFormat:@"%ld", (score.winnedByDestruction + score.winnedByConstruction + score.winnedByCollection + score.lossesGames)];
+    self.gamesWinnedLabel.text = [NSString stringWithFormat:@"%ld", (score.winnedByDestruction + score.winnedByConstruction + score.winnedByCollection)];
+    self.byTowerConstructionLabel.text = [NSString stringWithFormat:@"%ld", (long)score.winnedByConstruction];
+    self.byResourceCollectionLabel.text = [NSString stringWithFormat:@"%ld", (long)score.winnedByCollection];
+    self.byTowerDestructionLabel.text = [NSString stringWithFormat:@"%ld", (long)score.winnedByDestruction];
+    self.gamesLossLabel.text = [NSString stringWithFormat:@"%ld", (long)score.lossesGames];
 }
 
 - (IBAction)backButtonPressed:(id)sender

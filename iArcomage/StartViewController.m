@@ -1629,8 +1629,8 @@
                                       @"Bonus Track 6",
                                       nil];
 
-                [completedView.backgroundImageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"BackgroundPreview%d", self.levelNumber+1]]];
-                [completedView.textureImageVIew setImage:[UIImage imageNamed:[NSString stringWithFormat:@"texturePreview%d", self.levelNumber+1]]];
+                [completedView.backgroundImageView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"BackgroundPreview%ld", self.levelNumber+1]]];
+                [completedView.textureImageVIew setImage:[UIImage imageNamed:[NSString stringWithFormat:@"texturePreview%ld", self.levelNumber+1]]];
                 [completedView.trackNameLabel setText:songsName[self.levelNumber]];
             } else {
                 completedViewName = @"CongratulationView";
@@ -1640,9 +1640,9 @@
             completedViewName = @"CompletedWithScoreView";
             
             completedView = [[[NSBundle mainBundle] loadNibNamed:completedViewName owner:self options:nil] lastObject];
-            completedView.gamesLossLabel.text = [NSString stringWithFormat:@"%d", score.lossesGames];
-            completedView.gamesWinnedLabel.text = [NSString stringWithFormat:@"%d", score.winnedByCollection + score.winnedByConstruction + score.winnedByDestruction];
-            completedView.totalGamePlayedLabel.text = [NSString stringWithFormat:@"%d", score.winnedByCollection + score.winnedByConstruction + score.winnedByDestruction + score.lossesGames];
+            completedView.gamesLossLabel.text = [NSString stringWithFormat:@"%ld", (long)score.lossesGames];
+            completedView.gamesWinnedLabel.text = [NSString stringWithFormat:@"%ld", score.winnedByCollection + score.winnedByConstruction + score.winnedByDestruction];
+            completedView.totalGamePlayedLabel.text = [NSString stringWithFormat:@"%ld", score.winnedByCollection + score.winnedByConstruction + score.winnedByDestruction + score.lossesGames];
         }
     } else {
         completedViewName = @"LossView";
@@ -1903,20 +1903,20 @@
 
 - (void)updatePlayerLabels
 {
-    self.playerQuarries.text = [NSString stringWithFormat:@"%d", player.quarries];
+    self.playerQuarries.text = [NSString stringWithFormat:@"%ld", (long)player.quarries];
     [self.playerQuarries sizeToFit];
-    self.playerMagics.text = [NSString stringWithFormat:@"%d", player.magics];
+    self.playerMagics.text = [NSString stringWithFormat:@"%ld", (long)player.magics];
     [self.playerMagics sizeToFit];
-    self.playerDungeons.text = [NSString stringWithFormat:@"%d", player.dungeons];
+    self.playerDungeons.text = [NSString stringWithFormat:@"%ld", (long)player.dungeons];
     [self.playerDungeons sizeToFit];
-    self.playerBricks.text = [NSString stringWithFormat:@"%d", player.bricks];
+    self.playerBricks.text = [NSString stringWithFormat:@"%ld", (long)player.bricks];
     [self.playerBricks sizeToFit];
-    self.playerGems.text = [NSString stringWithFormat:@"%d", player.gems];
+    self.playerGems.text = [NSString stringWithFormat:@"%ld", (long)player.gems];
     [self.playerGems sizeToFit];
-    self.playerRecruits.text = [NSString stringWithFormat:@"%d", player.recruits];
+    self.playerRecruits.text = [NSString stringWithFormat:@"%ld", (long)player.recruits];
     [self.playerRecruits sizeToFit];
-    self.playerWall.text = [NSString stringWithFormat:@"%d", player.wall];
-    self.playerTower.text = [NSString stringWithFormat:@"%d", player.tower];
+    self.playerWall.text = [NSString stringWithFormat:@"%ld", (long)player.wall];
+    self.playerTower.text = [NSString stringWithFormat:@"%ld", (long)player.tower];
 }
 
 - (void)updateComputerLabels
@@ -1927,24 +1927,24 @@
 
 - (void)updateComputerResourceLabels
 {
-    self.computerQuarries.text = [NSString stringWithFormat:@"%d", computer.quarries];
+    self.computerQuarries.text = [NSString stringWithFormat:@"%ld", (long)computer.quarries];
     [self.computerQuarries sizeToFit];
-    self.computerMagics.text = [NSString stringWithFormat:@"%d", computer.magics];
+    self.computerMagics.text = [NSString stringWithFormat:@"%ld", (long)computer.magics];
     [self.computerMagics sizeToFit];
-    self.computerDungeons.text = [NSString stringWithFormat:@"%d", computer.dungeons];
+    self.computerDungeons.text = [NSString stringWithFormat:@"%ld", (long)computer.dungeons];
     [self.computerDungeons sizeToFit];
-    self.computerBricks.text = [NSString stringWithFormat:@"%d", computer.bricks];
+    self.computerBricks.text = [NSString stringWithFormat:@"%ld", (long)computer.bricks];
     [self.computerBricks sizeToFit];
-    self.computerGems.text = [NSString stringWithFormat:@"%d", computer.gems];
+    self.computerGems.text = [NSString stringWithFormat:@"%ld", (long)computer.gems];
     [self.computerGems sizeToFit];
-    self.computerRecruits.text = [NSString stringWithFormat:@"%d", computer.recruits];
+    self.computerRecruits.text = [NSString stringWithFormat:@"%ld", (long)computer.recruits];
     [self.computerRecruits sizeToFit];
 }
 
 - (void)updateComputerTowerAndWallLabels
 {
-    self.computerWall.text = [NSString stringWithFormat:@"%d", computer.wall];
-    self.computerTower.text = [NSString stringWithFormat:@"%d", computer.tower];
+    self.computerWall.text = [NSString stringWithFormat:@"%ld", (long)computer.wall];
+    self.computerTower.text = [NSString stringWithFormat:@"%ld", (long)computer.tower];
 }
 
 - (void)updateCard0
@@ -2049,7 +2049,7 @@ withCardDescriptionLabel:self.playersCard5Description
     cardImage.image = [UIImage imageNamed:[card cardName]];
     cardName.text = [card cardName];
     cardDescription.text = [card cardDescription];
-    cardCost.text = [NSString stringWithFormat:@"%d",[card cardCost]];
+    cardCost.text = [NSString stringWithFormat:@"%ld",(long)[card cardCost]];
     
     [cardName setFrame:CGRectIntegral(cardName.frame)];
     [cardDescription setFrame:CGRectIntegral(cardDescription.frame)];
@@ -2498,7 +2498,7 @@ withCardDescriptionLabel:self.playersCard5Description
     NSDictionary *temp = (NSDictionary*)[NSPropertyListSerialization propertyListFromData:plistXML mutabilityOption:NSPropertyListMutableContainersAndLeaves format:&format errorDescription:&errorDesc];
     
     if (!temp) {
-        NSLog(@"Error reading plist: %@, format: %d", errorDesc, format);
+        NSLog(@"Error reading plist: %@, format: %lu", errorDesc, format);
     } else {
         //NSLog(@"loading data");
         
@@ -2615,22 +2615,30 @@ withCardDescriptionLabel:self.playersCard5Description
 
 - (void)changeBackgroundImage
 {
-    NSInteger currentBackground = [[NSUserDefaults standardUserDefaults] integerForKey:@"currentBackground"];
+    //NSInteger currentBackground = [[NSUserDefaults standardUserDefaults] integerForKey:@"currentBackground"];
     
-    self.backgroundPictureView.image = [UIImage imageNamed:[NSString stringWithFormat:@"Background%d.jpg", currentBackground]];
+    //self.backgroundPictureView.image = [UIImage imageNamed:[NSString stringWithFormat:@"Background%d.jpg", currentBackground]];
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
 }
 
 - (void)changeTextureImage
 {
     NSInteger currentTexture = [[NSUserDefaults standardUserDefaults] integerForKey:@"currentTexture"];
     
-    self.playerTowerBodyBackground.image = [UIImage imageNamed:[NSString stringWithFormat:@"TowerBody%d", currentTexture]];
-    self.playerTowerHeadBackground.image = [UIImage imageNamed:[NSString stringWithFormat:@"PlayersTowerHead%d", currentTexture]];
-    self.playerWallBackground.image = [UIImage imageNamed:[NSString stringWithFormat:@"WallBody%d", currentTexture]];
+    self.playerTowerBodyBackground.image = [UIImage imageNamed:[NSString stringWithFormat:@"TowerBody%ld", (long)currentTexture]];
+    self.playerTowerHeadBackground.image = [UIImage imageNamed:[NSString stringWithFormat:@"PlayersTowerHead%ld", (long)currentTexture]];
+    self.playerWallBackground.image = [UIImage imageNamed:[NSString stringWithFormat:@"WallBody%ld", (long)currentTexture]];
     
-    self.computerTowerBodyBackground.image = [UIImage imageNamed:[NSString stringWithFormat:@"TowerBody%d", currentTexture]];
-    self.computerTowerHeadBackground.image = [UIImage imageNamed:[NSString stringWithFormat:@"ComputersTowerHead%d", currentTexture]];
-    self.computerWallBackground.image = [UIImage imageNamed:[NSString stringWithFormat:@"WallBody%d", currentTexture]];
+    self.computerTowerBodyBackground.image = [UIImage imageNamed:[NSString stringWithFormat:@"TowerBody%ld", (long)currentTexture]];
+    self.computerTowerHeadBackground.image = [UIImage imageNamed:[NSString stringWithFormat:@"ComputersTowerHead%ld", (long)currentTexture]];
+    self.computerWallBackground.image = [UIImage imageNamed:[NSString stringWithFormat:@"WallBody%ld", (long)currentTexture]];
 }
 
 - (void)changeMusic
@@ -2686,15 +2694,15 @@ withCardDescriptionLabel:self.playersCard5Description
         NSInteger randomValue = arc4random() % (counter + 1);
         //NSLog(@"random: %d", randomValue);
         
-        [self.backgroundPictureView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"Background%d.jpg", randomValue]]];
+        [self.backgroundPictureView setImage:[UIImage imageNamed:[NSString stringWithFormat:@"Background%ld.jpg", (long)randomValue]]];
         
-        [self.playerTowerBodyBackground setImage:[UIImage imageNamed:[NSString stringWithFormat:@"TowerBody%d", randomValue]]];
-        [self.playerTowerHeadBackground setImage:[UIImage imageNamed:[NSString stringWithFormat:@"PlayersTowerHead%d", randomValue]]];
-        [self.playerWallBackground setImage:[UIImage imageNamed:[NSString stringWithFormat:@"WallBody%d", randomValue]]];
+        [self.playerTowerBodyBackground setImage:[UIImage imageNamed:[NSString stringWithFormat:@"TowerBody%ld", (long)randomValue]]];
+        [self.playerTowerHeadBackground setImage:[UIImage imageNamed:[NSString stringWithFormat:@"PlayersTowerHead%ld", (long)randomValue]]];
+        [self.playerWallBackground setImage:[UIImage imageNamed:[NSString stringWithFormat:@"WallBody%ld", (long)randomValue]]];
         
-        [self.computerTowerBodyBackground setImage:[UIImage imageNamed:[NSString stringWithFormat:@"TowerBody%d", randomValue]]];
-        [self.computerTowerHeadBackground setImage:[UIImage imageNamed:[NSString stringWithFormat:@"ComputersTowerHead%d", randomValue]]];
-        [self.computerWallBackground setImage:[UIImage imageNamed:[NSString stringWithFormat:@"WallBody%d", randomValue]]];
+        [self.computerTowerBodyBackground setImage:[UIImage imageNamed:[NSString stringWithFormat:@"TowerBody%ld", (long)randomValue]]];
+        [self.computerTowerHeadBackground setImage:[UIImage imageNamed:[NSString stringWithFormat:@"ComputersTowerHead%ld", (long)randomValue]]];
+        [self.computerWallBackground setImage:[UIImage imageNamed:[NSString stringWithFormat:@"WallBody%ld", (long)randomValue]]];
         
     } else {
         [self changeBackgroundImage];

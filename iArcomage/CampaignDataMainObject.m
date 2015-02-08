@@ -42,7 +42,7 @@ static CampaignDataMainObject *mainObject;
             NSString *path = [[NSBundle mainBundle] bundlePath];
             NSString *finalPath = [path stringByAppendingPathComponent:@"Taverns.plist"];
             NSArray *plistArray = [NSArray arrayWithContentsOfFile:finalPath];
-            int x = [plistArray count];
+            int x = (int)[plistArray count];
             for (int i = 0; i < x; i++) {
                 NSDictionary *info = plistArray[i];
                 [self.taverns addObject:[self fillCampaignDataWithInfo:info]];
